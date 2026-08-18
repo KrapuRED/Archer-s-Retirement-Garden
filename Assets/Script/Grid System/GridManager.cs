@@ -173,44 +173,5 @@ public class GridManager : MonoBehaviour
     {
         _occupiedCells.Remove(cell);
     }
-
     #endregion
-    
-    #region TEST
-
-    private void OnDrawGizmos()
-    {
-        if (locationGrid == null) return;
-
-        Matrix4x4 previousMatrix = Gizmos.matrix;
-        Gizmos.matrix = locationGrid.localToWorldMatrix;
- 
-        Gizmos.color = Color.gray;
-        Vector3 offset = -HalfExtents;
- 
-        for (int x = 0; x <= gridWidth; x++)
-        {
-            Vector3 start = offset + new Vector3(x * gridSize, 0f, 0f);
-            Vector3 end = offset + new Vector3(x * gridSize, 0f, gridHeight * gridSize);
-            Gizmos.DrawLine(start, end);
-        }
- 
-        for (int z = 0; z <= gridHeight; z++)
-        {
-            Vector3 start = offset + new Vector3(0f, 0f, z * gridSize);
-            Vector3 end = offset + new Vector3(gridWidth * gridSize, 0f, z * gridSize);
-            Gizmos.DrawLine(start, end);
-        }
-        
-        Gizmos.color = Color.red;
-        foreach (var cell in _occupiedCells.Keys)
-        {
-            Vector3 center = offset + new Vector3(cell.x * gridSize, 0f, cell.y * gridSize);
-            Gizmos.DrawCube(center + Vector3.up * 0.05f, new Vector3(gridSize * 0.9f, 0.1f, gridSize * 0.9f));
-        }
- 
-        Gizmos.matrix = previousMatrix;
-    }
-    #endregion
-
 }

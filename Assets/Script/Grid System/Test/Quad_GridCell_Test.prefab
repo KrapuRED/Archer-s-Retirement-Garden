@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2858056624779496126}
   - component: {fileID: 3230137857880066054}
   - component: {fileID: 7161261141990618425}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quad_GridCell_Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}

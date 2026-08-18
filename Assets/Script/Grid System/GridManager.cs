@@ -9,6 +9,8 @@ public class GridManager : MonoBehaviour
 
     [Header("Grid Configuration")] 
     [SerializeField] private Transform locationGrid;
+
+    [SerializeField] private float offset;
     [SerializeField] private float gridSize = 2f;
     [SerializeField] private int gridWidth = 20;
     [SerializeField] private int gridHeight = 20;
@@ -28,6 +30,8 @@ public class GridManager : MonoBehaviour
     private Vector3 HalfExtents => centerGrid
         ? new Vector3(gridWidth * gridSize * 0.5f, 0f, gridHeight * gridSize * 0.5f)
         : Vector3.zero;
+
+    private Vector3 _worldPos;
     
     public float GridSize => gridSize;
     public Vector3 Origin => locationGrid != null ? locationGrid.position : Vector3.zero;
@@ -50,7 +54,8 @@ public class GridManager : MonoBehaviour
         if (generateOnAwake)
             GenerateGrid();
     }
-
+    
+    #region Grid Generation and Clearing
 
     private void AutoFillGrid()
     {
@@ -60,15 +65,11 @@ public class GridManager : MonoBehaviour
             return;
         }
 
-        Debug.LogWarning($"Old Size Grid Width: {gridWidth}; Old Size Grid Height: {gridHeight}");
-        
         Bounds bounds = targetSurface.bounds;
         locationGrid.position = bounds.center;
         
         gridWidth = Mathf.Max(1, Mathf.RoundToInt(bounds.size.x / gridSize));
         gridHeight = Mathf.Max(1, Mathf.RoundToInt(bounds.size.z / gridSize));
-        
-        Debug.LogWarning($"New Size Grid Width: {gridWidth}; New Size Grid Height: {gridHeight}");
     }
     
     private void GenerateGrid()
@@ -86,9 +87,11 @@ public class GridManager : MonoBehaviour
             for (int z = 0; z < gridHeight; z++)
             {
                 var cell = new Vector2Int(x, z);
-                Vector3 worldPos = GridToWorld(cell);
                 
-                GridCell instance = Instantiate(cellPrefab, worldPos, Quaternion.identity, locationGrid);
+                Vector3 worldPos = GridToWorld(cell);
+                Vector3 offSetWorldPos = new Vector3(worldPos.x + offset, 0f, worldPos.z + offset);
+                
+                GridCell instance = Instantiate(cellPrefab, offSetWorldPos, Quaternion.identity, locationGrid);
                 
                 instance.name = $"Cell_{x}_{z}";
                 instance.Init(cell);
@@ -110,6 +113,10 @@ public class GridManager : MonoBehaviour
         _cells.Clear();
     }
 
+    #endregion
+    
+    #region Controller Configuration
+    
     public GridCell GetCell(Vector2Int cell)
     {
         _cells.TryGetValue(cell, out GridCell cellInstance);
@@ -123,12 +130,15 @@ public class GridManager : MonoBehaviour
             : worldPosition;
 
         local += HalfExtents;
-        int x = Mathf.RoundToInt(local.x / gridSize);
-        int z = Mathf.RoundToInt(local.z / gridSize);
+        int x = (Mathf.RoundToInt(local.x / gridSize));
+        int z = (Mathf.RoundToInt(local.z / gridSize));
         
         return new Vector2Int(x, z);
     }
-    
+    #endregion
+
+    #region Main Grid System
+
     public Vector3 GridToWorld(Vector2Int cell)
     {
         Vector3 local = new Vector3(cell.x * gridSize, 0f, cell.y * gridSize) - HalfExtents;
@@ -163,6 +173,8 @@ public class GridManager : MonoBehaviour
     {
         _occupiedCells.Remove(cell);
     }
+
+    #endregion
     
     #region TEST
 

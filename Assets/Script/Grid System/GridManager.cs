@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -89,9 +88,7 @@ public class GridManager : MonoBehaviour
                 var cell = new Vector2Int(x, z);
                 
                 Vector3 worldPos = GridToWorld(cell);
-                Vector3 offSetWorldPos = new Vector3(worldPos.x + offset, 0f, worldPos.z + offset);
-                
-                GridCell instance = Instantiate(cellPrefab, offSetWorldPos, Quaternion.identity, locationGrid);
+                GridCell instance = Instantiate(cellPrefab, worldPos, Quaternion.identity, locationGrid);
                 
                 instance.name = $"Cell_{x}_{z}";
                 instance.Init(cell);
@@ -141,7 +138,7 @@ public class GridManager : MonoBehaviour
 
     public Vector3 GridToWorld(Vector2Int cell)
     {
-        Vector3 local = new Vector3(cell.x * gridSize, 0f, cell.y * gridSize) - HalfExtents;
+        Vector3 local = new Vector3((cell.x * gridSize) + offset, 0f, (cell.y * gridSize)+ offset) - HalfExtents;
  
         return locationGrid != null
             ? locationGrid.TransformPoint(local)
@@ -174,4 +171,86 @@ public class GridManager : MonoBehaviour
         _occupiedCells.Remove(cell);
     }
     #endregion
+
+    public Vector3 GetFootprintCenter(Vector2Int anchorCell, Vector2Int sizeCell)
+    {
+        float centerX = (anchorCell.x + (sizeCell.x - 1) * 0.5f) * gridSize;
+        float centerZ = (anchorCell.y + (sizeCell.y - 1) * 0.5f) * gridSize;
+        Vector3 local = new Vector3(centerX, 0f, centerZ) - HalfExtents;
+
+        return locationGrid != null
+            ? locationGrid.TransformPoint(local)
+            : local;
+    }
+
+    public bool CanPlaceFootPrint(Vector2Int anchorCell, Vector2Int sizeCell)
+    {
+        for (int x = 0; x < sizeCell.x; x++)
+        {
+            for (int z = 0; z < sizeCell.y; z++)
+            {
+                if (!CanPlace(anchorCell + new Vector2Int(x, z)))
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    public void PlaceFootPrint(Vector2Int anchorCell, Vector2Int sizeCell, GameObject obj)
+    {
+        if (!CanPlaceFootPrint(anchorCell, sizeCell)) return;
+        
+        for (int x = 0; x < sizeCell.x; x++)
+        {
+            for (int z = 0; z < sizeCell.y; z++)
+            {
+                _occupiedCells[anchorCell + new Vector2Int(x, z)] = obj;
+            }
+        }
+    }
+
+    public void RemoveFootPrint(Vector2Int anchorCell, Vector2Int sizeCell)
+    {
+        for (int x = 0; x < sizeCell.x; x++)
+        {
+            for (int z = 0; z < sizeCell.y; z++)
+            {
+                _occupiedCells.Remove(anchorCell + new Vector2Int(x, z));
+            }
+        }
+    }
+    
+    private void OnDrawGizmos()
+        {
+            if (locationGrid == null) return;
+    
+            Matrix4x4 previousMatrix = Gizmos.matrix;
+            Gizmos.matrix = locationGrid.localToWorldMatrix;
+     
+            Gizmos.color = Color.gray;
+            Vector3 offsetCenter = -HalfExtents;
+     
+            for (int x = 0; x <= gridWidth; x++)
+            {
+                Vector3 start = offsetCenter + new Vector3(x * gridSize, 0f, 0f);
+                Vector3 end = offsetCenter + new Vector3(x * gridSize, 0f, gridHeight * gridSize);
+                Gizmos.DrawLine(start, end);
+            }
+     
+            for (int z = 0; z <= gridHeight; z++)
+            {
+                Vector3 start = offsetCenter + new Vector3(0f, 0f, z * gridSize);
+                Vector3 end = offsetCenter + new Vector3(gridWidth * gridSize, 0f, z * gridSize);
+                Gizmos.DrawLine(start, end);
+            }
+            
+            Gizmos.color = Color.red;
+            foreach (var cell in _occupiedCells.Keys)
+            {
+                Vector3 center = offsetCenter + new Vector3(cell.x * gridSize, 0f, cell.y * gridSize);
+                Gizmos.DrawCube(center + Vector3.up * 0.05f, new Vector3(gridSize * 0.9f, 0.1f, gridSize * 0.9f));
+            }
+     
+            Gizmos.matrix = previousMatrix;
+        }
 }

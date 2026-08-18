@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,13 +9,15 @@ public class GridPlacement : MonoBehaviour
     [SerializeField] private LayerMask groundLayerMask;
     
     [Header("Input Action Settings")]
-    [Tooltip("Vectoe2 action bound to mouse position")]
+    [Tooltip("Vector2 action bound to mouse position")]
     [SerializeField] private InputActionReference pointAction;
     [SerializeField] private InputActionReference placeAction;
     [SerializeField] private InputActionReference cancelAction;
     
     [Header("Placement Settings")]
     [SerializeField] private GameObject objectPlacement;
+    [Tooltip("How many cells this object occupies, e.g. (2,2) = a 2x2 footprint (4 cells).")]
+    [SerializeField] private Vector2Int objectSize = Vector2Int.one;
     [SerializeField] private Material validMaterial;
     [SerializeField] private Material invalidMaterial;
 
@@ -25,6 +26,7 @@ public class GridPlacement : MonoBehaviour
     private GameObject _previewInstance;
     private Renderer _previewRenderer;
     private Vector2Int _currentCell;
+    private Vector2Int _anchorCell;
     private bool _isCanPlaceCurrentCell;
     private Vector2 _screenPos;
 
@@ -71,7 +73,7 @@ public class GridPlacement : MonoBehaviour
     {
         if (_isCanPlaceCurrentCell)
         {
-            ConfrimPlacement();
+            ConfirmPlacement();
         }
     }
 
@@ -91,7 +93,7 @@ public class GridPlacement : MonoBehaviour
             SpawnPreview();
         }
 
-        UpdatePreviewPostion();
+        UpdatePreviewPosition();
     }
 
     #region Main Grid Placement Functions
@@ -107,23 +109,25 @@ public class GridPlacement : MonoBehaviour
         }
     }
 
-    private void UpdatePreviewPostion()
+    private void UpdatePreviewPosition()
     {
         if (_gridManager == null) 
             _gridManager = GridManager.Instance;
         
-        
-        
         Ray ray = mainCam.ScreenPointToRay(_screenPos);
         
         if (!Physics.Raycast(ray, out RaycastHit hit, distanceRay, groundLayerMask)) return;
+
+        Vector2Int rawCell = _gridManager.WorldToGrid(hit.point);
+            
+        _anchorCell = rawCell - new Vector2Int(objectSize.x / 2, objectSize.y / 2);
+        _currentCell = _anchorCell;
         
-        _currentCell = _gridManager.WorldToGrid(hit.point);
-        Vector3 worldPos =_gridManager.GridToWorld(_currentCell);
+        Vector3 worldPos = _gridManager.GridToWorld(_currentCell);
         
         _previewInstance.transform.position = worldPos;
         
-        _isCanPlaceCurrentCell = _gridManager.CanPlace(_currentCell);
+        _isCanPlaceCurrentCell = _gridManager.CanPlaceFootPrint(_anchorCell, objectSize);
         SetPreviewColor(_isCanPlaceCurrentCell);
     }
 
@@ -138,12 +142,12 @@ public class GridPlacement : MonoBehaviour
         _previewRenderer.material = valid ? validMaterial : invalidMaterial;
     }
     
-    private void ConfrimPlacement()
+    private void ConfirmPlacement()
     {
-        Vector3 worldPos = _gridManager.GridToWorld(_currentCell);
+        Vector3 worldPos = _gridManager.GetFootprintCenter(_anchorCell, objectSize);
         GameObject placed = Instantiate(objectPlacement, worldPos, Quaternion.identity);
         
-        _gridManager.PlaceObject(_currentCell, placed);
+        _gridManager.PlaceFootPrint(_currentCell, objectSize, placed);
         
         SetPreviewColor(false);
     }

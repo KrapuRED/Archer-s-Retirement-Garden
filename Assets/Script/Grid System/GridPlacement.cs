@@ -79,7 +79,7 @@ public class GridPlacement : MonoBehaviour
 
     private void OnCancel(InputAction.CallbackContext context)
     {
-        //CancelPlacement();
+        CancelPlacement();
     }
 
     #endregion
@@ -144,6 +144,8 @@ public class GridPlacement : MonoBehaviour
     
     private void ConfirmPlacement()
     {
+        if (objectPlacement == null) return;
+        
         Vector3 worldPos = _gridManager.GetFootprintCenter(_anchorCell, objectSize);
         GameObject placed = Instantiate(objectPlacement, worldPos, Quaternion.identity);
         

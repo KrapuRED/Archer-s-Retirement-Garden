@@ -89,7 +89,35 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
     ""name"": ""GamePlay"",
     ""maps"": [
         {
-            ""name"": ""Place & Drag"",
+            ""name"": ""NightGame"",
+            ""id"": ""21022d08-f3a0-4a34-9394-becbce5b5215"",
+            ""actions"": [
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""2dc0d4fc-ab1c-4d2d-ac23-e056c7972bae"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d71189c4-fc5b-4738-8830-be3b07fb2ad4"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Placement"",
             ""id"": ""09b63a59-59dc-4441-922c-e7b3380dd98e"",
             ""actions"": [
                 {
@@ -159,16 +187,20 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // Place & Drag
-        m_PlaceDrag = asset.FindActionMap("Place & Drag", throwIfNotFound: true);
-        m_PlaceDrag_MousePosition = m_PlaceDrag.FindAction("MousePosition", throwIfNotFound: true);
-        m_PlaceDrag_ClickConfrimPlacement = m_PlaceDrag.FindAction("ClickConfrimPlacement", throwIfNotFound: true);
-        m_PlaceDrag_ClickCancelPlacement = m_PlaceDrag.FindAction("ClickCancelPlacement", throwIfNotFound: true);
+        // NightGame
+        m_NightGame = asset.FindActionMap("NightGame", throwIfNotFound: true);
+        m_NightGame_Newaction = m_NightGame.FindAction("New action", throwIfNotFound: true);
+        // Placement
+        m_Placement = asset.FindActionMap("Placement", throwIfNotFound: true);
+        m_Placement_MousePosition = m_Placement.FindAction("MousePosition", throwIfNotFound: true);
+        m_Placement_ClickConfrimPlacement = m_Placement.FindAction("ClickConfrimPlacement", throwIfNotFound: true);
+        m_Placement_ClickCancelPlacement = m_Placement.FindAction("ClickCancelPlacement", throwIfNotFound: true);
     }
 
     ~@GamePlay()
     {
-        UnityEngine.Debug.Assert(!m_PlaceDrag.enabled, "This will cause a leak and performance issues, GamePlay.PlaceDrag.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_NightGame.enabled, "This will cause a leak and performance issues, GamePlay.NightGame.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Placement.enabled, "This will cause a leak and performance issues, GamePlay.Placement.Disable() has not been called.");
     }
 
     /// <summary>
@@ -241,39 +273,29 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Place & Drag
-    private readonly InputActionMap m_PlaceDrag;
-    private List<IPlaceDragActions> m_PlaceDragActionsCallbackInterfaces = new List<IPlaceDragActions>();
-    private readonly InputAction m_PlaceDrag_MousePosition;
-    private readonly InputAction m_PlaceDrag_ClickConfrimPlacement;
-    private readonly InputAction m_PlaceDrag_ClickCancelPlacement;
+    // NightGame
+    private readonly InputActionMap m_NightGame;
+    private List<INightGameActions> m_NightGameActionsCallbackInterfaces = new List<INightGameActions>();
+    private readonly InputAction m_NightGame_Newaction;
     /// <summary>
-    /// Provides access to input actions defined in input action map "Place & Drag".
+    /// Provides access to input actions defined in input action map "NightGame".
     /// </summary>
-    public struct PlaceDragActions
+    public struct NightGameActions
     {
         private @GamePlay m_Wrapper;
 
         /// <summary>
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
-        public PlaceDragActions(@GamePlay wrapper) { m_Wrapper = wrapper; }
+        public NightGameActions(@GamePlay wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "PlaceDrag/MousePosition".
+        /// Provides access to the underlying input action "NightGame/Newaction".
         /// </summary>
-        public InputAction @MousePosition => m_Wrapper.m_PlaceDrag_MousePosition;
-        /// <summary>
-        /// Provides access to the underlying input action "PlaceDrag/ClickConfrimPlacement".
-        /// </summary>
-        public InputAction @ClickConfrimPlacement => m_Wrapper.m_PlaceDrag_ClickConfrimPlacement;
-        /// <summary>
-        /// Provides access to the underlying input action "PlaceDrag/ClickCancelPlacement".
-        /// </summary>
-        public InputAction @ClickCancelPlacement => m_Wrapper.m_PlaceDrag_ClickCancelPlacement;
+        public InputAction @Newaction => m_Wrapper.m_NightGame_Newaction;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_PlaceDrag; }
+        public InputActionMap Get() { return m_Wrapper.m_NightGame; }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
         public void Enable() { Get().Enable(); }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
@@ -281,9 +303,9 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
         public bool enabled => Get().enabled;
         /// <summary>
-        /// Implicitly converts an <see ref="PlaceDragActions" /> to an <see ref="InputActionMap" /> instance.
+        /// Implicitly converts an <see ref="NightGameActions" /> to an <see ref="InputActionMap" /> instance.
         /// </summary>
-        public static implicit operator InputActionMap(PlaceDragActions set) { return set.Get(); }
+        public static implicit operator InputActionMap(NightGameActions set) { return set.Get(); }
         /// <summary>
         /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
         /// </summary>
@@ -291,11 +313,117 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
         /// </remarks>
-        /// <seealso cref="PlaceDragActions" />
-        public void AddCallbacks(IPlaceDragActions instance)
+        /// <seealso cref="NightGameActions" />
+        public void AddCallbacks(INightGameActions instance)
         {
-            if (instance == null || m_Wrapper.m_PlaceDragActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlaceDragActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_NightGameActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_NightGameActionsCallbackInterfaces.Add(instance);
+            @Newaction.started += instance.OnNewaction;
+            @Newaction.performed += instance.OnNewaction;
+            @Newaction.canceled += instance.OnNewaction;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="NightGameActions" />
+        private void UnregisterCallbacks(INightGameActions instance)
+        {
+            @Newaction.started -= instance.OnNewaction;
+            @Newaction.performed -= instance.OnNewaction;
+            @Newaction.canceled -= instance.OnNewaction;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="NightGameActions.UnregisterCallbacks(INightGameActions)" />.
+        /// </summary>
+        /// <seealso cref="NightGameActions.UnregisterCallbacks(INightGameActions)" />
+        public void RemoveCallbacks(INightGameActions instance)
+        {
+            if (m_Wrapper.m_NightGameActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="NightGameActions.AddCallbacks(INightGameActions)" />
+        /// <seealso cref="NightGameActions.RemoveCallbacks(INightGameActions)" />
+        /// <seealso cref="NightGameActions.UnregisterCallbacks(INightGameActions)" />
+        public void SetCallbacks(INightGameActions instance)
+        {
+            foreach (var item in m_Wrapper.m_NightGameActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_NightGameActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="NightGameActions" /> instance referencing this action map.
+    /// </summary>
+    public NightGameActions @NightGame => new NightGameActions(this);
+
+    // Placement
+    private readonly InputActionMap m_Placement;
+    private List<IPlacementActions> m_PlacementActionsCallbackInterfaces = new List<IPlacementActions>();
+    private readonly InputAction m_Placement_MousePosition;
+    private readonly InputAction m_Placement_ClickConfrimPlacement;
+    private readonly InputAction m_Placement_ClickCancelPlacement;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Placement".
+    /// </summary>
+    public struct PlacementActions
+    {
+        private @GamePlay m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public PlacementActions(@GamePlay wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Placement/MousePosition".
+        /// </summary>
+        public InputAction @MousePosition => m_Wrapper.m_Placement_MousePosition;
+        /// <summary>
+        /// Provides access to the underlying input action "Placement/ClickConfrimPlacement".
+        /// </summary>
+        public InputAction @ClickConfrimPlacement => m_Wrapper.m_Placement_ClickConfrimPlacement;
+        /// <summary>
+        /// Provides access to the underlying input action "Placement/ClickCancelPlacement".
+        /// </summary>
+        public InputAction @ClickCancelPlacement => m_Wrapper.m_Placement_ClickCancelPlacement;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Placement; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="PlacementActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(PlacementActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="PlacementActions" />
+        public void AddCallbacks(IPlacementActions instance)
+        {
+            if (instance == null || m_Wrapper.m_PlacementActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlacementActionsCallbackInterfaces.Add(instance);
             @MousePosition.started += instance.OnMousePosition;
             @MousePosition.performed += instance.OnMousePosition;
             @MousePosition.canceled += instance.OnMousePosition;
@@ -313,8 +441,8 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         /// <remarks>
         /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
         /// </remarks>
-        /// <seealso cref="PlaceDragActions" />
-        private void UnregisterCallbacks(IPlaceDragActions instance)
+        /// <seealso cref="PlacementActions" />
+        private void UnregisterCallbacks(IPlacementActions instance)
         {
             @MousePosition.started -= instance.OnMousePosition;
             @MousePosition.performed -= instance.OnMousePosition;
@@ -328,12 +456,12 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         }
 
         /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="PlaceDragActions.UnregisterCallbacks(IPlaceDragActions)" />.
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="PlacementActions.UnregisterCallbacks(IPlacementActions)" />.
         /// </summary>
-        /// <seealso cref="PlaceDragActions.UnregisterCallbacks(IPlaceDragActions)" />
-        public void RemoveCallbacks(IPlaceDragActions instance)
+        /// <seealso cref="PlacementActions.UnregisterCallbacks(IPlacementActions)" />
+        public void RemoveCallbacks(IPlacementActions instance)
         {
-            if (m_Wrapper.m_PlaceDragActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_PlacementActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
@@ -343,27 +471,42 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
         /// </remarks>
-        /// <seealso cref="PlaceDragActions.AddCallbacks(IPlaceDragActions)" />
-        /// <seealso cref="PlaceDragActions.RemoveCallbacks(IPlaceDragActions)" />
-        /// <seealso cref="PlaceDragActions.UnregisterCallbacks(IPlaceDragActions)" />
-        public void SetCallbacks(IPlaceDragActions instance)
+        /// <seealso cref="PlacementActions.AddCallbacks(IPlacementActions)" />
+        /// <seealso cref="PlacementActions.RemoveCallbacks(IPlacementActions)" />
+        /// <seealso cref="PlacementActions.UnregisterCallbacks(IPlacementActions)" />
+        public void SetCallbacks(IPlacementActions instance)
         {
-            foreach (var item in m_Wrapper.m_PlaceDragActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_PlacementActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_PlaceDragActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_PlacementActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
     /// <summary>
-    /// Provides a new <see cref="PlaceDragActions" /> instance referencing this action map.
+    /// Provides a new <see cref="PlacementActions" /> instance referencing this action map.
     /// </summary>
-    public PlaceDragActions @PlaceDrag => new PlaceDragActions(this);
+    public PlacementActions @Placement => new PlacementActions(this);
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Place & Drag" which allows adding and removing callbacks.
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "NightGame" which allows adding and removing callbacks.
     /// </summary>
-    /// <seealso cref="PlaceDragActions.AddCallbacks(IPlaceDragActions)" />
-    /// <seealso cref="PlaceDragActions.RemoveCallbacks(IPlaceDragActions)" />
-    public interface IPlaceDragActions
+    /// <seealso cref="NightGameActions.AddCallbacks(INightGameActions)" />
+    /// <seealso cref="NightGameActions.RemoveCallbacks(INightGameActions)" />
+    public interface INightGameActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "New action" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNewaction(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Placement" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="PlacementActions.AddCallbacks(IPlacementActions)" />
+    /// <seealso cref="PlacementActions.RemoveCallbacks(IPlacementActions)" />
+    public interface IPlacementActions
     {
         /// <summary>
         /// Method invoked when associated input action "MousePosition" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.

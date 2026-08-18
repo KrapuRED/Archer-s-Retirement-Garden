@@ -3,7 +3,35 @@
     "name": "GamePlay",
     "maps": [
         {
-            "name": "Place & Drag",
+            "name": "NightGame",
+            "id": "21022d08-f3a0-4a34-9394-becbce5b5215",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "2dc0d4fc-ab1c-4d2d-ac23-e056c7972bae",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d71189c4-fc5b-4738-8830-be3b07fb2ad4",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Placement",
             "id": "09b63a59-59dc-4441-922c-e7b3380dd98e",
             "actions": [
                 {

@@ -837,6 +837,7 @@ MonoBehaviour:
   pointAction: {fileID: -2521873685451132378, guid: 6c75bae65e3782d4faff91651053d650, type: 3}
   placeAction: {fileID: -5639173838771216914, guid: 6c75bae65e3782d4faff91651053d650, type: 3}
   cancelAction: {fileID: 7318656624877638316, guid: 6c75bae65e3782d4faff91651053d650, type: 3}
+  gardenItemData: {fileID: 0}
   objectPlacement: {fileID: 0}
   objectSize: {x: 1, y: 1}
   validMaterial: {fileID: 2100000, guid: 4307c7fdb80bd804390422328b8814b2, type: 2}
@@ -1777,6 +1778,7 @@ GameObject:
   m_Component:
   - component: {fileID: 716210097}
   - component: {fileID: 716210098}
+  - component: {fileID: 716210099}
   m_Layer: 5
   m_Name: Money UI
   m_TagString: Untagged
@@ -1797,13 +1799,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 570132750}
-  - {fileID: 1802331305}
+  - {fileID: 1244800782}
   m_Father: {fileID: 1906924821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.011428572, y: 0.052}
   m_AnchorMax: {x: 0.98, y: 0.984}
-  m_AnchoredPosition: {x: 0.63842773, y: -2.6641006}
-  m_SizeDelta: {x: 1.2769, y: 5.3282}
+  m_AnchoredPosition: {x: 0, y: -2.6641006}
+  m_SizeDelta: {x: 0.000030518, y: 5.3282}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &716210098
 MonoBehaviour:
@@ -1831,6 +1833,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &716210099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716210096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc75d5dd1bbaf244aadc898afc936a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CurrencyUI
+  currencyText: {fileID: 1244800783}
 --- !u!1 &721965612
 GameObject:
   m_ObjectHideFlags: 0
@@ -2738,7 +2753,7 @@ GameObject:
   - component: {fileID: 1244800784}
   - component: {fileID: 1244800783}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: MoneyUI - Currency Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2751,17 +2766,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244800781}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1802331305}
+  m_Father: {fileID: 716210097}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 214.38, y: 101.2922}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1244800783
 MonoBehaviour:
@@ -2810,15 +2825,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 69.8
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -3225,6 +3240,53 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &1386291255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1386291256}
+  - component: {fileID: 1386291257}
+  m_Layer: 0
+  m_Name: Manager - Currecny
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1386291256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386291255}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1909641135}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1386291257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386291255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8edb3f63408dbaf449963793a9aafc62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CurrencyManager
+  starterCurrency: 100
+  currentCurrency: 0
+  currencyUI: {fileID: 716210099}
 --- !u!1 &1388007186
 GameObject:
   m_ObjectHideFlags: 0
@@ -4386,42 +4448,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GardenInformationCardUI
   gardenItemName: {fileID: 1477848538}
   gardenItemPrice: {fileID: 1599950666}
---- !u!1 &1802331304
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1802331305}
-  m_Layer: 5
-  m_Name: Money UI - Content
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1802331305
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1802331304}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1244800782}
-  m_Father: {fileID: 716210097}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 214.3795, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1825610304
 GameObject:
   m_ObjectHideFlags: 0
@@ -4755,6 +4781,7 @@ Transform:
   - {fileID: 1388007187}
   - {fileID: 1498508989}
   - {fileID: 723858262}
+  - {fileID: 1386291256}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1910587300

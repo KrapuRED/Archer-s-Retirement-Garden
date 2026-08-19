@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 #region Configuration Custom Events
 
@@ -60,8 +59,9 @@ public static class GameEvents
 {
     // # ================================ INPUT SYSTEM ================================ #
     public static readonly CustomEvents<string> OnActionMapChange = new();
-    public static readonly CustomEvents<GameObject> OnCarryObject = new();
+    public static readonly CustomEvents<GardenItemSO> OnCarryObject = new();
 
     // # ================================ UI ================================ #
     public static readonly CustomEvents<GardenItemSO> OnShowDetailGardenItem = new();
+    public static readonly CustomEvents<int> OnUpdateCurrencyUI = new();
 }

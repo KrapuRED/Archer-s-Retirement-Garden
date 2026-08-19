@@ -74,7 +74,7 @@ public class InputManager : MonoBehaviour
         currentActionMap = actionMap;
         
         GameEvents.OnActionMapChange.Invoke(actionMapName);
-        Debug.Log($"[{name} - ExecuteSwitchActionMap] Success Switch Action Map '{actionMapName}'");
+        //Debug.Log($"[{name} - ExecuteSwitchActionMap] Success Switch Action Map '{actionMapName}'");
     }
     #endregion
     

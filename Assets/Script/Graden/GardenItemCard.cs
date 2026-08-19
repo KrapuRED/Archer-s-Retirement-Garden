@@ -55,7 +55,7 @@ public class GardenItemCard : MonoBehaviour, IPointerEnterHandler, IPointerExitH
       if (!_isHovering) return;
       
       Debug.Log($"[{name} (OnHoldButton)] gardenItem: {gardenItemSo.gardenItemName}");
-      GameEvents.OnCarryObject.Invoke(gardenItemSo.objectPlacement);
+      GameEvents.OnCarryObject.Invoke(gardenItemSo);
    }
 
 }

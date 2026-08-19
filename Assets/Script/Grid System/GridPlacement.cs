@@ -14,8 +14,9 @@ public class GridPlacement : MonoBehaviour
     [SerializeField] private InputActionReference pointAction;
     [SerializeField] private InputActionReference placeAction;
     [SerializeField] private InputActionReference cancelAction;
-    
-    [Header("Placement Settings")]
+
+    [Header("Placement Settings")] 
+    [SerializeField] private GardenItemSO gardenItemData;
     [SerializeField] private GameObject objectPlacement;
     [Tooltip("How many cells this object occupies, e.g. (2,2) = a 2x2 footprint (4 cells).")]
     [SerializeField] private Vector2Int objectSize = Vector2Int.one;
@@ -170,32 +171,41 @@ public class GridPlacement : MonoBehaviour
     private void ConfirmPlacement()
     {
         if (objectPlacement == null) return;
+
+        if (CurrencyManager.Instance.UseCurrency(gardenItemData.gardenItemCost))
+        {
+            Vector3 worldPos = _gridManager.GetFootprintCenter(_anchorCell, objectSize);
+            GameObject placed = Instantiate(objectPlacement, worldPos, Quaternion.identity);
         
-        Vector3 worldPos = _gridManager.GetFootprintCenter(_anchorCell, objectSize);
-        GameObject placed = Instantiate(objectPlacement, worldPos, Quaternion.identity);
+            _gridManager.PlaceFootPrint(_currentCell, objectSize, placed);
+            SetPreviewColor(false);
+        }
         
-        _gridManager.PlaceFootPrint(_currentCell, objectSize, placed);
-        
-        SetPreviewColor(false);
+        CancelPlacement();
     }
 
     private void CancelPlacement()
     {
-        if (_previewRenderer != null)
+        if (_previewInstance != null)
         {
-            Destroy(_previewRenderer);
+            Destroy(_previewInstance);
         }
         
+        _previewInstance = null;
+        gardenItemData = null;
+        
+        InputManager.Instance.PopInputActionMap();
         objectPlacement = null;
     }
 
     #endregion
     
-    private void BeginPlacement(GameObject prefab)
+    private void BeginPlacement(GardenItemSO gardenItemSo)
     {
         CancelPlacement();
         
         InputManager.Instance.SwitchInputMap(actionMapName);
-        objectPlacement = prefab;
+        gardenItemData  = gardenItemSo;
+        objectPlacement = gardenItemSo.objectPlacement;
     }
 }

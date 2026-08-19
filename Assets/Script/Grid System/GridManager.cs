@@ -22,6 +22,7 @@ public class GridManager : MonoBehaviour
     [Header("Cell Visuals")]
     [SerializeField] private GridCell cellPrefab;
     [SerializeField] private bool generateOnAwake = true;
+    [SerializeField] private Material cellBeenOccupied;
     
     private readonly Dictionary<Vector2Int, GridCell> _cells = new();
     private readonly Dictionary<Vector2Int, GameObject> _occupiedCells = new();
@@ -136,7 +137,7 @@ public class GridManager : MonoBehaviour
 
     #region Main Grid System
 
-    public Vector3 GridToWorld(Vector2Int cell)
+    private Vector3 GridToWorld(Vector2Int cell)
     {
         Vector3 local = new Vector3((cell.x * gridSize) + offset, 0f, (cell.y * gridSize)+ offset) - HalfExtents;
  
@@ -145,17 +146,17 @@ public class GridManager : MonoBehaviour
             : local;
     }
 
-    public bool IsInsideBounds(Vector2Int cell)
+    private bool IsInsideBounds(Vector2Int cell)
     {
         return cell.x >= 0 && cell.x < gridWidth && cell.y >= 0 && cell.y < gridHeight;
     }
 
-    public bool IsCellOccupied(Vector2Int cell)
+    private bool IsCellOccupied(Vector2Int cell)
     {
         return _occupiedCells.ContainsKey(cell);
     }
 
-    public bool CanPlace(Vector2Int cell)
+    private bool CanPlace(Vector2Int cell)
     {
         return IsInsideBounds(cell) && !IsCellOccupied(cell);
     }
@@ -176,7 +177,7 @@ public class GridManager : MonoBehaviour
     {
         float centerX = (anchorCell.x + (sizeCell.x - 1) * 0.5f) * gridSize;
         float centerZ = (anchorCell.y + (sizeCell.y - 1) * 0.5f) * gridSize;
-        Vector3 local = new Vector3(centerX, 0f, centerZ) - HalfExtents;
+        Vector3 local = new Vector3(centerX + offset, 0f, centerZ + offset) - HalfExtents;
 
         return locationGrid != null
             ? locationGrid.TransformPoint(local)
@@ -198,13 +199,18 @@ public class GridManager : MonoBehaviour
 
     public void PlaceFootPrint(Vector2Int anchorCell, Vector2Int sizeCell, GameObject obj)
     {
-        if (!CanPlaceFootPrint(anchorCell, sizeCell)) return;
+        bool canPlace = CanPlace(anchorCell + new Vector2Int(sizeCell.x, sizeCell.y));
+        if (!canPlace) return;
         
         for (int x = 0; x < sizeCell.x; x++)
         {
             for (int z = 0; z < sizeCell.y; z++)
             {
                 _occupiedCells[anchorCell + new Vector2Int(x, z)] = obj;
+                if (_cells.TryGetValue(anchorCell + new Vector2Int(x, z), out GridCell cell))
+                {
+                    cell.SetHighlighted(canPlace);
+                }
             }
         }
     }
@@ -215,7 +221,13 @@ public class GridManager : MonoBehaviour
         {
             for (int z = 0; z < sizeCell.y; z++)
             {
-                _occupiedCells.Remove(anchorCell + new Vector2Int(x, z));
+                var cellPos = anchorCell + new Vector2Int(x, z);
+                _occupiedCells.Remove(cellPos);
+
+                if (_cells.TryGetValue(cellPos, out GridCell cell))
+                {
+                    cell.SetHighlighted(false);
+                }
             }
         }
     }

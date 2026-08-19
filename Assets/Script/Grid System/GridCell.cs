@@ -6,11 +6,12 @@ public class GridCell : MonoBehaviour
  
     [SerializeField] private Renderer cellRenderer;
     [SerializeField] private Color defaultColor = Color.white;
-    [SerializeField] private Color highlightColor = Color.yellow;
+    [SerializeField] private Color highlightColor = Color.red;
 
     public void Init(Vector2Int coordinates)
     {
         Coordinates = coordinates;
+        SetHighlighted(false);
     }
     
     public void SetHighlighted(bool highlighted)

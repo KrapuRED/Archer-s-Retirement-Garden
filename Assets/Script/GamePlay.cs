@@ -211,6 +211,54 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Sell"",
+            ""id"": ""bf219b20-442d-4be9-8b7f-c76468a7a70e"",
+            ""actions"": [
+                {
+                    ""name"": ""SellPoint"",
+                    ""type"": ""Value"",
+                    ""id"": ""c93545ca-8b49-4e8c-be99-5c1d8da23773"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SellClick"",
+                    ""type"": ""Button"",
+                    ""id"": ""aa525c72-b91b-44c0-aa19-f14220f86363"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""ea87f975-420e-4ac9-8a5e-8802f9add253"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SellClick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dcdf5ca8-ef81-4a99-bfe9-d71aa732c31a"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SellPoint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -226,6 +274,10 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         m_Placement_MousePosition = m_Placement.FindAction("MousePosition", throwIfNotFound: true);
         m_Placement_ClickConfrimPlacement = m_Placement.FindAction("ClickConfrimPlacement", throwIfNotFound: true);
         m_Placement_ClickCancelPlacement = m_Placement.FindAction("ClickCancelPlacement", throwIfNotFound: true);
+        // Sell
+        m_Sell = asset.FindActionMap("Sell", throwIfNotFound: true);
+        m_Sell_SellPoint = m_Sell.FindAction("SellPoint", throwIfNotFound: true);
+        m_Sell_SellClick = m_Sell.FindAction("SellClick", throwIfNotFound: true);
     }
 
     ~@GamePlay()
@@ -233,6 +285,7 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_Default.enabled, "This will cause a leak and performance issues, GamePlay.Default.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_NightGame.enabled, "This will cause a leak and performance issues, GamePlay.NightGame.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Placement.enabled, "This will cause a leak and performance issues, GamePlay.Placement.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Sell.enabled, "This will cause a leak and performance issues, GamePlay.Sell.Disable() has not been called.");
     }
 
     /// <summary>
@@ -614,6 +667,113 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="PlacementActions" /> instance referencing this action map.
     /// </summary>
     public PlacementActions @Placement => new PlacementActions(this);
+
+    // Sell
+    private readonly InputActionMap m_Sell;
+    private List<ISellActions> m_SellActionsCallbackInterfaces = new List<ISellActions>();
+    private readonly InputAction m_Sell_SellPoint;
+    private readonly InputAction m_Sell_SellClick;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Sell".
+    /// </summary>
+    public struct SellActions
+    {
+        private @GamePlay m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public SellActions(@GamePlay wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Sell/SellPoint".
+        /// </summary>
+        public InputAction @SellPoint => m_Wrapper.m_Sell_SellPoint;
+        /// <summary>
+        /// Provides access to the underlying input action "Sell/SellClick".
+        /// </summary>
+        public InputAction @SellClick => m_Wrapper.m_Sell_SellClick;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Sell; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="SellActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(SellActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="SellActions" />
+        public void AddCallbacks(ISellActions instance)
+        {
+            if (instance == null || m_Wrapper.m_SellActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_SellActionsCallbackInterfaces.Add(instance);
+            @SellPoint.started += instance.OnSellPoint;
+            @SellPoint.performed += instance.OnSellPoint;
+            @SellPoint.canceled += instance.OnSellPoint;
+            @SellClick.started += instance.OnSellClick;
+            @SellClick.performed += instance.OnSellClick;
+            @SellClick.canceled += instance.OnSellClick;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="SellActions" />
+        private void UnregisterCallbacks(ISellActions instance)
+        {
+            @SellPoint.started -= instance.OnSellPoint;
+            @SellPoint.performed -= instance.OnSellPoint;
+            @SellPoint.canceled -= instance.OnSellPoint;
+            @SellClick.started -= instance.OnSellClick;
+            @SellClick.performed -= instance.OnSellClick;
+            @SellClick.canceled -= instance.OnSellClick;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="SellActions.UnregisterCallbacks(ISellActions)" />.
+        /// </summary>
+        /// <seealso cref="SellActions.UnregisterCallbacks(ISellActions)" />
+        public void RemoveCallbacks(ISellActions instance)
+        {
+            if (m_Wrapper.m_SellActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="SellActions.AddCallbacks(ISellActions)" />
+        /// <seealso cref="SellActions.RemoveCallbacks(ISellActions)" />
+        /// <seealso cref="SellActions.UnregisterCallbacks(ISellActions)" />
+        public void SetCallbacks(ISellActions instance)
+        {
+            foreach (var item in m_Wrapper.m_SellActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_SellActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="SellActions" /> instance referencing this action map.
+    /// </summary>
+    public SellActions @Sell => new SellActions(this);
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Default" which allows adding and removing callbacks.
     /// </summary>
@@ -672,5 +832,27 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnClickCancelPlacement(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Sell" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="SellActions.AddCallbacks(ISellActions)" />
+    /// <seealso cref="SellActions.RemoveCallbacks(ISellActions)" />
+    public interface ISellActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "SellPoint" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSellPoint(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SellClick" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSellClick(InputAction.CallbackContext context);
     }
 }

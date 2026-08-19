@@ -64,4 +64,6 @@ public static class GameEvents
     // # ================================ UI ================================ #
     public static readonly CustomEvents<GardenItemSO> OnShowDetailGardenItem = new();
     public static readonly CustomEvents<int> OnUpdateCurrencyUI = new();
+    public static readonly CustomEvents<PanelType> OnRequestOpenPanel = new();
+    public static readonly CustomEvents<PanelType> OnRequestClosePanel = new();
 }

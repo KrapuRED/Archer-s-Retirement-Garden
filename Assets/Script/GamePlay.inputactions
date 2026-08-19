@@ -125,6 +125,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Sell",
+            "id": "bf219b20-442d-4be9-8b7f-c76468a7a70e",
+            "actions": [
+                {
+                    "name": "SellPoint",
+                    "type": "Value",
+                    "id": "c93545ca-8b49-4e8c-be99-5c1d8da23773",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "SellClick",
+                    "type": "Button",
+                    "id": "aa525c72-b91b-44c0-aa19-f14220f86363",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ea87f975-420e-4ac9-8a5e-8802f9add253",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SellClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dcdf5ca8-ef81-4a99-bfe9-d71aa732c31a",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SellPoint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

@@ -15,5 +15,5 @@ MonoBehaviour:
   gardenItemName: Garden Item 2
   gardenItemDescription: 
   gardenItemCost: 40
-  objectSize: {x: 1, y: 1}
+  objectSize: {x: 1, y: 2}
   objectPlacement: {fileID: 867344268240112712, guid: a73fc27d1dce5b340ba776172aa4a898, type: 3}

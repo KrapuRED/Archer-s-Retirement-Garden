@@ -3,11 +3,39 @@
     "name": "GamePlay",
     "maps": [
         {
+            "name": "Default",
+            "id": "88d47896-95e0-4e34-acbd-a8d1aceb901a",
+            "actions": [
+                {
+                    "name": "HoldCard",
+                    "type": "Button",
+                    "id": "27f98f8c-06d9-45c2-bb6e-4672b10ca1ca",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c94790fe-7a1c-4b25-85de-e1cb8ff36bba",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoldCard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "NightGame",
             "id": "21022d08-f3a0-4a34-9394-becbce5b5215",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Attack",
                     "type": "Button",
                     "id": "2dc0d4fc-ab1c-4d2d-ac23-e056c7972bae",
                     "expectedControlType": "",
@@ -20,11 +48,11 @@
                 {
                     "name": "",
                     "id": "d71189c4-fc5b-4738-8830-be3b07fb2ad4",
-                    "path": "",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

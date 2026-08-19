@@ -89,11 +89,39 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
     ""name"": ""GamePlay"",
     ""maps"": [
         {
+            ""name"": ""Default"",
+            ""id"": ""88d47896-95e0-4e34-acbd-a8d1aceb901a"",
+            ""actions"": [
+                {
+                    ""name"": ""HoldCard"",
+                    ""type"": ""Button"",
+                    ""id"": ""27f98f8c-06d9-45c2-bb6e-4672b10ca1ca"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c94790fe-7a1c-4b25-85de-e1cb8ff36bba"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HoldCard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""NightGame"",
             ""id"": ""21022d08-f3a0-4a34-9394-becbce5b5215"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""2dc0d4fc-ab1c-4d2d-ac23-e056c7972bae"",
                     ""expectedControlType"": """",
@@ -106,11 +134,11 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d71189c4-fc5b-4738-8830-be3b07fb2ad4"",
-                    ""path"": """",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -187,9 +215,12 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
+        // Default
+        m_Default = asset.FindActionMap("Default", throwIfNotFound: true);
+        m_Default_HoldCard = m_Default.FindAction("HoldCard", throwIfNotFound: true);
         // NightGame
         m_NightGame = asset.FindActionMap("NightGame", throwIfNotFound: true);
-        m_NightGame_Newaction = m_NightGame.FindAction("New action", throwIfNotFound: true);
+        m_NightGame_Attack = m_NightGame.FindAction("Attack", throwIfNotFound: true);
         // Placement
         m_Placement = asset.FindActionMap("Placement", throwIfNotFound: true);
         m_Placement_MousePosition = m_Placement.FindAction("MousePosition", throwIfNotFound: true);
@@ -199,6 +230,7 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
 
     ~@GamePlay()
     {
+        UnityEngine.Debug.Assert(!m_Default.enabled, "This will cause a leak and performance issues, GamePlay.Default.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_NightGame.enabled, "This will cause a leak and performance issues, GamePlay.NightGame.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Placement.enabled, "This will cause a leak and performance issues, GamePlay.Placement.Disable() has not been called.");
     }
@@ -273,10 +305,106 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
+    // Default
+    private readonly InputActionMap m_Default;
+    private List<IDefaultActions> m_DefaultActionsCallbackInterfaces = new List<IDefaultActions>();
+    private readonly InputAction m_Default_HoldCard;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Default".
+    /// </summary>
+    public struct DefaultActions
+    {
+        private @GamePlay m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public DefaultActions(@GamePlay wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Default/HoldCard".
+        /// </summary>
+        public InputAction @HoldCard => m_Wrapper.m_Default_HoldCard;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Default; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="DefaultActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(DefaultActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="DefaultActions" />
+        public void AddCallbacks(IDefaultActions instance)
+        {
+            if (instance == null || m_Wrapper.m_DefaultActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_DefaultActionsCallbackInterfaces.Add(instance);
+            @HoldCard.started += instance.OnHoldCard;
+            @HoldCard.performed += instance.OnHoldCard;
+            @HoldCard.canceled += instance.OnHoldCard;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="DefaultActions" />
+        private void UnregisterCallbacks(IDefaultActions instance)
+        {
+            @HoldCard.started -= instance.OnHoldCard;
+            @HoldCard.performed -= instance.OnHoldCard;
+            @HoldCard.canceled -= instance.OnHoldCard;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="DefaultActions.UnregisterCallbacks(IDefaultActions)" />.
+        /// </summary>
+        /// <seealso cref="DefaultActions.UnregisterCallbacks(IDefaultActions)" />
+        public void RemoveCallbacks(IDefaultActions instance)
+        {
+            if (m_Wrapper.m_DefaultActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="DefaultActions.AddCallbacks(IDefaultActions)" />
+        /// <seealso cref="DefaultActions.RemoveCallbacks(IDefaultActions)" />
+        /// <seealso cref="DefaultActions.UnregisterCallbacks(IDefaultActions)" />
+        public void SetCallbacks(IDefaultActions instance)
+        {
+            foreach (var item in m_Wrapper.m_DefaultActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_DefaultActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="DefaultActions" /> instance referencing this action map.
+    /// </summary>
+    public DefaultActions @Default => new DefaultActions(this);
+
     // NightGame
     private readonly InputActionMap m_NightGame;
     private List<INightGameActions> m_NightGameActionsCallbackInterfaces = new List<INightGameActions>();
-    private readonly InputAction m_NightGame_Newaction;
+    private readonly InputAction m_NightGame_Attack;
     /// <summary>
     /// Provides access to input actions defined in input action map "NightGame".
     /// </summary>
@@ -289,9 +417,9 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         /// </summary>
         public NightGameActions(@GamePlay wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "NightGame/Newaction".
+        /// Provides access to the underlying input action "NightGame/Attack".
         /// </summary>
-        public InputAction @Newaction => m_Wrapper.m_NightGame_Newaction;
+        public InputAction @Attack => m_Wrapper.m_NightGame_Attack;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -318,9 +446,9 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_NightGameActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_NightGameActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
         }
 
         /// <summary>
@@ -332,9 +460,9 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         /// <seealso cref="NightGameActions" />
         private void UnregisterCallbacks(INightGameActions instance)
         {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
         }
 
         /// <summary>
@@ -487,6 +615,21 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
     /// </summary>
     public PlacementActions @Placement => new PlacementActions(this);
     /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Default" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="DefaultActions.AddCallbacks(IDefaultActions)" />
+    /// <seealso cref="DefaultActions.RemoveCallbacks(IDefaultActions)" />
+    public interface IDefaultActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "HoldCard" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnHoldCard(InputAction.CallbackContext context);
+    }
+    /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "NightGame" which allows adding and removing callbacks.
     /// </summary>
     /// <seealso cref="NightGameActions.AddCallbacks(INightGameActions)" />
@@ -494,12 +637,12 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
     public interface INightGameActions
     {
         /// <summary>
-        /// Method invoked when associated input action "New action" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Attack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Placement" which allows adding and removing callbacks.

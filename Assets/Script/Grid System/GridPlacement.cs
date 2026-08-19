@@ -9,6 +9,7 @@ public class GridPlacement : MonoBehaviour
     [SerializeField] private LayerMask groundLayerMask;
     
     [Header("Input Action Settings")]
+    [SerializeField] private string actionMapName;
     [Tooltip("Vector2 action bound to mouse position")]
     [SerializeField] private InputActionReference pointAction;
     [SerializeField] private InputActionReference placeAction;
@@ -31,15 +32,19 @@ public class GridPlacement : MonoBehaviour
     private Vector2 _screenPos;
 
     private GridManager _gridManager;
+    private InputManager _inputManager;
 
     private void Awake()
     {
         mainCam = Camera.main;
+        
     }
 
     #region Event Configuration
     private void OnEnable()
     {
+        _inputManager = InputManager.Instance;
+        
         pointAction.action.Enable();
         placeAction.action.Enable();
         cancelAction.action.Enable();
@@ -47,6 +52,8 @@ public class GridPlacement : MonoBehaviour
         pointAction.action.performed += OnPoint;
         placeAction.action.performed += OnPlace;
         cancelAction.action.performed += OnCancel;
+        
+        GameEvents.OnCarryObject.AddListener(BeginPlacement);
     }
 
     private void OnDisable()
@@ -59,6 +66,8 @@ public class GridPlacement : MonoBehaviour
         pointAction.action.performed  -= OnPoint;
         placeAction.action.performed  -= OnPlace;
         cancelAction.action.performed -= OnCancel;
+        
+        GameEvents.OnCarryObject.RemoveListener(BeginPlacement);
     }
     
     #endregion
@@ -66,11 +75,21 @@ public class GridPlacement : MonoBehaviour
     #region Action Configuration
     private void OnPoint(InputAction.CallbackContext context)
     {
+        if (_inputManager == null) 
+            _inputManager = InputManager.Instance;
+        
+        if (!_inputManager.IsInputMapActive(actionMapName)) return;
+        
         _screenPos = context.ReadValue<Vector2>();
     }
     
     private void OnPlace(InputAction.CallbackContext context)
     {
+        if (_inputManager == null) 
+            _inputManager = InputManager.Instance;   
+        
+        if (!_inputManager.IsInputMapActive(actionMapName)) return;
+        
         if (_isCanPlaceCurrentCell)
         {
             ConfirmPlacement();
@@ -79,7 +98,13 @@ public class GridPlacement : MonoBehaviour
 
     private void OnCancel(InputAction.CallbackContext context)
     {
+        if (_inputManager == null) 
+            _inputManager = InputManager.Instance;
+        
+        if (!_inputManager.IsInputMapActive(actionMapName)) return;
+        
         CancelPlacement();
+        InputManager.Instance.PopInputActionMap();
     }
 
     #endregion
@@ -166,9 +191,11 @@ public class GridPlacement : MonoBehaviour
 
     #endregion
     
-    public void BeginPlacement(GameObject prefab)
+    private void BeginPlacement(GameObject prefab)
     {
         CancelPlacement();
+        
+        InputManager.Instance.SwitchInputMap(actionMapName);
         objectPlacement = prefab;
     }
 }

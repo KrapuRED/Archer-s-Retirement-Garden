@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 411c479c75d6ee142b3b0a08d39a58c2, type: 3}
   m_Name: Test_GardenItemSO
   m_EditorClassIdentifier: Assembly-CSharp::GardenItemSO
-  gradeItemName: Test_GardenItem_1
-  gradeItemDescription: 
-  gardenItemCost: 0
+  gardenItemName: Garden Item 1
+  gardenItemDescription: 
+  gardenItemCost: 20
   objectSize: {x: 0, y: 0}
   objectPlacement: {fileID: 0}

@@ -18,6 +18,7 @@ public class GridManager : MonoBehaviour
     [Header("Auto Fit (optional)")]
     [Tooltip("If assigned, locationGrid's position and gridWidth/gridHeight are automatically calculated from this renderer's bounds before generating the grid.")]
     [SerializeField] private Renderer targetSurface;
+    [SerializeField] private GardenObject prefabMiddleBulding;
     
     [Header("Cell Visuals")]
     [SerializeField] private GridCell cellPrefab;
@@ -97,6 +98,17 @@ public class GridManager : MonoBehaviour
                 _cells[cell] = instance;
             }
         }
+    }
+
+    private void SpawnBuilding()
+    {
+        if (prefabMiddleBulding == null) return;
+
+        Vector2Int anchorCell = new Vector2Int(
+            (gridWidth - prefabMiddleBulding.GardenItemSO.objectSize.x) / 2,
+            (gridHeight - prefabMiddleBulding.GardenItemSO.objectSize.y) / 2
+        );
+        
     }
     
     private void ClearGrid()

@@ -2582,6 +2582,118 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2084567609}
     m_Modifications:
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[0].OriginalLabel
+      value: Image RaycastTarget
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[1].OriginalLabel
+      value: Scale
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[2].OriginalLabel
+      value: Camera Shake
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[3].OriginalLabel
+      value: Camera Shake
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[4].OriginalLabel
+      value: Scale
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[5].OriginalLabel
+      value: Chromatic Aberration
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[6].OriginalLabel
+      value: Lens Distortion
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[7].OriginalLabel
+      value: MMSoundManager Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[8].OriginalLabel
+      value: MMSoundManager Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[9].OriginalLabel
+      value: Holding Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[10].OriginalLabel
+      value: Scale
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[11].OriginalLabel
+      value: MMSoundManager Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[12].OriginalLabel
+      value: Position
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[13].OriginalLabel
+      value: Image
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[14].OriginalLabel
+      value: Bloom
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[15].OriginalLabel
+      value: Scale
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[16].OriginalLabel
+      value: Position
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[17].OriginalLabel
+      value: Position
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[18].OriginalLabel
+      value: TMP Text Reveal
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[19].OriginalLabel
+      value: Holding Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[20].OriginalLabel
+      value: Scale
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[21].OriginalLabel
+      value: MMSoundManager Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[22].OriginalLabel
+      value: Scale
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[23].OriginalLabel
+      value: MMSoundManager Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[24].OriginalLabel
+      value: Scale
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[25].OriginalLabel
+      value: MMSoundManager Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[26].OriginalLabel
+      value: Holding Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: managedReferences[27].OriginalLabel
+      value: Image RaycastTarget
+      objectReference: {fileID: 0}
     - target: {fileID: 6341985375202562952, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
       propertyPath: TargetGameObject
       value: 
@@ -2861,6 +2973,10 @@ PrefabInstance:
     - target: {fileID: 7465677150988669718, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
       propertyPath: m_textInfo.characterCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8671481740398212872, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8787838387538572279, guid: b3f6473bddc357f499dbcb5855925796, type: 3}
       propertyPath: TargetGameObject
@@ -3322,7 +3438,7 @@ MonoBehaviour:
         Active: 1
         UniqueID: 261211702
         Label: Position Sumerian
-        OriginalLabel: 
+        OriginalLabel: Position
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
@@ -3779,7 +3895,7 @@ MonoBehaviour:
         Active: 1
         UniqueID: 1161115961
         Label: Rotation Sumerian
-        OriginalLabel: 
+        OriginalLabel: Rotation
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
@@ -4123,7 +4239,7 @@ MonoBehaviour:
         Active: 1
         UniqueID: 1045870999
         Label: Position Fireproof
-        OriginalLabel: 
+        OriginalLabel: Position
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
@@ -4580,7 +4696,7 @@ MonoBehaviour:
         Active: 1
         UniqueID: 1700484265
         Label: Rotation Fireproof
-        OriginalLabel: 
+        OriginalLabel: Rotation
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
@@ -4924,7 +5040,7 @@ MonoBehaviour:
         Active: 1
         UniqueID: 1542871251
         Label: Position Lady
-        OriginalLabel: 
+        OriginalLabel: Position
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
@@ -5381,7 +5497,7 @@ MonoBehaviour:
         Active: 1
         UniqueID: 358296796
         Label: Rotation Lady
-        OriginalLabel: 
+        OriginalLabel: Rotation
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
@@ -5725,7 +5841,7 @@ MonoBehaviour:
         Active: 1
         UniqueID: -89927973
         Label: Position Stormeye
-        OriginalLabel: 
+        OriginalLabel: Position
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
@@ -6182,7 +6298,7 @@ MonoBehaviour:
         Active: 1
         UniqueID: 785301874
         Label: Rotation Stormeye
-        OriginalLabel: 
+        OriginalLabel: Rotation
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
@@ -6526,7 +6642,7 @@ MonoBehaviour:
         Active: 1
         UniqueID: 338160500
         Label: MMSoundManager Sound
-        OriginalLabel: 
+        OriginalLabel: MMSoundManager Sound
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
@@ -6709,7 +6825,7 @@ MonoBehaviour:
         Active: 1
         UniqueID: 1865738373
         Label: Chromatic Aberration
-        OriginalLabel: 
+        OriginalLabel: Chromatic Aberration
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
@@ -6823,7 +6939,7 @@ MonoBehaviour:
         Active: 1
         UniqueID: -1220209040
         Label: Set Active - Toggle Dealer Button
-        OriginalLabel: 
+        OriginalLabel: Set Active
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
@@ -6911,7 +7027,7 @@ MonoBehaviour:
         Active: 1
         UniqueID: -566676223
         Label: Set Active - Stack Button
-        OriginalLabel: 
+        OriginalLabel: Set Active
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
@@ -6999,7 +7115,7 @@ MonoBehaviour:
         Active: 1
         UniqueID: -687112231
         Label: Pause
-        OriginalLabel: 
+        OriginalLabel: Pause
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}
@@ -7081,7 +7197,7 @@ MonoBehaviour:
         Active: 1
         UniqueID: -515249494
         Label: Events - Reset Cards
-        OriginalLabel: 
+        OriginalLabel: Unity Events
         ChannelMode: 0
         Channel: 0
         MMChannelDefinition: {fileID: 0}

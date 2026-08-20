@@ -14,6 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GardenItemSO
   gardenItemName: Garden Item 3
   gardenItemDescription: 
-  gardenItemCost: 50
+  gardenItemBasePrice: 100
+  priceIncrease: 50
+  gardenBoostItemDatas:
+  - boostName: Gain +50% Critical Damage.
+    boostAmount: 50
+    boostType: 2
   objectSize: {x: 3, y: 3}
   objectPlacement: {fileID: 867344268240112712, guid: a73fc27d1dce5b340ba776172aa4a898, type: 3}

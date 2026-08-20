@@ -7,8 +7,8 @@ public class GardenItemCard : MonoBehaviour, IPointerEnterHandler, IPointerExitH
    [Header("Input Action Settings")]
    [SerializeField] private string actionMapName;
    [SerializeField] private InputActionReference holdCardAction;
-   
-   [SerializeField] private GardenItemSO gardenItemSo;
+
+   [SerializeField] private GardenItemCardData gardenItemCardData;
 
    private bool _isHovering;
    
@@ -42,9 +42,16 @@ public class GardenItemCard : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
    #endregion
    
+   public void Init(GardenItemCardData gardenItemCardData) => this.gardenItemCardData = gardenItemCardData;
+
+   public void UpdatePrice(int newPrice)
+   {
+      gardenItemCardData.currentPrice = newPrice;
+   }
+   
    public void OnClickButton()
    {
-      GameEvents.OnShowDetailGardenItem.Invoke(gardenItemSo);
+      GameEvents.OnShowDetailGardenItem.Invoke(gardenItemCardData.gardenItemSO);
    }
    
    private void OnHoldButton(InputAction.CallbackContext context)
@@ -54,8 +61,8 @@ public class GardenItemCard : MonoBehaviour, IPointerEnterHandler, IPointerExitH
       
       if (!_isHovering) return;
       
-      Debug.Log($"[{name} (OnHoldButton)] gardenItem: {gardenItemSo.gardenItemName}");
-      GameEvents.OnCarryObject.Invoke(gardenItemSo);
+      Debug.Log($"[{name} (OnHoldButton)] gardenItem: {gardenItemCardData.gardenItemSO.gardenItemName}");
+      GameEvents.OnCarryObject.Invoke(gardenItemCardData);
    }
 
 }

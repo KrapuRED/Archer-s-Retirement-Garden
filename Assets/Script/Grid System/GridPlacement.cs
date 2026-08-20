@@ -16,7 +16,7 @@ public class GridPlacement : MonoBehaviour
     [SerializeField] private InputActionReference cancelAction;
 
     [Header("Placement Settings")] 
-    [SerializeField] private GardenItemSO gardenItemData;
+    [SerializeField] private GardenItemCardData gardenItemCardData;
     [SerializeField] private GameObject objectPlacement;
     [SerializeField] private Material validMaterial;
     [SerializeField] private Material invalidMaterial;
@@ -148,14 +148,14 @@ public class GridPlacement : MonoBehaviour
 
         Vector2Int rawCell = _gridManager.WorldToGrid(hit.point);
             
-        _anchorCell = rawCell - new Vector2Int(gardenItemData.objectSize.x / 2, gardenItemData.objectSize.y / 2);
+        _anchorCell = rawCell - new Vector2Int(gardenItemCardData.gardenItemSO.objectSize.x / 2, gardenItemCardData.gardenItemSO.objectSize.y / 2);
         _currentCell = _anchorCell;
         
-        Vector3 worldPos = _gridManager.GetFootprintCenter(_anchorCell, gardenItemData.objectSize);
+        Vector3 worldPos = _gridManager.GetFootprintCenter(_anchorCell, gardenItemCardData.gardenItemSO.objectSize);
         
         _previewInstance.transform.position = worldPos;
         
-        _isCanPlaceCurrentCell = _gridManager.CanPlaceFootPrint(_anchorCell, gardenItemData.objectSize);
+        _isCanPlaceCurrentCell = _gridManager.CanPlaceFootPrint(_anchorCell, gardenItemCardData.gardenItemSO.objectSize);
         SetPreviewColor(_isCanPlaceCurrentCell);
     }
 
@@ -174,18 +174,18 @@ public class GridPlacement : MonoBehaviour
     {
         if (objectPlacement == null) return;
 
-        if (CurrencyManager.Instance.UseCurrency(gardenItemData.gardenItemCost))
+        if (CurrencyManager.Instance.UseCurrency(gardenItemCardData.gardenItemSO.gardenItemBasePrice))
         {
-            Vector3 worldPos = _gridManager.GetFootprintCenter(_anchorCell, gardenItemData.objectSize);
+            Vector3 worldPos = _gridManager.GetFootprintCenter(_anchorCell, gardenItemCardData.gardenItemSO.objectSize);
 
             GameObject placed = Instantiate(objectPlacement, worldPos, Quaternion.identity);
         
-            _gridManager.PlaceFootPrint(_currentCell, gardenItemData.objectSize, placed);
+            _gridManager.PlaceFootPrint(_currentCell, gardenItemCardData.gardenItemSO.objectSize, placed);
             
             var gardenObject = placed.GetComponent<GardenObject>();
             if (gardenObject != null)
             {
-                gardenObject.Initialize(gardenItemData, _anchorCell);
+                gardenObject.Initialize(gardenItemCardData.gardenItemSO, _anchorCell);
             }
             else
             {
@@ -207,7 +207,7 @@ public class GridPlacement : MonoBehaviour
 
         _onConfirmation = false;
         _previewInstance = null;
-        gardenItemData = null;
+        gardenItemCardData = null;
         
         InputManager.Instance.PopInputActionMap();
         objectPlacement = null;
@@ -215,12 +215,12 @@ public class GridPlacement : MonoBehaviour
 
     #endregion
     
-    private void BeginPlacement(GardenItemSO gardenItemSo)
+    private void BeginPlacement(GardenItemCardData gardenItemCardData)
     {
         CancelPlacement();
         
         InputManager.Instance.SwitchInputMap(actionMapName);
-        gardenItemData  = gardenItemSo;
-        objectPlacement = gardenItemSo.objectPlacement;
+        this.gardenItemCardData  = gardenItemCardData;
+        objectPlacement = gardenItemCardData.gardenItemSO.objectPlacement;
     }
 }

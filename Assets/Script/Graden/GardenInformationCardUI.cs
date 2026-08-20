@@ -34,6 +34,6 @@ public class GardenInformationCardUI : MonoBehaviour
     private void SetGardenInformationCard(GardenItemSO gardenItemData)
     {
         gardenItemName.text  = gardenItemData.gardenItemName;
-        gardenItemPrice.text = $"{gardenItemData.gardenItemCost} $";
+        gardenItemPrice.text = $"{gardenItemData.gardenItemBasePrice} $";
     }
 }

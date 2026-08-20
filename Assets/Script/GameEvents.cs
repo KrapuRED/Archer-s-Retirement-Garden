@@ -57,10 +57,17 @@ public class CustomEvents<T1, T2, T3>
 
 public static class GameEvents
 {
+    // # ================================ GARDEN SYSTEM ================================ #
+    public static readonly CustomEvents<GardenItemSO, int> OnChangeStackGardenObject = new();
+    
     // # ================================ INPUT SYSTEM ================================ #
     public static readonly CustomEvents<string> OnActionMapChange = new();
-    public static readonly CustomEvents<GardenItemSO> OnCarryObject = new();
-
+    public static readonly CustomEvents<GardenItemCardData> OnCarryObject = new();
+    
+    // # ================================ PAUSE SYSTEM ================================ #
+    public static readonly CustomEvents OnPauseGame  = new();
+    public static readonly CustomEvents OnResumeGame = new();
+    
     // # ================================ UI ================================ #
     public static readonly CustomEvents<GardenItemSO> OnShowDetailGardenItem = new();
     public static readonly CustomEvents<int> OnUpdateCurrencyUI = new();

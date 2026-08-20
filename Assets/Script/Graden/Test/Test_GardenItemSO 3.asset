@@ -17,8 +17,8 @@ MonoBehaviour:
   gardenItemBasePrice: 35
   priceIncrease: 50
   gardenBoostItemDatas:
-  - boostName: Gain +50% Critical Damage.
+  - boostName: Gain +50% Max Health
     boostAmount: 50
-    boostType: 2
+    boostType: 3
   objectSize: {x: 2, y: 2}
   objectPlacement: {fileID: 867344268240112712, guid: a73fc27d1dce5b340ba776172aa4a898, type: 3}

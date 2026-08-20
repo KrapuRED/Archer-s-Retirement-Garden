@@ -7,7 +7,7 @@ public enum BoostType
     None,
     Attack,
     Critical,
-    Heal
+    Health
 }
 
 [System.Serializable]
@@ -21,7 +21,7 @@ public class BoostStatusData
 [System.Serializable]
 public class GardenBoostTrackData
 {
-    public GardenItemSO gardenItemSO;
+    public GardenItemSO gardenItemSo;
     public int stackItemCount;
 }
 
@@ -33,7 +33,7 @@ public class StatusManager : MonoBehaviour
     [SerializeField] private float attackBoost;
     [SerializeField] private float criticalBoost;
 
-    private List<GardenBoostTrackData> _gardenBoostTrackDataList = new();
+    private readonly List<GardenBoostTrackData> _gardenBoostTrackDataList = new();
 
     public float MaxHealthBoost => maxHealthBoost;
     public float AttackBoost => attackBoost;
@@ -64,42 +64,42 @@ public class StatusManager : MonoBehaviour
 
     #endregion
 
-    private void HandlingBoost(GardenItemSO gardenItemSO, int stack)
+    private void HandlingBoost(GardenItemSO gardenItemSo, int stack)
     {
-        if (gardenItemSO.gardenBoostItemDatas == null || gardenItemSO.gardenBoostItemDatas.Count == 0)
+        if (gardenItemSo.gardenBoostItemDatas == null || gardenItemSo.gardenBoostItemDatas.Count == 0)
             return;
 
-        var trackData = _gardenBoostTrackDataList.Find(x => x.gardenItemSO == gardenItemSO);
+        var trackData = _gardenBoostTrackDataList.Find(x => x.gardenItemSo == gardenItemSo);
         if (trackData == null)
         {
-            trackData = new GardenBoostTrackData { gardenItemSO = gardenItemSO, stackItemCount = 0 };
+            trackData = new GardenBoostTrackData { gardenItemSo = gardenItemSo, stackItemCount = 0 };
             _gardenBoostTrackDataList.Add(trackData);
         }
 
         if (trackData.stackItemCount > stack)
         {
-            RemoveBoosting(gardenItemSO, stack);
+            RemoveBoosting(gardenItemSo, stack);
         }
         else
         {
-            AddBoosting(gardenItemSO, stack);
+            AddBoosting(gardenItemSo, stack);
         }
         
         trackData.stackItemCount = stack;
     }
 
-    private void AddBoosting(GardenItemSO gardenItemSO, int stackDelta)
+    private void AddBoosting(GardenItemSO gardenItemData, int stackDelta)
     {
-        foreach (var boostData in gardenItemSO.gardenBoostItemDatas)
+        foreach (var boostData in gardenItemData.gardenBoostItemDatas)
         {
             float amount =  boostData.boostAmount;
             ApplyBoost(boostData.boostType, amount);
         }
     }
 
-    private void RemoveBoosting(GardenItemSO gardenItemSO, int stackDelta)
+    private void RemoveBoosting(GardenItemSO gardenItemData, int stackDelta)
     {
-        foreach (var boostData in gardenItemSO.gardenBoostItemDatas)
+        foreach (var boostData in gardenItemData.gardenBoostItemDatas)
         {
             float amount = -boostData.boostAmount;
             ApplyBoost(boostData.boostType, amount);
@@ -116,8 +116,9 @@ public class StatusManager : MonoBehaviour
             case BoostType.Critical:
                 criticalBoost += amount;
                 break;
-            case BoostType.Heal:
+            case BoostType.Health:
                 maxHealthBoost += amount;
+                HealthManager.Instance.HealthHandeler(amount);
                 break;
         }
     }

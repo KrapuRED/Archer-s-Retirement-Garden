@@ -8,8 +8,9 @@ public class HealthManager : MonoBehaviour
     [Header("Health Configuration")]
     [SerializeField] private float maxHealth;
     [SerializeField] private float currentHealth;
-
-    private bool _isInitliaze;
+    [SerializeField] private HealthUI  healthUI;
+    
+    private bool _isInitialize;
     
     private void Awake()
     {
@@ -22,25 +23,69 @@ public class HealthManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Start() => InitliazeHealth();
+    private void Start() => InitializeHealth();
 
-    private void InitliazeHealth()
+    private void InitializeHealth()
     {
         currentHealth = maxHealth;
-        _isInitliaze = true;
+        _isInitialize = true;
+        
+        healthUI.InitHealthUI(maxHealth);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+            OnTakeHeal(10);
+        
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+            OnTakeDamage(50);
+    }
+
+    public void HealthHandeler(float amount)
+    {
+        if (amount > 0)
+        {
+            IncreaseHealth(amount);
+        }
+        else
+        {
+            DecreaseHealth(amount);
+        }
     }
     
+    private void IncreaseHealth(float amount)
+    {
+        maxHealth += amount;
+        healthUI.UpdateHealthSlider(maxHealth);
+    }
+
+    private void DecreaseHealth(float amount)
+    {
+        maxHealth = Mathf.Max(maxHealth - amount, 100);
+        
+        healthUI.UpdateHealthSlider(maxHealth);
+
+        if (currentHealth >= maxHealth)
+        {
+            currentHealth = amount;
+            healthUI.UpdateHealthUI(currentHealth);
+        }
+    }
+
     public void OnTakeHeal(float amountHeal)
     {
-        if (!_isInitliaze) return;
+        if (!_isInitialize) return;
         
         currentHealth += amountHeal;
+        healthUI.UpdateHealthUI(currentHealth);
     }
     
     public void OnTakeDamage(float amountDamage)
     {
-        if (!_isInitliaze) return;
+        if (!_isInitialize) return;
         
         currentHealth -= amountDamage;
+        healthUI.UpdateHealthUI(currentHealth);
     }
 }

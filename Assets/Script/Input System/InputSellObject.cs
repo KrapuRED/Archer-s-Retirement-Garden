@@ -7,6 +7,7 @@ public class InputSellObject : MonoBehaviour
     [SerializeField] private string actionMapName;
     [SerializeField] private InputActionReference sellPositionAction;
     [SerializeField] private InputActionReference sellClickAction;
+    [SerializeField] private InputActionReference sellCancelAction;
 
     [SerializeField] private float distanceRay;
     [SerializeField] private LayerMask gardenLayerMask;
@@ -23,15 +24,18 @@ public class InputSellObject : MonoBehaviour
     {
         sellClickAction.action.Enable();
         sellPositionAction.action.Enable();
+        sellCancelAction.action.Enable();
         
         sellPositionAction.action.performed += SellPosition;
         sellClickAction.action.performed    += SellObject;
+        sellCancelAction.action.performed   += SellCancel;
     }
 
     private void OnDisable()
     {
         sellPositionAction.action.performed -= SellPosition;
         sellClickAction.action.performed    -= SellObject;
+        sellCancelAction.action.performed   -= SellCancel;
     }
 
     private void SellPosition(InputAction.CallbackContext ctx) => _screenPos = ctx.ReadValue<Vector2>();
@@ -47,5 +51,12 @@ public class InputSellObject : MonoBehaviour
         if (obj == null) return;
 
         obj.SellGardenObject();
+    }
+
+    private void SellCancel(InputAction.CallbackContext ctx)
+    {
+         if (!InputManager.Instance.IsInputMapActive(actionMapName)) return;
+     
+         InputManager.Instance.PopInputActionMap();
     }
 }

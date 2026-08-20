@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3912981603252471316}
   - component: {fileID: -1307563501148176236}
   m_Layer: 7
-  m_Name: Test_Preview&Placement_Object
+  m_Name: Test_Middle_Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,4 +125,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba30d927b3d42904ab0d8eb3500edaea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GardenObject
-  gardenItemSo: {fileID: 0}
+  gardenItemSo: {fileID: 11400000, guid: 475692e764e8a9c4c9648e4dce57bf33, type: 2}

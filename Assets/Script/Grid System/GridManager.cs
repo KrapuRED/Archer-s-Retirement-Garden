@@ -18,7 +18,7 @@ public class GridManager : MonoBehaviour
     [Header("Auto Fit (optional)")]
     [Tooltip("If assigned, locationGrid's position and gridWidth/gridHeight are automatically calculated from this renderer's bounds before generating the grid.")]
     [SerializeField] private Renderer targetSurface;
-    [SerializeField] private GardenObject prefabMiddleBulding;
+    [SerializeField] private GardenObject prefabMiddleBuilding;
     
     [Header("Cell Visuals")]
     [SerializeField] private GridCell cellPrefab;
@@ -54,6 +54,8 @@ public class GridManager : MonoBehaviour
         
         if (generateOnAwake)
             GenerateGrid();
+        
+        SpawnBuilding();
     }
     
     #region Grid Generation and Clearing
@@ -102,13 +104,20 @@ public class GridManager : MonoBehaviour
 
     private void SpawnBuilding()
     {
-        if (prefabMiddleBulding == null) return;
+        if (prefabMiddleBuilding == null) return;
 
         Vector2Int anchorCell = new Vector2Int(
-            (gridWidth - prefabMiddleBulding.GardenItemSO.objectSize.x) / 2,
-            (gridHeight - prefabMiddleBulding.GardenItemSO.objectSize.y) / 2
+            (gridWidth - prefabMiddleBuilding.GardenItemSo.objectSize.x) / 2,
+            (gridHeight - prefabMiddleBuilding.GardenItemSo.objectSize.y) / 2
         );
         
+        Vector3 worldPos = GetFootprintCenter(anchorCell, prefabMiddleBuilding.GardenItemSo.objectSize);
+        
+        GardenObject instance = Instantiate(prefabMiddleBuilding, worldPos, Quaternion.identity, locationGrid);
+        
+        instance.name = $"Cell_MiddleBuilding";
+        
+        PlaceFootPrint(anchorCell, prefabMiddleBuilding.GardenItemSo.objectSize, instance.gameObject);
     }
     
     private void ClearGrid()
@@ -212,8 +221,7 @@ public class GridManager : MonoBehaviour
     public void PlaceFootPrint(Vector2Int anchorCell, Vector2Int sizeCell, GameObject obj)
     {
         bool canPlace = CanPlace(anchorCell + new Vector2Int(sizeCell.x, sizeCell.y));
-        if (!canPlace) return;
-        
+
         for (int x = 0; x < sizeCell.x; x++)
         {
             for (int z = 0; z < sizeCell.y; z++)

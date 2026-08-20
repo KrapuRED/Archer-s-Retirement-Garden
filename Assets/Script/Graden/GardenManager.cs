@@ -39,7 +39,7 @@ public class GardenManager : MonoBehaviour
 
     public void RegisterGardenObject(GardenObject gardenObject)
     {
-        var so = gardenObject.GardenItemSO;
+        var so = gardenObject.GardenItemSo;
         if (!_gardenObjectEffects.TryGetValue(so, out var effect))
         {
             effect = new GardenObjectEffect {nameGardenObject = gardenObject.name};
@@ -55,7 +55,7 @@ public class GardenManager : MonoBehaviour
 
     public void UnregisterGardenObject(GardenObject gardenObject)
     {
-        var so = gardenObject.GardenItemSO;
+        var so = gardenObject.GardenItemSo;
         if (!_gardenObjectEffects.TryGetValue(so, out var effect))
         {
             Debug.LogError($"[{name} (UnregisterGardenObject)] the GardenObjectEffects are empty or There are no SO with {so.gardenItemName}");

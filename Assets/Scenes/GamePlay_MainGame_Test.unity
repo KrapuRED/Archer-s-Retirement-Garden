@@ -2144,7 +2144,7 @@ Transform:
   m_GameObject: {fileID: 721965612}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 4, z: -7.74}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2226,6 +2226,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1513605126}
+  - {fileID: 1849035463}
   m_Father: {fileID: 1909641135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &723858263
@@ -2281,6 +2282,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: c93545ca-8b49-4e8c-be99-5c1d8da23773
     m_ActionName: Sell/SellPoint
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3d7d76af-e73d-4aa7-9028-9fe283dd0816
+    m_ActionName: 'Sell/CancelSell[/Mouse/rightButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Default
@@ -4518,6 +4523,7 @@ MonoBehaviour:
   gridHeight: 10
   centerGrid: 1
   targetSurface: {fileID: 1235886640}
+  prefabMiddleBuilding: {fileID: -1307563501148176236, guid: d66e087e952d7da4491681c0720838d0, type: 3}
   cellPrefab: {fileID: 6497325770166479304, guid: 4c5e76d2dbb866d4a8bc4f288137c0b3, type: 3}
   generateOnAwake: 1
   cellBeenOccupied: {fileID: 0}
@@ -4568,6 +4574,7 @@ MonoBehaviour:
   actionMapName: Sell
   sellPositionAction: {fileID: -7876821484215402065, guid: 6c75bae65e3782d4faff91651053d650, type: 3}
   sellClickAction: {fileID: -7804731327390926418, guid: 6c75bae65e3782d4faff91651053d650, type: 3}
+  sellCancelAction: {fileID: 3417132021799397408, guid: 6c75bae65e3782d4faff91651053d650, type: 3}
   distanceRay: 100
   gardenLayerMask:
     serializedVersion: 2
@@ -6119,6 +6126,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1722749876}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1849035462
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1849035463}
+  - component: {fileID: 1849035464}
+  m_Layer: 0
+  m_Name: Input System - Camera Movement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1849035463
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849035462}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 723858262}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1849035464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849035462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2efa73f8959c354d99ae1fde2f9f42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InputCameraMovement
+  cameraMovementAction: {fileID: 5525670372005247234, guid: 6c75bae65e3782d4faff91651053d650, type: 3}
+  cameraPivot: {fileID: 90263871}
+  speedCamMovement: 100
+  smoothTime: 0.1
 --- !u!1 &1884775467
 GameObject:
   m_ObjectHideFlags: 0

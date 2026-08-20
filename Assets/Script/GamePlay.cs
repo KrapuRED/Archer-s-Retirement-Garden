@@ -233,6 +233,15 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""sellCancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""3d7d76af-e73d-4aa7-9028-9fe283dd0816"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -257,6 +266,89 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
                     ""action"": ""SellPoint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c4c0b13c-cf7c-4795-959b-db0db504c30d"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""sellCancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""CameraMovement"",
+            ""id"": ""1b534ca4-c18f-44d5-a4d6-f19505ea7b89"",
+            ""actions"": [
+                {
+                    ""name"": ""CameraMovement"",
+                    ""type"": ""Value"",
+                    ""id"": ""04da1da1-550e-4082-9f9b-5ce3002b6e24"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""81aff9f4-b179-4e98-9cfe-f05bef9dd240"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CameraMovement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""da2857af-a41e-4ade-b959-b24a2ae9847f"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CameraMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""22727a6b-1436-4f51-8629-aa7e70c1ece1"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CameraMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""38231ef4-e016-47ab-bd43-61d8b59ebde8"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CameraMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""e8481d6f-4bf8-417a-b4c4-3db9c298e9b1"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CameraMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -278,6 +370,10 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         m_Sell = asset.FindActionMap("Sell", throwIfNotFound: true);
         m_Sell_SellPoint = m_Sell.FindAction("SellPoint", throwIfNotFound: true);
         m_Sell_SellClick = m_Sell.FindAction("SellClick", throwIfNotFound: true);
+        m_Sell_sellCancel = m_Sell.FindAction("sellCancel", throwIfNotFound: true);
+        // CameraMovement
+        m_CameraMovement = asset.FindActionMap("CameraMovement", throwIfNotFound: true);
+        m_CameraMovement_CameraMovement = m_CameraMovement.FindAction("CameraMovement", throwIfNotFound: true);
     }
 
     ~@GamePlay()
@@ -286,6 +382,7 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_NightGame.enabled, "This will cause a leak and performance issues, GamePlay.NightGame.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Placement.enabled, "This will cause a leak and performance issues, GamePlay.Placement.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Sell.enabled, "This will cause a leak and performance issues, GamePlay.Sell.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_CameraMovement.enabled, "This will cause a leak and performance issues, GamePlay.CameraMovement.Disable() has not been called.");
     }
 
     /// <summary>
@@ -673,6 +770,7 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
     private List<ISellActions> m_SellActionsCallbackInterfaces = new List<ISellActions>();
     private readonly InputAction m_Sell_SellPoint;
     private readonly InputAction m_Sell_SellClick;
+    private readonly InputAction m_Sell_sellCancel;
     /// <summary>
     /// Provides access to input actions defined in input action map "Sell".
     /// </summary>
@@ -692,6 +790,10 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Sell/SellClick".
         /// </summary>
         public InputAction @SellClick => m_Wrapper.m_Sell_SellClick;
+        /// <summary>
+        /// Provides access to the underlying input action "Sell/sellCancel".
+        /// </summary>
+        public InputAction @sellCancel => m_Wrapper.m_Sell_sellCancel;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -724,6 +826,9 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
             @SellClick.started += instance.OnSellClick;
             @SellClick.performed += instance.OnSellClick;
             @SellClick.canceled += instance.OnSellClick;
+            @sellCancel.started += instance.OnSellCancel;
+            @sellCancel.performed += instance.OnSellCancel;
+            @sellCancel.canceled += instance.OnSellCancel;
         }
 
         /// <summary>
@@ -741,6 +846,9 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
             @SellClick.started -= instance.OnSellClick;
             @SellClick.performed -= instance.OnSellClick;
             @SellClick.canceled -= instance.OnSellClick;
+            @sellCancel.started -= instance.OnSellCancel;
+            @sellCancel.performed -= instance.OnSellCancel;
+            @sellCancel.canceled -= instance.OnSellCancel;
         }
 
         /// <summary>
@@ -774,6 +882,102 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="SellActions" /> instance referencing this action map.
     /// </summary>
     public SellActions @Sell => new SellActions(this);
+
+    // CameraMovement
+    private readonly InputActionMap m_CameraMovement;
+    private List<ICameraMovementActions> m_CameraMovementActionsCallbackInterfaces = new List<ICameraMovementActions>();
+    private readonly InputAction m_CameraMovement_CameraMovement;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "CameraMovement".
+    /// </summary>
+    public struct CameraMovementActions
+    {
+        private @GamePlay m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public CameraMovementActions(@GamePlay wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "CameraMovement/CameraMovement".
+        /// </summary>
+        public InputAction @CameraMovement => m_Wrapper.m_CameraMovement_CameraMovement;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_CameraMovement; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="CameraMovementActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(CameraMovementActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="CameraMovementActions" />
+        public void AddCallbacks(ICameraMovementActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CameraMovementActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CameraMovementActionsCallbackInterfaces.Add(instance);
+            @CameraMovement.started += instance.OnCameraMovement;
+            @CameraMovement.performed += instance.OnCameraMovement;
+            @CameraMovement.canceled += instance.OnCameraMovement;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="CameraMovementActions" />
+        private void UnregisterCallbacks(ICameraMovementActions instance)
+        {
+            @CameraMovement.started -= instance.OnCameraMovement;
+            @CameraMovement.performed -= instance.OnCameraMovement;
+            @CameraMovement.canceled -= instance.OnCameraMovement;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="CameraMovementActions.UnregisterCallbacks(ICameraMovementActions)" />.
+        /// </summary>
+        /// <seealso cref="CameraMovementActions.UnregisterCallbacks(ICameraMovementActions)" />
+        public void RemoveCallbacks(ICameraMovementActions instance)
+        {
+            if (m_Wrapper.m_CameraMovementActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="CameraMovementActions.AddCallbacks(ICameraMovementActions)" />
+        /// <seealso cref="CameraMovementActions.RemoveCallbacks(ICameraMovementActions)" />
+        /// <seealso cref="CameraMovementActions.UnregisterCallbacks(ICameraMovementActions)" />
+        public void SetCallbacks(ICameraMovementActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CameraMovementActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CameraMovementActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="CameraMovementActions" /> instance referencing this action map.
+    /// </summary>
+    public CameraMovementActions @CameraMovement => new CameraMovementActions(this);
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Default" which allows adding and removing callbacks.
     /// </summary>
@@ -854,5 +1058,27 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSellClick(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "sellCancel" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSellCancel(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "CameraMovement" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="CameraMovementActions.AddCallbacks(ICameraMovementActions)" />
+    /// <seealso cref="CameraMovementActions.RemoveCallbacks(ICameraMovementActions)" />
+    public interface ICameraMovementActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "CameraMovement" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCameraMovement(InputAction.CallbackContext context);
     }
 }

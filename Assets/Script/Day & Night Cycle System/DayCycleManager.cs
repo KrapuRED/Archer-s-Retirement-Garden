@@ -29,20 +29,7 @@ public class DayCycleManager : MonoBehaviour
             ComponentChecker();
             ChangeDayCycleType(dayCycleType);
         }
-    
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                bool isDayCycle = dayCycleType == DayCycleType.Day;
-                if (isDayCycle)
-                    ChangeDayCycleType(DayCycleType.Night);
-                else
-                {
-                    ChangeDayCycleType(DayCycleType.Day);
-                }
-            } 
-        }
+        
     
         private void ComponentChecker()
         {
@@ -52,7 +39,7 @@ public class DayCycleManager : MonoBehaviour
             }
         }
         
-        public void ChangeDayCycleType(DayCycleType newDayCycleType)
+        private void ChangeDayCycleType(DayCycleType newDayCycleType)
         {
             if (newDayCycleType == DayCycleType.Day)
                 dayCount++;
@@ -61,4 +48,14 @@ public class DayCycleManager : MonoBehaviour
             environmentController.ApplyEnvironment(dayCycleType);
         }
 
+        public void UpdateCycleManager()
+        {
+            bool isDayCycle = dayCycleType == DayCycleType.Day;
+            if (isDayCycle)
+                ChangeDayCycleType(DayCycleType.Night);
+            else
+            {
+                ChangeDayCycleType(DayCycleType.Day);
+            }
+        }
 }

@@ -85,6 +85,8 @@ public class InputManager : MonoBehaviour
     
     public void PopInputActionMap()
     {
+        if (_overlayStack.Count == 0) return;
+        
         if (_overlayStack.Count < 0)
         {
             if (currentActionMapName != defaultActionMap)

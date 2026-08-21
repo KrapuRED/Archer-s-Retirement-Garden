@@ -68,7 +68,7 @@ public class GardenManager : MonoBehaviour
         if (effect.stackCount <= 0)
             _gardenObjectEffects.Remove(so);
         
-        Debug.LogWarning($"[{name} (RegisterGardenObject)] Success Unregister GardenObject : {gardenObject.name}");
+        //Debug.LogWarning($"[{name} (RegisterGardenObject)] Success Unregister GardenObject : {gardenObject.name}");
         GameEvents.OnChangeStackGardenObject.Invoke(so, effect.stackCount);
     }
 }

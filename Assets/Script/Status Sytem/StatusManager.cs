@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,6 +30,8 @@ public class StatusManager : MonoBehaviour
 {
     public static StatusManager Instance { get; private set; }
 
+    [SerializeField] private CharacterSO characterData;
+    
     [SerializeField] private float maxHealthBoost;
     [SerializeField] private float attackBoost;
     [SerializeField] private float criticalBoost;
@@ -63,6 +66,11 @@ public class StatusManager : MonoBehaviour
     }
 
     #endregion
+
+    private void Start()
+    {
+        HealthManager.Instance.InitializeHealth(characterData.baseMaxHealth);
+    }
 
     private void HandlingBoost(GardenItemSO gardenItemSo, int stack)
     {

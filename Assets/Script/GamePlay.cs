@@ -121,13 +121,22 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
             ""id"": ""21022d08-f3a0-4a34-9394-becbce5b5215"",
             ""actions"": [
                 {
-                    ""name"": ""Attack"",
+                    ""name"": ""BasicAttack"",
                     ""type"": ""Button"",
                     ""id"": ""2dc0d4fc-ab1c-4d2d-ac23-e056c7972bae"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MousePosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""12189d44-e3dd-4245-ad5d-c92557ce1cc8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -138,7 +147,18 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Attack"",
+                    ""action"": ""BasicAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""28a7b848-fc15-4ca1-b448-7b81e09db960"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -360,7 +380,8 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         m_Default_HoldCard = m_Default.FindAction("HoldCard", throwIfNotFound: true);
         // NightGame
         m_NightGame = asset.FindActionMap("NightGame", throwIfNotFound: true);
-        m_NightGame_Attack = m_NightGame.FindAction("Attack", throwIfNotFound: true);
+        m_NightGame_BasicAttack = m_NightGame.FindAction("BasicAttack", throwIfNotFound: true);
+        m_NightGame_MousePosition = m_NightGame.FindAction("MousePosition", throwIfNotFound: true);
         // Placement
         m_Placement = asset.FindActionMap("Placement", throwIfNotFound: true);
         m_Placement_MousePosition = m_Placement.FindAction("MousePosition", throwIfNotFound: true);
@@ -554,7 +575,8 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
     // NightGame
     private readonly InputActionMap m_NightGame;
     private List<INightGameActions> m_NightGameActionsCallbackInterfaces = new List<INightGameActions>();
-    private readonly InputAction m_NightGame_Attack;
+    private readonly InputAction m_NightGame_BasicAttack;
+    private readonly InputAction m_NightGame_MousePosition;
     /// <summary>
     /// Provides access to input actions defined in input action map "NightGame".
     /// </summary>
@@ -567,9 +589,13 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         /// </summary>
         public NightGameActions(@GamePlay wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "NightGame/Attack".
+        /// Provides access to the underlying input action "NightGame/BasicAttack".
         /// </summary>
-        public InputAction @Attack => m_Wrapper.m_NightGame_Attack;
+        public InputAction @BasicAttack => m_Wrapper.m_NightGame_BasicAttack;
+        /// <summary>
+        /// Provides access to the underlying input action "NightGame/MousePosition".
+        /// </summary>
+        public InputAction @MousePosition => m_Wrapper.m_NightGame_MousePosition;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -596,9 +622,12 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_NightGameActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_NightGameActionsCallbackInterfaces.Add(instance);
-            @Attack.started += instance.OnAttack;
-            @Attack.performed += instance.OnAttack;
-            @Attack.canceled += instance.OnAttack;
+            @BasicAttack.started += instance.OnBasicAttack;
+            @BasicAttack.performed += instance.OnBasicAttack;
+            @BasicAttack.canceled += instance.OnBasicAttack;
+            @MousePosition.started += instance.OnMousePosition;
+            @MousePosition.performed += instance.OnMousePosition;
+            @MousePosition.canceled += instance.OnMousePosition;
         }
 
         /// <summary>
@@ -610,9 +639,12 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         /// <seealso cref="NightGameActions" />
         private void UnregisterCallbacks(INightGameActions instance)
         {
-            @Attack.started -= instance.OnAttack;
-            @Attack.performed -= instance.OnAttack;
-            @Attack.canceled -= instance.OnAttack;
+            @BasicAttack.started -= instance.OnBasicAttack;
+            @BasicAttack.performed -= instance.OnBasicAttack;
+            @BasicAttack.canceled -= instance.OnBasicAttack;
+            @MousePosition.started -= instance.OnMousePosition;
+            @MousePosition.performed -= instance.OnMousePosition;
+            @MousePosition.canceled -= instance.OnMousePosition;
         }
 
         /// <summary>
@@ -1001,12 +1033,19 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
     public interface INightGameActions
     {
         /// <summary>
-        /// Method invoked when associated input action "Attack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "BasicAttack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnAttack(InputAction.CallbackContext context);
+        void OnBasicAttack(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MousePosition" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMousePosition(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Placement" which allows adding and removing callbacks.

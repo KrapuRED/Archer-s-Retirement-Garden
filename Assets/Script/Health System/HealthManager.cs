@@ -22,11 +22,10 @@ public class HealthManager : MonoBehaviour
 
         Instance = this;
     }
-
-    private void Start() => InitializeHealth();
-
-    private void InitializeHealth()
+    
+    public void InitializeHealth(float baseMaxHealth)
     {
+        maxHealth = baseMaxHealth;
         currentHealth = maxHealth;
         _isInitialize = true;
         
@@ -44,31 +43,12 @@ public class HealthManager : MonoBehaviour
 
     public void HealthHandeler(float amount)
     {
-        if (amount > 0)
-        {
-            IncreaseHealth(amount);
-        }
-        else
-        {
-            DecreaseHealth(amount);
-        }
-    }
-    
-    private void IncreaseHealth(float amount)
-    {
         maxHealth += amount;
-        healthUI.UpdateHealthSlider(maxHealth);
-    }
-
-    private void DecreaseHealth(float amount)
-    {
-        maxHealth = Mathf.Max(maxHealth - amount, 100);
-        
         healthUI.UpdateHealthSlider(maxHealth);
 
         if (currentHealth >= maxHealth)
         {
-            currentHealth = amount;
+            currentHealth = maxHealth;
             healthUI.UpdateHealthUI(currentHealth);
         }
     }

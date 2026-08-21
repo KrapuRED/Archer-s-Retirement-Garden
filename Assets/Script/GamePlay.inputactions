@@ -35,13 +35,22 @@
             "id": "21022d08-f3a0-4a34-9394-becbce5b5215",
             "actions": [
                 {
-                    "name": "Attack",
+                    "name": "BasicAttack",
                     "type": "Button",
                     "id": "2dc0d4fc-ab1c-4d2d-ac23-e056c7972bae",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MousePosition",
+                    "type": "Value",
+                    "id": "12189d44-e3dd-4245-ad5d-c92557ce1cc8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -52,7 +61,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Attack",
+                    "action": "BasicAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "28a7b848-fc15-4ca1-b448-7b81e09db960",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

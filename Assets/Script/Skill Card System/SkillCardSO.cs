@@ -1,14 +1,46 @@
 using UnityEngine;
 
+[System.Serializable]
+public enum SkillDamageType
+{
+    None,
+    Arrow,
+    Explosion
+}
+
+public enum DamageType
+{
+    None,
+    AreaOfEffect
+}
+
+[System.Serializable]
+public class ArrowSkillData
+{
+    public DamageType damageType;
+}
+
+[System.Serializable]
+public class ExplosionSkillData
+{
+    public float explosionRadius;
+}
+
 [CreateAssetMenu(fileName = "SkillCardSO", menuName = "Skill Card Data/SkillCardSO")]
 public class SkillCardSO : ScriptableObject
 {
-    public string NameSkillCard;
-    public string DescriptionSkillCard;
-    public Sprite IconSkillCard;
+    public string nameSkillCard;
+    public string descriptionSkillCard;
+    public Sprite iconSkillCard;
     
     [Header("Skill Card Configuration")]
-    public float AttackBoostSkillCard;
-    public float DurationActivekillCard;
-    public float CooldownSkillCard;
+    public SkillDamageType damageTypeSkillCard;
+    public float attackBoostSkillCard;
+    public float durationActiveSkillCard;
+    public float cooldownSkillCard;
+    
+    [Header("Type-Specific Data")]
+    public ArrowSkillData arrowData;
+    public ExplosionSkillData explosionData;
+    public GameObject prefabSkillTargeting;
 }

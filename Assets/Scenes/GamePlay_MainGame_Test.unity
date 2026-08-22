@@ -132,12 +132,12 @@ GameObject:
   - component: {fileID: 47264307}
   - component: {fileID: 47264306}
   m_Layer: 5
-  m_Name: Garden Management Mechanic - Garden Item
+  m_Name: Garden Management Mechanic - Day Garden Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &47264305
 RectTransform:
   m_ObjectHideFlags: 0
@@ -152,10 +152,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 216465870}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1178.4594, y: 338.9269}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 960, y: -130.53654}
+  m_SizeDelta: {x: 1200, y: 340}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &47264306
 MonoBehaviour:
@@ -529,6 +529,7 @@ RectTransform:
   m_Children:
   - {fileID: 1906924821}
   - {fileID: 47264305}
+  - {fileID: 563427691}
   - {fileID: 1159502920}
   m_Father: {fileID: 1884775468}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1196,7 +1197,7 @@ GameObject:
   - component: {fileID: 431222632}
   - component: {fileID: 431222633}
   m_Layer: 0
-  m_Name: Battle & Combat -  Skill Card
+  m_Name: Battle & Combat -  Skill Card System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1229,10 +1230,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d819d20b46513e7409a038856b4b890a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillCardManager
+  cardSkillContiner: {fileID: 563427691}
+  prefabSkillCard: {fileID: -6284713998388616721, guid: 663843b18c458d64fafcad8323f40173, type: 3}
   skillCards:
-  - {fileID: 11400000, guid: 69ea12d8e1a59084da9cbfa7bdf8d9a1, type: 2}
-  skillCardData: []
-  selectedSkillCard: {fileID: 0}
+  - {fileID: 11400000, guid: 2a82f2cbcc4c0b148a29a6be7b51a4e9, type: 2}
+  - {fileID: 11400000, guid: a400b15c19c627d428021ce83d3a6ab7, type: 2}
+  - {fileID: 11400000, guid: 1b61c693586523d4e809f814eca79d06, type: 2}
+  - {fileID: 11400000, guid: 94ad25b2edeaa2c48b25267d74a5353c, type: 2}
+  skillCardDatas: []
+  selectedSkillCard:
+    skillCardName: 
+    currentDown: 0
+    upgradeSkill: 0
+    currentPrice: 0
+    isActive: 0
+    skillCardUI: {fileID: 0}
+    skillCardSo: {fileID: 0}
 --- !u!1 &487284153
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,6 +1494,108 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1161de1b73179954b867fba335031662, type: 2}
   - {fileID: 11400000, guid: 090092bca6f5d4d499f85a441893e637, type: 2}
   gardenItemCardDataList: []
+--- !u!1 &563427690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 563427691}
+  - component: {fileID: 563427694}
+  - component: {fileID: 563427693}
+  - component: {fileID: 563427692}
+  m_Layer: 5
+  m_Name: Garden Management Mechanic - Night Garden Item
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &563427691
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563427690}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 216465870}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1200, y: 340}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &563427692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563427690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
+  m_Padding:
+    m_Left: 20
+    m_Right: 20
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &563427693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563427690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &563427694
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563427690}
+  m_CullTransparentMesh: 1
 --- !u!1 &570132749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2442,14 +2557,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CombatManager
   actionMapName: NightGame
   mousePositionAction: {fileID: -6449213945766596464, guid: 6c75bae65e3782d4faff91651053d650, type: 3}
-  basicAttackAction: {fileID: 2158621743832559037, guid: 6c75bae65e3782d4faff91651053d650, type: 3}
-  previewTarget: {fileID: 5747560802797912090, guid: e1806746db3250844bc2a36d3f8a854b, type: 3}
+  attackAction: {fileID: 2158621743832559037, guid: 6c75bae65e3782d4faff91651053d650, type: 3}
+  cancelAction: {fileID: -2690928912786713011, guid: 6c75bae65e3782d4faff91651053d650, type: 3}
   previewTargetSize: {x: 1, y: 1}
   distanceRay: 100
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  cooldownBasic: 5
   isReady: 1
 --- !u!1 &676790610
 GameObject:
@@ -5521,6 +5635,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f661229f6b7df4fa4467ef21babbfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnvironmentController
+  dayCardDeck: {fileID: 47264304}
+  nightCardDeck: {fileID: 563427690}
   dayActionMap: Default
   nightActionMap: NightGame
 --- !u!1 &1543720839
@@ -5867,7 +5983,7 @@ GameObject:
   - component: {fileID: 1589774008}
   - component: {fileID: 1589774009}
   m_Layer: 0
-  m_Name: Battle - Battle System
+  m_Name: Battle & Combat - Battle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -121,9 +121,18 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
             ""id"": ""21022d08-f3a0-4a34-9394-becbce5b5215"",
             ""actions"": [
                 {
-                    ""name"": ""BasicAttack"",
+                    ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""2dc0d4fc-ab1c-4d2d-ac23-e056c7972bae"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CancelAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""d0f4c30f-f10c-40db-99f5-8a5e6117a4e2"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -147,7 +156,7 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""BasicAttack"",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -159,6 +168,17 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MousePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1c228e7e-2d16-4153-a8cd-f52d65cebd26"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CancelAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -380,7 +400,8 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         m_Default_HoldCard = m_Default.FindAction("HoldCard", throwIfNotFound: true);
         // NightGame
         m_NightGame = asset.FindActionMap("NightGame", throwIfNotFound: true);
-        m_NightGame_BasicAttack = m_NightGame.FindAction("BasicAttack", throwIfNotFound: true);
+        m_NightGame_Attack = m_NightGame.FindAction("Attack", throwIfNotFound: true);
+        m_NightGame_CancelAttack = m_NightGame.FindAction("CancelAttack", throwIfNotFound: true);
         m_NightGame_MousePosition = m_NightGame.FindAction("MousePosition", throwIfNotFound: true);
         // Placement
         m_Placement = asset.FindActionMap("Placement", throwIfNotFound: true);
@@ -575,7 +596,8 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
     // NightGame
     private readonly InputActionMap m_NightGame;
     private List<INightGameActions> m_NightGameActionsCallbackInterfaces = new List<INightGameActions>();
-    private readonly InputAction m_NightGame_BasicAttack;
+    private readonly InputAction m_NightGame_Attack;
+    private readonly InputAction m_NightGame_CancelAttack;
     private readonly InputAction m_NightGame_MousePosition;
     /// <summary>
     /// Provides access to input actions defined in input action map "NightGame".
@@ -589,9 +611,13 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         /// </summary>
         public NightGameActions(@GamePlay wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "NightGame/BasicAttack".
+        /// Provides access to the underlying input action "NightGame/Attack".
         /// </summary>
-        public InputAction @BasicAttack => m_Wrapper.m_NightGame_BasicAttack;
+        public InputAction @Attack => m_Wrapper.m_NightGame_Attack;
+        /// <summary>
+        /// Provides access to the underlying input action "NightGame/CancelAttack".
+        /// </summary>
+        public InputAction @CancelAttack => m_Wrapper.m_NightGame_CancelAttack;
         /// <summary>
         /// Provides access to the underlying input action "NightGame/MousePosition".
         /// </summary>
@@ -622,9 +648,12 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_NightGameActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_NightGameActionsCallbackInterfaces.Add(instance);
-            @BasicAttack.started += instance.OnBasicAttack;
-            @BasicAttack.performed += instance.OnBasicAttack;
-            @BasicAttack.canceled += instance.OnBasicAttack;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
+            @CancelAttack.started += instance.OnCancelAttack;
+            @CancelAttack.performed += instance.OnCancelAttack;
+            @CancelAttack.canceled += instance.OnCancelAttack;
             @MousePosition.started += instance.OnMousePosition;
             @MousePosition.performed += instance.OnMousePosition;
             @MousePosition.canceled += instance.OnMousePosition;
@@ -639,9 +668,12 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         /// <seealso cref="NightGameActions" />
         private void UnregisterCallbacks(INightGameActions instance)
         {
-            @BasicAttack.started -= instance.OnBasicAttack;
-            @BasicAttack.performed -= instance.OnBasicAttack;
-            @BasicAttack.canceled -= instance.OnBasicAttack;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
+            @CancelAttack.started -= instance.OnCancelAttack;
+            @CancelAttack.performed -= instance.OnCancelAttack;
+            @CancelAttack.canceled -= instance.OnCancelAttack;
             @MousePosition.started -= instance.OnMousePosition;
             @MousePosition.performed -= instance.OnMousePosition;
             @MousePosition.canceled -= instance.OnMousePosition;
@@ -1033,12 +1065,19 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
     public interface INightGameActions
     {
         /// <summary>
-        /// Method invoked when associated input action "BasicAttack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Attack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnBasicAttack(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "CancelAttack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCancelAttack(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "MousePosition" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

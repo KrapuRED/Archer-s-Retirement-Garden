@@ -35,9 +35,18 @@
             "id": "21022d08-f3a0-4a34-9394-becbce5b5215",
             "actions": [
                 {
-                    "name": "BasicAttack",
+                    "name": "Attack",
                     "type": "Button",
                     "id": "2dc0d4fc-ab1c-4d2d-ac23-e056c7972bae",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CancelAttack",
+                    "type": "Button",
+                    "id": "d0f4c30f-f10c-40db-99f5-8a5e6117a4e2",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -61,7 +70,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "BasicAttack",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -73,6 +82,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MousePosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1c228e7e-2d16-4153-a8cd-f52d65cebd26",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CancelAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

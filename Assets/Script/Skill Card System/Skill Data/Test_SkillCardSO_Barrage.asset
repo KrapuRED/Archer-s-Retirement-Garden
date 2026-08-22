@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d531b4335552140b41e0140b86018b, type: 3}
+  m_Name: Test_SkillCardSO_Barrage
+  m_EditorClassIdentifier: Assembly-CSharp::SkillCardSO
+  nameSkillCard: Explosion Barrage
+  descriptionSkillCard: 
+  iconSkillCard: {fileID: 0}
+  damageTypeSkillCard: 2
+  attackBoostSkillCard: 0
+  durationActiveSkillCard: 0
+  cooldownSkillCard: 0
+  arrowData:
+    damageType: 1
+  explosionData:
+    explosionRadius: 0
+  prefabSkillTargeting: {fileID: 5454667006110277672, guid: a42daa679bbcbb840b90f775b535f963, type: 3}

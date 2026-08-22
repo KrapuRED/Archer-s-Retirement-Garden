@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class EnvironmentController : MonoBehaviour
 {
+    [Header("UI Elements")]
+    [SerializeField] private GameObject dayCardDeck;
+    [SerializeField] private GameObject nightCardDeck;
+    
+    [Header("Action Map Controls")]
     [SerializeField] private string dayActionMap;
     [SerializeField] private string nightActionMap;
     
@@ -9,11 +14,17 @@ public class EnvironmentController : MonoBehaviour
     {
         if (dayCycleType == DayCycleType.Day)
         {
-            Debug.Log($"Day {dayCycleType} has been applied");
+            nightCardDeck.SetActive(false);
+            dayCardDeck.SetActive(true);
+            
             InputManager.Instance.PopInputActionMap();
         }
         else if (dayCycleType == DayCycleType.Night)
         {
+            
+            dayCardDeck.SetActive(false);
+            nightCardDeck.SetActive(true);
+            
             InputManager.Instance.SwitchInputMap(nightActionMap);
         }
     }

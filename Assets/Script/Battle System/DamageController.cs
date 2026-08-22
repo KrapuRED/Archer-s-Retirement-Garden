@@ -25,16 +25,11 @@ public class DamageController : MonoBehaviour
     
     public void OnCalculateDamagePlayer(CharacterSO enemyStatusData)
     {
-        HealthManager.Instance.OnTakeDamage(enemyStatusData.baseAttack);
+
     }
 
     public void OnCalculateDamageEnemy()
     {
-        float damage = OnCalculateDamage(_playerStatusManager.AttackBoost,
-            _skillCardManager.SelectedSkillCard.AttackBoostSkillCard);
-        float critDamage = OnCalculateCritDamage();
-        
-        float finalDamage = damage + critDamage;
-        Debug.Log(finalDamage);
+
     }
 }

@@ -6,9 +6,10 @@ using UnityEngine;
 public class SkillCardData
 {
     public string skillCardName;
-    public float currentDown;
+    public float currentAttackBoost;
     public int upgradeSkill;
     public int currentPrice;
+    public float currentCooldown;
     public bool isActive;
     
     public SkillCardUI skillCardUI;
@@ -61,10 +62,10 @@ public class SkillCardManager : MonoBehaviour
             SkillCardData newSkillCardData = new SkillCardData
             {
                 skillCardName = skillCard.nameSkillCard,
-                currentDown = 0,
-                isActive = true,
+                currentAttackBoost = skillCard.attackBoostSkillCard,
                 skillCardUI = newSkillCard,
-                skillCardSo = skillCard
+                skillCardSo = skillCard,
+                isActive = true
             };
             
             newSkillCard.InitSkillCard(newSkillCardData);
@@ -73,12 +74,22 @@ public class SkillCardManager : MonoBehaviour
         }
     }
 
-    private void CoolDownSkillCard(SkillCardSO skillCardData)
+    private void CoolDownSkillCard()
     {
-        
+        foreach (var skillData in skillCardDatas)
+        {
+            if (skillData.isActive)
+                continue;
+
+            skillData.currentCooldown -= Time.deltaTime;
+            if (skillData.currentCooldown <= 0)
+            {
+                skillData.isActive = true;
+            }
+        }
     }
 
-    public void UpdateSkillCard(SkillCardSO skillCardData)
+    public void UpgradeSkillCard(SkillCardSO skillCardData)
     {
         /*
          * 1) Update Skill
@@ -108,7 +119,17 @@ public class SkillCardManager : MonoBehaviour
     
     public void UsingSkillCard()
     {
+    
+        var skillData = skillCardDatas.Find(x => x.skillCardName == selectedSkillCard.skillCardName);
+        if (skillData == null)
+        {
+            Debug.LogError($"[{name} - (UsingSkillCard)] There are no {selectedSkillCard.skillCardName}!");
+            return;
+        }
+    
         Debug.LogWarning($"[{name} - (UseSkillCard)] Using SkillCard!");
+        skillData.isActive = false;
+        skillData.currentCooldown = selectedSkillCard.skillCardSo.cooldownSkillCard;
         
         selectedSkillCard = null;
     }

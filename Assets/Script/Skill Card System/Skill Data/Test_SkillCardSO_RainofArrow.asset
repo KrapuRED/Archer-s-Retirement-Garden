@@ -16,9 +16,9 @@ MonoBehaviour:
   descriptionSkillCard: 
   iconSkillCard: {fileID: 0}
   damageTypeSkillCard: 1
-  attackBoostSkillCard: 0
-  durationActiveSkillCard: 0
-  cooldownSkillCard: 0
+  attackBoostSkillCard: 50
+  durationActiveSkillCard: 10
+  cooldownSkillCard: 22
   arrowData:
     damageType: 1
   explosionData:

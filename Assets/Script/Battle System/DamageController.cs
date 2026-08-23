@@ -1,11 +1,18 @@
-using System;
 using UnityEngine;
 
 public class DamageController : MonoBehaviour
 {
+    public static DamageController Instance { get; private set; }
+    
     private SkillCardManager _skillCardManager;
     private StatusManager  _playerStatusManager;
 
+    private void Awake()
+    {
+        if (Instance != null) { Destroy(gameObject); return; }
+        Instance = this;
+    }
+    
     private void Start()
     {
         _skillCardManager = SkillCardManager.Instance;
@@ -28,8 +35,25 @@ public class DamageController : MonoBehaviour
 
     }
 
-    public void OnCalculateDamageEnemy()
+    public float OnCalculateDamageToEnemy(SkillCardData skillCardData)
     {
-
+        if (_playerStatusManager == null || _skillCardManager == null)
+        {
+            _playerStatusManager = StatusManager.Instance;
+            _skillCardManager = SkillCardManager.Instance;
+        }
+        
+        if (skillCardData == null)
+        {
+            Debug.LogError("SkillCardManager is null");
+            return 0f;
+        }
+        
+        float damage = OnCalculateDamage(_playerStatusManager.AttackBoost,
+            skillCardData.currentAttackBoost);
+        
+        float critDamage = OnCalculateCritDamage();
+        
+        return damage + critDamage;
     }
 }

@@ -73,8 +73,7 @@ public class InputManager : MonoBehaviour
         currentActionMapName = actionMap.name;
         currentActionMap = actionMap;
         
-        GameEvents.OnActionMapChange.Invoke(actionMapName);
-        //Debug.Log($"[{name} - ExecuteSwitchActionMap] Success Switch Action Map '{actionMapName}'");
+        GameEvents.OnActionMapChange.Invoke();
     }
     #endregion
     
@@ -102,7 +101,7 @@ public class InputManager : MonoBehaviour
         currentActionMapName = nextActionMap;
         ExecuteSwitchActionMap(nextActionMap);
         
-        GameEvents.OnActionMapChange.Invoke(nextActionMap);
+        GameEvents.OnActionMapChange.Invoke();
     }
 
     public bool IsInputMapActive(string actionMapName) => currentActionMapName == actionMapName;

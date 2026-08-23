@@ -19,8 +19,7 @@ public class CombatInput : MonoBehaviour
     private Vector2 _screenPosition;
     private Vector2Int _currentCell;
     private Vector2Int _anchorCell;
-
-    [SerializeField] private bool isReady = true;
+    
     private GridManager _gridManager;
     private Camera _camera;
 
@@ -68,10 +67,8 @@ public class CombatInput : MonoBehaviour
             return;
         }
         
-        SkillCardManager.Instance.UsingSkillCard();
-        Destroy(_previewInstance);
-        
-        isReady = false;
+        SkillCardManager.Instance.UsingSkillCard(_previewInstance);
+        _previewInstance = null;
     }
 
     private void OnCancelAction(InputAction.CallbackContext ctx)
@@ -87,8 +84,6 @@ public class CombatInput : MonoBehaviour
     {
         if (!InputManager.Instance.IsInputMapActive(actionMapName))
             return;
-        
-        if(!isReady) return;
         
         if (_previewInstance == null)
             SpawnPreviewTarget();

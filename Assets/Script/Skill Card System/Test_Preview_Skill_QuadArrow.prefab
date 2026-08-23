@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8586062110002438735}
+  - component: {fileID: -3382574221372884808}
   m_Layer: 0
   m_Name: Test_Preview_Skill_QuadArrow
   m_TagString: Untagged
@@ -35,6 +36,19 @@ Transform:
   - {fileID: 2483509739047486749}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-3382574221372884808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3158851836490131347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f25566beb023784c857577d3917d417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuadArrowSkill
+  arrowPrefab: {fileID: 2697192857362300015, guid: 6837bdbed7447e941bfd322003c2916d, type: 3}
 --- !u!1001 &330762774490708278
 PrefabInstance:
   m_ObjectHideFlags: 0

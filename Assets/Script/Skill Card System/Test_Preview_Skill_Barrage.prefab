@@ -579,6 +579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3698810484452342685}
+  - component: {fileID: 4655828342431725378}
   m_Layer: 0
   m_Name: Test_Preview_Skill_Barrage
   m_TagString: Untagged
@@ -600,13 +601,33 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1958720737003114378}
-  - {fileID: 5789441563512769944}
   - {fileID: 6322691761500488854}
-  - {fileID: 5239858673814110183}
   - {fileID: 5760447695163375941}
+  - {fileID: 5789441563512769944}
+  - {fileID: 5239858673814110183}
   - {fileID: 2687492169895169997}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4655828342431725378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5454667006110277672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ba4befba242e19429325ad2f30856a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BarrageExplosionSkill
+  arrowPrefab: {fileID: 9144626187968341055, guid: a2244e47e6786e2448b6bab95d258b75, type: 3}
+  containerPattern: {fileID: 3698810484452342685}
+  barragePattern: []
+  delayEachTarget: 1
+  delayBeforeNextGroup: 0.6
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &5511501043892608246
 GameObject:
   m_ObjectHideFlags: 0

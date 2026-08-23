@@ -16,11 +16,11 @@ MonoBehaviour:
   descriptionSkillCard: 
   iconSkillCard: {fileID: 0}
   damageTypeSkillCard: 2
-  attackBoostSkillCard: 0
+  attackBoostSkillCard: 180
   durationActiveSkillCard: 0
-  cooldownSkillCard: 0
+  cooldownSkillCard: 42
   arrowData:
     damageType: 1
   explosionData:
-    explosionRadius: 0
+    explosionRadius: 0.5
   prefabSkillTargeting: {fileID: 5454667006110277672, guid: a42daa679bbcbb840b90f775b535f963, type: 3}

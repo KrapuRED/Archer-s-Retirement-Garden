@@ -61,7 +61,7 @@ public static class GameEvents
     public static readonly CustomEvents<GardenItemSO, int> OnChangeStackGardenObject = new();
     
     // # ================================ INPUT SYSTEM ================================ #
-    public static readonly CustomEvents<string> OnActionMapChange = new();
+    public static readonly CustomEvents OnActionMapChange = new();
     public static readonly CustomEvents<GardenItemCardData> OnCarryObject = new();
     
     // # ================================ PAUSE SYSTEM ================================ #

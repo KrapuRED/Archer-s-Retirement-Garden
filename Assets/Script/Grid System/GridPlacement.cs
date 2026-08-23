@@ -53,6 +53,7 @@ public class GridPlacement : MonoBehaviour
         cancelAction.action.performed += OnCancel;
         
         GameEvents.OnCarryObject.AddListener(BeginPlacement);
+        GameEvents.OnActionMapChange.AddListener(OnChangeActionMap);
     }
 
     private void OnDisable()
@@ -67,6 +68,15 @@ public class GridPlacement : MonoBehaviour
         cancelAction.action.performed -= OnCancel;
         
         GameEvents.OnCarryObject.RemoveListener(BeginPlacement);
+    }
+
+    private void OnChangeActionMap()
+    {
+        if (_previewInstance != null)
+        {
+            Destroy(_previewInstance);
+            _previewInstance = null;
+        }
     }
     
     #endregion

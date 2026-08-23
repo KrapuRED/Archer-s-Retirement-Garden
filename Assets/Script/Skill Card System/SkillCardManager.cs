@@ -25,7 +25,7 @@ public class SkillCardManager : MonoBehaviour
     [SerializeField] private SkillCardUI prefabSkillCard;
     
     [SerializeField] private List<SkillCardSO> skillCards = new();
-    [SerializeField] private List<SkillCardData> skillCardDatas = new();
+    [SerializeField] private List<SkillCardData> listSkillCardData = new();
     [SerializeField] private SkillCardData selectedSkillCard;
     
     public SkillCardData SelectedSkillCard => selectedSkillCard;
@@ -70,13 +70,13 @@ public class SkillCardManager : MonoBehaviour
             
             newSkillCard.InitSkillCard(newSkillCardData);
             
-            skillCardDatas.Add(newSkillCardData);
+            listSkillCardData.Add(newSkillCardData);
         }
     }
 
     private void CoolDownSkillCard()
     {
-        foreach (var skillData in skillCardDatas)
+        foreach (var skillData in listSkillCardData)
         {
             if (skillData.isActive)
                 continue;
@@ -99,7 +99,7 @@ public class SkillCardManager : MonoBehaviour
 
     public void SelectSkillCard(SkillCardData skillData)
     {
-        var skill = skillCardDatas.Find(x => x.skillCardName == skillData.skillCardName);
+        var skill = listSkillCardData.Find(x => x.skillCardName == skillData.skillCardName);
         if (skill == null)
         {
             Debug.LogError($"[{name} - (UseSkillCard)] NO DATA for {skillData.skillCardName}!");
@@ -117,10 +117,9 @@ public class SkillCardManager : MonoBehaviour
         selectedSkillCard = null;
     }
     
-    public void UsingSkillCard()
+    public void UsingSkillCard(GameObject skillInstance)
     {
-    
-        var skillData = skillCardDatas.Find(x => x.skillCardName == selectedSkillCard.skillCardName);
+        var skillData = listSkillCardData.Find(x => x.skillCardName == selectedSkillCard.skillCardName);
         if (skillData == null)
         {
             Debug.LogError($"[{name} - (UsingSkillCard)] There are no {selectedSkillCard.skillCardName}!");
@@ -128,6 +127,20 @@ public class SkillCardManager : MonoBehaviour
         }
     
         Debug.LogWarning($"[{name} - (UseSkillCard)] Using SkillCard!");
+        
+        var skill = skillInstance.GetComponent<Skill>();
+        if (skill == null)
+        {
+            Debug.LogError($"[{name} - (UsingSkillCard)] There are no Script Skill in {skillData.skillCardSo}!");
+            Destroy(skillInstance);
+            selectedSkillCard = null;
+            return;
+        }
+        
+        foreach (var col in skillInstance.GetComponentsInChildren<Collider>())
+            col.enabled = true;
+        
+        skill.UseSkill(skillData);
         skillData.isActive = false;
         skillData.currentCooldown = selectedSkillCard.skillCardSo.cooldownSkillCard;
         

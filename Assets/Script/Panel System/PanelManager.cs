@@ -9,6 +9,7 @@ public enum PanelType
     None,
     Pause,
     Confirmation, 
+    Upgrade,
     Tutorial
 }
 

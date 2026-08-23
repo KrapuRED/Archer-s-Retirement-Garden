@@ -27,20 +27,18 @@ public class BarrageExplosionSkill : Skill
         StartCoroutine(BarrageSequence(skillCardData));
     }
 
-    private void Explosion(Transform marker, float explosionRadius, SkillCardData skillCardData)
+    private void ArrowSpawn(Transform marker, SkillCardData skillCardData)
     {
-        arrowPrefab.SpawnArrow(explosionRadius);
-        marker.gameObject.SetActive(true);
-
-        Collider[] hits = Physics.OverlapSphere(marker.position, explosionRadius, enemyLayerMask);
-        foreach (var hit in hits)
+        Vector3 spawnPosition = new Vector3(marker.position.x, marker.position.y + offsetSpawnArrow, marker.position.z);
+        var arrow = Instantiate(arrowPrefab, spawnPosition, Quaternion.identity, containerPattern);
+        if (arrow == null)
         {
-            IDamageable target = hit.GetComponent<IDamageable>();
-            if (target == null) continue;
-
-            float damage = DamageController.Instance.OnCalculateDamageToEnemy(skillCardData);
-            target.TakeDamage(damage);
+            Destroy(arrow);
+            return;
         }
+        
+        arrow.OnSpawnArrow(skillCardData);
+        marker.gameObject.SetActive(true);
     }
 
     private IEnumerator BarrageSequence(SkillCardData skillCardData)
@@ -51,7 +49,7 @@ public class BarrageExplosionSkill : Skill
         List<Transform> vertical = barragePattern.Skip(HORIZONTAL_COUNT).ToList();
         foreach (var marker in vertical)
         {
-            Explosion(marker, skillCardData.skillCardSo.explosionData.explosionRadius, skillCardData);
+            ArrowSpawn(marker, skillCardData);
             prevGroup.Add(marker);
             
             yield return new WaitForSeconds(delayEachTarget);
@@ -68,7 +66,7 @@ public class BarrageExplosionSkill : Skill
         List<Transform> horizontal = barragePattern.Take(HORIZONTAL_COUNT).ToList();
         foreach (var marker in horizontal)
         {
-            Explosion(marker, skillCardData.skillCardSo.explosionData.explosionRadius, skillCardData);
+            ArrowSpawn(marker, skillCardData);
             yield return new WaitForSeconds(delayEachTarget);
         }
         

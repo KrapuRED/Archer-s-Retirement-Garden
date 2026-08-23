@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,13 +33,15 @@ public class StatusManager : MonoBehaviour
     
     [SerializeField] private float maxHealthBoost;
     [SerializeField] private float attackBoost;
-    [SerializeField] private float criticalBoost;
+    [SerializeField] private float criticalBoostRate;
+    [SerializeField] private float criticalBoostDamage;
 
     private readonly List<GardenBoostTrackData> _gardenBoostTrackDataList = new();
 
     public float MaxHealthBoost => maxHealthBoost;
     public float AttackBoost => attackBoost;
-    public float CriticalBoost => criticalBoost;
+    public float CriticalBoostRate => criticalBoostRate;
+    public float CriticalBoostDamage => criticalBoostDamage;
 
     private void Awake()
     {
@@ -70,6 +71,9 @@ public class StatusManager : MonoBehaviour
     private void Start()
     {
         HealthManager.Instance.InitializeHealth(characterData.baseMaxHealth);
+        attackBoost = characterData.baseAttack;
+        criticalBoostRate = characterData.baseCritRate;
+        criticalBoostDamage = characterData.bassCritDamage;
     }
 
     private void HandlingBoost(GardenItemSO gardenItemSo, int stack)
@@ -122,7 +126,7 @@ public class StatusManager : MonoBehaviour
                 attackBoost += amount;
                 break;
             case BoostType.Critical:
-                criticalBoost += amount;
+                criticalBoostDamage += amount;
                 break;
             case BoostType.Health:
                 maxHealthBoost += amount;

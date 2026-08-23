@@ -17,6 +17,6 @@ MonoBehaviour:
   baseMaxHealth: 200
   baseAttack: 10
   baseAttackSpeed: 3.3
-  baseCritRate: 10
+  baseCritRate: 50
   bassCritDamage: 50
   characterSprite: {fileID: 0}

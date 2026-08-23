@@ -7,6 +7,8 @@ public class DamageController : MonoBehaviour
     private SkillCardManager _skillCardManager;
     private StatusManager  _playerStatusManager;
 
+    private bool _lastHitWasCrit;
+
     private void Awake()
     {
         if (Instance != null) { Destroy(gameObject); return; }
@@ -25,9 +27,17 @@ public class DamageController : MonoBehaviour
         return damage;
     }
 
-    private float OnCalculateCritDamage()
+    private float OnCalculateCritDamage(float baseDamage)
     {
-        return 0;
+        float critDamage = 0;
+        
+        float roll = Random.Range(0f, 100f);
+        bool isCrit = _playerStatusManager.CriticalBoostRate >= roll;
+        
+        if (!isCrit) return critDamage;
+        
+        critDamage = baseDamage * (_playerStatusManager.CriticalBoostDamage / 100f);
+        return critDamage;
     }
     
     public void OnCalculateDamagePlayer(CharacterSO enemyStatusData)
@@ -52,7 +62,9 @@ public class DamageController : MonoBehaviour
         float damage = OnCalculateDamage(_playerStatusManager.AttackBoost,
             skillCardData.currentAttackBoost);
         
-        float critDamage = OnCalculateCritDamage();
+        float critDamage = OnCalculateCritDamage(damage);
+        
+        Debug.Log($"OnCalculateDamagePlayer {damage} + {critDamage} = {critDamage +  damage}");
         
         return damage + critDamage;
     }

@@ -1,10 +1,32 @@
+using System.Collections;
 using UnityEngine;
 
 public class QuadArrowSkill : Skill
 {
+    [SerializeField] private Transform[] markers;
+    
     public override void UseSkill(SkillCardData  skillCardData)
     {
-        arrowPrefab.SpawnArrow();
         Debug.Log($"{name} Use Skill! Attack Boost : {skillCardData.currentAttackBoost}");
+        foreach (var marker in markers)
+        {
+            ArrowSpawn(marker, skillCardData);
+        }
+    }
+    
+    private void ArrowSpawn(Transform marker, SkillCardData skillCardData)
+    {
+        Vector3 spawnPosition = new Vector3(marker.position.x, marker.position.y + offsetSpawnArrow, marker.position.z);
+        
+        var arrow = Instantiate(arrowPrefab, spawnPosition, Quaternion.identity, this.transform);
+        if (arrow == null)
+        {
+            Destroy(arrow);
+            return;
+        }
+
+        arrow.OnSpawnArrow(skillCardData);
+        marker.gameObject.SetActive(false);
+
     }
 }

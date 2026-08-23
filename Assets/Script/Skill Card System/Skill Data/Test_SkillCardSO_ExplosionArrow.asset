@@ -23,4 +23,4 @@ MonoBehaviour:
     damageType: 1
   explosionData:
     explosionRadius: 2
-  prefabSkillTargeting: {fileID: 5747560802797912090, guid: a18c981cc51f4974e9ceba06a28799fc, type: 3}
+  prefabSkillTargeting: {fileID: 394579494926582460, guid: a18c981cc51f4974e9ceba06a28799fc, type: 3}

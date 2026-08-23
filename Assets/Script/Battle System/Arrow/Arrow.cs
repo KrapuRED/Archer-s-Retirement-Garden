@@ -1,8 +1,21 @@
+using System;
 using UnityEngine;
 
 public abstract class Arrow : MonoBehaviour
 {
     [SerializeField] protected float arrowVelocity;
-    
-    public abstract void SpawnArrow(float radiusExplosion = 0);
+
+    private Rigidbody _rigidbody;
+
+    private void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        _rigidbody.linearVelocity = transform.up * -arrowVelocity;
+    }
+
+    public abstract void OnSpawnArrow(SkillCardData skillCardData);
 }

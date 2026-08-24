@@ -1543,8 +1543,7 @@ MonoBehaviour:
   selectedSkillCard:
     skillCardName: 
     currentAttackBoost: 0
-    upgradeSkill: 0
-    currentPrice: 0
+    currentRadiusExplosion: 0
     currentCooldown: 0
     isActive: 0
     skillCardUI: {fileID: 0}
@@ -4071,6 +4070,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4568091952235502636, guid: 6a86dac0446de194a8a2cd0ffcf9b906, type: 3}
+      propertyPath: upgradeCardData
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e312ad9acbfa7542bf2638b464b0ee0, type: 2}
     - target: {fileID: 5267541257266591282, guid: 6a86dac0446de194a8a2cd0ffcf9b906, type: 3}
       propertyPath: m_Name
       value: Test_CardUpgradeUI (1)
@@ -5302,16 +5305,11 @@ MonoBehaviour:
   upgradeCardPools:
   - poolName: Upgrade Card Pool Day 1 - 3
     days: 3
-    UpgradeCardDatas:
-    - Name: 1 Star
-      change: 0
-      ListOfUpgradeCardSo: []
-    - Name: 2 Star
-      change: 0
-      ListOfUpgradeCardSo: []
-    - Name: 3 Star
-      change: 0
-      ListOfUpgradeCardSo: []
+    upgradeCardDatas: []
+  activeUpgradeCards: []
+  maxActiveRandomCards: 0
+  increasePriceStoryMode: 0
+  increasePriceEndlessMode: 0
 --- !u!1 &1208789338
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,8 @@ public class DayCycleManager : MonoBehaviour
         
         [SerializeField] private EnvironmentController environmentController;
         
+        public int DayCount => dayCount;
+        
         private void Awake()
         {
             if (Instance != null)

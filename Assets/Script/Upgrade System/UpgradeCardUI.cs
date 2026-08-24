@@ -1,0 +1,62 @@
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
+public class UpgradeCardUI : MonoBehaviour
+{
+    [SerializeField] private UpgradeCardSO upgradeCardData;
+    [SerializeField] private TMP_Text nameUpgradeCard;
+    [SerializeField] private TMP_Text descriptionUpgradeCard;
+    [SerializeField] private TMP_Text costUpgradeCard;
+    [SerializeField] private Image iconUpgradeCard;
+    
+    [SerializeField] private Transform starContiner;
+    private List<Transform> _starImage = new();
+
+    private void Awake()
+    {
+        for (int i = 0; i < starContiner.childCount; i++)
+        {
+            _starImage.Add(starContiner.GetChild(i));
+        }
+    }
+
+    private void Start()
+    {
+        if (upgradeCardData == null) return;
+        
+        nameUpgradeCard.text = upgradeCardData.upgradeName;
+        descriptionUpgradeCard.text = upgradeCardData.upgradeDescription;
+        costUpgradeCard.text = $"{Mathf.RoundToInt(upgradeCardData.upgradeBaseCost)} $";
+    }
+    
+    private void ShowStarByRarity(UpgradeRarity rarity)
+    {
+        int starCount = (int)rarity + 1; // Star1 -> 1, Star2 -> 2, Star3 -> 3
+
+        for (int i = 0; i < _starImage.Count; i++)
+        {
+            _starImage[i].gameObject.SetActive(i < starCount);
+        }
+    }
+
+    public void InitilizeUpgradeCardUI(UpgradeCardRunTimeData upgradeData)
+    {
+        //Show Star By Rarity
+        upgradeCardData = upgradeData.cardSO;
+        
+        this.name = $"Upgrade Card - {upgradeData.cardSO.upgradeName}";
+        ShowStarByRarity(upgradeData.cardSO.rarity);
+        
+        nameUpgradeCard.text = upgradeData.cardSO.upgradeName;
+        descriptionUpgradeCard.text = upgradeData.cardSO.upgradeDescription;
+        costUpgradeCard.text = $"{Mathf.RoundToInt(upgradeData.currentPrice)} $";
+    }
+
+    public void OnClickUgradeCard()
+    {
+        UpgradeCardManager.Instance.OnUpgradeCard(upgradeCardData);
+        GameEvents.OnRequestClosePanel.Invoke(PanelType.Upgrade);
+    }
+}

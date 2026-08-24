@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeCardSO
   upgradeName: Ballistic III
   upgradeDescription: Increase Arrow Velocity by +0.6
+  rarity: 2
   upgradeType: 1
   upgradeIcon: {fileID: 0}
   upgradeBaseCost: 180
   upgradeStatusType: 5
+  linkedSkillCard: {fileID: 0}
   upgradeValue: 0.6

@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeCardSO
   upgradeName: Sharp Shooter I
   upgradeDescription: Gain 10% Crit Chance
+  rarity: 1
   upgradeType: 1
   upgradeIcon: {fileID: 0}
   upgradeBaseCost: 120
   upgradeStatusType: 1
+  linkedSkillCard: {fileID: 0}
   upgradeValue: 10

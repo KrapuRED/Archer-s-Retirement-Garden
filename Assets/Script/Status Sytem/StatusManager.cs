@@ -33,6 +33,8 @@ public class StatusManager : MonoBehaviour
     
     [SerializeField] private float maxHealthBoost;
     [SerializeField] private float attackBoost;
+    [SerializeField] private float attackIntervalBoost;
+    [SerializeField] private float arrowVelocityBoost;
     [SerializeField] private float criticalBoostRate;
     [SerializeField] private float criticalBoostDamage;
 
@@ -131,6 +133,28 @@ public class StatusManager : MonoBehaviour
             case BoostType.Health:
                 maxHealthBoost += amount;
                 HealthManager.Instance.HealthHandeler(amount);
+                break;
+        }
+    }
+
+    public void ApplyUpgradeCardBoost(UpgradeStatusType upgradeStatusType, float amount)
+    {
+        switch (upgradeStatusType)
+        {
+            case UpgradeStatusType.Attack:
+                attackBoost += amount;
+                break;
+            case UpgradeStatusType.AttackInterval:
+                attackIntervalBoost += amount;
+                break;
+            case UpgradeStatusType.ArrowVelocity :
+                arrowVelocityBoost+= amount;
+                break;
+            case UpgradeStatusType.CritChance:
+                criticalBoostRate += amount;
+                break;
+            case UpgradeStatusType.CritDamage:
+                criticalBoostDamage += amount;
                 break;
         }
     }

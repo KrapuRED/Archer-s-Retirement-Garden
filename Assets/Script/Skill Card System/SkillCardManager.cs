@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,11 +8,11 @@ public class SkillCardData
 {
     public string skillCardName;
     public float currentAttackBoost;
-    public int upgradeSkill;
-    public int currentPrice;
+    public float currentRadiusExplosion;
+    public float currentMaxCooldown;
     public float currentCooldown;
     public bool isActive;
-    
+
     public SkillCardUI skillCardUI;
     public SkillCardSO skillCardSo;
 }
@@ -24,6 +25,7 @@ public class SkillCardManager : MonoBehaviour
     [SerializeField] private Transform cardSkillContiner;
     [SerializeField] private SkillCardUI prefabSkillCard;
     
+    [Header("Skill Cards Configuration")]
     [SerializeField] private List<SkillCardSO> skillCards = new();
     [SerializeField] private List<SkillCardData> listSkillCardData = new();
     [SerializeField] private SkillCardData selectedSkillCard;
@@ -43,35 +45,44 @@ public class SkillCardManager : MonoBehaviour
 
     private void Start()
     {
-        InitializeSkillCards();
+        if (skillCards.Count == 0 ) return;
+
+        foreach (var skillData in skillCards)
+        {
+            InitializeSkillCards(skillData);
+        }
     }
 
-    private void InitializeSkillCards()
+    private void Update()
     {
-        foreach (SkillCardSO skillCard in skillCards)
+        CoolDownSkillCard();
+    }
+
+    private void InitializeSkillCards(SkillCardSO skillCard)
+    {
+        SkillCardUI newSkillCard =  Instantiate(prefabSkillCard, cardSkillContiner);
+        if (newSkillCard == null)
         {
-            SkillCardUI newSkillCard =  Instantiate(prefabSkillCard, cardSkillContiner);
-            if (newSkillCard == null)
-            {
-                Destroy(newSkillCard);
-                return;
-            }
-            
-            newSkillCard.name = $"Card Skill - {skillCard.nameSkillCard}";
-            
-            SkillCardData newSkillCardData = new SkillCardData
-            {
-                skillCardName = skillCard.nameSkillCard,
-                currentAttackBoost = skillCard.attackBoostSkillCard,
-                skillCardUI = newSkillCard,
-                skillCardSo = skillCard,
-                isActive = true
-            };
-            
-            newSkillCard.InitSkillCard(newSkillCardData);
-            
-            listSkillCardData.Add(newSkillCardData);
+            Destroy(newSkillCard);
+            return;
         }
+            
+        newSkillCard.name = $"Card Skill - {skillCard.nameSkillCard}";
+            
+        SkillCardData newSkillCardData = new SkillCardData
+        {
+            skillCardName = skillCard.nameSkillCard,
+            currentAttackBoost = skillCard.attackBoostSkillCard,
+            currentRadiusExplosion = skillCard.explosionData.explosionRadius,
+            currentMaxCooldown = skillCard.cooldownSkillCard,
+            skillCardUI = newSkillCard,
+            skillCardSo = skillCard,
+            isActive = true
+        };
+            
+        newSkillCard.InitSkillCard(newSkillCardData);
+            
+        listSkillCardData.Add(newSkillCardData);
     }
 
     private void CoolDownSkillCard()
@@ -89,14 +100,6 @@ public class SkillCardManager : MonoBehaviour
         }
     }
 
-    public void UpgradeSkillCard(SkillCardSO skillCardData)
-    {
-        /*
-         * 1) Update Skill
-         * 2) Update price
-         */
-    }
-
     public void SelectSkillCard(SkillCardData skillData)
     {
         var skill = listSkillCardData.Find(x => x.skillCardName == skillData.skillCardName);
@@ -105,6 +108,9 @@ public class SkillCardManager : MonoBehaviour
             Debug.LogError($"[{name} - (UseSkillCard)] NO DATA for {skillData.skillCardName}!");
             return;
         }
+
+        if (!skill.isActive) 
+            return;
         
         selectedSkillCard = skill;
         Debug.LogWarning($"[{name} - (UseSkillCard)] Select {skillData.skillCardName}!");
@@ -142,9 +148,22 @@ public class SkillCardManager : MonoBehaviour
         
         skill.UseSkill(skillData);
         skillData.isActive = false;
-        skillData.currentCooldown = selectedSkillCard.skillCardSo.cooldownSkillCard;
+        skillData.currentCooldown = selectedSkillCard.currentMaxCooldown;
         
         selectedSkillCard = null;
     }
 
+    public void UpgradeSkillCard(SkillCardSO skillCardSO)
+    {
+        var data =  listSkillCardData.Find(x => x.skillCardName == skillCardSO.nameSkillCard);
+        if (data == null)
+        {
+            InitializeSkillCards(skillCardSO);
+            return;
+        }
+        
+        data.currentAttackBoost      += skillCardSO.attackBoostSkillCard;
+        data.currentRadiusExplosion  += skillCardSO.explosionData.explosionRadius;
+        data.isActive = true;
+    }
 }

@@ -39,7 +39,6 @@ public class SkillCardSO : ScriptableObject
     public float durationActiveSkillCard;
     public float cooldownSkillCard;
     
-    [Header("Type-Specific Data")]
     public ArrowSkillData arrowData;
     public ExplosionSkillData explosionData;
     public GameObject prefabSkillTargeting;

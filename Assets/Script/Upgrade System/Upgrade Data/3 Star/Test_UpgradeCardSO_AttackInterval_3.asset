@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeCardSO
   upgradeName: Fast Hand III
   upgradeDescription: Reduce Basic Attack Interval by -0.4 Sec
+  rarity: 2
   upgradeType: 1
   upgradeIcon: {fileID: 0}
   upgradeBaseCost: 180
   upgradeStatusType: 4
+  linkedSkillCard: {fileID: 0}
   upgradeValue: 0.4

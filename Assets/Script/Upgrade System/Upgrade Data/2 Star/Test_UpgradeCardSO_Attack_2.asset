@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeCardSO
   upgradeName: Power Shot II
   upgradeDescription: Gain +10 Attack
+  rarity: 1
   upgradeType: 1
   upgradeIcon: {fileID: 0}
   upgradeBaseCost: 120
   upgradeStatusType: 3
+  linkedSkillCard: {fileID: 0}
   upgradeValue: 10

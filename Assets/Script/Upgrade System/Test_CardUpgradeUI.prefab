@@ -928,6 +928,7 @@ GameObject:
   - component: {fileID: 1961803762709198867}
   - component: {fileID: 3019225739670905968}
   - component: {fileID: 2013882347191321310}
+  - component: {fileID: 4568091952235502636}
   m_Layer: 5
   m_Name: Test_CardUpgradeUI
   m_TagString: Untagged
@@ -1038,7 +1039,37 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3019225739670905968}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4568091952235502636}
+        m_TargetAssemblyTypeName: UpgradeCardUI, Assembly-CSharp
+        m_MethodName: OnClickUgradeCard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4568091952235502636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5267541257266591282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321a9bd9d4e45764497210f5105baf4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeCardUI
+  upgradeCardData: {fileID: 0}
+  nameUpgradeCard: {fileID: 457720694655158594}
+  descriptionUpgradeCard: {fileID: 4103755709587825249}
+  costUpgradeCard: {fileID: 3901562977141807463}
+  iconUpgradeCard: {fileID: 0}
+  starContiner: {fileID: 592751061093331780}
 --- !u!1 &5487536941602849118
 GameObject:
   m_ObjectHideFlags: 0

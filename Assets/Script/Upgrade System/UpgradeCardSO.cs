@@ -19,15 +19,25 @@ public enum UpgradeStatusType
     ArrowVelocity
 }
 
+[System.Serializable]
+public enum UpgradeRarity
+{
+    Star1,
+    Star2,
+    Star3
+}
+
 [CreateAssetMenu(fileName = "UpgradeCardSO", menuName = "Upgrade Card Data/UpgradeCardSO")]
 public class UpgradeCardSO : ScriptableObject
 {
     public string upgradeName;
     public string upgradeDescription;
+    public UpgradeRarity rarity;
     public UpgradeType upgradeType;
     public Sprite upgradeIcon;
     public int upgradeBaseCost;
     
     public UpgradeStatusType upgradeStatusType;
+    public SkillCardSO linkedSkillCard;
     public float upgradeValue;
 }

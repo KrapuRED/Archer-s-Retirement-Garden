@@ -5,6 +5,7 @@ using UnityEngine;
 public class SkillCardData
 {
     public string skillCardName;
+    public int skillLevel;
     public float currentAttackBoost;
     public float currentRadiusExplosion;
     public float currentMaxCooldown;
@@ -62,13 +63,18 @@ public class SkillCardManager : MonoBehaviour
 
         _basicArrowSkillCard = newSkillCardData;
         listSkillCardData.Add(newSkillCardData);
+        
+        if (skillCards.Count <= 0) return;
+        
+        foreach (var skillCard in skillCards)
+            InitializeSkillCards(skillCard);
     }
 
     private void Update()
     {
         if (DayCycleManager.Instance.DayCycleType != DayCycleType.Night) return;
         
-        if ((selectedSkillCard == null || selectedSkillCard.skillCardSo == null) && _basicArrowSkillCard != null)
+        if ((selectedSkillCard == null || selectedSkillCard.skillCardSo == null) && _basicArrowSkillCard != null && _basicArrowSkillCard.isActive)
         {
             selectedSkillCard = _basicArrowSkillCard;
         }
@@ -111,8 +117,15 @@ public class SkillCardManager : MonoBehaviour
                 continue;
 
             skillData.currentCooldown -= Time.deltaTime;
+            
+            if (skillData.skillCardUI != null)
+                skillData.skillCardUI.UpdateSkillCard(skillData.currentCooldown);
+            
             if (skillData.currentCooldown <= 0)
             {
+                if (skillData == _basicArrowSkillCard)
+                    _basicArrowSkillCard.isActive = true;
+                
                 skillData.isActive = true;
             }
         }
@@ -179,9 +192,12 @@ public class SkillCardManager : MonoBehaviour
             InitializeSkillCards(skillCardSO);
             return;
         }
-        
+
+        data.skillLevel++;
         data.currentAttackBoost      += skillCardSO.attackBoostSkillCard;
         data.currentRadiusExplosion  += skillCardSO.explosionData.explosionRadius;
         data.isActive = true;
+        
+        data.skillCardUI.InitSkillCard(data);
     }
 }

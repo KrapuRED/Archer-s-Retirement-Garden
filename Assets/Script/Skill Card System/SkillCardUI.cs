@@ -7,17 +7,24 @@ public class SkillCardUI : MonoBehaviour
     [SerializeField] SkillCardData skillCardData;
     
     [Header("UI Elements")]
-    [SerializeField] TMP_Text skillName;
-    [SerializeField] TMP_Text skillDescription;
+    [SerializeField] TMP_Text skillLevel;
+    [SerializeField] TMP_Text skillCooldown;
     [SerializeField] Image skillIcon; 
     
     public void InitSkillCard(SkillCardData skillCard)
     {
         skillCardData = skillCard;
-        
-        /*skillName.text = skillCardData.skillCardSo.nameSkillCard;
-        skillDescription.text = skillCardData.skillCardSo.descriptionSkillCard;*/
 
+        skillLevel.text = $"Lv.{skillCard.skillLevel}";
+        skillCooldown.text = string.Empty;
+    }
+
+    public void UpdateSkillCard(float cooldown)
+    {
+        if (cooldown <= 0)
+            skillCooldown.text = string.Empty;
+        
+        skillCooldown.text = $"{cooldown:00.00}s";
     }
     
     public void OnUsingSkillCard() => SkillCardManager.Instance.SelectSkillCard(skillCardData);

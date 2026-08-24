@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class BasicArrowSkill : Skill
 {
+    [SerializeField] private Transform marker;
+    
     public override void UseSkill(SkillCardData  skillCardData)
     {
         Debug.Log($"{name} Use Skill! Attack Boost : {skillCardData.currentAttackBoost}");
-        ArrowSpawn(this.transform, skillCardData);
+        ArrowSpawn(marker, skillCardData);
     }
     
     private void ArrowSpawn(Transform marker, SkillCardData skillCardData)

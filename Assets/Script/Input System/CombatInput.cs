@@ -1,5 +1,5 @@
-using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class CombatInput : MonoBehaviour
@@ -19,6 +19,8 @@ public class CombatInput : MonoBehaviour
     private Vector2 _screenPosition;
     private Vector2Int _currentCell;
     private Vector2Int _anchorCell;
+
+    private bool _isInsideUI;
     
     private GridManager _gridManager;
     private Camera _camera;
@@ -48,7 +50,7 @@ public class CombatInput : MonoBehaviour
 
     private void OnPositionMouse(InputAction.CallbackContext ctx)
     {
-        if (!InputManager.Instance.IsInputMapActive(actionMapName))
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
             return;
         
         _screenPosition = ctx.ReadValue<Vector2>();
@@ -56,6 +58,8 @@ public class CombatInput : MonoBehaviour
 
     private void OnClickAttack(InputAction.CallbackContext ctx)
     {
+        if (_isInsideUI) return;
+        
         if (!InputManager.Instance.IsInputMapActive(actionMapName))
             return;
 

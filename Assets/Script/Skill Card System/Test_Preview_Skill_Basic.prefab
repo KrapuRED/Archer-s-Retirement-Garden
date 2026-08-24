@@ -137,3 +137,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BasicArrowSkill
   offsetSpawnArrow: 2
   arrowPrefab: {fileID: 2697192857362300015, guid: 6837bdbed7447e941bfd322003c2916d, type: 3}
+  marker: {fileID: 5259639942347598519}

@@ -20,4 +20,4 @@ MonoBehaviour:
   upgradeBaseCost: 180
   upgradeStatusType: 4
   linkedSkillCard: {fileID: 0}
-  upgradeValue: 0.4
+  upgradeValue: -0.4

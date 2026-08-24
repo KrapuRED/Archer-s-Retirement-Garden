@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708c868a6c6175b42bdd06ba22b56caf, type: 3}
   m_Name: Test_UpgradeCardSO_CritChange_3
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeCardSO
-  upgradeName: Sharp Shooter I
+  upgradeName: Sharp Shooter III
   upgradeDescription: Gain 20% Crit Chance
   rarity: 2
   upgradeType: 1

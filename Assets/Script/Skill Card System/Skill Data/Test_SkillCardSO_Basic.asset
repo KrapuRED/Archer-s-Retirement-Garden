@@ -18,7 +18,7 @@ MonoBehaviour:
   damageTypeSkillCard: 1
   attackBoostSkillCard: 0
   durationActiveSkillCard: 0
-  cooldownSkillCard: 0
+  cooldownSkillCard: 3.3
   arrowData:
     damageType: 0
   explosionData:

@@ -1533,7 +1533,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillCardManager
   cardSkillContiner: {fileID: 563427691}
+  basicSkillCardUI: {fileID: 0}
   prefabSkillCard: {fileID: -6284713998388616721, guid: 663843b18c458d64fafcad8323f40173, type: 3}
+  basicArrowSkillCard: {fileID: 11400000, guid: 69ea12d8e1a59084da9cbfa7bdf8d9a1, type: 2}
   skillCards:
   - {fileID: 11400000, guid: 2a82f2cbcc4c0b148a29a6be7b51a4e9, type: 2}
   - {fileID: 11400000, guid: a400b15c19c627d428021ce83d3a6ab7, type: 2}
@@ -1544,6 +1546,7 @@ MonoBehaviour:
     skillCardName: 
     currentAttackBoost: 0
     currentRadiusExplosion: 0
+    currentMaxCooldown: 0
     currentCooldown: 0
     isActive: 0
     skillCardUI: {fileID: 0}
@@ -5301,15 +5304,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377702ae94b3fea458cff75d96b1e082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeCardManager
-  upgradeCardContainer: {fileID: 0}
+  upgradeCardContainer: {fileID: 2135479498}
+  upgradeCardUIs: []
   upgradeCardPools:
   - poolName: Upgrade Card Pool Day 1 - 3
     days: 3
-    upgradeCardDatas: []
+    upgradeCardDatas:
+    - Name: 1 Star
+      change: 60
+      ListOfUpgradeCardSo:
+      - {fileID: 11400000, guid: 63dce556a73da0a48890b6e34e5312cc, type: 2}
+      - {fileID: 11400000, guid: 6221a2f4f344e104e9e628934c733285, type: 2}
+      - {fileID: 11400000, guid: fbffa6de093baa24385af3679b625cc0, type: 2}
+      - {fileID: 11400000, guid: 8c86288b37ce71b4b906930292ec5163, type: 2}
+      - {fileID: 11400000, guid: fee5e75f3380e004abb9d47a5011044e, type: 2}
+    - Name: 2 Star
+      change: 20
+      ListOfUpgradeCardSo:
+      - {fileID: 11400000, guid: 1c835ee8e9b792c47af7cea4bb5d9095, type: 2}
+      - {fileID: 11400000, guid: 856f604241f1a53499aeeb7fc27bd2c7, type: 2}
+      - {fileID: 11400000, guid: 6761216585c613e4781d839f7cf781bd, type: 2}
+      - {fileID: 11400000, guid: 7e312ad9acbfa7542bf2638b464b0ee0, type: 2}
+      - {fileID: 11400000, guid: b50d611738c9fd941b300f4232f027c2, type: 2}
+      - {fileID: 11400000, guid: 3a4f20d4f50008c459aea5c42087a45e, type: 2}
+      - {fileID: 11400000, guid: 7d74b38eda469484ab71f6da9701ac14, type: 2}
+    - Name: 3 Star
+      change: 20
+      ListOfUpgradeCardSo:
+      - {fileID: 11400000, guid: 453b31ed143356c499c3545a3ff35f16, type: 2}
+      - {fileID: 11400000, guid: eedba7a94210d49409e3c9729261159b, type: 2}
+      - {fileID: 11400000, guid: 3d41bd258157db34092dca5f1e8747cf, type: 2}
+      - {fileID: 11400000, guid: 35a3bd6a5affd244ca7ec85a786e9c03, type: 2}
+      - {fileID: 11400000, guid: 1dae4b4f4635f8046b34b09b063deb73, type: 2}
   activeUpgradeCards: []
-  maxActiveRandomCards: 0
-  increasePriceStoryMode: 0
-  increasePriceEndlessMode: 0
+  maxActiveRandomCards: 3
+  increasePriceStoryMode: 8
+  increasePriceEndlessMode: 12
 --- !u!1 &1208789338
 GameObject:
   m_ObjectHideFlags: 0
@@ -5484,6 +5514,8 @@ MonoBehaviour:
   characterData: {fileID: 11400000, guid: 2acf1a67c3ce01d4ea55f5f669a1abd7, type: 2}
   maxHealthBoost: 0
   attackBoost: 0
+  attackIntervalBoost: 0
+  arrowVelocityBoost: 0
   criticalBoostRate: 0
   criticalBoostDamage: 0
 --- !u!1 &1214010494
@@ -6136,6 +6168,10 @@ PrefabInstance:
     - target: {fileID: 3005808062733961006, guid: 6a86dac0446de194a8a2cd0ffcf9b906, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4568091952235502636, guid: 6a86dac0446de194a8a2cd0ffcf9b906, type: 3}
+      propertyPath: upgradeCardData
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5267541257266591282, guid: 6a86dac0446de194a8a2cd0ffcf9b906, type: 3}
       propertyPath: m_Name

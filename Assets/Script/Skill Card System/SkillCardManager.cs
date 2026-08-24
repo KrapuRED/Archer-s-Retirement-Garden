@@ -1,5 +1,3 @@
-
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,12 +21,16 @@ public class SkillCardManager : MonoBehaviour
 
     [Header("UI Elements")] 
     [SerializeField] private Transform cardSkillContiner;
+    [SerializeField] private SkillCardUI basicSkillCardUI;
     [SerializeField] private SkillCardUI prefabSkillCard;
     
     [Header("Skill Cards Configuration")]
+    [SerializeField] private SkillCardSO basicArrowSkillCard;
     [SerializeField] private List<SkillCardSO> skillCards = new();
     [SerializeField] private List<SkillCardData> listSkillCardData = new();
     [SerializeField] private SkillCardData selectedSkillCard;
+    
+    private SkillCardData _basicArrowSkillCard;
     
     public SkillCardData SelectedSkillCard => selectedSkillCard;
     
@@ -45,16 +47,32 @@ public class SkillCardManager : MonoBehaviour
 
     private void Start()
     {
-        if (skillCards.Count == 0 ) return;
-
-        foreach (var skillData in skillCards)
+       if (_basicArrowSkillCard != null) return;
+        
+        SkillCardData newSkillCardData = new SkillCardData
         {
-            InitializeSkillCards(skillData);
-        }
+            skillCardName = basicArrowSkillCard.nameSkillCard,
+            currentAttackBoost = basicArrowSkillCard.attackBoostSkillCard,
+            currentRadiusExplosion = basicArrowSkillCard.explosionData.explosionRadius,
+            currentMaxCooldown = basicArrowSkillCard.cooldownSkillCard,
+            skillCardUI = basicSkillCardUI,
+            skillCardSo = basicArrowSkillCard,
+            isActive = true
+        };
+
+        _basicArrowSkillCard = newSkillCardData;
+        listSkillCardData.Add(newSkillCardData);
     }
 
     private void Update()
     {
+        if (DayCycleManager.Instance.DayCycleType != DayCycleType.Night) return;
+        
+        if ((selectedSkillCard == null || selectedSkillCard.skillCardSo == null) && _basicArrowSkillCard != null)
+        {
+            selectedSkillCard = _basicArrowSkillCard;
+        }
+        
         CoolDownSkillCard();
     }
 

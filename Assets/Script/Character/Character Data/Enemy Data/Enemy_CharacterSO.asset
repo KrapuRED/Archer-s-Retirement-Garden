@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterSO
   characterName: Test Enemy
   characterDescription: 
-  spawnCost: 2
+  spawnCost: 5
   baseMaxHealth: 0
   baseAttack: 0
   baseAttackSpeed: 0
   baseCritRate: 0
   bassCritDamage: 0
   characterSprite: {fileID: 0}
-  prefabCharacter: {fileID: 0}
+  prefabCharacter: {fileID: 7585466612505604892, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}

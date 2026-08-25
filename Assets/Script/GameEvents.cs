@@ -57,6 +57,9 @@ public class CustomEvents<T1, T2, T3>
 
 public static class GameEvents
 {
+    // # ================================ CHARACTER SYSTEM ================================ #
+    public static readonly CustomEvents<Character> OnCharacterDeath = new ();
+    
     // # ================================ GARDEN SYSTEM ================================ #
     public static readonly CustomEvents<GardenItemSO, int> OnChangeStackGardenObject = new();
     

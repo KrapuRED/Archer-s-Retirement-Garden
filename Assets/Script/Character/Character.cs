@@ -1,14 +1,19 @@
 using UnityEngine;
 
-public class Character : MonoBehaviour, IDamageable
+public class Character : MonoBehaviour
 {
-    public void TakeDamage(float amountDamage)
+    [SerializeField] protected CharacterSO characterData;
+    [SerializeField] protected string characterID;
+
+    public string CharacterID => characterID;
+    
+    public void InitializeCharacter(string charID)
     {
-        Debug.Log($"{name} took {amountDamage} damage");
+        characterID = charID;
     }
     
     public virtual void CharacterDead()
     {
-        Debug.Log($"{name} is dead");
+        
     }
 }

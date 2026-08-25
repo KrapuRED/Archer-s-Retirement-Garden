@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -19,10 +20,25 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private List<Character> activeEnemies = new();
     [SerializeField] private Transform enemyContainer;
     
-    [SerializeField] private EnemySpawnPool _selectedSpawnPool;
+    private EnemySpawnPool _selectedSpawnPool;
     private int _raidPoint; 
-    [SerializeField] private bool _isActive;
+    private bool _isActive;
     private float _currentSpawnRate;
+    private int _spawnCount;
+
+    #region Event Configuration
+
+    private void OnEnable()
+    {
+        GameEvents.OnCharacterDeath.AddListener(HandelEnemyDeath);
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnCharacterDeath.RemoveListener(HandelEnemyDeath);
+    }
+
+    #endregion
     
     public void StartSpawning(int dayCount)
     {
@@ -82,21 +98,27 @@ public class EnemySpawner : MonoBehaviour
         var enemyData = listOfEnemyData[randomIndex];
 
         if (!SufficientRaidPoints(enemyData.spawnCost))
-        {
             return;
-        }
         
         _raidPoint -= enemyData.spawnCost;
         
         int random =  Random.Range(0, spawnPoints.Count);
         var spawnPoint = spawnPoints[random];
         
-        Debug.Log($"{enemyData.characterName} Spawned in {spawnPoint.name}");
         //spawn the enemy
-        /*var enemy = Instantiate(enemyData.prefabCharacter, spawnPoint.position, Quaternion.identity, enemyContainer);
-        activeEnemies.Add(enemy);*/
+        if (enemyData.prefabCharacter == null)
+        { 
+            Debug.LogError($"[{name} (SpawnEnemy)] This CharacterSO Doesn't Have Prefab Character");
+            return;
+        }
+        var enemy = Instantiate(enemyData.prefabCharacter, spawnPoint.position, Quaternion.identity, enemyContainer);
+        string charID = $"{enemyData.characterName}_{_spawnCount}";
+        enemy.InitializeCharacter(charID);
+        
+        activeEnemies.Add(enemy);
         
         // Set current 
+        _spawnCount++;
         _currentSpawnRate = _selectedSpawnPool.spawnRate;
     }
 
@@ -106,6 +128,19 @@ public class EnemySpawner : MonoBehaviour
         foreach (var data in listOfEnemyData)
             if (data.spawnCost < min) min = data.spawnCost;
         return min;
+    }
+
+    private void HandelEnemyDeath(Character enemy)
+    {
+        var enemyData = activeEnemies.Find(x => x.CharacterID == enemy.CharacterID);
+        if (enemyData == null)
+        {
+            Debug.LogWarning($"[{name} (HandelEnemyDeath)] There are not enemies in the active enemies list with {enemy.CharacterID}");
+            return;
+        }
+
+        activeEnemies.Remove(enemyData);
+        CheckForWin();
     }
     
     private void CheckForWin()

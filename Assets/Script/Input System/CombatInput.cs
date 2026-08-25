@@ -50,9 +50,6 @@ public class CombatInput : MonoBehaviour
 
     private void OnPositionMouse(InputAction.CallbackContext ctx)
     {
-        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
-            return;
-        
         _screenPosition = ctx.ReadValue<Vector2>();
     }
 

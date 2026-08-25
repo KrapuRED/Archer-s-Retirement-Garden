@@ -5,8 +5,9 @@ public class CharacterSO : ScriptableObject
 {
     public string characterName;
     public string characterDescription;
-    
-    [Header("Character Status")]
+
+    [Header("Character Status")] 
+    public int spawnCost;
     public float baseMaxHealth;
     public float baseAttack;
     public float baseAttackSpeed;
@@ -15,4 +16,5 @@ public class CharacterSO : ScriptableObject
     
     [Header("Character Sprite")]
     public Sprite characterSprite;
+    public Character prefabCharacter;
 }

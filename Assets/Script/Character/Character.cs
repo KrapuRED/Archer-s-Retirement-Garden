@@ -6,4 +6,9 @@ public class Character : MonoBehaviour, IDamageable
     {
         Debug.Log($"{name} took {amountDamage} damage");
     }
+    
+    public virtual void CharacterDead()
+    {
+        Debug.Log($"{name} is dead");
+    }
 }

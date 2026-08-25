@@ -27,5 +27,8 @@ public class EnvironmentController : MonoBehaviour
             
             InputManager.Instance.SwitchInputMap(nightActionMap);
         }
+        
+        if (BattleManager.Instance != null)
+            BattleManager.Instance.HandelBattle(dayCycleType);
     }
 }

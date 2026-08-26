@@ -1768,10 +1768,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test_Enemy_Capsule (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 1800138529589934936, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5848,17 +5844,6 @@ MonoBehaviour:
   maxActiveRandomCards: 3
   increasePriceStoryMode: 8
   increasePriceEndlessMode: 12
---- !u!114 &1208789345 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7585466612505604892, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-  m_PrefabInstance: {fileID: 3127709675921418982}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89d01aa40ac4ff443b3032e3bff94c2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyCharacter
 --- !u!1 &1212134401
 GameObject:
   m_ObjectHideFlags: 0
@@ -6337,17 +6322,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244800781}
   m_CullTransparentMesh: 1
---- !u!114 &1258179813 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7828180983765794257, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-  m_PrefabInstance: {fileID: 3127709675921418982}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4891848f5f936214ebc0443a2d1c869f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MovementCharacter
 --- !u!1 &1268719497
 GameObject:
   m_ObjectHideFlags: 0
@@ -10789,18 +10763,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7585466612505604892, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: moveSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7585466612505604892, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: movementCharacter
-      value: 
-      objectReference: {fileID: 1258179813}
-    - target: {fileID: 7828180983765794257, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: ownerCharacter
-      value: 
-      objectReference: {fileID: 1208789345}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

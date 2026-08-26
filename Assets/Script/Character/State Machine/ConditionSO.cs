@@ -3,5 +3,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ConditionSO", menuName = "Scriptable Objects/ConditionSO")]
 public abstract class ConditionSO : ScriptableObject
 {
-    public abstract bool CheckCondition();
+    public abstract bool CheckCondition(Character character);
 }

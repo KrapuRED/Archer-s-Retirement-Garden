@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using System.Collections.Generic;
 
 public class EnemyCharacter : Character, IDamageable
 {
@@ -9,13 +8,20 @@ public class EnemyCharacter : Character, IDamageable
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float waypointThreshold = 0.05f;
 
+    [Header("Ground Checker")]
+    [SerializeField] private Transform groundCheckPoint;
+    [SerializeField] private LayerMask groundCheckMask;
+    [SerializeField] private float groundCheckRadius;
+    
     public float MoveSpeed => moveSpeed;
     public float RotationSpeed => rotationSpeed;
     public float WaypointThreshold => waypointThreshold;
 
+    public bool IsGrounded {get; private set; }
+
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log($"{name} collided with {collision.gameObject.name}");
+        IsGrounded = Physics.CheckSphere(groundCheckPoint.position, groundCheckRadius, groundCheckMask);
         
         if (collision.gameObject.CompareTag("MainBuilding"))
         {

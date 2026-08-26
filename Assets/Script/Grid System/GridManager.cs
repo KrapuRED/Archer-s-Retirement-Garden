@@ -37,8 +37,6 @@ public class GridManager : MonoBehaviour
     public float GridSize => gridSize;
     public Vector3 Origin => locationGrid != null ? locationGrid.position : Vector3.zero;
     
-    public Vector2Int MiddleBuildingCell { get; private set; }
-    
     private void Awake()
     {
         if (Instance != null)
@@ -115,7 +113,6 @@ public class GridManager : MonoBehaviour
         
         Vector3 worldPos = GetFootprintCenter(anchorCell, prefabMiddleBuilding.GardenItemSo.objectSize);
         
-        MiddleBuildingCell = anchorCell;
         GardenObject instance = Instantiate(prefabMiddleBuilding, worldPos, Quaternion.identity, locationGrid);
         
         //instance.Initialize(prefabMiddleBuilding.GardenItemSo, anchorCell);
@@ -269,15 +266,15 @@ public class GridManager : MonoBehaviour
      
             for (int x = 0; x <= gridWidth; x++)
             {
-                Vector3 start = addOffest + new Vector3(x * gridSize, 0f, 0f);
-                Vector3 end = addOffest + new Vector3(x * gridSize, 0f, gridHeight * gridSize);
+                Vector3 start = offsetCenter + new Vector3(x * gridSize, 0f, 0f);
+                Vector3 end = offsetCenter + new Vector3(x * gridSize, 0f, gridHeight * gridSize);
                 Gizmos.DrawLine(start, end);
             }
      
             for (int z = 0; z <= gridHeight; z++)
             {
-                Vector3 start = addOffest + new Vector3(0f, 0f, z * gridSize);
-                Vector3 end = addOffest + new Vector3(gridWidth * gridSize, 0f, z * gridSize);
+                Vector3 start = offsetCenter + new Vector3(0f, 0f, z * gridSize);
+                Vector3 end = offsetCenter + new Vector3(gridWidth * gridSize, 0f, z * gridSize);
                 Gizmos.DrawLine(start, end);
             }
             

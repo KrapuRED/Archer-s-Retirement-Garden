@@ -11,7 +11,7 @@ public class DataStateMachine
 
 public class StateMachine : MonoBehaviour
 {
-    [SerializeField] private Character ownerChaacter;
+    [SerializeField] private Character ownerCharacter;
     [SerializeField] private List<DataStateMachine> dataStateMachines = new();
     [SerializeField] private StateSO activeState;
     
@@ -19,7 +19,7 @@ public class StateMachine : MonoBehaviour
     {
         foreach (var data in dataStateMachines)
         {
-            if (data.condition.CheckCondition())
+            if (data.condition.CheckCondition(ownerCharacter))
             {
                 StateSO nextState = data.state;
 
@@ -35,7 +35,7 @@ public class StateMachine : MonoBehaviour
         }
 
         if (activeState != null)
-            activeState.ExecuteState(ownerChaacter);
+            activeState.ExecuteState(ownerCharacter);
     }
 
     public void ResetCondition()

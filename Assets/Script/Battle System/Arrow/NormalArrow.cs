@@ -42,8 +42,8 @@ public class NormalArrow : Arrow
     
     private void HitTarget(IDamageable damageableTarget)
     {
-        float damage = DamageController.Instance.OnCalculateDamageToEnemy(_skillCardData);
-        damageableTarget.TakeDamage(damage);
+        (float damage, bool isCritical) = DamageController.Instance.OnCalculateDamageToEnemy(_skillCardData);
+        damageableTarget.TakeDamage(damage, isCritical);
         
         // TODO: hit VFX/SFX here
 

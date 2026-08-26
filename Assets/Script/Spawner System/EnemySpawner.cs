@@ -148,7 +148,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (!_isActive) return;
         
-        bool noEnemiesLeft  = activeEnemies.Count <= 0;
+        bool noEnemiesLeft      = activeEnemies.Count <= 0;
         bool cannotSpawnMore    = _raidPoint < CheapestEnemyCost();
         
         if (noEnemiesLeft && cannotSpawnMore)

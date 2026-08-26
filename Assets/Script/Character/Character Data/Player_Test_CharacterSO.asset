@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterSO
   characterName: 
   characterDescription: 
+  spawnCost: 0
   baseMaxHealth: 200
   baseAttack: 10
   baseAttackSpeed: 3.3
-  baseCritRate: 50
+  baseCritRate: 10
   bassCritDamage: 50
   characterSprite: {fileID: 0}
+  prefabCharacter: {fileID: 0}

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class EnemyCharacter : Character, IDamageable
@@ -25,14 +24,37 @@ public class EnemyCharacter : Character, IDamageable
         
         if (collision.gameObject.CompareTag("MainBuilding"))
         {
-            Destroy(gameObject);
+            DamageController.Instance.OnCalculateDamageToPlayer(this.characterData);
+            CharacterDead();
         }
     }
     
-    public void TakeDamage(float amountDamage)
+    private void SpawnDamageVisualizer(float amount, bool isCritical)
     {
-        Debug.Log($"{name} took {amountDamage} damage"); 
-        CharacterDead();
+        if (prefabDamageVisualizer == null || damageContainer == null)
+        {
+            return;
+        }
+        
+        DamageVisualizer dmgVisualizer = Instantiate(prefabDamageVisualizer, damageContainer.position, Quaternion.identity, damageContainer);
+        dmgVisualizer.ShowDamageVisualizer(amount, isCritical);
+    }
+    
+    public void TakeDamage(float amountDamage, bool isCritical)
+    {
+        Debug.Log($"{name} took {amountDamage} damage and isCritical {isCritical}!");
+        currentHealth -= amountDamage;
+        
+        if (currentHealth <= 0)
+        {
+            CharacterDead();
+            return;
+        }
+        
+        //Spawn Damage visualizer
+        SpawnDamageVisualizer(amountDamage, isCritical);
+        
+        healthUI.UpdateHealthUI(currentHealth);
     }
 
     public override void CharacterDead()

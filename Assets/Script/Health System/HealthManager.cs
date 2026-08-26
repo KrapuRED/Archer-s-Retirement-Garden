@@ -32,15 +32,6 @@ public class HealthManager : MonoBehaviour
         healthUI.InitHealthUI(maxHealth);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-            OnTakeHeal(10);
-        
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-            OnTakeDamage(50);
-    }
-
     public void HealthHandeler(float amount)
     {
         maxHealth += amount;
@@ -61,9 +52,11 @@ public class HealthManager : MonoBehaviour
         healthUI.UpdateHealthUI(currentHealth);
     }
     
-    public void OnTakeDamage(float amountDamage)
+    public void OnTakeDamage(float amountDamage, bool isCritical)
     {
         if (!_isInitialize) return;
+        
+        Debug.Log($"OnTakeDamage: {amountDamage} isCritical {isCritical}");
         
         currentHealth -= amountDamage;
         healthUI.UpdateHealthUI(currentHealth);

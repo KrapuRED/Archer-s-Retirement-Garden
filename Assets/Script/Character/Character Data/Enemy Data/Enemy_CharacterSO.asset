@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: Test Enemy
   characterDescription: 
   spawnCost: 5
-  baseMaxHealth: 0
+  baseMaxHealth: 20
   baseAttack: 0
   baseAttackSpeed: 0
   baseCritRate: 0

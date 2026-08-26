@@ -1,5 +1,5 @@
 
 public interface IDamageable
 {
-    public void TakeDamage(float mountDamage);
+    public void TakeDamage(float mountDamage, bool isCritical);
 }

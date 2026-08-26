@@ -36,8 +36,8 @@ public class ExplosionArrow : Arrow
             IDamageable target = hit.GetComponent<IDamageable>();
             if (target == null) continue;
 
-            float damage = DamageController.Instance.OnCalculateDamageToEnemy(_skillCardData);
-            target.TakeDamage(damage);
+            (float damage, bool isCritical) = DamageController.Instance.OnCalculateDamageToEnemy(_skillCardData);
+            target.TakeDamage(damage, isCritical);
         }
 
         // TODO: explosion VFX/SFX here

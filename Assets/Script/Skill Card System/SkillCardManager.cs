@@ -64,10 +64,10 @@ public class SkillCardManager : MonoBehaviour
         _basicArrowSkillCard = newSkillCardData;
         listSkillCardData.Add(newSkillCardData);
         
-        if (skillCards.Count <= 0) return;
+        /*if (skillCards.Count <= 0) return;
         
         foreach (var skillCard in skillCards)
-            InitializeSkillCards(skillCard);
+            InitializeSkillCards(skillCard);*/
     }
 
     private void Update()
@@ -101,6 +101,7 @@ public class SkillCardManager : MonoBehaviour
             currentMaxCooldown = skillCard.cooldownSkillCard,
             skillCardUI = newSkillCard,
             skillCardSo = skillCard,
+            skillLevel = 1,
             isActive = true
         };
             
@@ -153,6 +154,11 @@ public class SkillCardManager : MonoBehaviour
         
         selectedSkillCard = null;
     }
+
+    public void UnlockSkillCard(SkillCardSO skillCardSo)
+    {
+        InitializeSkillCards(skillCardSo);
+    }
     
     public void UsingSkillCard(GameObject skillInstance)
     {
@@ -189,7 +195,7 @@ public class SkillCardManager : MonoBehaviour
         var data =  listSkillCardData.Find(x => x.skillCardName == skillCardSO.nameSkillCard);
         if (data == null)
         {
-            InitializeSkillCards(skillCardSO);
+            
             return;
         }
 

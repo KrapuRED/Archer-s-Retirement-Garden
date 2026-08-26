@@ -1,7 +1,7 @@
-using System;
 using UnityEngine;
+using TMPro;
 
-[Serializable]
+[System.Serializable]
 public enum DayCycleType
 {
     Day,
@@ -15,7 +15,9 @@ public class DayCycleManager : MonoBehaviour
         [SerializeField] private DayCycleType dayCycleType;
         [SerializeField] private int dayCount;
         
+        [Header("Refence")]
         [SerializeField] private EnvironmentController environmentController;
+        [SerializeField] private TMP_Text dayCountText;
         
         public int DayCount => dayCount;
         public DayCycleType DayCycleType => dayCycleType;
@@ -31,6 +33,7 @@ public class DayCycleManager : MonoBehaviour
     
             ComponentChecker();
             ChangeDayCycleType(dayCycleType);
+            AddDayCount();
         }
         
     
@@ -44,9 +47,6 @@ public class DayCycleManager : MonoBehaviour
         
         private void ChangeDayCycleType(DayCycleType newDayCycleType)
         {
-            if (newDayCycleType == DayCycleType.Day)
-                dayCount++;
-            
             dayCycleType = newDayCycleType;
             environmentController.ApplyEnvironment(dayCycleType);
         }
@@ -54,11 +54,20 @@ public class DayCycleManager : MonoBehaviour
         public void UpdateCycleManager()
         {
             bool isDayCycle = dayCycleType == DayCycleType.Day;
+
             if (isDayCycle)
+            {
                 ChangeDayCycleType(DayCycleType.Night);
+            }
             else
             {
                 ChangeDayCycleType(DayCycleType.Day);
             }
+        }
+
+        public void AddDayCount()
+        {
+            dayCount++;
+            dayCountText.text = $"Day {dayCount:00}";
         }
 }

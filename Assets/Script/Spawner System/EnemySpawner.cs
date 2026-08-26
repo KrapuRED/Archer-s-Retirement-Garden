@@ -45,23 +45,30 @@ public class EnemySpawner : MonoBehaviour
     public void StartSpawning(int dayCount)
     {
         Debug.Log($"[{name} StartSpawning] Start Spawning Enemies");
-        
-        var pool = spawnPools.Find(x => x.dayCount == dayCount);
-        if (pool == null)
+
+        if (GameManager.Instance.GameMode == GameMode.Story)
         {
-            Debug.LogError($"Spawn Pool Not Found for {dayCount}");
-            return;
+            var pool = spawnPools.Find(x => x.dayCount == dayCount);
+            if (pool == null)
+            {
+                Debug.LogError($"Spawn Pool Not Found for {dayCount}");
+                return;
+            }
+            
+            _selectedSpawnPool = pool;
+            _raidPoint = pool.raidPoints;
+        }
+        else
+        {
+            _raidPoint = _selectedSpawnPool.raidPoints;
         }
         
         _isActive = true;
-        _selectedSpawnPool = pool;
-        _raidPoint = pool.raidPoints;
     }
 
     public void StopSpawning()
     {
         _isActive = false;
-        _selectedSpawnPool = null;
         _currentSpawnRate = 0;
         
          

@@ -47,18 +47,20 @@ public class BattleManager : MonoBehaviour
     {
         if (!_isBattleActive) return;
         
+        InputManager.Instance.PopInputActionMap();
         enemySpawner.StopSpawning();
         _isBattleActive = false;
     }
-    
+
     public void WinBattle()
     {
         Debug.Log($"[{nameof(BattleManager)}] Battle Won");
         EndBattle();
         
-        //Continue to next day
+        //Show Upgrade Panel
+        GameEvents.OnRequestOpenPanel.Invoke(PanelType.Upgrade);
     }
-    
+
     public void LoseBattle()
     {
         Debug.Log($"[{nameof(BattleManager)}] Battle Lost");

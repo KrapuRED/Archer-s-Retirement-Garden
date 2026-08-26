@@ -5,6 +5,7 @@ public enum UpgradeType
     None,
     BuffCardUpgrade,
     PassiveAbilityUpgrade,
+    AbilityCard,
     AbilityCardUpgrade
 }
 
@@ -40,4 +41,6 @@ public class UpgradeCardSO : ScriptableObject
     public UpgradeStatusType upgradeStatusType;
     public SkillCardSO linkedSkillCard;
     public float upgradeValue;
+
+    public bool oneTimeBuy;
 }

@@ -60,5 +60,8 @@ public class HealthManager : MonoBehaviour
         
         currentHealth -= amountDamage;
         healthUI.UpdateHealthUI(currentHealth);
+        
+        if (currentHealth <= 0)
+            BattleManager.Instance.LoseBattle();
     }
 }

@@ -1,16 +1,28 @@
+using System;
 using UnityEngine;
+
+[System.Serializable]
+public enum GameMode
+{
+    Story,
+    Endless
+}
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public static GameManager Instance { get; private set; }
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] private GameMode gameMode;
+    public GameMode GameMode => gameMode;
+
+    private void Awake()
     {
-        
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 }

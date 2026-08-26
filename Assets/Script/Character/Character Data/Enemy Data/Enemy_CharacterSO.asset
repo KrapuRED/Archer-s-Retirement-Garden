@@ -16,9 +16,9 @@ MonoBehaviour:
   characterDescription: 
   spawnCost: 5
   baseMaxHealth: 20
-  baseAttack: 0
+  baseAttack: 20
   baseAttackSpeed: 0
-  baseCritRate: 0
-  bassCritDamage: 0
+  baseCritRate: 10
+  bassCritDamage: 100
   characterSprite: {fileID: 0}
   prefabCharacter: {fileID: 7585466612505604892, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}

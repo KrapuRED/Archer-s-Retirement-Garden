@@ -1626,18 +1626,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7585466612505604892, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7585466612505604892, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: initByStart
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7700536388293071625, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
     - target: {fileID: 7851094365916657078, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

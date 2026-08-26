@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class MovementCharacter : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private Character ownerCharacter;
+    
+    public void MoveCharacterToTarget(Vector3 targetPosition)
     {
+        if (ownerCharacter is not EnemyCharacter enemyCharacter)
+        {
+            Debug.LogWarning($"[{name} - (MoveCharacterToTarget)] The Character is not EnemyCharacter");
+            return;
+        }
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        Vector3 currentPosition = enemyCharacter.transform.position;
         
+        ownerCharacter.transform.position = Vector3.MoveTowards(currentPosition, targetPosition, enemyCharacter.MoveSpeed * Time.deltaTime);
     }
 }

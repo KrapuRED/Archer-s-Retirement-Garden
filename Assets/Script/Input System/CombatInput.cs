@@ -122,11 +122,12 @@ public class CombatInput : MonoBehaviour
         
         if (_gridManager == null)
             _gridManager = GridManager.Instance;
+        
         Ray ray = _camera.ScreenPointToRay(_screenPosition);
         if (!Physics.Raycast(ray, out RaycastHit hit, distanceRay, groundLayerMask)) return;
 
         Vector2Int rawCell = _gridManager.WorldToGrid(hit.point);
-            
+        
         _anchorCell = rawCell - new Vector2Int(previewTargetSize.x / 2, previewTargetSize.y / 2);
         _currentCell = _anchorCell;
         

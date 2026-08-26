@@ -20,6 +20,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private List<Character> activeEnemies = new();
     [SerializeField] private Transform enemyContainer;
     
+    [SerializeField] private Transform endPosition;
+    
     private EnemySpawnPool _selectedSpawnPool;
     private int _raidPoint; 
     private bool _isActive;
@@ -91,9 +93,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         if (!_isActive) return;
-        
-        Debug.Log($"[{name} SpawnEnemy] Spawning Enemies");
-        
+
         int randomIndex = Random.Range(0, listOfEnemyData.Count);
         var enemyData = listOfEnemyData[randomIndex];
 
@@ -104,6 +104,7 @@ public class EnemySpawner : MonoBehaviour
         
         int random =  Random.Range(0, spawnPoints.Count);
         var spawnPoint = spawnPoints[random];
+        Vector3 offsetSpawnPoint = new Vector3(spawnPoint.position.x, 0.7f, spawnPoint.position.z);
         
         //spawn the enemy
         if (enemyData.prefabCharacter == null)
@@ -111,9 +112,9 @@ public class EnemySpawner : MonoBehaviour
             Debug.LogError($"[{name} (SpawnEnemy)] This CharacterSO Doesn't Have Prefab Character");
             return;
         }
-        var enemy = Instantiate(enemyData.prefabCharacter, spawnPoint.position, Quaternion.identity, enemyContainer);
+        var enemy = Instantiate(enemyData.prefabCharacter, offsetSpawnPoint, Quaternion.identity, enemyContainer);
         string charID = $"{enemyData.characterName}_{_spawnCount}";
-        enemy.InitializeCharacter(charID);
+        enemy.InitializeCharacter(charID, endPosition.position);
         
         activeEnemies.Add(enemy);
         

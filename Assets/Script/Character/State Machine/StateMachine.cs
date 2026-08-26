@@ -35,7 +35,7 @@ public class StateMachine : MonoBehaviour
         }
 
         if (activeState != null)
-            activeState.ExcuteState(ownerChaacter);
+            activeState.ExecuteState(ownerChaacter);
     }
 
     public void ResetCondition()

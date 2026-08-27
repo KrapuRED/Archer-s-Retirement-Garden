@@ -44,14 +44,14 @@ public class UpgradeCardUI : MonoBehaviour
     public void InitilizeUpgradeCardUI(UpgradeCardRunTimeData upgradeData)
     {
         //Show Star By Rarity
-        upgradeCardData = upgradeData.cardSO;
+        upgradeCardData = upgradeData.CardSo;
         
-        this.name = $"Upgrade Card - {upgradeData.cardSO.upgradeName}";
-        ShowStarByRarity(upgradeData.cardSO.rarity);
+        this.name = $"Upgrade Card - {upgradeData.CardSo.upgradeName}";
+        ShowStarByRarity(upgradeData.CardSo.rarity);
         
-        nameUpgradeCard.text = upgradeData.cardSO.upgradeName;
-        descriptionUpgradeCard.text = upgradeData.cardSO.upgradeDescription;
-        costUpgradeCard.text = $"{Mathf.RoundToInt(upgradeData.currentPrice)} $";
+        nameUpgradeCard.text = upgradeData.CardSo.upgradeName;
+        descriptionUpgradeCard.text = upgradeData.CardSo.upgradeDescription;
+        costUpgradeCard.text = $"{Mathf.RoundToInt(upgradeData.CurrentPrice)} $";
     }
 
     public void OnClickUgradeCard()

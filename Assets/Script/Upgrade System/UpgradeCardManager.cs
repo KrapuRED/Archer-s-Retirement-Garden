@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,9 +6,9 @@ using Random = UnityEngine.Random;
 [System.Serializable]
 public class UpgradeCardData
 {
-    public string Name;
+    public string nameCardData;
     public float change;
-    public List<UpgradeCardSO> ListOfUpgradeCardSo = new List<UpgradeCardSO>();
+    public List<UpgradeCardSO> listOfUpgradeCardSo = new List<UpgradeCardSO>();
 }
 
 [System.Serializable]
@@ -22,9 +21,9 @@ public class UpgradeCardPool
 
 public class UpgradeCardRunTimeData
 {
-    public UpgradeCardSO cardSO;
-    public int totalBuy;
-    public int currentPrice;
+    public UpgradeCardSO CardSo;
+    public int TotalBuy;
+    public int CurrentPrice;
 }
 
 public class UpgradeCardManager : MonoBehaviour
@@ -33,7 +32,7 @@ public class UpgradeCardManager : MonoBehaviour
 
     [Header("Upgrade CardUI Configuration")]
     [SerializeField] private Transform upgradeCardContainer;
-    [SerializeField] private List<UpgradeCardUI> upgradeCardUIs = new(); 
+    [SerializeField] private List<UpgradeCardUI> upgradeCardUi = new(); 
     
     [Header("Upgrade Card Configuration")]
     [SerializeField] private List<UpgradeCardPool> upgradeCardPools = new();
@@ -43,8 +42,8 @@ public class UpgradeCardManager : MonoBehaviour
     [SerializeField] private float increasePriceEndlessMode;
 
     private readonly Dictionary<UpgradeCardSO, UpgradeCardRunTimeData> _runTimeData = new();
-    private readonly HashSet<SkillCardSO> _ownedSkillCards = new();
     
+    private UpgradeCardPool _selectedPool;
     private int _totalAllUpgrades;
     private bool _isInitialized;
     
@@ -57,7 +56,7 @@ public class UpgradeCardManager : MonoBehaviour
         }
 
         Instance = this;
-        upgradeCardUIs = upgradeCardContainer.GetComponentsInChildren<UpgradeCardUI>().ToList();
+        upgradeCardUi = upgradeCardContainer.GetComponentsInChildren<UpgradeCardUI>().ToList();
     }
     
     private void Start()
@@ -82,9 +81,9 @@ public class UpgradeCardManager : MonoBehaviour
         {
             data = new UpgradeCardRunTimeData
             {
-                cardSO = so,
-                totalBuy = 0,
-                currentPrice = Mathf.RoundToInt(GetNewPrice(so.upgradeBaseCost, _totalAllUpgrades))
+                CardSo = so,
+                TotalBuy = 0,
+                CurrentPrice = Mathf.RoundToInt(GetNewPrice(so.upgradeBaseCost, _totalAllUpgrades))
             };
             _runTimeData.Add(so, data);
         }
@@ -133,30 +132,47 @@ public class UpgradeCardManager : MonoBehaviour
         if (upgradeCardSo == null) return false;
 
         if (upgradeCardSo.oneTimeBuy && _runTimeData.TryGetValue(upgradeCardSo, out UpgradeCardRunTimeData data) &&
-            data.totalBuy > 0)
+            data.TotalBuy > 0)
             return false;
 
         if (upgradeCardSo.upgradeType == UpgradeType.AbilityCardUpgrade)
         {
-            return upgradeCardSo.linkedSkillCard != null && _ownedSkillCards.Contains(upgradeCardSo.linkedSkillCard);
+            //And show base on Level That Skill
+            //Example we have lvl. 1 skill, show the Upgrade to next level
+            var skillData = SkillCardManager.Instance.GetActiveSkillCardSo(upgradeCardSo.linkedSkillCard);
+            
+            return upgradeCardSo.linkedSkillCard != null &&  SkillCardManager.Instance.OwnedSkillCards.Contains(upgradeCardSo.linkedSkillCard);
         }
         
         return true;
+    }
+
+    private string GetCategoryKey(UpgradeCardSO upgradeCardSo)
+    {
+        if (upgradeCardSo.upgradeType == UpgradeType.AbilityCard || upgradeCardSo.upgradeType == UpgradeType.AbilityCardUpgrade)
+            return upgradeCardSo.linkedSkillCard != null ? $"Ability_{upgradeCardSo.linkedSkillCard.name}" : $"Ability_{upgradeCardSo.upgradeName}";
+
+        return upgradeCardSo.upgradeStatusType.ToString();
     }
     
     public void OnShowRandomUpgradeCard()
     {
         // Show Random Update Card by Day count foe the pool
-        int dayCount = DayCycleManager.Instance.DayCount;
-        var poolData = upgradeCardPools.Find(x => x.days >= dayCount);
-        if (poolData == null)
+        if (GameManager.Instance.GameMode == GameMode.Story)
         {
-            Debug.LogError($"[{name} - (OnShowRandomUpgradeCard)] No pool found for day {dayCount}!");
-            return;
+            int dayCount = DayCycleManager.Instance.DayCount;
+            var poolData = upgradeCardPools.Find(x => x.days >= dayCount);
+            if (poolData == null)
+            {
+                Debug.LogError($"[{name} - (OnShowRandomUpgradeCard)] No pool found for day {dayCount}!");
+                return;
+            }
+
+            _selectedPool = poolData;
         }
         
         float accumlate = 0;
-        foreach (var upgradeData in poolData.upgradeCardDatas)
+        foreach (var upgradeData in _selectedPool.upgradeCardDatas)
             accumlate += upgradeData.change;
         
         if (accumlate > 100f)
@@ -166,31 +182,28 @@ public class UpgradeCardManager : MonoBehaviour
         }
         
         activeUpgradeCards.Clear();
-        var remainingBuckets = poolData.upgradeCardDatas.ToList();
+        var remainingBuckets = _selectedPool.upgradeCardDatas.ToList();
         
         int attempts = 0;
         int maxAttempts = maxActiveRandomCards * 30;
         var categoryUpgradeStatusType = new HashSet<string>();
-
+        
         while (activeUpgradeCards.Count < maxActiveRandomCards && attempts < maxAttempts && remainingBuckets.Count > 0)
         {
             attempts++;
 
-            var picked = PickWeightedCardData(poolData.upgradeCardDatas);
-            if (picked == null || picked.ListOfUpgradeCardSo.Count == 0)
-            {
-                remainingBuckets.Remove(picked);
-                continue;
-            }
-            
-            if (categoryUpgradeStatusType.Contains(picked.ListOfUpgradeCardSo[0].upgradeStatusType.ToString()))
+            var picked = PickWeightedCardData(remainingBuckets);
+            if (picked == null || picked.listOfUpgradeCardSo.Count == 0)
             {
                 remainingBuckets.Remove(picked);
                 continue;
             }
 
-            var candidates = picked.ListOfUpgradeCardSo
-                .Where(so => IsCardAvailable(so) && !activeUpgradeCards.Contains(so)).ToList();
+            var candidates = picked.listOfUpgradeCardSo
+                .Where(so => IsCardAvailable(so)
+                             && !activeUpgradeCards.Contains(so)
+                             && !categoryUpgradeStatusType.Contains(GetCategoryKey(so)))
+                .ToList();
             
             if  (candidates.Count == 0)
             {
@@ -205,17 +218,37 @@ public class UpgradeCardManager : MonoBehaviour
         }
 
         if (activeUpgradeCards.Count < maxActiveRandomCards)
-            Debug.LogWarning($"[{name} - (OnShowRandomUpgradeCard)] Only found {activeUpgradeCards.Count}/{maxActiveRandomCards} cards after {attempts} attempts.");
+        {
+            var leftOverCandidates = _selectedPool.upgradeCardDatas
+                .SelectMany(d => d.listOfUpgradeCardSo)
+                .Where(so => IsCardAvailable(so)
+                             && !activeUpgradeCards.Contains(so)
+                             && !categoryUpgradeStatusType.Contains(GetCategoryKey(so)))
+                .Distinct()
+                .OrderBy(_ => Random.value)
+                .ToList();
+
+            foreach (var upgradeCardData in leftOverCandidates)
+            {
+                if (activeUpgradeCards.Count >= maxActiveRandomCards)
+                    break;
+
+                activeUpgradeCards.Add(upgradeCardData);
+            }
+        }
+        
+        if (activeUpgradeCards.Count < maxActiveRandomCards)
+            Debug.LogWarning($"[{name} - (OnShowRandomUpgradeCard)] Only found {activeUpgradeCards.Count}/{maxActiveRandomCards} cards after {attempts} attempts. Not enough available cards in pool '{_selectedPool.poolName}'.");
         
         for (int i = 0; i < maxActiveRandomCards; i++)
         {
-            if (upgradeCardUIs[i] == null)
+            if (upgradeCardUi[i] == null)
                 continue;
             
             if (i < activeUpgradeCards.Count)
             {
-                upgradeCardUIs[i].gameObject.SetActive(true);
-                upgradeCardUIs[i].InitilizeUpgradeCardUI(GetOrCreateRunTimeData(activeUpgradeCards[i]));
+                upgradeCardUi[i].gameObject.SetActive(true);
+                upgradeCardUi[i].InitilizeUpgradeCardUI(GetOrCreateRunTimeData(activeUpgradeCards[i]));
             }
         }
     }
@@ -223,20 +256,20 @@ public class UpgradeCardManager : MonoBehaviour
     public void OnUpgradeCard(UpgradeCardSO upgradeCardData)
     {
         var data = GetOrCreateRunTimeData(upgradeCardData);
-        if (!CurrencyManager.Instance.UseCurrency(data.currentPrice))
+        if (!CurrencyManager.Instance.UseCurrency(data.CurrentPrice))
             return;
         
         ApplyUpgradeEffect(upgradeCardData);
         
-        data.totalBuy++;
+        data.TotalBuy++;
         
         foreach (var kvp in _runTimeData)
-            _totalAllUpgrades += kvp.Value.totalBuy;
+            _totalAllUpgrades += kvp.Value.TotalBuy;
 
         foreach (var kvp in _runTimeData)
         {
-            kvp.Value.currentPrice = Mathf.RoundToInt(GetNewPrice(kvp.Key.upgradeBaseCost, _totalAllUpgrades));
-            Debug.Log($"[{kvp.Key.upgradeName}] New Current Price: {kvp.Value.currentPrice}");
+            kvp.Value.CurrentPrice = Mathf.RoundToInt(GetNewPrice(kvp.Key.upgradeBaseCost, _totalAllUpgrades));
+            Debug.Log($"[{kvp.Key.upgradeName}] New Current Price: {kvp.Value.CurrentPrice}");
         }
     }
 }

@@ -28,11 +28,12 @@ public class SkillCardManager : MonoBehaviour
     [Header("Skill Cards Configuration")]
     [SerializeField] private SkillCardSO basicArrowSkillCard;
     [SerializeField] private List<SkillCardSO> skillCards = new();
-    [SerializeField] private List<SkillCardData> listSkillCardData = new();
+    [SerializeField] private List<SkillCardData> listActiveSkillCardData = new();
     [SerializeField] private SkillCardData selectedSkillCard;
     
     private SkillCardData _basicArrowSkillCard;
-    
+    public HashSet<SkillCardSO> OwnedSkillCards { get; private set; } = new();
+
     public SkillCardData SelectedSkillCard => selectedSkillCard;
     
     private void Awake()
@@ -62,7 +63,7 @@ public class SkillCardManager : MonoBehaviour
         };
 
         _basicArrowSkillCard = newSkillCardData;
-        listSkillCardData.Add(newSkillCardData);
+        listActiveSkillCardData.Add(newSkillCardData);
         
         /*if (skillCards.Count <= 0) return;
         
@@ -107,12 +108,13 @@ public class SkillCardManager : MonoBehaviour
             
         newSkillCard.InitSkillCard(newSkillCardData);
             
-        listSkillCardData.Add(newSkillCardData);
+        listActiveSkillCardData.Add(newSkillCardData);
+        OwnedSkillCards.Add(skillCard);
     }
 
     private void CoolDownSkillCard()
     {
-        foreach (var skillData in listSkillCardData)
+        foreach (var skillData in listActiveSkillCardData)
         {
             if (skillData.isActive)
                 continue;
@@ -134,7 +136,7 @@ public class SkillCardManager : MonoBehaviour
 
     public void SelectSkillCard(SkillCardData skillData)
     {
-        var skill = listSkillCardData.Find(x => x.skillCardName == skillData.skillCardName);
+        var skill = listActiveSkillCardData.Find(x => x.skillCardName == skillData.skillCardName);
         if (skill == null)
         {
             Debug.LogError($"[{name} - (UseSkillCard)] NO DATA for {skillData.skillCardName}!");
@@ -162,7 +164,7 @@ public class SkillCardManager : MonoBehaviour
     
     public void UsingSkillCard(GameObject skillInstance)
     {
-        var skillData = listSkillCardData.Find(x => x.skillCardName == selectedSkillCard.skillCardName);
+        var skillData = listActiveSkillCardData.Find(x => x.skillCardName == selectedSkillCard.skillCardName);
         if (skillData == null)
         {
             Debug.LogError($"[{name} - (UsingSkillCard)] There are no {selectedSkillCard.skillCardName}!");
@@ -192,7 +194,7 @@ public class SkillCardManager : MonoBehaviour
 
     public void UpgradeSkillCard(SkillCardSO skillCardSO)
     {
-        var data =  listSkillCardData.Find(x => x.skillCardName == skillCardSO.nameSkillCard);
+        var data =  listActiveSkillCardData.Find(x => x.skillCardName == skillCardSO.nameSkillCard);
         if (data == null)
         {
             
@@ -200,10 +202,18 @@ public class SkillCardManager : MonoBehaviour
         }
 
         data.skillLevel++;
-        data.currentAttackBoost      += skillCardSO.attackBoostSkillCard;
-        data.currentRadiusExplosion  += skillCardSO.explosionData.explosionRadius;
+        data.currentAttackBoost      = skillCardSO.attackBoostSkillCard;
+        data.currentRadiusExplosion  = skillCardSO.explosionData.explosionRadius;
+        data.currentMaxCooldown      = skillCardSO.cooldownSkillCard;
         data.isActive = true;
         
         data.skillCardUI.InitSkillCard(data);
+    }
+
+    public SkillCardData GetActiveSkillCardSo(SkillCardSO skillCardSo)
+    {
+        var skillData = listActiveSkillCardData.Find(x => x.skillCardName == skillCardSo.nameSkillCard);
+
+        return skillData;
     }
 }

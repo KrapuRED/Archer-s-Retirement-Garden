@@ -18,7 +18,7 @@ MonoBehaviour:
   upgradeType: 3
   upgradeIcon: {fileID: 0}
   upgradeBaseCost: 200
-  upgradeStatusType: 2
+  upgradeStatusType: 0
   linkedSkillCard: {fileID: 11400000, guid: 2a82f2cbcc4c0b148a29a6be7b51a4e9, type: 2}
   upgradeValue: 0
   oneTimeBuy: 1

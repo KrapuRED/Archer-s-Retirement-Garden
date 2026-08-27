@@ -10,9 +10,11 @@ public class CombatInput : MonoBehaviour
     [SerializeField] private InputActionReference attackAction;
     [SerializeField] private InputActionReference cancelAction;
     
+    [Header("Preview Target Configuration")]
     [SerializeField] private Vector2Int previewTargetSize;
     [SerializeField] private float distanceRay;
     [SerializeField] private LayerMask groundLayerMask;
+    [SerializeField] private Transform previewTargetContainer;
     
     private GameObject _previewInstance;
     private Renderer _previewRenderer;
@@ -39,6 +41,8 @@ public class CombatInput : MonoBehaviour
         mousePositionAction.action.performed += OnPositionMouse;
         attackAction.action.performed   += OnClickAttack;
         cancelAction.action.performed   += OnCancelAction;
+        
+        GameEvents.OnActionMapChange.AddListener(OnChangeActionMap);
     }
 
     private void OnDisable()
@@ -46,6 +50,9 @@ public class CombatInput : MonoBehaviour
         mousePositionAction.action.performed -= OnPositionMouse;
         attackAction.action.performed   -= OnClickAttack;
         cancelAction.action.performed   -= OnCancelAction;
+        
+        GameEvents.OnActionMapChange.RemoveListener(OnChangeActionMap);
+        
     }
 
     private void OnPositionMouse(InputAction.CallbackContext ctx)
@@ -69,6 +76,7 @@ public class CombatInput : MonoBehaviour
         }
         
         SkillCardManager.Instance.UsingSkillCard(_previewInstance);
+        
         _previewInstance = null;
     }
 
@@ -101,7 +109,7 @@ public class CombatInput : MonoBehaviour
             return;
         }
         
-        _previewInstance = Instantiate(skillCardData.skillCardSo.prefabSkillTargeting);
+        _previewInstance = Instantiate(skillCardData.skillCardSo.prefabSkillTargeting, previewTargetContainer);
         _previewRenderer = _previewInstance.GetComponent<Renderer>();
         
         foreach (var col in _previewInstance.GetComponentsInChildren<Collider>())
@@ -112,6 +120,11 @@ public class CombatInput : MonoBehaviour
 
     private void OnChangeActionMap()
     {
+        foreach (Transform prevPreview in previewTargetContainer)
+        {
+            Destroy(prevPreview.gameObject);
+        }
+        
         Destroy(_previewInstance);
     }
     

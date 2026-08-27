@@ -10,15 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 411c479c75d6ee142b3b0a08d39a58c2, type: 3}
-  m_Name: Test_GardenItemSO
+  m_Name: Test_GardenItemSO_Bonsai
   m_EditorClassIdentifier: Assembly-CSharp::GardenItemSO
-  gardenItemName: Garden Item 1
+  gardenItemName: Bonsai
   gardenItemDescription: 
-  gardenItemBasePrice: 20
-  priceIncrease: 50
+  gardenItemBasePrice: 500
+  priceIncrease: 120
   gardenBoostItemDatas:
   - boostName: Gain +50% Critical Damage.
     boostAmount: 50
     boostType: 2
+    isDailyBoost: 0
+  - boostName: Gain +100 Max Health
+    boostAmount: 100
+    boostType: 3
+    isDailyBoost: 0
   objectSize: {x: 1, y: 1}
   objectPlacement: {fileID: 867344268240112712, guid: a73fc27d1dce5b340ba776172aa4a898, type: 3}

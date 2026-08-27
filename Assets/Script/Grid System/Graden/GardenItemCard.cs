@@ -51,7 +51,7 @@ public class GardenItemCard : MonoBehaviour, IPointerEnterHandler, IPointerExitH
    
    public void OnClickButton()
    {
-      GameEvents.OnShowDetailGardenItem.Invoke(gardenItemCardData.gardenItemSO);
+      GameEvents.OnShowDetailGardenItem.Invoke(gardenItemCardData);
    }
    
    private void OnHoldButton(InputAction.CallbackContext context)
@@ -62,6 +62,7 @@ public class GardenItemCard : MonoBehaviour, IPointerEnterHandler, IPointerExitH
       if (!_isHovering) return;
       
       Debug.Log($"[{name} (OnHoldButton)] gardenItem: {gardenItemCardData.gardenItemSO.gardenItemName}");
+      
       GameEvents.OnCarryObject.Invoke(gardenItemCardData);
    }
 

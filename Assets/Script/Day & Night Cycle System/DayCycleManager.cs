@@ -62,6 +62,7 @@ public class DayCycleManager : MonoBehaviour
             else
             {
                 ChangeDayCycleType(DayCycleType.Day);
+                GameEvents.OnChangeToDayLight.Invoke();
             }
         }
 

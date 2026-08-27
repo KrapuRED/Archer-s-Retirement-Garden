@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4638752406364240355}
   - component: {fileID: 3912981603252471316}
   - component: {fileID: -1307563501148176236}
+  - component: {fileID: -4285071352940199538}
   m_Layer: 7
   m_Name: Test_Middle_Object
   m_TagString: MainBuilding
@@ -107,7 +108,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -126,3 +127,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GardenObject
   gardenItemSo: {fileID: 11400000, guid: 475692e764e8a9c4c9648e4dce57bf33, type: 2}
+--- !u!65 &-4285071352940199538
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867344268240112712}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

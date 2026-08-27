@@ -69,9 +69,31 @@ public class UpgradeCardManager : MonoBehaviour
         _isInitialized = true;
     }
     
-    private float GetNewPrice(int basePrice, int totalBuy)
+    private float GetNewPrice(UpgradeCardSO upgradeData, int totalBuy)
     {
-        float newPrice = basePrice * (1  + totalBuy * (increasePriceStoryMode / 100f));
+        float newPrice = 0;
+
+        if (GameManager.Instance.GameMode == GameMode.Story)
+        {
+            if (upgradeData.upgradeType == UpgradeType.AbilityCardUpgrade)
+                newPrice = upgradeData.upgradeBaseCost * (1 + totalBuy * (upgradeData.upgradeAbilityIncrease + increasePriceStoryMode / 100f));
+            else
+            {
+                newPrice = upgradeData.upgradeBaseCost * (1 + totalBuy * (increasePriceStoryMode / 100f));
+            }
+        }
+        else
+        {
+            if (upgradeData.upgradeType == UpgradeType.AbilityCardUpgrade)
+                newPrice = upgradeData.upgradeBaseCost * (1 + totalBuy * (upgradeData.upgradeAbilityIncrease + increasePriceEndlessMode / 100f));
+            else
+            {
+                newPrice = upgradeData.upgradeBaseCost * (1 + totalBuy * (increasePriceEndlessMode / 100f));
+            }
+        }
+        
+       
+        
         return newPrice;
     }
 
@@ -83,7 +105,7 @@ public class UpgradeCardManager : MonoBehaviour
             {
                 CardSo = so,
                 TotalBuy = 0,
-                CurrentPrice = Mathf.RoundToInt(GetNewPrice(so.upgradeBaseCost, _totalAllUpgrades))
+                CurrentPrice = Mathf.RoundToInt(GetNewPrice(so, _totalAllUpgrades))
             };
             _runTimeData.Add(so, data);
         }
@@ -262,11 +284,11 @@ public class UpgradeCardManager : MonoBehaviour
         }
     }
     
-    public void OnUpgradeCard(UpgradeCardSO upgradeCardData)
+    public bool OnUpgradeCard(UpgradeCardSO upgradeCardData)
     {
         var data = GetOrCreateRunTimeData(upgradeCardData);
         if (!CurrencyManager.Instance.UseCurrency(data.CurrentPrice))
-            return;
+            return false;
         
         ApplyUpgradeEffect(upgradeCardData);
         
@@ -277,8 +299,10 @@ public class UpgradeCardManager : MonoBehaviour
 
         foreach (var kvp in _runTimeData)
         {
-            kvp.Value.CurrentPrice = Mathf.RoundToInt(GetNewPrice(kvp.Key.upgradeBaseCost, _totalAllUpgrades));
+            kvp.Value.CurrentPrice = Mathf.RoundToInt(GetNewPrice(kvp.Key, _totalAllUpgrades));
             Debug.Log($"[{kvp.Key.upgradeName}] New Current Price: {kvp.Value.CurrentPrice}");
         }
+        
+        return true;
     }
 }

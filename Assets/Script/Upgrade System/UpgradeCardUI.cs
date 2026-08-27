@@ -55,8 +55,10 @@ public class UpgradeCardUI : MonoBehaviour
     }
 
     public void OnClickUgradeCard()
-    {
-        UpgradeCardManager.Instance.OnUpgradeCard(upgradeCardData);
+    { 
+        if (!UpgradeCardManager.Instance.OnUpgradeCard(upgradeCardData))
+            return;
+        
         GameEvents.OnRequestClosePanel.Invoke(PanelType.Upgrade);
     }
 }

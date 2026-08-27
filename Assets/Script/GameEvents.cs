@@ -68,11 +68,15 @@ public static class GameEvents
     public static readonly CustomEvents<GardenItemCardData> OnCarryObject = new();
     
     // # ================================ PAUSE SYSTEM ================================ #
+    public static readonly CustomEvents OnChangeToDayLight = new();
+    
+    // # ================================ PAUSE SYSTEM ================================ #
     public static readonly CustomEvents OnPauseGame  = new();
     public static readonly CustomEvents OnResumeGame = new();
     
     // # ================================ UI ================================ #
-    public static readonly CustomEvents<GardenItemSO> OnShowDetailGardenItem = new();
+    public static readonly CustomEvents<GardenItemCardData> OnShowDetailGardenItem = new();
+    public static readonly CustomEvents OnHideDetailGardenItem = new();
     public static readonly CustomEvents<int> OnUpdateCurrencyUI = new();
     public static readonly CustomEvents<PanelType> OnRequestOpenPanel = new();
     public static readonly CustomEvents<PanelType> OnRequestClosePanel = new();

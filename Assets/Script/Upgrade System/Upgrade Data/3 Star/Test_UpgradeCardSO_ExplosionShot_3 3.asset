@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708c868a6c6175b42bdd06ba22b56caf, type: 3}
   m_Name: Test_UpgradeCardSO_ExplosionShot_3 3
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeCardSO
-  upgradeName: Barrage Explosion UP
-  upgradeDescription: Explosion Shot Lv. 4 -> Lv. 5
+  upgradeName: Explosion Shot UP
+  upgradeDescription: Explosion Shot Lv. 3 -> Lv. 4
   rarity: 2
   upgradeType: 4
   upgradeIcon: {fileID: 0}
   upgradeBaseCost: 200
+  upgradeAbilityIncrease: 22
   upgradeStatusType: 0
   baseSkillCard: {fileID: 11400000, guid: 1b61c693586523d4e809f814eca79d06, type: 2}
   linkedSkillCard: {fileID: 11400000, guid: 885858436213576488480aa23c0d38f9, type: 2}

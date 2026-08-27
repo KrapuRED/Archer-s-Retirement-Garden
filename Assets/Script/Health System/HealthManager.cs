@@ -32,7 +32,7 @@ public class HealthManager : MonoBehaviour
         healthUI.InitHealthUI(maxHealth);
     }
 
-    public void HealthHandeler(float amount)
+    public void HealthHandler(float amount)
     {
         maxHealth += amount;
         healthUI.UpdateHealthSlider(maxHealth);
@@ -48,7 +48,9 @@ public class HealthManager : MonoBehaviour
     {
         if (!_isInitialize) return;
         
-        currentHealth += amountHeal;
+        float totalHeal = maxHealth * (amountHeal / 100);
+        
+        currentHealth += totalHeal;
         healthUI.UpdateHealthUI(currentHealth);
     }
     

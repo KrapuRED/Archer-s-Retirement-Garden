@@ -184,7 +184,7 @@ public class GridPlacement : MonoBehaviour
     {
         if (objectPlacement == null) return;
 
-        if (CurrencyManager.Instance.UseCurrency(gardenItemCardData.gardenItemSO.gardenItemBasePrice))
+        if (CurrencyManager.Instance.UseCurrency(gardenItemCardData.currentPrice))
         {
             Vector3 worldPos = _gridManager.GetFootprintCenter(_anchorCell, gardenItemCardData.gardenItemSO.objectSize);
 
@@ -201,6 +201,8 @@ public class GridPlacement : MonoBehaviour
             {
                 Debug.LogWarning($"[{name} (ConfirmPlacement)] {placed.name} has no GardenObject component - it won't be sellable.");
             }
+            
+            GameEvents.OnHideDetailGardenItem.Invoke();
             
             SetPreviewColor(false);
         }

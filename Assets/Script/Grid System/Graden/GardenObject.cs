@@ -9,6 +9,26 @@ public class GardenObject : MonoBehaviour
     private bool _isSellable;
 
     public GardenItemSO GardenItemSo => gardenItemSo;
+
+    #region Event System
+
+    private void OnEnable()
+    {
+        GameEvents.OnChangeToDayLight.AddListener(DailyBoostTrack);
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnChangeToDayLight.RemoveListener(DailyBoostTrack);
+
+    }
+
+    private void OnDestroy()
+    {
+        GameEvents.OnChangeToDayLight.RemoveListener(DailyBoostTrack);
+    }
+
+    #endregion
     
     public void Initialize(GardenItemSO gardenItemData, Vector2Int anchorCell)
     {
@@ -35,5 +55,25 @@ public class GardenObject : MonoBehaviour
         GardenManager.Instance.UnregisterGardenObject(this);
         
         Destroy(gameObject);
+    }
+
+    private void DailyBoostTrack()
+    {
+        foreach (var boost in gardenItemSo.gardenBoostItemDatas)
+        {
+            if (!boost.isDailyBoost)
+                continue;
+
+            switch (boost.boostType)
+            {
+                case BoostType.Healing:
+                    HealthManager.Instance.OnTakeHeal(boost.boostAmount);
+                    break;
+                
+                case BoostType.Gold:
+                    CurrencyManager.Instance.AddCurrency((int)boost.boostAmount);
+                    break;
+            }
+        }
     }
 }

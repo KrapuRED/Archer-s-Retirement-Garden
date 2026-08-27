@@ -85,6 +85,9 @@ public class SkillCardManager : MonoBehaviour
 
     private void InitializeSkillCards(SkillCardSO skillCard)
     {
+        if (OwnedSkillCards.Contains(skillCard))
+            return;
+        
         SkillCardUI newSkillCard =  Instantiate(prefabSkillCard, cardSkillContiner);
         if (newSkillCard == null)
         {
@@ -196,10 +199,7 @@ public class SkillCardManager : MonoBehaviour
     {
         var data =  listActiveSkillCardData.Find(x => x.skillCardName == skillCardSO.nameSkillCard);
         if (data == null)
-        {
-            
             return;
-        }
 
         data.skillLevel++;
         data.currentAttackBoost      = skillCardSO.attackBoostSkillCard;

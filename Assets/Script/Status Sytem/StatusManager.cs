@@ -7,7 +7,9 @@ public enum BoostType
     None,
     Attack,
     Critical,
-    Health
+    Health,
+    Healing,
+    Gold
 }
 
 [System.Serializable]
@@ -16,6 +18,7 @@ public class BoostStatusData
     public string boostName;
     public float boostAmount;
     public BoostType boostType;
+    public bool isDailyBoost;
 }
 
 [System.Serializable]
@@ -132,7 +135,7 @@ public class StatusManager : MonoBehaviour
                 break;
             case BoostType.Health:
                 maxHealthBoost += amount;
-                HealthManager.Instance.HealthHandeler(amount);
+                HealthManager.Instance.HealthHandler(amount);
                 break;
         }
     }

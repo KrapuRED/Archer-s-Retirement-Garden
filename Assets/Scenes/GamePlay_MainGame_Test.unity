@@ -8792,6 +8792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GardenInformationCardUI
   gardenItemName: {fileID: 1477848538}
   gardenItemPrice: {fileID: 1599950666}
+  gardenItemBoosts: {fileID: 336081198}
 --- !u!1 &1761757073
 GameObject:
   m_ObjectHideFlags: 0

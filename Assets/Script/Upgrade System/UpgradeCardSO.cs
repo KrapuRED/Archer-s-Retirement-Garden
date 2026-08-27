@@ -37,6 +37,7 @@ public class UpgradeCardSO : ScriptableObject
     public UpgradeType upgradeType;
     public Sprite upgradeIcon;
     public int upgradeBaseCost;
+    public int upgradeAbilityIncrease;
     
     public UpgradeStatusType upgradeStatusType;
     public SkillCardSO baseSkillCard;

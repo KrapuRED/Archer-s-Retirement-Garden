@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 411c479c75d6ee142b3b0a08d39a58c2, type: 3}
-  m_Name: Test_GardenItemSO 3
+  m_Name: Test_GardenItem_Green Bush
   m_EditorClassIdentifier: Assembly-CSharp::GardenItemSO
-  gardenItemName: Garden Item 4
+  gardenItemName: Green Bush
   gardenItemDescription: 
-  gardenItemBasePrice: 35
-  priceIncrease: 50
+  gardenItemBasePrice: 100
+  priceIncrease: 20
   gardenBoostItemDatas:
-  - boostName: Gain +50% Max Health
-    boostAmount: 50
-    boostType: 3
-  objectSize: {x: 2, y: 2}
+  - boostName: Recover 2% of Life Tree Sapling Health Every Day.
+    boostAmount: 2
+    boostType: 4
+    isDailyBoost: 1
+  objectSize: {x: 1, y: 1}
   objectPlacement: {fileID: 867344268240112712, guid: a73fc27d1dce5b340ba776172aa4a898, type: 3}

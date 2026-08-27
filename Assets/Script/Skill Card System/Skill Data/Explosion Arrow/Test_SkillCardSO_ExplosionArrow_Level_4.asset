@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0d531b4335552140b41e0140b86018b, type: 3}
-  m_Name: Test_SkillCardSO_QuadArrow
+  m_Name: Test_SkillCardSO_ExplosionArrow_Level_4
   m_EditorClassIdentifier: Assembly-CSharp::SkillCardSO
-  nameSkillCard: Quad Shot
+  nameSkillCard: Expolsion Arrow
   descriptionSkillCard: 
   iconSkillCard: {fileID: 0}
-  damageTypeSkillCard: 1
-  attackBoostSkillCard: 108
-  durationActiveSkillCard: 5
-  cooldownSkillCard: 15
+  damageTypeSkillCard: 2
+  attackBoostSkillCard: 420
+  durationActiveSkillCard: 0
+  cooldownSkillCard: 25
   arrowData:
     damageType: 1
   explosionData:
-    explosionRadius: 0
-  prefabSkillTargeting: {fileID: 3158851836490131347, guid: 351f62fb410304f4590d81813029c4dd, type: 3}
+    explosionRadius: 2.5
+  prefabSkillTargeting: {fileID: 394579494926582460, guid: a18c981cc51f4974e9ceba06a28799fc, type: 3}

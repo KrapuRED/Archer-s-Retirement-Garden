@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 708c868a6c6175b42bdd06ba22b56caf, type: 3}
-  m_Name: Test_UpgradeCardSO_BarrageExplosionUpgrade_3 3
+  m_Name: Test_UpgradeCardSO_QuadShot_2 4
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeCardSO
-  upgradeName: Barrage Explosion UP
-  upgradeDescription: Barrage Explosion Lv. 3 -> Lv. 4
-  rarity: 2
+  upgradeName: Quad Shot
+  upgradeDescription: Quad Shot Lv. 4 -> Lv. 5
+  rarity: 1
   upgradeType: 4
   upgradeIcon: {fileID: 0}
   upgradeBaseCost: 200
   upgradeStatusType: 0
-  baseSkillCard: {fileID: 11400000, guid: 94ad25b2edeaa2c48b25267d74a5353c, type: 2}
-  linkedSkillCard: {fileID: 11400000, guid: 5e4044d5d096f9d48b7f30d9ecd2c76e, type: 2}
-  upgradeValue: 4
+  baseSkillCard: {fileID: 11400000, guid: 2a82f2cbcc4c0b148a29a6be7b51a4e9, type: 2}
+  linkedSkillCard: {fileID: 11400000, guid: c8db132c5ce085546a4cfaec718624f1, type: 2}
+  upgradeValue: 5
   oneTimeBuy: 1

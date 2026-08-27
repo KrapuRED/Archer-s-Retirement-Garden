@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 708c868a6c6175b42bdd06ba22b56caf, type: 3}
-  m_Name: Test_UpgradeCardSO_BarrageExplosionUpgrade_3 4
+  m_Name: Test_UpgradeCardSO_ExplosionShot_3
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeCardSO
-  upgradeName: Barrage Explosion UP
-  upgradeDescription: Unlock Explosive Barrage Ability
+  upgradeName: Explosion Shot
+  upgradeDescription: 'Unlock Explosion Shot Ability '
   rarity: 2
-  upgradeType: 4
+  upgradeType: 3
   upgradeIcon: {fileID: 0}
   upgradeBaseCost: 200
   upgradeStatusType: 0
-  linkedSkillCard: {fileID: 11400000, guid: b652fec83389ebb4781339bdc5fbfe6d, type: 2}
-  upgradeValue: 0
+  baseSkillCard: {fileID: 11400000, guid: 1b61c693586523d4e809f814eca79d06, type: 2}
+  linkedSkillCard: {fileID: 11400000, guid: 1b61c693586523d4e809f814eca79d06, type: 2}
+  upgradeValue: 1
   oneTimeBuy: 1

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0d531b4335552140b41e0140b86018b, type: 3}
-  m_Name: Test_SkillCardSO_RainofArrow
+  m_Name: Test_SkillCardSO_RainofArrow_Level_3
   m_EditorClassIdentifier: Assembly-CSharp::SkillCardSO
   nameSkillCard: Rain of Arrow
   descriptionSkillCard: 
   iconSkillCard: {fileID: 0}
   damageTypeSkillCard: 1
-  attackBoostSkillCard: 50
-  durationActiveSkillCard: 10
-  cooldownSkillCard: 22
+  attackBoostSkillCard: 65
+  durationActiveSkillCard: 12
+  cooldownSkillCard: 20
   arrowData:
     damageType: 1
   explosionData:

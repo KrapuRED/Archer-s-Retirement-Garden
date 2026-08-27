@@ -39,6 +39,7 @@ public class UpgradeCardSO : ScriptableObject
     public int upgradeBaseCost;
     
     public UpgradeStatusType upgradeStatusType;
+    public SkillCardSO baseSkillCard;
     public SkillCardSO linkedSkillCard;
     public float upgradeValue;
 

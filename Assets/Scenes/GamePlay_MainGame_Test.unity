@@ -5456,6 +5456,15 @@ MonoBehaviour:
       - {fileID: 11400000, guid: b50d611738c9fd941b300f4232f027c2, type: 2}
       - {fileID: 11400000, guid: 3a4f20d4f50008c459aea5c42087a45e, type: 2}
       - {fileID: 11400000, guid: 7d74b38eda469484ab71f6da9701ac14, type: 2}
+      - {fileID: 11400000, guid: 8afdb18608ca13b46b12d9e6a2df34d2, type: 2}
+      - {fileID: 11400000, guid: 2132e42fc9a376844bb04ae7a86de84c, type: 2}
+      - {fileID: 11400000, guid: 3a51f0de4e3c7224399702ad471f450f, type: 2}
+      - {fileID: 11400000, guid: e97c9834a55ca4840994a185e1ba6cfa, type: 2}
+      - {fileID: 11400000, guid: f4e15ea0bd10e9e48af46941b31bfdad, type: 2}
+      - {fileID: 11400000, guid: 3abe52c11b7d84445a6ba1eb27dd5a5a, type: 2}
+      - {fileID: 11400000, guid: 165d9a90dd97521449052136a49fcfcb, type: 2}
+      - {fileID: 11400000, guid: 48e71e389592e4243ad1713c04006dcf, type: 2}
+      - {fileID: 11400000, guid: b064b4cae30fefa4f8d39e02ddb2746f, type: 2}
     - nameCardData: Star 3
       change: 20
       listOfUpgradeCardSo:
@@ -5463,12 +5472,17 @@ MonoBehaviour:
       - {fileID: 11400000, guid: eedba7a94210d49409e3c9729261159b, type: 2}
       - {fileID: 11400000, guid: 3d41bd258157db34092dca5f1e8747cf, type: 2}
       - {fileID: 11400000, guid: 7e312ad9acbfa7542bf2638b464b0ee0, type: 2}
+      - {fileID: 11400000, guid: 1ea6dc262ac44ad468edfb904b1ac55e, type: 2}
       - {fileID: 11400000, guid: abf19ef53c3e7f44b95b515d656dff69, type: 2}
       - {fileID: 11400000, guid: 3d247792f414c7b4ebc04fcc253249ae, type: 2}
       - {fileID: 11400000, guid: e0d18efca48fbe74d98686c0d375ce06, type: 2}
-      - {fileID: 11400000, guid: b80d93c958f5c6145b3ee3fafdf96905, type: 2}
       - {fileID: 11400000, guid: 35a3bd6a5affd244ca7ec85a786e9c03, type: 2}
       - {fileID: 11400000, guid: 1dae4b4f4635f8046b34b09b063deb73, type: 2}
+      - {fileID: 11400000, guid: b80d93c958f5c6145b3ee3fafdf96905, type: 2}
+      - {fileID: 11400000, guid: 2c9fdb5a1a418184cbf4c56f3a4ff267, type: 2}
+      - {fileID: 11400000, guid: 1c64559c85c97934c98bae74f8e86adc, type: 2}
+      - {fileID: 11400000, guid: a72ad8bef135b014e89c0266bbd2293b, type: 2}
+      - {fileID: 11400000, guid: c7e82f91e97767445a32a415865a81aa, type: 2}
   activeUpgradeCards: []
   maxActiveRandomCards: 3
   increasePriceStoryMode: 8

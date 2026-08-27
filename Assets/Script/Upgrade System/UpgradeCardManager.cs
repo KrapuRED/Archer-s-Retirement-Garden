@@ -139,9 +139,11 @@ public class UpgradeCardManager : MonoBehaviour
         {
             //And show base on Level That Skill
             //Example we have lvl. 1 skill, show the Upgrade to next level
-            var skillData = SkillCardManager.Instance.GetActiveSkillCardSo(upgradeCardSo.linkedSkillCard);
+            var skillData = SkillCardManager.Instance.GetActiveSkillCardSo(upgradeCardSo.baseSkillCard);
+            if (skillData == null) return false;
             
-            return upgradeCardSo.linkedSkillCard != null &&  SkillCardManager.Instance.OwnedSkillCards.Contains(upgradeCardSo.linkedSkillCard);
+            int skillLevel = skillData.skillLevel + 1;
+            return upgradeCardSo.linkedSkillCard != null && SkillCardManager.Instance.OwnedSkillCards.Contains(upgradeCardSo.baseSkillCard) && skillLevel == upgradeCardSo.upgradeValue;
         }
         
         return true;
@@ -172,6 +174,13 @@ public class UpgradeCardManager : MonoBehaviour
         }
         
         float accumlate = 0;
+
+        if (_selectedPool == null)
+        {
+            Debug.LogError($"[{name} - (OnShowRandomUpgradeCard)] No selected pool!");
+            return;
+        }
+        
         foreach (var upgradeData in _selectedPool.upgradeCardDatas)
             accumlate += upgradeData.change;
         

@@ -38,6 +38,7 @@ public class SkillCardSO : ScriptableObject
     public float attackBoostSkillCard;
     public float durationActiveSkillCard;
     public float cooldownSkillCard;
+    public int targetSkillCard;
     
     public ArrowSkillData arrowData;
     public ExplosionSkillData explosionData;

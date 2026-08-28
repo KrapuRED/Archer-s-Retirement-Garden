@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 708c868a6c6175b42bdd06ba22b56caf, type: 3}
+  m_Name: Test_UpgradeCardSO_AutoShot_1
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeCardSO
+  upgradeName: Auto Shot
+  upgradeDescription: Unlock Auto Shot Passive
+  rarity: 0
+  upgradeType: 3
+  upgradeIcon: {fileID: 0}
+  upgradeBaseCost: 100
+  upgradeAbilityIncrease: 0
+  upgradeStatusType: 0
+  baseSkillCard: {fileID: 11400000, guid: 35229b559dda38d479c5bc821806faac, type: 2}
+  linkedSkillCard: {fileID: 0}
+  upgradeValue: 1
+  oneTimeBuy: 1

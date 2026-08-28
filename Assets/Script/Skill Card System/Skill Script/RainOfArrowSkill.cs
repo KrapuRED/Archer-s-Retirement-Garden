@@ -57,6 +57,6 @@ public class RainOfArrowSkill : Skill
     {
         if (previewTarget == null) return;
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(previewTarget.position, damageRadius);
+        Gizmos.DrawSphere(previewTarget.position, damageRadius);
     }
 }

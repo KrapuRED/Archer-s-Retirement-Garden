@@ -11,6 +11,7 @@ public class SkillCardData
     public float currentRadiusExplosion;
     public float currentMaxCooldown;
     public float currentCooldown;
+    public int currentMaxTarget;
     public bool isActive;
 
     public SkillCardUI skillCardUI;
@@ -28,7 +29,6 @@ public class SkillCardManager : MonoBehaviour
     
     [Header("Skill Cards Configuration")]
     [SerializeField] private SkillCardSO basicArrowSkillCard;
-    [SerializeField] private List<SkillCardSO> skillCards = new();
     [SerializeField] private List<SkillCardData> listActiveSkillCardData = new();
     [SerializeField] private SkillCardData selectedSkillCard;
     
@@ -50,7 +50,7 @@ public class SkillCardManager : MonoBehaviour
 
     private void Start()
     {
-       if (_basicArrowSkillCard != null) return;
+        if (_basicArrowSkillCard != null) return;
         
         SkillCardData newSkillCardData = new SkillCardData
         {
@@ -65,11 +65,6 @@ public class SkillCardManager : MonoBehaviour
 
         _basicArrowSkillCard = newSkillCardData;
         listActiveSkillCardData.Add(newSkillCardData);
-        
-        /*if (skillCards.Count <= 0) return;
-        
-        foreach (var skillCard in skillCards)
-            InitializeSkillCards(skillCard);*/
     }
 
     private void Update()
@@ -110,7 +105,10 @@ public class SkillCardManager : MonoBehaviour
             skillLevel = 1,
             isActive = true
         };
-            
+        
+        if (_basicArrowSkillCard == null && skillCard.nameSkillCard == newSkillCardData.skillCardSo.nameSkillCard)
+            _basicArrowSkillCard =  newSkillCardData;
+        
         newSkillCard.InitSkillCard(newSkillCardData);
             
         listActiveSkillCardData.Add(newSkillCardData);
@@ -135,6 +133,8 @@ public class SkillCardManager : MonoBehaviour
                     _basicArrowSkillCard.isActive = true;
                 
                 skillData.isActive = true;
+                
+                // if have Auto Shot Active the skill
             }
         }
     }
@@ -207,6 +207,7 @@ public class SkillCardManager : MonoBehaviour
         data.currentAttackBoost      = skillCardSO.attackBoostSkillCard;
         data.currentRadiusExplosion  = skillCardSO.explosionData.explosionRadius;
         data.currentMaxCooldown      = skillCardSO.cooldownSkillCard;
+        data.currentMaxTarget        = skillCardSO.targetSkillCard;
         data.currentDuration         = skillCardSO.cooldownSkillCard;
         data.isActive = true;
         

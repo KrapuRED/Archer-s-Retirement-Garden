@@ -1846,11 +1846,6 @@ MonoBehaviour:
   basicSkillCardUI: {fileID: 844845441}
   prefabSkillCard: {fileID: -6284713998388616721, guid: 663843b18c458d64fafcad8323f40173, type: 3}
   basicArrowSkillCard: {fileID: 11400000, guid: 69ea12d8e1a59084da9cbfa7bdf8d9a1, type: 2}
-  skillCards:
-  - {fileID: 11400000, guid: 2a82f2cbcc4c0b148a29a6be7b51a4e9, type: 2}
-  - {fileID: 11400000, guid: a400b15c19c627d428021ce83d3a6ab7, type: 2}
-  - {fileID: 11400000, guid: 1b61c693586523d4e809f814eca79d06, type: 2}
-  - {fileID: 11400000, guid: 94ad25b2edeaa2c48b25267d74a5353c, type: 2}
   listActiveSkillCardData: []
   selectedSkillCard:
     skillCardName: 
@@ -1860,6 +1855,7 @@ MonoBehaviour:
     currentRadiusExplosion: 0
     currentMaxCooldown: 0
     currentCooldown: 0
+    currentMaxTarget: 0
     isActive: 0
     skillCardUI: {fileID: 0}
     skillCardSo: {fileID: 0}
@@ -2648,6 +2644,7 @@ Transform:
   m_Children:
   - {fileID: 1589774008}
   - {fileID: 431222632}
+  - {fileID: 1599044880}
   m_Father: {fileID: 1909641135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &515197824
@@ -3801,6 +3798,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   previewTargetContainer: {fileID: 1599044880}
+  _fixedY: 0
 --- !u!1 &676790610
 GameObject:
   m_ObjectHideFlags: 0
@@ -4345,6 +4343,7 @@ MonoBehaviour:
     currentRadiusExplosion: 0
     currentMaxCooldown: 0
     currentCooldown: 0
+    currentMaxTarget: 0
     isActive: 0
     skillCardUI: {fileID: 0}
     skillCardSo: {fileID: 0}
@@ -6303,6 +6302,11 @@ MonoBehaviour:
       - {fileID: 11400000, guid: 63dce556a73da0a48890b6e34e5312cc, type: 2}
       - {fileID: 11400000, guid: 6221a2f4f344e104e9e628934c733285, type: 2}
       - {fileID: 11400000, guid: fbffa6de093baa24385af3679b625cc0, type: 2}
+      - {fileID: 11400000, guid: 74a050a2aa4795f4ea212cd4d32114cf, type: 2}
+      - {fileID: 11400000, guid: 77b753df0e61dde40b376846115087f2, type: 2}
+      - {fileID: 11400000, guid: 852a74ba4bd22c14386540c98b21803f, type: 2}
+      - {fileID: 11400000, guid: 650ec37a161258d4b869c557b6622447, type: 2}
+      - {fileID: 11400000, guid: 3fd2ff2a96806664292f736f7eb88848, type: 2}
       - {fileID: 11400000, guid: 8c86288b37ce71b4b906930292ec5163, type: 2}
       - {fileID: 11400000, guid: fee5e75f3380e004abb9d47a5011044e, type: 2}
     - nameCardData: Star 2
@@ -8716,7 +8720,6 @@ Transform:
   m_Children:
   - {fileID: 2093917127}
   - {fileID: 870106266}
-  - {fileID: 1599044880}
   m_Father: {fileID: 502921201}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1589774009
@@ -8742,7 +8745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1599044880}
   m_Layer: 0
-  m_Name: Battle System - Skill Target Prefab
+  m_Name: ' Battle & Combat  - Skill Target Prefab'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8756,12 +8759,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599044879}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1589774008}
+  m_Father: {fileID: 502921201}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1599950664
 GameObject:

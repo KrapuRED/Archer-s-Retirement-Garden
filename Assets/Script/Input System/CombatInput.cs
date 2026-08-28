@@ -23,6 +23,7 @@ public class CombatInput : MonoBehaviour
     private Vector2Int _anchorCell;
 
     private bool _isInsideUI;
+    [SerializeField] private float _fixedY;
     
     private GridManager _gridManager;
     private Camera _camera;
@@ -112,6 +113,8 @@ public class CombatInput : MonoBehaviour
         _previewInstance = Instantiate(skillCardData.skillCardSo.prefabSkillTargeting, previewTargetContainer);
         _previewRenderer = _previewInstance.GetComponent<Renderer>();
         
+        _fixedY = _previewInstance.transform.position.y;
+        
         foreach (var col in _previewInstance.GetComponentsInChildren<Collider>())
         {
             col.enabled = false;
@@ -139,12 +142,11 @@ public class CombatInput : MonoBehaviour
         Ray ray = _camera.ScreenPointToRay(_screenPosition);
         if (!Physics.Raycast(ray, out RaycastHit hit, distanceRay, groundLayerMask)) return;
 
-        Vector2Int rawCell = _gridManager.WorldToGrid(hit.point);
-        
-        _anchorCell = rawCell - new Vector2Int(previewTargetSize.x / 2, previewTargetSize.y / 2);
+        Vector3 clamped = _gridManager.ClampToGridBounds(hit.point);
+        clamped.y = _fixedY;
+        _previewInstance.transform.position = clamped;
+
+        _anchorCell = _gridManager.WorldToGrid(clamped) - - new Vector2Int(previewTargetSize.x / 2, previewTargetSize.y / 2);
         _currentCell = _anchorCell;
-        
-        Vector3 worldPos = _gridManager.GetFootprintCenter(_anchorCell, previewTargetSize);
-        _previewInstance.transform.position = worldPos;
     }
 }

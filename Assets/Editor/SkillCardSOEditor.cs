@@ -15,7 +15,8 @@ public class SkillCardSOEditor : Editor
         SerializedProperty cooldownSkillCard;
         SerializedProperty arrowData;
         SerializedProperty explosionData;
-        private SerializedProperty prefabSkillTargeting;
+        SerializedProperty prefabSkillTargeting;
+        SerializedProperty targetSkillCard;
  
     #endregion
 
@@ -28,6 +29,7 @@ public class SkillCardSOEditor : Editor
         attackBoostSkillCard = serializedObject.FindProperty("attackBoostSkillCard");
         durationActiveSkillCard = serializedObject.FindProperty("durationActiveSkillCard");
         cooldownSkillCard = serializedObject.FindProperty("cooldownSkillCard");
+        targetSkillCard =  serializedObject.FindProperty("targetSkillCard");
         arrowData = serializedObject.FindProperty("arrowData");
         explosionData = serializedObject.FindProperty("explosionData");
         prefabSkillTargeting = serializedObject.FindProperty("prefabSkillTargeting");
@@ -47,6 +49,7 @@ public class SkillCardSOEditor : Editor
         EditorGUILayout.PropertyField(attackBoostSkillCard);
         EditorGUILayout.PropertyField(durationActiveSkillCard);
         EditorGUILayout.PropertyField(cooldownSkillCard);
+        EditorGUILayout.PropertyField(targetSkillCard);
         
         EditorGUILayout.Space();
         SkillDamageType damageType = (SkillDamageType)damageTypeSkillCard.enumValueIndex;

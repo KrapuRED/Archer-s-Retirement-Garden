@@ -5,6 +5,8 @@ public class BattleManager : MonoBehaviour
     public static BattleManager Instance { get; private set; }
     
     [SerializeField] private EnemySpawner enemySpawner;
+    public EnemySpawner EnemySpawner => enemySpawner;
+    
     private bool _isBattleActive;
     
     private void Awake()

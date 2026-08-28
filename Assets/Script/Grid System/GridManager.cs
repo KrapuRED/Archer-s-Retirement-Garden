@@ -168,6 +168,19 @@ public class GridManager : MonoBehaviour
             : local;
     }
 
+    public Vector3 ClampToGridBounds(Vector3 worldPosition)
+    {
+        if (locationGrid == null) return worldPosition;
+        
+        Vector3 local = locationGrid.InverseTransformPoint(worldPosition);
+        Vector3 half = HalfExtents;
+        
+        local.x = Mathf.Clamp(local.x, -half.x, half.x);
+        local.z =  Mathf.Clamp(local.z, -half.z, half.z);
+        
+        return locationGrid.TransformPoint(local);
+    }
+
     private bool IsInsideBounds(Vector2Int cell)
     {
         return cell.x >= 0 && cell.x < gridWidth && cell.y >= 0 && cell.y < gridHeight;

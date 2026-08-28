@@ -49,6 +49,9 @@ public class EnemySpawner : MonoBehaviour
     private int _spawnCount;
     private HashSet<EnemyRunTimeData> _enemyRunTimeDatas = new();
 
+    // EnemySpawner.cs
+    public IReadOnlyList<Character> ActiveEnemies => activeEnemies;
+    
     #region Event Configuration
 
     private void OnEnable()

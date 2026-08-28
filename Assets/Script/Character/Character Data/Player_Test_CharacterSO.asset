@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName: 
   characterDescription: 
   spawnCost: 0
-  baseMaxHealth: 20
+  baseMaxHealth: 200
   baseAttack: 10
   baseAttackSpeed: 3.3
   baseCritRate: 10

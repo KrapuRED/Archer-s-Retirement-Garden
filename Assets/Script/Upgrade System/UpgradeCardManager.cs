@@ -45,7 +45,6 @@ public class UpgradeCardManager : MonoBehaviour
     
     private UpgradeCardPool _selectedPool;
     private int _totalAllUpgrades;
-    private bool _isInitialized;
     
     private void Awake()
     {
@@ -57,16 +56,6 @@ public class UpgradeCardManager : MonoBehaviour
 
         Instance = this;
         upgradeCardUi = upgradeCardContainer.GetComponentsInChildren<UpgradeCardUI>().ToList();
-    }
-    
-    private void Start()
-    {
-        Initialize();
-    }
-
-    private void Initialize()
-    {
-        _isInitialized = true;
     }
     
     private float GetNewPrice(UpgradeCardSO upgradeData, int totalBuy)

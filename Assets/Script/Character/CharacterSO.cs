@@ -13,6 +13,7 @@ public class CharacterSO : ScriptableObject
     public float baseAttackSpeed;
     public float baseCritRate;
     public float bassCritDamage;
+    public int baseDeathReward;
     
     [Header("Character Sprite")]
     public Sprite characterSprite;

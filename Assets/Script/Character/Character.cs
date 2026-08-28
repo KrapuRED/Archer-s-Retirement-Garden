@@ -21,6 +21,8 @@ public class Character : MonoBehaviour
     public string CharacterID => characterID;
     public MovementCharacter MovementCharacter => movementCharacter;
     public Vector3 TargetPosition { get; private set; }
+    public CharacterSO CharacterData => characterData;
+    public EnemyRunTimeData RunTimeData {get; private set; }
 
     private void Start()
     {
@@ -31,12 +33,15 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void InitializeCharacter(string charID, Vector3 targetPosition)
+    public void InitializeCharacter(string charID, Vector3 targetPosition, EnemyRunTimeData  runTimeData)
     {
         characterID = charID;
         TargetPosition = targetPosition;
+        RunTimeData = runTimeData;
         
-        maxHealth = currentHealth = characterData.baseMaxHealth;
+        maxHealth = currentHealth = runTimeData.enemyHealth;
+        
+        Debug.Log($"[{name} - (Character Initialized)] Health: {maxHealth} Attack {runTimeData.enemyAttack} Reward {runTimeData.enemyReward}");
         
         healthUI.InitHealthUI(maxHealth);
     }

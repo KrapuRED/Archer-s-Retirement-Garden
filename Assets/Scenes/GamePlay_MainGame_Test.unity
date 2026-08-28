@@ -8033,6 +8033,12 @@ MonoBehaviour:
   activeEnemies: []
   enemyContainer: {fileID: 109978242}
   endPosition: {fileID: 526112451}
+  enemyHealthIncreaseStory: 5
+  enemyAttackIncreaseStory: 8
+  enemyRewardIncreaseStory: 10
+  enemyHealthIncreaseEndless: 10
+  enemyAttackIncreaseEndless: 8
+  enemyRewardIncreaseEndless: 20
 --- !u!1 &1654869381
 GameObject:
   m_ObjectHideFlags: 0

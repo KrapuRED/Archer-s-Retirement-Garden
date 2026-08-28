@@ -41,6 +41,8 @@ public class InputCameraMovement : MonoBehaviour, IPauseable
 
     private void Update()
     {
+        if (!GameManager.Instance.IsGameActive) return;
+            
         if (IsPaused) return;
         
         if (_input.sqrMagnitude < 0.0001f)

@@ -10,11 +10,11 @@ public class QuadArrowSkill : Skill
         Debug.Log($"{name} Use Skill! Attack Boost : {skillCardData.currentAttackBoost}");
         foreach (var marker in markers)
         {
-            ArrowSpawn(marker, skillCardData);
+            StartCoroutine(ArrowSpawn(marker, skillCardData));
         }
     }
     
-    private void ArrowSpawn(Transform marker, SkillCardData skillCardData)
+    private IEnumerator ArrowSpawn(Transform marker, SkillCardData skillCardData)
     {
         Vector3 spawnPosition = new Vector3(marker.position.x, marker.position.y + offsetSpawnArrow, marker.position.z);
         
@@ -22,11 +22,11 @@ public class QuadArrowSkill : Skill
         if (arrow == null)
         {
             Destroy(arrow);
-            return;
         }
 
         arrow.OnSpawnArrow(skillCardData);
-        marker.gameObject.SetActive(false);
-
+        
+        yield return new  WaitForSeconds(skillCardData.currentDuration);
+        Destroy(gameObject);
     }
 }

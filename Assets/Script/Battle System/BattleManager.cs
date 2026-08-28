@@ -3,9 +3,8 @@ using UnityEngine;
 public class BattleManager : MonoBehaviour
 {
     public static BattleManager Instance { get; private set; }
-
-    [SerializeField] private EnemySpawner enemySpawner;
     
+    [SerializeField] private EnemySpawner enemySpawner;
     private bool _isBattleActive;
     
     private void Awake()
@@ -67,5 +66,6 @@ public class BattleManager : MonoBehaviour
         EndBattle();
         
         //Back tp day in the same day
+        GameManager.Instance.OnGameOver();
     }
 }

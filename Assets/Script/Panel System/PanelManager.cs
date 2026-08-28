@@ -10,6 +10,7 @@ public enum PanelType
     Pause,
     Confirmation, 
     Upgrade,
+    Lose,
     Tutorial
 }
 

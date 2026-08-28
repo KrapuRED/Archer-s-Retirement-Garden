@@ -14,8 +14,10 @@ public class SkillCardUI : MonoBehaviour
     public void InitSkillCard(SkillCardData skillCard)
     {
         skillCardData = skillCard;
-
-        skillLevel.text = $"Lv.{skillCard.skillLevel}";
+        
+        if (skillLevel != null)
+            skillLevel.text = $"Lv.{skillCard.skillLevel}";
+        
         skillCooldown.text = string.Empty;
     }
 

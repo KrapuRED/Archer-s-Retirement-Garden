@@ -49,9 +49,10 @@ public class HealthManager : MonoBehaviour
         if (!_isInitialize) return;
         
         float totalHeal = maxHealth * (amountHeal / 100);
-        
         currentHealth += totalHeal;
+        
         healthUI.UpdateHealthUI(currentHealth);
+        Debug.Log($"OnTakeHeal: {amountHeal} total heal {totalHeal}");
     }
     
     public void OnTakeDamage(float amountDamage, bool isCritical)

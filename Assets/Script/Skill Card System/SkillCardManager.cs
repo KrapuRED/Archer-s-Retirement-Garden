@@ -6,6 +6,7 @@ public class SkillCardData
 {
     public string skillCardName;
     public int skillLevel;
+    public float currentDuration; 
     public float currentAttackBoost;
     public float currentRadiusExplosion;
     public float currentMaxCooldown;
@@ -103,6 +104,7 @@ public class SkillCardManager : MonoBehaviour
             currentAttackBoost = skillCard.attackBoostSkillCard,
             currentRadiusExplosion = skillCard.explosionData.explosionRadius,
             currentMaxCooldown = skillCard.cooldownSkillCard,
+            currentDuration = skillCard.durationActiveSkillCard,
             skillCardUI = newSkillCard,
             skillCardSo = skillCard,
             skillLevel = 1,
@@ -205,6 +207,7 @@ public class SkillCardManager : MonoBehaviour
         data.currentAttackBoost      = skillCardSO.attackBoostSkillCard;
         data.currentRadiusExplosion  = skillCardSO.explosionData.explosionRadius;
         data.currentMaxCooldown      = skillCardSO.cooldownSkillCard;
+        data.currentDuration         = skillCardSO.cooldownSkillCard;
         data.isActive = true;
         
         data.skillCardUI.InitSkillCard(data);

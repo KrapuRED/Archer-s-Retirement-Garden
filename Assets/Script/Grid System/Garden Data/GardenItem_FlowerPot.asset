@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GardenItemSO
   gardenItemName: Flower Pot
   gardenItemDescription: 
+  gardenItemImage: {fileID: 21300000, guid: f49d2872d73895b44bf1a40a898b047f, type: 3}
   gardenItemBasePrice: 150
   priceIncrease: 40
   gardenBoostItemDatas:

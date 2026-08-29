@@ -6,6 +6,7 @@ public class GardenItemSO : ScriptableObject
 {
     public string gardenItemName;
     public string gardenItemDescription;
+    public Sprite gardenItemImage;
     public int gardenItemBasePrice;
     public int priceIncrease;
     

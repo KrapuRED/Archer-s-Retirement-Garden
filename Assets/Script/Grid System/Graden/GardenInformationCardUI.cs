@@ -1,9 +1,11 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Text;
 
 public class GardenInformationCardUI : MonoBehaviour
 {
+    [SerializeField] private Image gardenItemImage;
     [SerializeField] private TMP_Text gardenItemName;
     [SerializeField] private TMP_Text gardenItemPrice;
     [SerializeField] private TMP_Text gardenItemBoosts;
@@ -39,7 +41,8 @@ public class GardenInformationCardUI : MonoBehaviour
     {
         gardenItemName.text  = gardenItemData.gardenItemName;
         gardenItemPrice.text = $"{gardenItemData.currentPrice} $";
-
+        gardenItemImage.sprite = gardenItemData.gardenItemSO.gardenItemImage;
+            
         _builder.Clear();
         
         foreach (var boosData in gardenItemData.gardenItemSO.gardenBoostItemDatas)
@@ -56,5 +59,6 @@ public class GardenInformationCardUI : MonoBehaviour
         gardenItemName.text = "";
         gardenItemPrice.text = "";
         gardenItemBoosts.text = "";
+        gardenItemImage.sprite = null;
     }
 }

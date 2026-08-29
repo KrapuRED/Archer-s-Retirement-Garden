@@ -30,7 +30,6 @@ public class GridPlacement : MonoBehaviour
     private bool _isCanPlaceCurrentCell;
     private Vector2 _screenPos;
     private bool _onConfirmation;
-
     private GridManager _gridManager;
     private InputManager _inputManager;
 
@@ -166,7 +165,7 @@ public class GridPlacement : MonoBehaviour
         _previewInstance.transform.position = worldPos;
         
         _isCanPlaceCurrentCell = _gridManager.CanPlaceFootPrint(_anchorCell, gardenItemCardData.gardenItemSO.objectSize);
-        SetPreviewColor(_isCanPlaceCurrentCell);
+        //SetPreviewColor(_isCanPlaceCurrentCell);
     }
 
     private void SetPreviewColor(bool valid)
@@ -204,7 +203,7 @@ public class GridPlacement : MonoBehaviour
             
             GameEvents.OnHideDetailGardenItem.Invoke();
             
-            SetPreviewColor(false);
+            //SetPreviewColor(false);
         }
         
         CancelPlacement();

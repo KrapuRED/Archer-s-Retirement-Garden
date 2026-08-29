@@ -499,11 +499,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59239115}
   m_CullTransparentMesh: 1
---- !u!4 &67368387 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-  m_PrefabInstance: {fileID: 460359943}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &90263870
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,17 +1093,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216465869}
   m_CullTransparentMesh: 1
---- !u!114 &222822065 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7828180983765794257, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-  m_PrefabInstance: {fileID: 1725827482}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4891848f5f936214ebc0443a2d1c869f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MovementCharacter
 --- !u!1 &244653733
 GameObject:
   m_ObjectHideFlags: 0
@@ -2135,75 +2119,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &460359943
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 870106266}
-    m_Modifications:
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1800138529589934936, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_Name
-      value: Test_Enemy_Capsule (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1800138529589934936, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5539588726942101714, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7851094365916657078, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
 --- !u!1 &474809194
 GameObject:
   m_ObjectHideFlags: 0
@@ -2696,10 +2611,10 @@ MonoBehaviour:
   prefabGardenItemCard: {fileID: 1485123156211322879, guid: 1277877c2debfd74eb7013cd6bb950b2, type: 3}
   cardHolderTransform: {fileID: 47264305}
   gardenItemDatas:
-  - {fileID: 11400000, guid: 3f7fcc0028ce80040a8d6615a68ca848, type: 2}
-  - {fileID: 11400000, guid: dd0afd51b468bf141995c3f53881f670, type: 2}
-  - {fileID: 11400000, guid: 1161de1b73179954b867fba335031662, type: 2}
-  - {fileID: 11400000, guid: 090092bca6f5d4d499f85a441893e637, type: 2}
+  - {fileID: 11400000, guid: a958129ecda36a640ae447da4ddfa5a1, type: 2}
+  - {fileID: 11400000, guid: a86eb9f553a8b9a49831b7e1e72dc7fa, type: 2}
+  - {fileID: 11400000, guid: fea3a486a1b55bb4598fa1a60ce284aa, type: 2}
+  - {fileID: 11400000, guid: 97fa9e03e6e9cb64090464997f231b0c, type: 2}
   gardenItemCardDataList: []
 --- !u!1 &526112450
 GameObject:
@@ -3422,75 +3337,6 @@ Transform:
   - {fileID: 1219748307}
   m_Father: {fileID: 1041856879}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &631362731
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 870106266}
-    m_Modifications:
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1800138529589934936, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_Name
-      value: Test_Enemy_Capsule (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1800138529589934936, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5539588726942101714, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7851094365916657078, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
 --- !u!1 &638094704
 GameObject:
   m_ObjectHideFlags: 0
@@ -4535,10 +4381,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1647186699}
-  - {fileID: 1476698004}
-  - {fileID: 1584023830}
-  - {fileID: 1378744543}
-  - {fileID: 67368387}
   m_Father: {fileID: 1589774008}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &878877492
@@ -6310,7 +6152,59 @@ MonoBehaviour:
       - {fileID: 11400000, guid: 8c86288b37ce71b4b906930292ec5163, type: 2}
       - {fileID: 11400000, guid: fee5e75f3380e004abb9d47a5011044e, type: 2}
     - nameCardData: Star 2
-      change: 20
+      change: 30
+      listOfUpgradeCardSo:
+      - {fileID: 11400000, guid: 1c835ee8e9b792c47af7cea4bb5d9095, type: 2}
+      - {fileID: 11400000, guid: 856f604241f1a53499aeeb7fc27bd2c7, type: 2}
+      - {fileID: 11400000, guid: 6761216585c613e4781d839f7cf781bd, type: 2}
+      - {fileID: 11400000, guid: b50d611738c9fd941b300f4232f027c2, type: 2}
+      - {fileID: 11400000, guid: 3a4f20d4f50008c459aea5c42087a45e, type: 2}
+      - {fileID: 11400000, guid: 7d74b38eda469484ab71f6da9701ac14, type: 2}
+      - {fileID: 11400000, guid: 8afdb18608ca13b46b12d9e6a2df34d2, type: 2}
+      - {fileID: 11400000, guid: 2132e42fc9a376844bb04ae7a86de84c, type: 2}
+      - {fileID: 11400000, guid: 3a51f0de4e3c7224399702ad471f450f, type: 2}
+      - {fileID: 11400000, guid: e97c9834a55ca4840994a185e1ba6cfa, type: 2}
+      - {fileID: 11400000, guid: f4e15ea0bd10e9e48af46941b31bfdad, type: 2}
+      - {fileID: 11400000, guid: 3abe52c11b7d84445a6ba1eb27dd5a5a, type: 2}
+      - {fileID: 11400000, guid: 165d9a90dd97521449052136a49fcfcb, type: 2}
+      - {fileID: 11400000, guid: 48e71e389592e4243ad1713c04006dcf, type: 2}
+      - {fileID: 11400000, guid: b064b4cae30fefa4f8d39e02ddb2746f, type: 2}
+    - nameCardData: Star 3
+      change: 10
+      listOfUpgradeCardSo:
+      - {fileID: 11400000, guid: 453b31ed143356c499c3545a3ff35f16, type: 2}
+      - {fileID: 11400000, guid: eedba7a94210d49409e3c9729261159b, type: 2}
+      - {fileID: 11400000, guid: 3d41bd258157db34092dca5f1e8747cf, type: 2}
+      - {fileID: 11400000, guid: 7e312ad9acbfa7542bf2638b464b0ee0, type: 2}
+      - {fileID: 11400000, guid: 1ea6dc262ac44ad468edfb904b1ac55e, type: 2}
+      - {fileID: 11400000, guid: abf19ef53c3e7f44b95b515d656dff69, type: 2}
+      - {fileID: 11400000, guid: 3d247792f414c7b4ebc04fcc253249ae, type: 2}
+      - {fileID: 11400000, guid: e0d18efca48fbe74d98686c0d375ce06, type: 2}
+      - {fileID: 11400000, guid: 35a3bd6a5affd244ca7ec85a786e9c03, type: 2}
+      - {fileID: 11400000, guid: 1dae4b4f4635f8046b34b09b063deb73, type: 2}
+      - {fileID: 11400000, guid: b80d93c958f5c6145b3ee3fafdf96905, type: 2}
+      - {fileID: 11400000, guid: 2c9fdb5a1a418184cbf4c56f3a4ff267, type: 2}
+      - {fileID: 11400000, guid: 1c64559c85c97934c98bae74f8e86adc, type: 2}
+      - {fileID: 11400000, guid: a72ad8bef135b014e89c0266bbd2293b, type: 2}
+      - {fileID: 11400000, guid: c7e82f91e97767445a32a415865a81aa, type: 2}
+  - poolName: Upgrade Card Pool Day 4 - 8
+    days: 8
+    upgradeCardDatas:
+    - nameCardData: Star 1
+      change: 50
+      listOfUpgradeCardSo:
+      - {fileID: 11400000, guid: 63dce556a73da0a48890b6e34e5312cc, type: 2}
+      - {fileID: 11400000, guid: 6221a2f4f344e104e9e628934c733285, type: 2}
+      - {fileID: 11400000, guid: fbffa6de093baa24385af3679b625cc0, type: 2}
+      - {fileID: 11400000, guid: 74a050a2aa4795f4ea212cd4d32114cf, type: 2}
+      - {fileID: 11400000, guid: 77b753df0e61dde40b376846115087f2, type: 2}
+      - {fileID: 11400000, guid: 852a74ba4bd22c14386540c98b21803f, type: 2}
+      - {fileID: 11400000, guid: 650ec37a161258d4b869c557b6622447, type: 2}
+      - {fileID: 11400000, guid: 3fd2ff2a96806664292f736f7eb88848, type: 2}
+      - {fileID: 11400000, guid: 8c86288b37ce71b4b906930292ec5163, type: 2}
+      - {fileID: 11400000, guid: fee5e75f3380e004abb9d47a5011044e, type: 2}
+    - nameCardData: Star 2
+      change: 30
       listOfUpgradeCardSo:
       - {fileID: 11400000, guid: 1c835ee8e9b792c47af7cea4bb5d9095, type: 2}
       - {fileID: 11400000, guid: 856f604241f1a53499aeeb7fc27bd2c7, type: 2}
@@ -6329,6 +6223,110 @@ MonoBehaviour:
       - {fileID: 11400000, guid: b064b4cae30fefa4f8d39e02ddb2746f, type: 2}
     - nameCardData: Star 3
       change: 20
+      listOfUpgradeCardSo:
+      - {fileID: 11400000, guid: 453b31ed143356c499c3545a3ff35f16, type: 2}
+      - {fileID: 11400000, guid: eedba7a94210d49409e3c9729261159b, type: 2}
+      - {fileID: 11400000, guid: 3d41bd258157db34092dca5f1e8747cf, type: 2}
+      - {fileID: 11400000, guid: 7e312ad9acbfa7542bf2638b464b0ee0, type: 2}
+      - {fileID: 11400000, guid: 1ea6dc262ac44ad468edfb904b1ac55e, type: 2}
+      - {fileID: 11400000, guid: abf19ef53c3e7f44b95b515d656dff69, type: 2}
+      - {fileID: 11400000, guid: 3d247792f414c7b4ebc04fcc253249ae, type: 2}
+      - {fileID: 11400000, guid: e0d18efca48fbe74d98686c0d375ce06, type: 2}
+      - {fileID: 11400000, guid: 35a3bd6a5affd244ca7ec85a786e9c03, type: 2}
+      - {fileID: 11400000, guid: 1dae4b4f4635f8046b34b09b063deb73, type: 2}
+      - {fileID: 11400000, guid: b80d93c958f5c6145b3ee3fafdf96905, type: 2}
+      - {fileID: 11400000, guid: 2c9fdb5a1a418184cbf4c56f3a4ff267, type: 2}
+      - {fileID: 11400000, guid: 1c64559c85c97934c98bae74f8e86adc, type: 2}
+      - {fileID: 11400000, guid: a72ad8bef135b014e89c0266bbd2293b, type: 2}
+      - {fileID: 11400000, guid: c7e82f91e97767445a32a415865a81aa, type: 2}
+  - poolName: Upgrade Card Pool Day 9 - 11
+    days: 11
+    upgradeCardDatas:
+    - nameCardData: Star 1
+      change: 40
+      listOfUpgradeCardSo:
+      - {fileID: 11400000, guid: 63dce556a73da0a48890b6e34e5312cc, type: 2}
+      - {fileID: 11400000, guid: 6221a2f4f344e104e9e628934c733285, type: 2}
+      - {fileID: 11400000, guid: fbffa6de093baa24385af3679b625cc0, type: 2}
+      - {fileID: 11400000, guid: 74a050a2aa4795f4ea212cd4d32114cf, type: 2}
+      - {fileID: 11400000, guid: 77b753df0e61dde40b376846115087f2, type: 2}
+      - {fileID: 11400000, guid: 852a74ba4bd22c14386540c98b21803f, type: 2}
+      - {fileID: 11400000, guid: 650ec37a161258d4b869c557b6622447, type: 2}
+      - {fileID: 11400000, guid: 3fd2ff2a96806664292f736f7eb88848, type: 2}
+      - {fileID: 11400000, guid: 8c86288b37ce71b4b906930292ec5163, type: 2}
+      - {fileID: 11400000, guid: fee5e75f3380e004abb9d47a5011044e, type: 2}
+    - nameCardData: Star 2
+      change: 30
+      listOfUpgradeCardSo:
+      - {fileID: 11400000, guid: 1c835ee8e9b792c47af7cea4bb5d9095, type: 2}
+      - {fileID: 11400000, guid: 856f604241f1a53499aeeb7fc27bd2c7, type: 2}
+      - {fileID: 11400000, guid: 6761216585c613e4781d839f7cf781bd, type: 2}
+      - {fileID: 11400000, guid: b50d611738c9fd941b300f4232f027c2, type: 2}
+      - {fileID: 11400000, guid: 3a4f20d4f50008c459aea5c42087a45e, type: 2}
+      - {fileID: 11400000, guid: 7d74b38eda469484ab71f6da9701ac14, type: 2}
+      - {fileID: 11400000, guid: 8afdb18608ca13b46b12d9e6a2df34d2, type: 2}
+      - {fileID: 11400000, guid: 2132e42fc9a376844bb04ae7a86de84c, type: 2}
+      - {fileID: 11400000, guid: 3a51f0de4e3c7224399702ad471f450f, type: 2}
+      - {fileID: 11400000, guid: e97c9834a55ca4840994a185e1ba6cfa, type: 2}
+      - {fileID: 11400000, guid: f4e15ea0bd10e9e48af46941b31bfdad, type: 2}
+      - {fileID: 11400000, guid: 3abe52c11b7d84445a6ba1eb27dd5a5a, type: 2}
+      - {fileID: 11400000, guid: 165d9a90dd97521449052136a49fcfcb, type: 2}
+      - {fileID: 11400000, guid: 48e71e389592e4243ad1713c04006dcf, type: 2}
+      - {fileID: 11400000, guid: b064b4cae30fefa4f8d39e02ddb2746f, type: 2}
+    - nameCardData: Star 3
+      change: 30
+      listOfUpgradeCardSo:
+      - {fileID: 11400000, guid: 453b31ed143356c499c3545a3ff35f16, type: 2}
+      - {fileID: 11400000, guid: eedba7a94210d49409e3c9729261159b, type: 2}
+      - {fileID: 11400000, guid: 3d41bd258157db34092dca5f1e8747cf, type: 2}
+      - {fileID: 11400000, guid: 7e312ad9acbfa7542bf2638b464b0ee0, type: 2}
+      - {fileID: 11400000, guid: 1ea6dc262ac44ad468edfb904b1ac55e, type: 2}
+      - {fileID: 11400000, guid: abf19ef53c3e7f44b95b515d656dff69, type: 2}
+      - {fileID: 11400000, guid: 3d247792f414c7b4ebc04fcc253249ae, type: 2}
+      - {fileID: 11400000, guid: e0d18efca48fbe74d98686c0d375ce06, type: 2}
+      - {fileID: 11400000, guid: 35a3bd6a5affd244ca7ec85a786e9c03, type: 2}
+      - {fileID: 11400000, guid: 1dae4b4f4635f8046b34b09b063deb73, type: 2}
+      - {fileID: 11400000, guid: b80d93c958f5c6145b3ee3fafdf96905, type: 2}
+      - {fileID: 11400000, guid: 2c9fdb5a1a418184cbf4c56f3a4ff267, type: 2}
+      - {fileID: 11400000, guid: 1c64559c85c97934c98bae74f8e86adc, type: 2}
+      - {fileID: 11400000, guid: a72ad8bef135b014e89c0266bbd2293b, type: 2}
+      - {fileID: 11400000, guid: c7e82f91e97767445a32a415865a81aa, type: 2}
+  - poolName: Upgrade Card Pool Day 12++
+    days: 12
+    upgradeCardDatas:
+    - nameCardData: Star 1
+      change: 30
+      listOfUpgradeCardSo:
+      - {fileID: 11400000, guid: 63dce556a73da0a48890b6e34e5312cc, type: 2}
+      - {fileID: 11400000, guid: 6221a2f4f344e104e9e628934c733285, type: 2}
+      - {fileID: 11400000, guid: fbffa6de093baa24385af3679b625cc0, type: 2}
+      - {fileID: 11400000, guid: 74a050a2aa4795f4ea212cd4d32114cf, type: 2}
+      - {fileID: 11400000, guid: 77b753df0e61dde40b376846115087f2, type: 2}
+      - {fileID: 11400000, guid: 852a74ba4bd22c14386540c98b21803f, type: 2}
+      - {fileID: 11400000, guid: 650ec37a161258d4b869c557b6622447, type: 2}
+      - {fileID: 11400000, guid: 3fd2ff2a96806664292f736f7eb88848, type: 2}
+      - {fileID: 11400000, guid: 8c86288b37ce71b4b906930292ec5163, type: 2}
+      - {fileID: 11400000, guid: fee5e75f3380e004abb9d47a5011044e, type: 2}
+    - nameCardData: Star 2
+      change: 30
+      listOfUpgradeCardSo:
+      - {fileID: 11400000, guid: 1c835ee8e9b792c47af7cea4bb5d9095, type: 2}
+      - {fileID: 11400000, guid: 856f604241f1a53499aeeb7fc27bd2c7, type: 2}
+      - {fileID: 11400000, guid: 6761216585c613e4781d839f7cf781bd, type: 2}
+      - {fileID: 11400000, guid: b50d611738c9fd941b300f4232f027c2, type: 2}
+      - {fileID: 11400000, guid: 3a4f20d4f50008c459aea5c42087a45e, type: 2}
+      - {fileID: 11400000, guid: 7d74b38eda469484ab71f6da9701ac14, type: 2}
+      - {fileID: 11400000, guid: 8afdb18608ca13b46b12d9e6a2df34d2, type: 2}
+      - {fileID: 11400000, guid: 2132e42fc9a376844bb04ae7a86de84c, type: 2}
+      - {fileID: 11400000, guid: 3a51f0de4e3c7224399702ad471f450f, type: 2}
+      - {fileID: 11400000, guid: e97c9834a55ca4840994a185e1ba6cfa, type: 2}
+      - {fileID: 11400000, guid: f4e15ea0bd10e9e48af46941b31bfdad, type: 2}
+      - {fileID: 11400000, guid: 3abe52c11b7d84445a6ba1eb27dd5a5a, type: 2}
+      - {fileID: 11400000, guid: 165d9a90dd97521449052136a49fcfcb, type: 2}
+      - {fileID: 11400000, guid: 48e71e389592e4243ad1713c04006dcf, type: 2}
+      - {fileID: 11400000, guid: b064b4cae30fefa4f8d39e02ddb2746f, type: 2}
+    - nameCardData: Star 3
+      change: 40
       listOfUpgradeCardSo:
       - {fileID: 11400000, guid: 453b31ed143356c499c3545a3ff35f16, type: 2}
       - {fileID: 11400000, guid: eedba7a94210d49409e3c9729261159b, type: 2}
@@ -7593,11 +7591,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!4 &1378744543 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-  m_PrefabInstance: {fileID: 631362731}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1379966503
 GameObject:
   m_ObjectHideFlags: 0
@@ -7976,17 +7969,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412479519}
   m_CullTransparentMesh: 1
---- !u!114 &1438400194 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7585466612505604892, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-  m_PrefabInstance: {fileID: 1725827482}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89d01aa40ac4ff443b3032e3bff94c2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyCharacter
 --- !u!1 &1447934080
 GameObject:
   m_ObjectHideFlags: 0
@@ -8124,11 +8106,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1447934080}
   m_CullTransparentMesh: 1
---- !u!4 &1476698004 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-  m_PrefabInstance: {fileID: 3127709675921418982}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1477848536
 GameObject:
   m_ObjectHideFlags: 0
@@ -8318,7 +8295,7 @@ MonoBehaviour:
   gridHeight: 10
   centerGrid: 1
   targetSurface: {fileID: 1235886640}
-  prefabMiddleBuilding: {fileID: -1307563501148176236, guid: d66e087e952d7da4491681c0720838d0, type: 3}
+  prefabMiddleBuilding: {fileID: -1307563501148176236, guid: 086534b7d44c5f847af588dd7afd626a, type: 3}
   cellPrefab: {fileID: 6497325770166479304, guid: 4c5e76d2dbb866d4a8bc4f288137c0b3, type: 3}
   generateOnAwake: 1
   cellBeenOccupied: {fileID: 0}
@@ -8683,11 +8660,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547891336}
   m_CullTransparentMesh: 1
---- !u!4 &1584023830 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-  m_PrefabInstance: {fileID: 1725827482}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1589774007
 GameObject:
   m_ObjectHideFlags: 0
@@ -8953,16 +8925,217 @@ MonoBehaviour:
     raidPoints: 10
     spawnRateMin: 2
     spawnRateMax: 6
+    EnemyDatas:
+    - characterName: Demon Eye
+      change: 60
+      characterData: {fileID: 11400000, guid: c6fb6d16d2ca2c346af23cc0fedf524c, type: 2}
+    - characterName: Iridescent Slime
+      change: 40
+      characterData: {fileID: 11400000, guid: 2b7b386b4dc47c2409c53f4516494763, type: 2}
+    - characterName: Lava Golem
+      change: 0
+      characterData: {fileID: 11400000, guid: 8da7db172e9682745bdeb22d55b304e6, type: 2}
+    - characterName: Fortified Construc
+      change: 0
+      characterData: {fileID: 11400000, guid: 94c9e33338f15684ca9d5df8232d00a7, type: 2}
   - day: Day 2
     dayCount: 2
     raidPoints: 20
     spawnRateMin: 2
     spawnRateMax: 6
+    EnemyDatas:
+    - characterName: Demon Eye
+      change: 60
+      characterData: {fileID: 11400000, guid: c6fb6d16d2ca2c346af23cc0fedf524c, type: 2}
+    - characterName: Iridescent Slime
+      change: 40
+      characterData: {fileID: 11400000, guid: 2b7b386b4dc47c2409c53f4516494763, type: 2}
+    - characterName: Lava Golem
+      change: 0
+      characterData: {fileID: 11400000, guid: 8da7db172e9682745bdeb22d55b304e6, type: 2}
+    - characterName: Fortified Construc
+      change: 0
+      characterData: {fileID: 11400000, guid: 94c9e33338f15684ca9d5df8232d00a7, type: 2}
   - day: Day 3
     dayCount: 3
     raidPoints: 30
     spawnRateMin: 2
     spawnRateMax: 6
+    EnemyDatas:
+    - characterName: Demon Eye
+      change: 60
+      characterData: {fileID: 11400000, guid: c6fb6d16d2ca2c346af23cc0fedf524c, type: 2}
+    - characterName: Iridescent Slime
+      change: 40
+      characterData: {fileID: 11400000, guid: 2b7b386b4dc47c2409c53f4516494763, type: 2}
+    - characterName: Lava Golem
+      change: 0
+      characterData: {fileID: 11400000, guid: 8da7db172e9682745bdeb22d55b304e6, type: 2}
+    - characterName: Fortified Construc
+      change: 0
+      characterData: {fileID: 11400000, guid: 94c9e33338f15684ca9d5df8232d00a7, type: 2}
+  - day: Day 4
+    dayCount: 4
+    raidPoints: 50
+    spawnRateMin: 1
+    spawnRateMax: 4
+    EnemyDatas:
+    - characterName: Demon Eye
+      change: 30
+      characterData: {fileID: 11400000, guid: c6fb6d16d2ca2c346af23cc0fedf524c, type: 2}
+    - characterName: Iridescent Slime
+      change: 40
+      characterData: {fileID: 11400000, guid: 2b7b386b4dc47c2409c53f4516494763, type: 2}
+    - characterName: Lava Golem
+      change: 30
+      characterData: {fileID: 11400000, guid: 8da7db172e9682745bdeb22d55b304e6, type: 2}
+    - characterName: Fortified Construc
+      change: 0
+      characterData: {fileID: 11400000, guid: 94c9e33338f15684ca9d5df8232d00a7, type: 2}
+  - day: Day 5
+    dayCount: 5
+    raidPoints: 80
+    spawnRateMin: 1
+    spawnRateMax: 4
+    EnemyDatas:
+    - characterName: Demon Eye
+      change: 30
+      characterData: {fileID: 11400000, guid: c6fb6d16d2ca2c346af23cc0fedf524c, type: 2}
+    - characterName: Iridescent Slime
+      change: 40
+      characterData: {fileID: 11400000, guid: 2b7b386b4dc47c2409c53f4516494763, type: 2}
+    - characterName: Lava Golem
+      change: 30
+      characterData: {fileID: 11400000, guid: 8da7db172e9682745bdeb22d55b304e6, type: 2}
+    - characterName: Fortified Construc
+      change: 0
+      characterData: {fileID: 11400000, guid: 94c9e33338f15684ca9d5df8232d00a7, type: 2}
+  - day: Day 6
+    dayCount: 6
+    raidPoints: 130
+    spawnRateMin: 1
+    spawnRateMax: 4
+    EnemyDatas:
+    - characterName: Demon Eye
+      change: 30
+      characterData: {fileID: 11400000, guid: c6fb6d16d2ca2c346af23cc0fedf524c, type: 2}
+    - characterName: Iridescent Slime
+      change: 40
+      characterData: {fileID: 11400000, guid: 2b7b386b4dc47c2409c53f4516494763, type: 2}
+    - characterName: Lava Golem
+      change: 30
+      characterData: {fileID: 11400000, guid: 8da7db172e9682745bdeb22d55b304e6, type: 2}
+    - characterName: Fortified Construc
+      change: 0
+      characterData: {fileID: 11400000, guid: 94c9e33338f15684ca9d5df8232d00a7, type: 2}
+  - day: Day 7
+    dayCount: 7
+    raidPoints: 140
+    spawnRateMin: 1
+    spawnRateMax: 4
+    EnemyDatas:
+    - characterName: Demon Eye
+      change: 30
+      characterData: {fileID: 11400000, guid: c6fb6d16d2ca2c346af23cc0fedf524c, type: 2}
+    - characterName: Iridescent Slime
+      change: 40
+      characterData: {fileID: 11400000, guid: 2b7b386b4dc47c2409c53f4516494763, type: 2}
+    - characterName: Lava Golem
+      change: 30
+      characterData: {fileID: 11400000, guid: 8da7db172e9682745bdeb22d55b304e6, type: 2}
+    - characterName: Fortified Construc
+      change: 0
+      characterData: {fileID: 11400000, guid: 94c9e33338f15684ca9d5df8232d00a7, type: 2}
+  - day: Day 8
+    dayCount: 8
+    raidPoints: 80
+    spawnRateMin: 1
+    spawnRateMax: 4
+    EnemyDatas:
+    - characterName: Demon Eye
+      change: 30
+      characterData: {fileID: 11400000, guid: c6fb6d16d2ca2c346af23cc0fedf524c, type: 2}
+    - characterName: Iridescent Slime
+      change: 40
+      characterData: {fileID: 11400000, guid: 2b7b386b4dc47c2409c53f4516494763, type: 2}
+    - characterName: Lava Golem
+      change: 30
+      characterData: {fileID: 11400000, guid: 8da7db172e9682745bdeb22d55b304e6, type: 2}
+    - characterName: Fortified Construc
+      change: 0
+      characterData: {fileID: 11400000, guid: 94c9e33338f15684ca9d5df8232d00a7, type: 2}
+  - day: Day 9
+    dayCount: 9
+    raidPoints: 210
+    spawnRateMin: 0.5
+    spawnRateMax: 3
+    EnemyDatas:
+    - characterName: Demon Eye
+      change: 20
+      characterData: {fileID: 11400000, guid: c6fb6d16d2ca2c346af23cc0fedf524c, type: 2}
+    - characterName: Iridescent Slime
+      change: 40
+      characterData: {fileID: 11400000, guid: 2b7b386b4dc47c2409c53f4516494763, type: 2}
+    - characterName: Lava Golem
+      change: 30
+      characterData: {fileID: 11400000, guid: 8da7db172e9682745bdeb22d55b304e6, type: 2}
+    - characterName: Fortified Construc
+      change: 20
+      characterData: {fileID: 11400000, guid: 94c9e33338f15684ca9d5df8232d00a7, type: 2}
+  - day: Day 10
+    dayCount: 10
+    raidPoints: 290
+    spawnRateMin: 0.5
+    spawnRateMax: 3
+    EnemyDatas:
+    - characterName: Demon Eye
+      change: 20
+      characterData: {fileID: 11400000, guid: c6fb6d16d2ca2c346af23cc0fedf524c, type: 2}
+    - characterName: Iridescent Slime
+      change: 40
+      characterData: {fileID: 11400000, guid: 2b7b386b4dc47c2409c53f4516494763, type: 2}
+    - characterName: Lava Golem
+      change: 30
+      characterData: {fileID: 11400000, guid: 8da7db172e9682745bdeb22d55b304e6, type: 2}
+    - characterName: Fortified Construc
+      change: 10
+      characterData: {fileID: 11400000, guid: 94c9e33338f15684ca9d5df8232d00a7, type: 2}
+  - day: Day 11
+    dayCount: 11
+    raidPoints: 300
+    spawnRateMin: 0.5
+    spawnRateMax: 3
+    EnemyDatas:
+    - characterName: Demon Eye
+      change: 20
+      characterData: {fileID: 11400000, guid: c6fb6d16d2ca2c346af23cc0fedf524c, type: 2}
+    - characterName: Iridescent Slime
+      change: 40
+      characterData: {fileID: 11400000, guid: 2b7b386b4dc47c2409c53f4516494763, type: 2}
+    - characterName: Lava Golem
+      change: 30
+      characterData: {fileID: 11400000, guid: 8da7db172e9682745bdeb22d55b304e6, type: 2}
+    - characterName: Fortified Construc
+      change: 10
+      characterData: {fileID: 11400000, guid: 94c9e33338f15684ca9d5df8232d00a7, type: 2}
+  - day: Day 12
+    dayCount: 12
+    raidPoints: 300
+    spawnRateMin: 0.5
+    spawnRateMax: 2
+    EnemyDatas:
+    - characterName: Demon Eye
+      change: 20
+      characterData: {fileID: 11400000, guid: c6fb6d16d2ca2c346af23cc0fedf524c, type: 2}
+    - characterName: Iridescent Slime
+      change: 30
+      characterData: {fileID: 11400000, guid: 2b7b386b4dc47c2409c53f4516494763, type: 2}
+    - characterName: Lava Golem
+      change: 30
+      characterData: {fileID: 11400000, guid: 8da7db172e9682745bdeb22d55b304e6, type: 2}
+    - characterName: Fortified Construc
+      change: 20
+      characterData: {fileID: 11400000, guid: 94c9e33338f15684ca9d5df8232d00a7, type: 2}
   listOfEnemyData:
   - {fileID: 11400000, guid: 81fb26621275df245ad41869576087d9, type: 2}
   spawnPoints:
@@ -9574,79 +9747,6 @@ Transform:
   - {fileID: 1825610307}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1725827482
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 870106266}
-    m_Modifications:
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1800138529589934936, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_Name
-      value: Test_Enemy_Capsule (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1800138529589934936, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7585466612505604892, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: moveSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7585466612505604892, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: movementCharacter
-      value: 
-      objectReference: {fileID: 222822065}
-    - target: {fileID: 7828180983765794257, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: ownerCharacter
-      value: 
-      objectReference: {fileID: 1438400194}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
 --- !u!1 &1755291265
 GameObject:
   m_ObjectHideFlags: 0
@@ -11391,67 +11491,6 @@ MonoBehaviour:
   m_Spacing: {x: 30, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!1001 &3127709675921418982
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 870106266}
-    m_Modifications:
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1664859325599597219, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1800138529589934936, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_Name
-      value: Test_Enemy_Capsule
-      objectReference: {fileID: 0}
-    - target: {fileID: 1800138529589934936, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 067b80312a75a444dbd0d497d6889c14, type: 3}
 --- !u!1001 &5522231016629286418
 PrefabInstance:
   m_ObjectHideFlags: 0

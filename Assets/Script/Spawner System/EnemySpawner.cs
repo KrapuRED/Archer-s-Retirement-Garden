@@ -5,6 +5,14 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 [System.Serializable]
+public class EnemyData
+{
+    public string characterName;
+    public float change;
+    public CharacterSO  characterData;
+}
+
+[System.Serializable]
 public class EnemySpawnPool
 {
     public string day;
@@ -12,6 +20,9 @@ public class EnemySpawnPool
     public int raidPoints;
     public float spawnRateMin;
     public float spawnRateMax;
+
+    [Header("Spawn Pool Data")] 
+    public List<EnemyData> EnemyDatas = new();
 }
 
 [System.Serializable]
@@ -23,6 +34,7 @@ public class EnemyRunTimeData
     public float enemyAttack;
     public int enemyReward;
 }
+
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -184,13 +196,42 @@ public class EnemySpawner : MonoBehaviour
         EnemyRunTimeData data = _enemyRunTimeDatas.FirstOrDefault(enemyData => enemyData.characterName == chracterName);
         return data;
     }
+
+    private CharacterSO GetRandomCharacterSO()
+    {
+        var pool = _selectedSpawnPool.EnemyDatas;
+        
+        float totalWeight = 0;
+        foreach (var enemyData in pool)
+        {
+            totalWeight  += enemyData.change;
+        }
+
+        if (totalWeight <= 0f)
+        {
+            Debug.LogError($"[{name} (GetRandomCharacterSO)] Spawn pool has no valid weights.");
+            return null;
+        }
+        
+        float roll = Random.Range(0, totalWeight);
+        float cumulative = 0;
+
+        foreach (var enemyData in pool)
+        {
+            cumulative += enemyData.change;
+            if (roll <= cumulative)
+                return enemyData.characterData;
+        }
+        
+        return null;
+    }
     
     private void SpawnEnemy()
     {
         if (!_isActive) return;
 
         int randomIndex = Random.Range(0, listOfEnemyData.Count);
-        var enemyData = listOfEnemyData[randomIndex];
+        var enemyData = GetRandomCharacterSO();
 
         if (!SufficientRaidPoints(enemyData.spawnCost))
             return;

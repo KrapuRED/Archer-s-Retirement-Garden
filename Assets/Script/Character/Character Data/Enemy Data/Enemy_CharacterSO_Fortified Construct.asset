@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adcb9cd92114fce449011358a9d685e0, type: 3}
+  m_Name: Enemy_CharacterSO_Fortified Construct
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterSO
+  characterName: Fortified Construct
+  characterDescription: 
+  spawnCost: 5
+  baseMaxHealth: 20
+  baseAttack: 20
+  baseAttackSpeed: 0
+  baseCritRate: 10
+  bassCritDamage: 100
+  baseDeathReward: 0
+  characterSprite: {fileID: 0}
+  prefabCharacter: {fileID: 7585466612505604892, guid: 67dbd95cfa8324840869d4b81d71f45a, type: 3}

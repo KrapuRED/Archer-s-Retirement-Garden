@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 8101031394100282508}
   - component: {fileID: 7700536388293071625}
   m_Layer: 8
-  m_Name: Test_Enemy_Capsule
+  m_Name: Test_Enemy_Capsule_Iridescent Slime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,7 +297,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: e499c870420afbf449bc78afec26b70f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

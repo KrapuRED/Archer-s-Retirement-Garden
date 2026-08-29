@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CloudFix
+  m_Shader: {fileID: -6465566751694194690, guid: 7e950f34b6aed2348bb1f847ba8f2270, type: 3}
+  m_Parent: {fileID: -876546973899608171, guid: 7e950f34b6aed2348bb1f847ba8f2270, type: 3}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _Base_Scale: 0.52
+    - _Base_Speed: 1
+    - _Base_Strength: 1.28
+    - _Emission_Strength: 1
+    - _Fade_Depth: 1
+    - _Fresnel_Opacity: 1.2
+    - _Fresnel_Power: 8.22
+    - _Noise_Edge_1: 0.13
+    - _Noise_Edge_2: 3.88
+    - _Noise_Height: 0.03
+    - _Noise_Power: 0.82
+    - _QueueControl: 0
+    m_Colors:
+    - _Color_Peak: {r: 0.37201846, g: 0.43932828, b: 0.7169812, a: 0}
+    - _Color_Valley: {r: 0.8522012, g: 0.9782727, b: 1, a: 0}
+    - _Noise_Remap: {r: 0.4, g: 1, b: -1, a: 1}
+    - _Rotate_Projection: {r: 1, g: 0, b: 0, a: 50}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!114 &5274549047519044507
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Editor::UnityEditor.Rendering.Universal.AssetVersion
+  version: 10

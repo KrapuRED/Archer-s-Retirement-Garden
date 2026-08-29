@@ -1,7 +1,15 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "DialogueSO", menuName = "Scriptable Objects/DialogueSO")]
+[System.Serializable]
+public class DialogueLineData
+{
+    public string characterName;
+    public string dialogueLine;
+}
+
+[CreateAssetMenu(fileName = "DialogueSO", menuName = "Dialogue/DialogueSO")]
 public class DialogueSO : ScriptableObject
 {
-    
+    public List<DialogueLineData> dialogueLines = new ();
 }

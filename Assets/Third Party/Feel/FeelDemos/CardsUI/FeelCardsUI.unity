@@ -941,6 +941,118 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2084567609}
     m_Modifications:
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[0].OriginalLabel
+      value: Image RaycastTarget
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[1].OriginalLabel
+      value: Scale
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[2].OriginalLabel
+      value: Camera Shake
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[3].OriginalLabel
+      value: Camera Shake
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[4].OriginalLabel
+      value: Scale
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[5].OriginalLabel
+      value: Chromatic Aberration
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[6].OriginalLabel
+      value: Lens Distortion
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[7].OriginalLabel
+      value: MMSoundManager Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[8].OriginalLabel
+      value: MMSoundManager Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[9].OriginalLabel
+      value: Holding Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[10].OriginalLabel
+      value: Scale
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[11].OriginalLabel
+      value: MMSoundManager Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[12].OriginalLabel
+      value: Position
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[13].OriginalLabel
+      value: Image
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[14].OriginalLabel
+      value: Bloom
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[15].OriginalLabel
+      value: Scale
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[16].OriginalLabel
+      value: Position
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[17].OriginalLabel
+      value: Position
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[18].OriginalLabel
+      value: TMP Text Reveal
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[19].OriginalLabel
+      value: Holding Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[20].OriginalLabel
+      value: Scale
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[21].OriginalLabel
+      value: MMSoundManager Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[22].OriginalLabel
+      value: Scale
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[23].OriginalLabel
+      value: MMSoundManager Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[24].OriginalLabel
+      value: Scale
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[25].OriginalLabel
+      value: MMSoundManager Sound
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[26].OriginalLabel
+      value: Holding Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 427014296157349933, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
+      propertyPath: managedReferences[27].OriginalLabel
+      value: Image RaycastTarget
+      objectReference: {fileID: 0}
     - target: {fileID: 6341985375202562952, guid: ef1f777facc2a024c8bc6aecad8c85c1, type: 3}
       propertyPath: TargetGameObject
       value: 

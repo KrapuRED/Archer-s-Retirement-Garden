@@ -1,16 +1,35 @@
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
-public class CustomizeButton : MonoBehaviour
+public class CustomizeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private UnityEvent onHoverEnter;
+    [SerializeField] private UnityEvent onClick;
+    [SerializeField] private UnityEvent onHoverExit;
+
+    public bool IsPointerInside { get; private set; }
+    
+    public void OnPointerEnter(PointerEventData eventData)
     {
+        Debug.Log($"[{name}] OnPointerEnter");
+        onHoverEnter?.Invoke();
+        
+        IsPointerInside = true;
+    }
+    
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log($"[{name}] OnPointerClick");
+        onClick?.Invoke();
         
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void OnPointerExit(PointerEventData eventData)
     {
+        Debug.Log($"[{name}] OnPointerExit");
+        onHoverExit?.Invoke();
         
+        IsPointerInside = false;
     }
 }

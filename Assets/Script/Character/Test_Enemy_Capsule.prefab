@@ -365,7 +365,7 @@ MonoBehaviour:
   prefabDamageVisualizer: {fileID: 4305501132909586201, guid: 4aafad87d2b590f4f8007765f542c9d8, type: 3}
   damageContainer: {fileID: 3252192072901714824}
   initByStart: 0
-  moveSpeed: 1
+  moveSpeed: 0.5
   rotationSpeed: 10
   waypointThreshold: 0.05
   groundCheckPoint: {fileID: 8392259346031725581}

@@ -6,14 +6,14 @@ public class ExplosionArrowSkill : Skill
     [SerializeField] private float duration;
     [SerializeField] private Transform marker;
     
-    public override void UseSkill(SkillCardData  skillCardData)
+    public override void UseSkill(SkillCardDataRunTime  skillCardDataRunTime)
     {
-        Debug.Log($"{name} Use Skill! Attack Boost : {skillCardData.currentAttackBoost}");
+        Debug.Log($"{name} Use Skill! Attack Boost : {skillCardDataRunTime.currentAttackBoost}");
         
-        ArrowSpawn(marker, skillCardData);
+        ArrowSpawn(marker, skillCardDataRunTime);
     }
     
-    private void ArrowSpawn(Transform marker, SkillCardData skillCardData)
+    private void ArrowSpawn(Transform marker, SkillCardDataRunTime skillCardDataRunTime)
     {
         Vector3 spawnPosition = new Vector3(marker.position.x, marker.position.y + offsetSpawnArrow, marker.position.z);
         
@@ -24,7 +24,7 @@ public class ExplosionArrowSkill : Skill
             return;
         }
 
-        arrow.OnSpawnArrow(skillCardData);
+        arrow.OnSpawnArrow(skillCardDataRunTime);
         marker.gameObject.SetActive(false);
     }
 }

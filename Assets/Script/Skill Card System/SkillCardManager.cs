@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class SkillCardData
+public class SkillCardDataRunTime
 {
     public string skillCardName;
     public int skillLevel;
@@ -28,14 +28,15 @@ public class SkillCardManager : MonoBehaviour
     [SerializeField] private SkillCardUI prefabSkillCard;
     
     [Header("Skill Cards Configuration")]
+    [SerializeField] private AutoAttackSkill autoShotSkillCard;
     [SerializeField] private SkillCardSO basicArrowSkillCard;
-    [SerializeField] private List<SkillCardData> listActiveSkillCardData = new();
-    [SerializeField] private SkillCardData selectedSkillCard;
+    [SerializeField] private List<SkillCardDataRunTime> listActiveSkillCardData = new();
+    [SerializeField] private SkillCardDataRunTime selectedSkillCard;
     
-    private SkillCardData _basicArrowSkillCard;
+    private SkillCardDataRunTime _basicArrowSkillCard;
     public HashSet<SkillCardSO> OwnedSkillCards { get; private set; } = new();
 
-    public SkillCardData SelectedSkillCard => selectedSkillCard;
+    public SkillCardDataRunTime SelectedSkillCard => selectedSkillCard;
     
     private void Awake()
     {
@@ -52,7 +53,7 @@ public class SkillCardManager : MonoBehaviour
     {
         if (_basicArrowSkillCard != null) return;
         
-        SkillCardData newSkillCardData = new SkillCardData
+        SkillCardDataRunTime newSkillCardDataRunTime = new SkillCardDataRunTime
         {
             skillCardName = basicArrowSkillCard.nameSkillCard,
             currentAttackBoost = basicArrowSkillCard.attackBoostSkillCard,
@@ -63,8 +64,8 @@ public class SkillCardManager : MonoBehaviour
             isActive = true
         };
 
-        _basicArrowSkillCard = newSkillCardData;
-        listActiveSkillCardData.Add(newSkillCardData);
+        _basicArrowSkillCard = newSkillCardDataRunTime;
+        listActiveSkillCardData.Add(newSkillCardDataRunTime);
     }
 
     private void Update()
@@ -93,25 +94,26 @@ public class SkillCardManager : MonoBehaviour
             
         newSkillCard.name = $"Card Skill - {skillCard.nameSkillCard}";
             
-        SkillCardData newSkillCardData = new SkillCardData
+        SkillCardDataRunTime newSkillCardDataRunTime = new SkillCardDataRunTime
         {
             skillCardName = skillCard.nameSkillCard,
             currentAttackBoost = skillCard.attackBoostSkillCard,
             currentRadiusExplosion = skillCard.explosionData.explosionRadius,
             currentMaxCooldown = skillCard.cooldownSkillCard,
             currentDuration = skillCard.durationActiveSkillCard,
+            currentMaxTarget = skillCard.targetSkillCard,
             skillCardUI = newSkillCard,
             skillCardSo = skillCard,
             skillLevel = 1,
             isActive = true
         };
         
-        if (_basicArrowSkillCard == null && skillCard.nameSkillCard == newSkillCardData.skillCardSo.nameSkillCard)
-            _basicArrowSkillCard =  newSkillCardData;
+        if (_basicArrowSkillCard == null && skillCard.nameSkillCard == newSkillCardDataRunTime.skillCardSo.nameSkillCard)
+            _basicArrowSkillCard =  newSkillCardDataRunTime;
         
-        newSkillCard.InitSkillCard(newSkillCardData);
+        newSkillCard.InitSkillCard(newSkillCardDataRunTime);
             
-        listActiveSkillCardData.Add(newSkillCardData);
+        listActiveSkillCardData.Add(newSkillCardDataRunTime);
         OwnedSkillCards.Add(skillCard);
     }
 
@@ -120,7 +122,13 @@ public class SkillCardManager : MonoBehaviour
         foreach (var skillData in listActiveSkillCardData)
         {
             if (skillData.isActive)
+            {
+                if (skillData.skillCardName == autoShotSkillCard.SkillName && BattleManager.Instance.IsBattleActive)
+                {
+                     UsingSkillCard(autoShotSkillCard.gameObject, skillData);
+                }
                 continue;
+            }
 
             skillData.currentCooldown -= Time.deltaTime;
             
@@ -133,18 +141,16 @@ public class SkillCardManager : MonoBehaviour
                     _basicArrowSkillCard.isActive = true;
                 
                 skillData.isActive = true;
-                
-                // if have Auto Shot Active the skill
             }
         }
     }
 
-    public void SelectSkillCard(SkillCardData skillData)
+    public void SelectSkillCard(SkillCardDataRunTime skillDataRunTime)
     {
-        var skill = listActiveSkillCardData.Find(x => x.skillCardName == skillData.skillCardName);
+        var skill = listActiveSkillCardData.Find(x => x.skillCardName == skillDataRunTime.skillCardName);
         if (skill == null)
         {
-            Debug.LogError($"[{name} - (UseSkillCard)] NO DATA for {skillData.skillCardName}!");
+            Debug.LogError($"[{name} - (UseSkillCard)] NO DATA for {skillDataRunTime.skillCardName}!");
             return;
         }
 
@@ -152,7 +158,7 @@ public class SkillCardManager : MonoBehaviour
             return;
         
         selectedSkillCard = skill;
-        Debug.LogWarning($"[{name} - (UseSkillCard)] Select {skillData.skillCardName}!");
+        Debug.LogWarning($"[{name} - (UseSkillCard)] Select {skillDataRunTime.skillCardName}!");
     }
 
     public void CancelSkillCard()
@@ -167,9 +173,16 @@ public class SkillCardManager : MonoBehaviour
         InitializeSkillCards(skillCardSo);
     }
     
-    public void UsingSkillCard(GameObject skillInstance)
+    public void UsingSkillCard(GameObject skillInstance, SkillCardDataRunTime targetSkillCardDataRunTime = null)
     {
-        var skillData = listActiveSkillCardData.Find(x => x.skillCardName == selectedSkillCard.skillCardName);
+        var dataToUse = targetSkillCardDataRunTime ?? selectedSkillCard;
+        if (dataToUse == null)
+        {
+            Debug.LogError($"[{name} - (UsingSkillCard)] No skill data provided!");
+            return;
+        }
+        
+        var skillData = listActiveSkillCardData.Find(x => x.skillCardName == dataToUse.skillCardName);
         if (skillData == null)
         {
             Debug.LogError($"[{name} - (UsingSkillCard)] There are no {selectedSkillCard.skillCardName}!");
@@ -192,7 +205,7 @@ public class SkillCardManager : MonoBehaviour
         
         skill.UseSkill(skillData);
         skillData.isActive = false;
-        skillData.currentCooldown = selectedSkillCard.currentMaxCooldown;
+        skillData.currentCooldown = skillData.currentMaxCooldown;
         
         selectedSkillCard = null;
     }
@@ -214,7 +227,7 @@ public class SkillCardManager : MonoBehaviour
         data.skillCardUI.InitSkillCard(data);
     }
 
-    public SkillCardData GetActiveSkillCardSo(SkillCardSO skillCardSo)
+    public SkillCardDataRunTime GetActiveSkillCardSo(SkillCardSO skillCardSo)
     {
         var skillData = listActiveSkillCardData.Find(x => x.skillCardName == skillCardSo.nameSkillCard);
 

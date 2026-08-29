@@ -529,7 +529,7 @@ Transform:
   m_GameObject: {fileID: 90263870}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1827,7 +1827,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2055009598}
   m_Father: {fileID: 502921201}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &431222633
@@ -1845,6 +1846,7 @@ MonoBehaviour:
   cardSkillContiner: {fileID: 563427691}
   basicSkillCardUI: {fileID: 844845441}
   prefabSkillCard: {fileID: -6284713998388616721, guid: 663843b18c458d64fafcad8323f40173, type: 3}
+  autoShotSkillCard: {fileID: 2055009599}
   basicArrowSkillCard: {fileID: 11400000, guid: 69ea12d8e1a59084da9cbfa7bdf8d9a1, type: 2}
   listActiveSkillCardData: []
   selectedSkillCard:
@@ -2741,7 +2743,7 @@ GameObject:
   - component: {fileID: 563427691}
   - component: {fileID: 563427694}
   - component: {fileID: 563427693}
-  - component: {fileID: 563427692}
+  - component: {fileID: 563427695}
   m_Layer: 5
   m_Name: Garden Management Mechanic - Night Garden Item
   m_TagString: Untagged
@@ -2768,32 +2770,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1200, y: 340}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &563427692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 563427690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
-  m_Padding:
-    m_Left: 20
-    m_Right: 20
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 4
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
 --- !u!114 &563427693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2832,6 +2808,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563427690}
   m_CullTransparentMesh: 1
+--- !u!114 &563427695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563427690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GridLayoutGroup
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 220, y: 330}
+  m_Spacing: {x: 15, y: 0}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1 &570132749
 GameObject:
   m_ObjectHideFlags: 0
@@ -4027,13 +4027,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721965612}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalRotation: {x: 0.23911765, y: 0.3696438, z: -0.09904577, w: 0.89239913}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 90263871}
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 45, z: 0}
 --- !u!114 &721965616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4335,7 +4335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67c424ac8296ed4a9877b7ec82293fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillCardUI
-  skillCardData:
+  skillCardDataRunTime:
     skillCardName: 
     skillLevel: 0
     currentDuration: 0
@@ -8951,7 +8951,18 @@ MonoBehaviour:
   - day: Day 1
     dayCount: 1
     raidPoints: 10
-    spawnRate: 3
+    spawnRateMin: 2
+    spawnRateMax: 6
+  - day: Day 2
+    dayCount: 2
+    raidPoints: 20
+    spawnRateMin: 2
+    spawnRateMax: 6
+  - day: Day 3
+    dayCount: 3
+    raidPoints: 30
+    spawnRateMin: 2
+    spawnRateMax: 6
   listOfEnemyData:
   - {fileID: 11400000, guid: 81fb26621275df245ad41869576087d9, type: 2}
   spawnPoints:
@@ -10967,6 +10978,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004580868}
   m_CullTransparentMesh: 1
+--- !u!1 &2055009597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2055009598}
+  - component: {fileID: 2055009599}
+  m_Layer: 0
+  m_Name: ' Skill Card System - Auto Shot Skill'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2055009598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055009597}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 431222632}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2055009599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055009597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfd61a835a274384dbecd9ddabec9b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutoAttackSkill
+  offsetSpawnArrow: 2
+  arrowPrefab: {fileID: 2697192857362300015, guid: 05cd5264cc4293a46937d758cc7f1756, type: 3}
+  skillName: Auto Shot
+  offset: 0
+  previewtarget: {fileID: 5747560802797912090, guid: e1806746db3250844bc2a36d3f8a854b, type: 3}
 --- !u!1 &2093917126
 GameObject:
   m_ObjectHideFlags: 0

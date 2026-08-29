@@ -10,7 +10,8 @@ public class EnemySpawnPool
     public string day;
     public int dayCount;
     public int raidPoints;
-    public float spawnRate;
+    public float spawnRateMin;
+    public float spawnRateMax;
 }
 
 [System.Serializable]
@@ -216,7 +217,7 @@ public class EnemySpawner : MonoBehaviour
         
         // Set current 
         _spawnCount++;
-        _currentSpawnRate = _selectedSpawnPool.spawnRate;
+        _currentSpawnRate = Random.Range(_selectedSpawnPool.spawnRateMin, _selectedSpawnPool.spawnRateMax);
     }
 
     private int CheapestEnemyCost()

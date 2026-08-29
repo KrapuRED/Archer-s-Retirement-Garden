@@ -5,13 +5,13 @@ public class NormalArrow : Arrow
     [SerializeField] private LayerMask enemyLayerMask;
     [SerializeField] private LayerMask hittableLayerMask;
     
-    private SkillCardData _skillCardData;
+    private SkillCardDataRunTime _skillCardDataRunTime;
     private bool _hasReachTarget;
     
-    public override void OnSpawnArrow(SkillCardData skillCardData)
+    public override void OnSpawnArrow(SkillCardDataRunTime skillCardDataRunTime)
     {
-        Debug.Log($"{name} Spawn Arrow with radius Explosion = {skillCardData.skillCardSo.explosionData.explosionRadius}");
-        _skillCardData = skillCardData;
+        Debug.Log($"{name} Spawn Arrow with radius Explosion = {skillCardDataRunTime.skillCardSo.explosionData.explosionRadius}");
+        _skillCardDataRunTime = skillCardDataRunTime;
     }
     
     private void OnCollisionEnter(Collision collision)
@@ -42,7 +42,7 @@ public class NormalArrow : Arrow
     
     private void HitTarget(IDamageable damageableTarget)
     {
-        (float damage, bool isCritical) = DamageController.Instance.OnCalculateDamageToEnemy(_skillCardData);
+        (float damage, bool isCritical) = DamageController.Instance.OnCalculateDamageToEnemy(_skillCardDataRunTime);
         damageableTarget.TakeDamage(damage, isCritical);
         
         // TODO: hit VFX/SFX here

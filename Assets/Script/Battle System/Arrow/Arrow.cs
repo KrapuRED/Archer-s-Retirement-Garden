@@ -17,5 +17,5 @@ public abstract class Arrow : MonoBehaviour
         _rigidbody.linearVelocity = transform.up * -arrowVelocity;
     }
 
-    public abstract void OnSpawnArrow(SkillCardData skillCardData);
+    public abstract void OnSpawnArrow(SkillCardDataRunTime skillCardDataRunTime);
 }

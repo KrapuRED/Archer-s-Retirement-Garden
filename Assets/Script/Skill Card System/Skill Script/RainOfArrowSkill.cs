@@ -10,24 +10,24 @@ public class RainOfArrowSkill : Skill
     
     private bool _isAbleDealDamage;
     
-    public override void UseSkill(SkillCardData  skillCardData)
+    public override void UseSkill(SkillCardDataRunTime  skillCardDataRunTime)
     {
-        arrowPrefab.OnSpawnArrow(skillCardData);
-        Debug.Log($"{name} Use Skill! Attack Boost : {skillCardData.currentAttackBoost}");
+        arrowPrefab.OnSpawnArrow(skillCardDataRunTime);
+        Debug.Log($"{name} Use Skill! Attack Boost : {skillCardDataRunTime.currentAttackBoost}");
         
         _isAbleDealDamage = true;
-        StartCoroutine(RainOfArrow(skillCardData));
+        StartCoroutine(RainOfArrow(skillCardDataRunTime));
     }
 
-    private IEnumerator RainOfArrow(SkillCardData  skillCardData)
+    private IEnumerator RainOfArrow(SkillCardDataRunTime  skillCardDataRunTime)
     {
         float elapsed = 0f;
-        float duration = skillCardData.currentDuration;
+        float duration = skillCardDataRunTime.currentDuration;
         
         // 1) Apply damage in duration
         while (_isAbleDealDamage && elapsed < duration)
         {
-            DealDamageInArea(skillCardData);
+            DealDamageInArea(skillCardDataRunTime);
             
             yield return new WaitForSeconds(tickInterval);
             elapsed += tickInterval;
@@ -39,7 +39,7 @@ public class RainOfArrowSkill : Skill
         Destroy(gameObject);
     }
 
-    private void DealDamageInArea(SkillCardData  skillCardData)
+    private void DealDamageInArea(SkillCardDataRunTime  skillCardDataRunTime)
     {
         Collider[] colliders = Physics.OverlapSphere(previewTarget.position, damageRadius, damageLayerMask);
 
@@ -47,7 +47,7 @@ public class RainOfArrowSkill : Skill
         {
             if (hit.TryGetComponent<IDamageable>(out var damageable))
             {
-                (float damage, bool isCritical) = DamageController.Instance.OnCalculateDamageToEnemy(skillCardData);
+                (float damage, bool isCritical) = DamageController.Instance.OnCalculateDamageToEnemy(skillCardDataRunTime);
                 damageable.TakeDamage(damage, isCritical);
             }
         }

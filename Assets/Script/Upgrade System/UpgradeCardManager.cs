@@ -289,7 +289,6 @@ public class UpgradeCardManager : MonoBehaviour
         foreach (var kvp in _runTimeData)
         {
             kvp.Value.CurrentPrice = Mathf.RoundToInt(GetNewPrice(kvp.Key, _totalAllUpgrades));
-            Debug.Log($"[{kvp.Key.upgradeName}] New Current Price: {kvp.Value.CurrentPrice}");
         }
         
         return true;

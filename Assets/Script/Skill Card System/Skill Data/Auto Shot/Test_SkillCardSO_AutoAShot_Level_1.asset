@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d531b4335552140b41e0140b86018b, type: 3}
   m_Name: Test_SkillCardSO_AutoAShot_Level_1
   m_EditorClassIdentifier: Assembly-CSharp::SkillCardSO
-  nameSkillCard: Auto Attack
+  nameSkillCard: Auto Shot
   descriptionSkillCard: 
   iconSkillCard: {fileID: 0}
   damageTypeSkillCard: 1

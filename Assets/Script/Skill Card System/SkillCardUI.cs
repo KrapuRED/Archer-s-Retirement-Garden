@@ -4,16 +4,16 @@ using TMPro;
 
 public class SkillCardUI : MonoBehaviour
 {
-    [SerializeField] SkillCardData skillCardData;
+    [SerializeField] SkillCardDataRunTime skillCardDataRunTime;
     
     [Header("UI Elements")]
     [SerializeField] TMP_Text skillLevel;
     [SerializeField] TMP_Text skillCooldown;
     [SerializeField] Image skillIcon; 
     
-    public void InitSkillCard(SkillCardData skillCard)
+    public void InitSkillCard(SkillCardDataRunTime skillCard)
     {
-        skillCardData = skillCard;
+        skillCardDataRunTime = skillCard;
         
         if (skillLevel != null)
             skillLevel.text = $"Lv.{skillCard.skillLevel}";
@@ -29,5 +29,5 @@ public class SkillCardUI : MonoBehaviour
         skillCooldown.text = $"{cooldown:00.00}s";
     }
     
-    public void OnUsingSkillCard() => SkillCardManager.Instance.SelectSkillCard(skillCardData);
+    public void OnUsingSkillCard() => SkillCardManager.Instance.SelectSkillCard(skillCardDataRunTime);
 }

@@ -68,9 +68,9 @@ public class CombatInput : MonoBehaviour
         if (!InputManager.Instance.IsInputMapActive(actionMapName))
             return;
 
-        SkillCardData skillCardData = SkillCardManager.Instance.SelectedSkillCard;
+        SkillCardDataRunTime skillCardDataRunTime = SkillCardManager.Instance.SelectedSkillCard;
         
-        if (skillCardData == null || skillCardData.skillCardSo == null)
+        if (skillCardDataRunTime == null || skillCardDataRunTime.skillCardSo == null)
         {
             Debug.LogWarning($"[{name} - (OnClickAttack)] SkillCardData is null!");
             return;
@@ -103,14 +103,14 @@ public class CombatInput : MonoBehaviour
 
     private void SpawnPreviewTarget()
     {
-        SkillCardData skillCardData = SkillCardManager.Instance.SelectedSkillCard;
+        SkillCardDataRunTime skillCardDataRunTime = SkillCardManager.Instance.SelectedSkillCard;
 
-        if (skillCardData == null || skillCardData.skillCardSo == null)
+        if (skillCardDataRunTime == null || skillCardDataRunTime.skillCardSo == null)
         {
             return;
         }
         
-        _previewInstance = Instantiate(skillCardData.skillCardSo.prefabSkillTargeting, previewTargetContainer);
+        _previewInstance = Instantiate(skillCardDataRunTime.skillCardSo.prefabSkillTargeting, previewTargetContainer);
         _previewRenderer = _previewInstance.GetComponent<Renderer>();
         
         _fixedY = _previewInstance.transform.position.y;

@@ -6,13 +6,13 @@ public class ExplosionArrow : Arrow
     [SerializeField] private LayerMask hittableLayerMask;
     
     private float _radiusExplosion;
-    private SkillCardData _skillCardData;
+    private SkillCardDataRunTime _skillCardDataRunTime;
     private bool _hasExploded;
     
-    public override void OnSpawnArrow(SkillCardData skillCardData)
+    public override void OnSpawnArrow(SkillCardDataRunTime skillCardDataRunTime)
     {
-        _skillCardData = skillCardData;
-        _radiusExplosion = skillCardData.skillCardSo.explosionData.explosionRadius;
+        _skillCardDataRunTime = skillCardDataRunTime;
+        _radiusExplosion = skillCardDataRunTime.skillCardSo.explosionData.explosionRadius;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -36,7 +36,7 @@ public class ExplosionArrow : Arrow
             IDamageable target = hit.GetComponent<IDamageable>();
             if (target == null) continue;
 
-            (float damage, bool isCritical) = DamageController.Instance.OnCalculateDamageToEnemy(_skillCardData);
+            (float damage, bool isCritical) = DamageController.Instance.OnCalculateDamageToEnemy(_skillCardDataRunTime);
             target.TakeDamage(damage, isCritical);
         }
 

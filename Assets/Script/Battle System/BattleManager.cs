@@ -7,8 +7,8 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private EnemySpawner enemySpawner;
     public EnemySpawner EnemySpawner => enemySpawner;
     
-    private bool _isBattleActive;
-    
+    public bool IsBattleActive { get; private set; }
+
     private void Awake()
     {
         if (Instance != null)
@@ -36,9 +36,9 @@ public class BattleManager : MonoBehaviour
     
     private void StartBattle()
     {
-        if (_isBattleActive) return;
+        if (IsBattleActive) return;
         
-        _isBattleActive = true;
+        IsBattleActive = true;
 
         int dayCount = DayCycleManager.Instance.DayCount;
         enemySpawner.StartSpawning(dayCount);
@@ -46,11 +46,11 @@ public class BattleManager : MonoBehaviour
 
     private void EndBattle()
     {
-        if (!_isBattleActive) return;
+        if (!IsBattleActive) return;
         
         InputManager.Instance.PopInputActionMap();
         enemySpawner.StopSpawning();
-        _isBattleActive = false;
+        IsBattleActive = false;
     }
 
     public void WinBattle()

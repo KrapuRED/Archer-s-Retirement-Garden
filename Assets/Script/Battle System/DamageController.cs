@@ -55,7 +55,7 @@ public class DamageController : MonoBehaviour
         HealthManager.Instance.OnTakeDamage(critDamage + damage, isCritical);
     }
 
-    public (float,bool) OnCalculateDamageToEnemy(SkillCardData skillCardData)
+    public (float,bool) OnCalculateDamageToEnemy(SkillCardDataRunTime skillCardDataRunTime)
     {
         if (_playerStatusManager == null || _skillCardManager == null)
         {
@@ -63,14 +63,14 @@ public class DamageController : MonoBehaviour
             _skillCardManager = SkillCardManager.Instance;
         }
         
-        if (skillCardData == null)
+        if (skillCardDataRunTime == null)
         {
             Debug.LogError("SkillCardManager is null");
             return (0f , false);
         }
         
         float damage = OnCalculateDamage(_playerStatusManager.AttackBoost,
-            skillCardData.currentAttackBoost);
+            skillCardDataRunTime.currentAttackBoost);
         
         (float critDamage, bool isCritical) = OnCalculateCritDamage(damage, _playerStatusManager.CriticalBoostRate, _playerStatusManager.CriticalBoostDamage);
         

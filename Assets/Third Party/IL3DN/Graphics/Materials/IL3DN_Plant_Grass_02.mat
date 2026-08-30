@@ -2,20 +2,30 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: IL3DN_Plant_Grass_02
-  m_Shader: {fileID: 4800000, guid: 8bb76156a4f696249ac78cae0f1a0ade, type: 3}
-  m_ShaderKeywords: EFFECT_HUE_VARIATION GEOM_TYPE_LEAF _BEND_ON _WIGGLE_ON _WIND_ON
+  m_Shader: {fileID: -6465566751694194690, guid: 2b3eca45d29d7264ba38adf180eb625e, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - EFFECT_HUE_VARIATION
+  - GEOM_TYPE_LEAF
+  - _BEND_ON
+  - _WIGGLE_ON
+  - _WIND_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -55,6 +65,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 2038a37a87e1eff4fa5efd69c9d1312e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MainText:
+        m_Texture: {fileID: 2800000, guid: 2038a37a87e1eff4fa5efd69c9d1312e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -91,12 +105,26 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - GrassWiggleFloat: 1
     - WindSpeedFloat: 0.1
     - WindStrenghtFloat: 0.8
     - WindTurbulenceFloat: 0.4
     - _AlphaCutoff: 0.5
+    - _Alpha_Threshold: 0.5
     - _Bend: 1
     - _BendStrenght: 1
     - _BumpScale: 1
@@ -111,11 +139,14 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
+    - _HeightBlend: 0.13
     - _MaxWindStrength: 0.56
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _QueueControl: 0
+    - _QueueOffset: 0
     - _Rotation: 0.6
     - _Scale: 0.3
     - _ShadowStrength: 0.5
@@ -146,19 +177,40 @@ Material:
     - _Wind: 1
     - _WindAmplitudeMultiplier: 1
     - _WindDirectionSpeed: 5
+    - _WindIntensity: 0.35
     - _WindQuality: 4
+    - _WindSpeed: 0.12
     - _WindStrenght: 1
     - _WindSwinging: 0.43
     - _ZWrite: 1
     - __dirty: 1
     m_Colors:
+    - _BottomColor: {r: 0.9587391, g: 1, b: 0.22327036, a: 1}
     - _Color: {r: 0.6509434, g: 0.52651983, b: 0.28555515, a: 1}
     - _Color0: {r: 1, g: 0.9847094, b: 0, a: 1}
     - _Color1: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    - _FarColor: {r: 0.40635318, g: 0.8050313, b: 0.26074898, a: 0}
     - _HueVariation: {r: 1, g: 1, b: 1, a: 1}
+    - _NearColor: {r: 0.40034327, g: 0.7987421, b: 0.38430038, a: 1}
+    - _NearFarRange: {r: 10, g: 25, b: 0, a: 0}
     - _SnowColor: {r: 1, g: 1, b: 1, a: 0}
     - _Speed: {r: -0, g: 10, b: 0, a: 0}
     - _TranslucencyColor: {r: 0.72321427, g: 1, b: 0, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!114 &6324561459220243026
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Editor::UnityEditor.Rendering.Universal.AssetVersion
+  version: 10

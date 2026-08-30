@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterSO
   characterName: Fortified Construct
   characterDescription: 
-  spawnCost: 5
-  baseMaxHealth: 20
-  baseAttack: 20
+  spawnCost: 50
+  baseMaxHealth: 525
+  baseAttack: 70
   baseAttackSpeed: 0
-  baseCritRate: 10
-  bassCritDamage: 100
-  baseDeathReward: 0
+  baseCritRate: 0
+  bassCritDamage: 0
+  baseDeathReward: 250
+  baseSpeed: 0.2
   characterSprite: {fileID: 0}
   prefabCharacter: {fileID: 7585466612505604892, guid: 67dbd95cfa8324840869d4b81d71f45a, type: 3}

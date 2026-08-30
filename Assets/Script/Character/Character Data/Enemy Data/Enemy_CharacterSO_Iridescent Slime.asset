@@ -18,8 +18,9 @@ MonoBehaviour:
   baseMaxHealth: 20
   baseAttack: 20
   baseAttackSpeed: 0
-  baseCritRate: 10
-  bassCritDamage: 100
-  baseDeathReward: 0
+  baseCritRate: 0
+  bassCritDamage: 0
+  baseDeathReward: 10
+  baseSpeed: 0.8
   characterSprite: {fileID: 0}
   prefabCharacter: {fileID: 7585466612505604892, guid: 97baef4957d263c41abdf289b98da948, type: 3}

@@ -3,7 +3,6 @@ using UnityEngine;
 public class EnemyCharacter : Character, IDamageable
 {
     [Header("Movement")]
-    [SerializeField] public float moveSpeed = 3f;
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float waypointThreshold = 0.05f;
 
@@ -12,7 +11,7 @@ public class EnemyCharacter : Character, IDamageable
     [SerializeField] private LayerMask groundCheckMask;
     [SerializeField] private float groundCheckRadius;
     
-    public float MoveSpeed => moveSpeed;
+    public float MoveSpeed => characterData.baseSpeed;
     public float RotationSpeed => rotationSpeed;
     public float WaypointThreshold => waypointThreshold;
 

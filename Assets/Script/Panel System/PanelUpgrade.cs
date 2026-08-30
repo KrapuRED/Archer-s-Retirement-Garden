@@ -2,12 +2,15 @@ using UnityEngine;
 
 public class PanelUpgrade : PanelBase
 {
+    [SerializeField] private UpgradeRefreshButton refreshButton;
+    
     public override void OpenPanel()
     {
         canvasGroup.alpha = 1;
         canvasGroup.blocksRaycasts = true;
         canvasGroup.interactable = true;
         
+        refreshButton.DisplayRefreshButton();
         UpgradeCardManager.Instance.OnShowRandomUpgradeCard();
     }
 

@@ -206,7 +206,7 @@ public class UpgradeCardManager : MonoBehaviour
         
         int attempts = 0;
         int maxAttempts = maxActiveRandomCards * 30;
-        var categoryUpgradeStatusType = new HashSet<string>();
+        var categoryKeys = new HashSet<string>();
         
         while (activeUpgradeCards.Count < maxActiveRandomCards && attempts < maxAttempts && remainingBuckets.Count > 0)
         {
@@ -222,19 +222,20 @@ public class UpgradeCardManager : MonoBehaviour
             var candidates = picked.listOfUpgradeCardSo
                 .Where(so => IsCardAvailable(so)
                              && !activeUpgradeCards.Contains(so)
-                             && !categoryUpgradeStatusType.Contains(GetCategoryKey(so)))
+                             && !categoryKeys.Contains(GetCategoryKey(so)))
                 .ToList();
             
             if  (candidates.Count == 0)
             {
-                remainingBuckets.Remove(picked);
+                //remainingBuckets.Remove(picked);
                 continue;
             }
             
             var so = candidates[Random.Range(0, candidates.Count)];
             activeUpgradeCards.Add(so);
-            categoryUpgradeStatusType.Add(so.upgradeStatusType.ToString());
-            remainingBuckets.Remove(picked);
+            
+            categoryKeys.Add(GetCategoryKey(so));
+            //remainingBuckets.Remove(picked);
         }
 
         if (activeUpgradeCards.Count < maxActiveRandomCards)
@@ -243,9 +244,7 @@ public class UpgradeCardManager : MonoBehaviour
                 .SelectMany(d => d.listOfUpgradeCardSo)
                 .Where(so => IsCardAvailable(so)
                              && !activeUpgradeCards.Contains(so)
-                             && !categoryUpgradeStatusType.Contains(GetCategoryKey(so)))
-                .Distinct()
-                .OrderBy(_ => Random.value)
+                             && !categoryKeys.Contains(GetCategoryKey(so)))
                 .ToList();
 
             foreach (var upgradeCardData in leftOverCandidates)

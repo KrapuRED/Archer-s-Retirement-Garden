@@ -60,6 +60,8 @@ public class EnemyCharacter : Character, IDamageable
     {
         Debug.LogWarning($"[{name} (CharacterDead)] This Character is dead");
         GameEvents.OnCharacterDeath.Invoke(this);
+        CurrencyManager.Instance.AddCurrency(RunTimeData.enemyReward);
+        
         Destroy(gameObject);
     }
 }

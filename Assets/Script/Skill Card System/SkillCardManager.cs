@@ -125,7 +125,7 @@ public class SkillCardManager : MonoBehaviour
             {
                 if (skillData.skillCardName == autoShotSkillCard.SkillName && BattleManager.Instance.IsBattleActive)
                 {
-                     UsingSkillCard(autoShotSkillCard.gameObject, skillData);
+                     AutoUsingSkillCard(autoShotSkillCard.gameObject, skillData);
                 }
                 continue;
             }
@@ -145,6 +145,41 @@ public class SkillCardManager : MonoBehaviour
         }
     }
 
+    private void AutoUsingSkillCard(GameObject skillInstance, SkillCardDataRunTime targetSkillCardDataRunTime = null)
+    {
+        var dataToUse = targetSkillCardDataRunTime;
+        if (dataToUse == null)
+        {
+            Debug.LogError($"[{name} - (UsingSkillCard)] No skill data provided!");
+            return;
+        }
+        
+        var skillData = listActiveSkillCardData.Find(x => x.skillCardName == dataToUse.skillCardName);
+        if (skillData == null)
+        {
+            Debug.LogError($"[{name} - (UsingSkillCard)] There are no {selectedSkillCard.skillCardName}!");
+            return;
+        }
+    
+        Debug.LogWarning($"[{name} - (UseSkillCard)] Using SkillCard!");
+        
+        var skill = skillInstance.GetComponent<Skill>();
+        if (skill == null)
+        {
+            Debug.LogError($"[{name} - (UsingSkillCard)] There are no Script Skill in {skillData.skillCardSo}!");
+            Destroy(skillInstance);
+            selectedSkillCard = null;
+            return;
+        }
+        
+        foreach (var col in skillInstance.GetComponentsInChildren<Collider>())
+            col.enabled = true;
+        
+        skill.UseSkill(skillData);
+        skillData.isActive = false;
+        skillData.currentCooldown = skillData.currentMaxCooldown;
+    }
+    
     public void SelectSkillCard(SkillCardDataRunTime skillDataRunTime)
     {
         var skill = listActiveSkillCardData.Find(x => x.skillCardName == skillDataRunTime.skillCardName);

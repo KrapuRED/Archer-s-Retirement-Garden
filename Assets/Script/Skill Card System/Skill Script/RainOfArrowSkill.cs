@@ -8,11 +8,12 @@ public class RainOfArrowSkill : Skill
     [SerializeField] private float tickInterval = 0.5f;
     [SerializeField] private LayerMask damageLayerMask;
     
+    [SerializeField] private GameObject visualEffectPrefab;
+    
     private bool _isAbleDealDamage;
     
     public override void UseSkill(SkillCardDataRunTime  skillCardDataRunTime)
     {
-        arrowPrefab.OnSpawnArrow(skillCardDataRunTime);
         Debug.Log($"{name} Use Skill! Attack Boost : {skillCardDataRunTime.currentAttackBoost}");
         
         _isAbleDealDamage = true;
@@ -24,6 +25,8 @@ public class RainOfArrowSkill : Skill
         float elapsed = 0f;
         float duration = skillCardDataRunTime.currentDuration;
         
+        visualEffectPrefab.SetActive(true);
+        
         // 1) Apply damage in duration
         while (_isAbleDealDamage && elapsed < duration)
         {
@@ -33,8 +36,9 @@ public class RainOfArrowSkill : Skill
             elapsed += tickInterval;
         }
         
-        yield return new WaitForSeconds(duration);
+        yield return new WaitForSeconds(skillCardDataRunTime.currentDuration);
         _isAbleDealDamage = false;
+        
         // 2) Exit
         Destroy(gameObject);
     }

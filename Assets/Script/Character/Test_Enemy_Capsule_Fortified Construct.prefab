@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89d01aa40ac4ff443b3032e3bff94c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCharacter
-  characterData: {fileID: 11400000, guid: 81fb26621275df245ad41869576087d9, type: 2}
+  characterData: {fileID: 11400000, guid: 94c9e33338f15684ca9d5df8232d00a7, type: 2}
   characterID: 
   movementCharacter: {fileID: 7828180983765794257}
   maxHealth: 100
@@ -365,7 +365,6 @@ MonoBehaviour:
   prefabDamageVisualizer: {fileID: 4305501132909586201, guid: 4aafad87d2b590f4f8007765f542c9d8, type: 3}
   damageContainer: {fileID: 3252192072901714824}
   initByStart: 0
-  moveSpeed: 0.5
   rotationSpeed: 10
   waypointThreshold: 0.05
   groundCheckPoint: {fileID: 8392259346031725581}

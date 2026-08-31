@@ -1,9 +1,11 @@
 using UnityEngine;
+using System.Collections;
 
 public class ExplosionArrow : Arrow
 {
     [SerializeField] private LayerMask enemyLayerMask;
     [SerializeField] private LayerMask hittableLayerMask;
+    [SerializeField] private GameObject explosionVFX;
     
     private float _radiusExplosion;
     private SkillCardDataRunTime _skillCardDataRunTime;
@@ -41,7 +43,17 @@ public class ExplosionArrow : Arrow
         }
 
         // TODO: explosion VFX/SFX here
+        explosionVFX.SetActive(true);
 
+        StartCoroutine(DestroyAfterTime(10));
+    }
+
+    private IEnumerator DestroyAfterTime(float time)
+    {
+        explosionVFX.SetActive(true);
+        
+        yield return new WaitForSeconds(time);
         Destroy(gameObject);
     }
+    
 }

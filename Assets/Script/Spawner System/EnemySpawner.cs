@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -190,9 +189,9 @@ public class EnemySpawner : MonoBehaviour
         return spawnCost <= _raidPoint;
     }
 
-    private EnemyRunTimeData GetEnemyRunTimeData(string chracterName)
+    private EnemyRunTimeData GetEnemyRunTimeData(string characterName)
     {
-        EnemyRunTimeData data = _enemyRunTimeDatas.FirstOrDefault(enemyData => enemyData.characterName == chracterName);
+        EnemyRunTimeData data = _enemyRunTimeDatas.FirstOrDefault(enemyData => enemyData.characterName == characterName);
         return data;
     }
 
@@ -228,8 +227,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         if (!_isActive) return;
-
-        int randomIndex = Random.Range(0, listOfEnemyData.Count);
+        
         var enemyData = GetRandomCharacterSO();
 
         if (!SufficientRaidPoints(enemyData.spawnCost))

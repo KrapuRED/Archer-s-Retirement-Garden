@@ -383,6 +383,63 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1001 &752082435330046850
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 754849529171756189, guid: 376339dedbd9cc5449766ed0e2f0d946, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 754849529171756189, guid: 376339dedbd9cc5449766ed0e2f0d946, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 18.974
+      objectReference: {fileID: 0}
+    - target: {fileID: 754849529171756189, guid: 376339dedbd9cc5449766ed0e2f0d946, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 754849529171756189, guid: 376339dedbd9cc5449766ed0e2f0d946, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 754849529171756189, guid: 376339dedbd9cc5449766ed0e2f0d946, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 754849529171756189, guid: 376339dedbd9cc5449766ed0e2f0d946, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 754849529171756189, guid: 376339dedbd9cc5449766ed0e2f0d946, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 754849529171756189, guid: 376339dedbd9cc5449766ed0e2f0d946, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 754849529171756189, guid: 376339dedbd9cc5449766ed0e2f0d946, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 754849529171756189, guid: 376339dedbd9cc5449766ed0e2f0d946, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923558696502959358, guid: 376339dedbd9cc5449766ed0e2f0d946, type: 3}
+      propertyPath: m_Name
+      value: Enemy_LavaGolem
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 376339dedbd9cc5449766ed0e2f0d946, type: 3}
 --- !u!1001 &1299182383794959533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -563,3 +620,4 @@ SceneRoots:
   - {fileID: 1299182383794959533}
   - {fileID: 8021123819605257991}
   - {fileID: 7950673522393846470}
+  - {fileID: 752082435330046850}

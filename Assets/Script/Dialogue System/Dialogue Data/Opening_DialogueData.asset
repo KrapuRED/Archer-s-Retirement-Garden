@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1963640d94415114d8eb3f359d5b928b, type: 3}
+  m_Name: Opening_DialogueData
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
+  locationDialogue: Demon Lord Defeat
+  dialogueLines:
+  - characterName: 
+    dialogueLine: 'For a hundred years, a shadow sat upon the throne of this land''s
+      Life Tree, not the dark '
+  - characterName: 
+    dialogueLine: throne the old songs warn children about, but a throne all the
+      same. A regional grief. A local dark.
+  - characterName: 
+    dialogueLine: They came from four corners of this land, a swordsman who never
+      lost a duel, a priestess older than the kingdom's oldest maps, and an archer
+      who could still an army's heartbeat with a single arrow.
+  - characterName: 
+    dialogueLine: They did not march against a king. Kings are for other stories,
+      other wars, other heroes far from here.
+  - characterName: 
+    dialogueLine: They marched against the one who knelt to that king and ruled in
+      his name, a Lord set over this soil, this tree, this people.
+  - characterName: 
+    dialogueLine: Beneath him, knights who had forgotten mercy. Beneath the knights,
+      soldiers who had never known it.
+  - characterName: 
+    dialogueLine: And beneath all of them, small horrors that grew in the dark like
+      weeds, spawn of a war none of them started.
+  - characterName: 
+    dialogueLine: It does not take a King to drown a country in a hundred years of
+      night. It only takes the one left in charge of it.
+  - characterName: 
+    dialogueLine: They came because someone had to be last, the last blade drawn,
+      the last prayer spoken, the last arrow loosed into the dark heart of a throne
+      room that was never the highest throne at all.
+  - characterName: 
+    dialogueLine: And when the seal finally broke, and the Life Tree breathed again
+      for the first time in a century... ...the world kept turning, the swordsman
+      kept swinging, the priestess kept praying.
+  - characterName: 
+    dialogueLine: Only one of them was done.
+  - characterName: 
+    dialogueLine: What nobody wrote songs about, was what happened the next morning,
+      to the one who quietly put his bow down.

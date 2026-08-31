@@ -76,7 +76,6 @@ public static class GameEvents
 
     // # ================================ Dialogue UI ================================ #
     public static readonly CustomEvents<string> OnChangeEnvironment = new();
-    public static readonly CustomEvents OnEndDialogue = new();
     public static readonly CustomEvents<string, string> OnDisplayDialogue = new();
     
     // # ================================ UI ================================ #

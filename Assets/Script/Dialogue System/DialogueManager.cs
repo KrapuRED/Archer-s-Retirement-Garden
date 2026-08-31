@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
 
+    [SerializeField] private DialogueCharacterController dialogueCharacterController;
     [SerializeField] private List<DialogueDataRunTime> dialogueDataRunTimes = new();
     
     private DialogueDataRunTime _selectedDialogueDataRunTime;
@@ -34,7 +35,7 @@ public class DialogueManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Start() => StartDialogue();
+    //private void Start() => StartDialogue();
 
     private void Update()
     {
@@ -57,7 +58,11 @@ public class DialogueManager : MonoBehaviour
         Debug.Log($"Dialogue Data Index : {_dialogueDataIndex} Dialogue Index : {_dialogueIndex}" );
         
         var line = _currentDialogueData.dialogueLines[_dialogueIndex];
-        Debug.Log($"{line.characterName} : {line.dialogueLine}");
+        
+        if (!string.IsNullOrEmpty(line.characterName))
+            dialogueCharacterController.SwapCharacter(line.characterName);
+        
+        GameEvents.OnDisplayDialogue.Invoke(line.characterName, line.dialogueLine);
     }
 
     private bool IsMultipleDialogue(DialogueDataRunTime dialogueDataRunTime)
@@ -127,8 +132,15 @@ public class DialogueManager : MonoBehaviour
     public void SkipDialogue()
     {
         if (!IsDialogueRunning) return;
-        
-        StopDialogue();
+
+        if (IsMultipleDialogue(_selectedDialogueDataRunTime) && _dialogueDataIndex < _selectedDialogueDataRunTime.dialogueData.Count - 1)
+        {
+            ChangeDialogueData();
+        }
+        else
+        {
+            StopDialogue();
+        }
     }
 
     public void StopDialogue()

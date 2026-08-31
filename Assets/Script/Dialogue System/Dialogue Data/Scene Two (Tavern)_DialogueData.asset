@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1963640d94415114d8eb3f359d5b928b, type: 3}
+  m_Name: Scene Two (Tavern)_DialogueData
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
+  locationDialogue: Tavern
+  dialogueLines:
+  - characterName: Blade Master
+    dialogueLine: O THE LAST DEMON LORD THIS COUNTRY WILL EVER SEE! (slams mug down,
+      ale sloshing everywhere) And to the guy who put an arrow through its eye socket
+      from four hundred meters, HALF-DRUNK, might I add-
+  - characterName: Archer
+    dialogueLine: I was not half-drunk.
+  - characterName: Blade Master
+    dialogueLine: You smelled half-drunk.
+  - characterName: Archer
+    dialogueLine: That was the demon. Demons smell like a bar fight.
+  - characterName: Priestess
+    dialogueLine: (dryly, not looking up) Four hundred and twelve years old, and
+      I have never once heard either of you be right about anything on the first
+      try.
+  - characterName: Blade Master
+    dialogueLine: She wounds me. Right here. (thumps chest) In the honor.
+  - characterName: Priestess
+    dialogueLine: Your honor will survive. It's survived worse than me.
+  - characterName: Archer
+    dialogueLine: (small, tired smile, staring at his cup) ...It's over, huh.
+  - characterName: Blade Master
+    dialogueLine: (quieter, catching the shift) Yeah. It is.
+  - characterName: Priestess
+    dialogueLine: You say that like it's a bad thing.
+  - characterName: Archer
+    dialogueLine: "No. No, I just\u2014 (exhales) I don't know what a Tuesday looks
+      like anymore. I've had a bow in my hand since I was eleven. I don't know what
+      my hands are for if they're not doing that."
+  - characterName: Blade Master
+    dialogueLine: Drinking, apparently. You're doing great at that part.
+  - characterName: Priestess
+    dialogueLine: (raises an eyebrow, finally looks at him properly) You "bought
+      something." That sentence has never once ended well when you've said it.
+  - characterName: Archer
+    dialogueLine: A floating island. Small one. Way out past the northern currents.
+  - characterName: Blade Master
+    dialogueLine: (genuinely stunned, mug frozen halfway to his mouth) You bought
+      a WHAT-
+  - characterName: Archer
+    dialogueLine: I'm gonna build a garden.
+  - characterName: Blade Master
+    dialogueLine: (Beat of silence.)
+  - characterName: Blade Master
+    dialogueLine: A. Garden.
+  - characterName: Archer
+    dialogueLine: A garden.
+  - characterName: Blade Master
+    dialogueLine: The man who once shot a wyvern out of the sky mid-barrel-roll wants
+      to grow... turnips.
+  - characterName: Archer
+    dialogueLine: Tomatoes, probably. Turnips are a stretch goal.
+  - characterName: ' Priestess'
+    dialogueLine: (quiet, and this time genuinely warm) ...Good.
+  - characterName: Blade Master
+    dialogueLine: '"Good"?? He''s throwing his LIFE-'
+  - characterName: Priestess
+    dialogueLine: 'He''s keeping his life, you overgrown battering ram. That''s the
+      part none of you ever learn until it''s already run out. '
+  - characterName: Priestess
+    dialogueLine: (to Archer, gentler) Go grow your tomatoes. Someone in this story
+      deserves to see how it ends without a sword in their hand.
+  - characterName: Archer
+    dialogueLine: (raises his cup slightly) ...To after.
+  - characterName: Blade Master
+    dialogueLine: (after a beat, grudgingly raising his too, grinning) To after.
+      Gods help those tomatoes.
+  - characterName: Blade Master
+    dialogueLine: (catching his breath from laughing) So what, you're just gonna
+      go grow tomatoes and forget the last ten years happened?
+  - characterName: Archer
+    dialogueLine: (shrugs, digs in his coat pocket, sets something small on the table,
+      doesn't make a show of it) Not forget. Just... plant something that isn't a
+      corpse count for once.
+  - characterName: Priestess
+    dialogueLine: (glances at the object, tilts her head slightly) ...Where did you
+      get that?
+  - characterName: Archer
+    dialogueLine: Found it. Somewhere around the Tree, on the way back. Half-buried,
+      glowing a little. Figured a seed that survives a hundred years under a demon's
+      throne's earned a nicer place to grow than a battlefield.
+  - characterName: Blade Master
+    dialogueLine: (squinting at it) ...Huh. Doesn't look like anything special.
+  - characterName: Priestess
+    dialogueLine: (quiet, not quite convinced, but lets it go, for now) No. It doesn't.
+  - characterName: Archer
+    dialogueLine: (pockets it again, lighter tone) Yeah, well. Neither did I, and
+      look how that turned out.

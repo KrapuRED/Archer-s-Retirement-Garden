@@ -23,4 +23,4 @@ MonoBehaviour:
   baseDeathReward: 50
   baseSpeed: 0.5
   characterSprite: {fileID: 0}
-  prefabCharacter: {fileID: 7585466612505604892, guid: 60cbf306eca06554e82b4de2ced6426f, type: 3}
+  prefabCharacter: {fileID: 1756284007319715852, guid: f69048aaf225ec648a4c081084a485ac, type: 3}

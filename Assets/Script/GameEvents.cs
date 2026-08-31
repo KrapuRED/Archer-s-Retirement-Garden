@@ -73,6 +73,11 @@ public static class GameEvents
     // # ================================ PAUSE SYSTEM ================================ #
     public static readonly CustomEvents OnPauseGame  = new();
     public static readonly CustomEvents OnResumeGame = new();
+
+    // # ================================ Dialogue UI ================================ #
+    public static readonly CustomEvents<string> OnChangeEnvironment = new();
+    public static readonly CustomEvents OnEndDialogue = new();
+    public static readonly CustomEvents<string, string> OnDisplayDialogue = new();
     
     // # ================================ UI ================================ #
     public static readonly CustomEvents<GardenItemCardData> OnShowDetailGardenItem = new();

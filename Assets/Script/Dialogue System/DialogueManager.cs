@@ -1,13 +1,13 @@
-
 using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
 public class DialogueDataRunTime
 {
-    public string DialogueName;
+    public string dialogueName;
     public int dayDialogue;
-    public DialogueSO dialogueData;
+    public List<DialogueSO> dialogueData = new();
+    public bool isComplete;
 }
 
 public class DialogueManager : MonoBehaviour
@@ -16,38 +16,67 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] private List<DialogueDataRunTime> dialogueDataRunTimes = new();
     
-    public bool IsDialogueRunning { get; private set; }
     private DialogueDataRunTime _selectedDialogueDataRunTime;
+    private DialogueSO _currentDialogueData;
+    private int _dialogueDataIndex;
     private int _dialogueIndex;
+
+    public bool IsDialogueRunning { get; private set; }
     
     private void Awake()
     {
         if (Instance != null)
         {
             Destroy(gameObject);
+            return;
         }
 
         Instance = this;
     }
 
-    private void Start()
-    {
-        StartDialogue();
-    }
-    
+    private void Start() => StartDialogue();
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
             ContinueDialogue();
     }
+    
+    private void OnEnable()
+    {
+        GameEvents.OnChangeToDayLight.AddListener(StartDialogue);
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnChangeToDayLight.AddListener(StartDialogue);
+    }
 
     private void DisplayDialogue()
     {
-        var dialogueLineData = _selectedDialogueDataRunTime.dialogueData.dialogueLines[_dialogueIndex];
-        Debug.Log($"[{name}  (DisplayDialogue)] {dialogueLineData.characterName} : {dialogueLineData.dialogueLine}");
+        Debug.Log($"Dialogue Data Index : {_dialogueDataIndex} Dialogue Index : {_dialogueIndex}" );
+        
+        var line = _currentDialogueData.dialogueLines[_dialogueIndex];
+        Debug.Log($"{line.characterName} : {line.dialogueLine}");
     }
-    
-    public void StartDialogue()
+
+    private bool IsMultipleDialogue(DialogueDataRunTime dialogueDataRunTime)
+    {
+        return dialogueDataRunTime.dialogueData.Count > 1;
+    }
+
+    private void ChangeDialogueData()
+    {
+        if (dialogueDataRunTimes.Count > 0)
+            _dialogueDataIndex++;
+        
+        _currentDialogueData  = _selectedDialogueDataRunTime.dialogueData[_dialogueDataIndex];
+        
+        string environment = $"Environment Dialogue - {_currentDialogueData.locationDialogue}";
+        TransitionManager.Instance.TransitionDialogueEnvironment(environment, "FadeOut");
+    }
+
+    private void StartDialogue()
     {
         if (IsDialogueRunning) return;
         
@@ -58,33 +87,48 @@ public class DialogueManager : MonoBehaviour
             Debug.LogWarning($"[{name} (StartDialogue)] There are no dialogue data for {dayCount} day!");
             return;
         }
+
+        if (dialogueData.isComplete)
+        {
+            Debug.LogWarning($"[{name} (StartDialogue)] This dialogueData is complete! {dialogueData.dialogueName}");
+            return;
+        }
         
         _selectedDialogueDataRunTime  = dialogueData;
         IsDialogueRunning = true;
-        _dialogueIndex = 0;
+        _dialogueIndex = -1;
+        _dialogueDataIndex = -1;
         
-        DisplayDialogue();
+        Debug.Log($"[{name} (StartDialogue)] Is Selected Dialogue DataRunTime Multiple : {IsMultipleDialogue(_selectedDialogueDataRunTime)}");
+        ChangeDialogueData();
     }
 
     public void ContinueDialogue()
     {
-        if (!IsDialogueRunning) return;
+        if (!IsDialogueRunning || TransitionManager.Instance.isTrasitioning) return;
         
         _dialogueIndex++;
-        
-        if (_dialogueIndex >= _selectedDialogueDataRunTime.dialogueData.dialogueLines.Count)
+
+        if (_dialogueIndex < _currentDialogueData.dialogueLines.Count)
+        {
+            DisplayDialogue();
+        }
+        else if (IsMultipleDialogue(_selectedDialogueDataRunTime) && _dialogueDataIndex < _selectedDialogueDataRunTime.dialogueData.Count - 1)
+        {
+            _dialogueIndex = -1;
+            ChangeDialogueData();
+        }
+        else
         {
             StopDialogue();
-            return;
         }
-        
-        DisplayDialogue();
     }
 
     public void SkipDialogue()
     {
         if (!IsDialogueRunning) return;
         
+        StopDialogue();
     }
 
     public void StopDialogue()
@@ -92,6 +136,9 @@ public class DialogueManager : MonoBehaviour
         if (!IsDialogueRunning) return;
         
         Debug.LogWarning($"[{name} (StopDialogue)] Dialogue is stopped!");
+        _selectedDialogueDataRunTime.isComplete = true;
+        
+        TransitionManager.Instance.TransitionDialogueEnvironment("","FadeOut");
         
         IsDialogueRunning = false;
     }

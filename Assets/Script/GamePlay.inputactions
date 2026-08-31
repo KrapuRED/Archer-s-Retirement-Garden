@@ -305,6 +305,34 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Dialogue",
+            "id": "3340fc8c-86fb-4bc6-a652-529e5a5f5c30",
+            "actions": [
+                {
+                    "name": "ContinueDialogue",
+                    "type": "Button",
+                    "id": "d211a55b-3452-4e2c-ade9-03a834c7ec9c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f1546bb0-349c-40e5-8571-93ab30596484",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ContinueDialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

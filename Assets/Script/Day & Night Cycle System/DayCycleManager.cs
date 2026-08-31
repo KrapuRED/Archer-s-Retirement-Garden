@@ -33,6 +33,7 @@ public class DayCycleManager : MonoBehaviour
     
             ComponentChecker();
             ChangeDayCycleType(dayCycleType);
+            
             AddDayCount();
         }
         

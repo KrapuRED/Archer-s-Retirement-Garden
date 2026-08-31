@@ -116,7 +116,6 @@ public class EnemySpawner : MonoBehaviour
             };
             
             _enemyRunTimeDatas.Add(newRunTimeData);
-            Debug.Log($"[{name} - (SetEnemyRunTimeData)] Succes add Enemy Runtime Data {newRunTimeData.characterName}");
         }
         
         Debug.Log($"[{name} - (SetEnemyRunTimeData)] total Enemy RunTime Data {_enemyRunTimeDatas.Count}");

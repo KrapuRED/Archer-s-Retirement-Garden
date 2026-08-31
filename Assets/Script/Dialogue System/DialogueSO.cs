@@ -11,5 +11,6 @@ public class DialogueLineData
 [CreateAssetMenu(fileName = "DialogueSO", menuName = "Dialogue/DialogueSO")]
 public class DialogueSO : ScriptableObject
 {
+    public string locationDialogue;
     public List<DialogueLineData> dialogueLines = new ();
 }

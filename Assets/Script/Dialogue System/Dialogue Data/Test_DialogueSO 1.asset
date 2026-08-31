@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1963640d94415114d8eb3f359d5b928b, type: 3}
-  m_Name: Test_DialogueSO
+  m_Name: Test_DialogueSO 1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
-  locationDialogue: Demon Lord Defeat
+  locationDialogue: Tavern
   dialogueLines:
-  - characterName: ANa
-    dialogueLine: Aello
-  - characterName: BANa
-    dialogueLine: Bello
+  - characterName: NaNa
+    dialogueLine: Nello
+  - characterName: Gana
+    dialogueLine: Gello

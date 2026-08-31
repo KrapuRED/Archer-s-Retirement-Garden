@@ -79,6 +79,8 @@ public class InputManager : MonoBehaviour
     
     public void SwitchInputMap(string actionMapName)
     {
+        if (DialogueManager.Instance.IsDialogueRunning) return;
+        
         ExecuteSwitchActionMap(actionMapName);
     }
     

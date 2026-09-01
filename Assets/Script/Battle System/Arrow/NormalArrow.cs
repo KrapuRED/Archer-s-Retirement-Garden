@@ -13,7 +13,10 @@ public class NormalArrow : Arrow
         Debug.Log($"{name} Spawn Arrow with radius Explosion = {skillCardDataRunTime.skillCardSo.explosionData.explosionRadius}");
 
         _skillCardDataRunTime = skillCardDataRunTime;
+
+        float old = arrowVelocity;
         arrowVelocity = skillCardDataRunTime.currentArrowVelocity;
+        Debug.Log($"{name} Arrow Velocity = {old} -> {arrowVelocity}");
     }
     
     private void OnCollisionEnter(Collision collision)

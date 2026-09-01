@@ -77,7 +77,7 @@ public class SkillCardUI : MonoBehaviour
         {
             _isSelect = true;
             selectVFX?.PlayFeedbacks();
-            SkillCardManager.Instance.CancelSkillCard();
+            //SkillCardManager.Instance.CancelSkillCard();
         }
         
         SkillCardManager.Instance.SelectSkillCard(skillCardDataRunTime);

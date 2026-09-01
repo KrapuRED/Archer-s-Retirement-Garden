@@ -828,6 +828,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2045923354}
     m_Modifications:
+    - target: {fileID: 283330879048410278, guid: 5d2182d0a4a6cd2469217b68d003599e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 283330879048410278, guid: 5d2182d0a4a6cd2469217b68d003599e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 283330879048410278, guid: 5d2182d0a4a6cd2469217b68d003599e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 283330879048410278, guid: 5d2182d0a4a6cd2469217b68d003599e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1084083548247681162, guid: 5d2182d0a4a6cd2469217b68d003599e, type: 3}
       propertyPath: m_Name
       value: Night Garden Card Item Button
@@ -910,6 +926,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4992805507756087587, guid: 5d2182d0a4a6cd2469217b68d003599e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448906825362756070, guid: 5d2182d0a4a6cd2469217b68d003599e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448906825362756070, guid: 5d2182d0a4a6cd2469217b68d003599e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448906825362756070, guid: 5d2182d0a4a6cd2469217b68d003599e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448906825362756070, guid: 5d2182d0a4a6cd2469217b68d003599e, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

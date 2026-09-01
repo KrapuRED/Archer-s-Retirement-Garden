@@ -11,7 +11,9 @@ public class NormalArrow : Arrow
     public override void OnSpawnArrow(SkillCardDataRunTime skillCardDataRunTime)
     {
         Debug.Log($"{name} Spawn Arrow with radius Explosion = {skillCardDataRunTime.skillCardSo.explosionData.explosionRadius}");
+
         _skillCardDataRunTime = skillCardDataRunTime;
+        arrowVelocity = skillCardDataRunTime.currentArrowVelocity;
     }
     
     private void OnCollisionEnter(Collision collision)

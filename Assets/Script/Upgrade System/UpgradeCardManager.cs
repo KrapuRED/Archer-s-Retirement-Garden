@@ -154,7 +154,7 @@ public class UpgradeCardManager : MonoBehaviour
             if (skillData == null) return false;
             
             int skillLevel = skillData.skillLevel + 1;
-            return upgradeCardSo.linkedSkillCard != null && SkillCardManager.Instance.OwnedSkillCards.Contains(upgradeCardSo.baseSkillCard) && skillLevel == upgradeCardSo.upgradeValue;
+            return upgradeCardSo.linkedSkillCard != null && SkillCardManager.Instance.OwnedSkillCards.Contains(upgradeCardSo.baseSkillCard) && skillLevel == upgradeCardSo.upgradeValue && skillData.isUnlock;
         }
         
         return true;
@@ -227,7 +227,6 @@ public class UpgradeCardManager : MonoBehaviour
             
             if  (candidates.Count == 0)
             {
-                //remainingBuckets.Remove(picked);
                 continue;
             }
             
@@ -235,7 +234,6 @@ public class UpgradeCardManager : MonoBehaviour
             activeUpgradeCards.Add(so);
             
             categoryKeys.Add(GetCategoryKey(so));
-            //remainingBuckets.Remove(picked);
         }
 
         if (activeUpgradeCards.Count < maxActiveRandomCards)

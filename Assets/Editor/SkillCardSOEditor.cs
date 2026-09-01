@@ -17,6 +17,8 @@ public class SkillCardSOEditor : Editor
         SerializedProperty explosionData;
         SerializedProperty prefabSkillTargeting;
         SerializedProperty targetSkillCard;
+        SerializedProperty isAuto;
+        SerializedProperty arrowVelocity;
  
     #endregion
 
@@ -33,6 +35,8 @@ public class SkillCardSOEditor : Editor
         arrowData = serializedObject.FindProperty("arrowData");
         explosionData = serializedObject.FindProperty("explosionData");
         prefabSkillTargeting = serializedObject.FindProperty("prefabSkillTargeting");
+        isAuto =  serializedObject.FindProperty("isAuto");
+        arrowVelocity = serializedObject.FindProperty("arrowVelocity");
     }
 
     public override void OnInspectorGUI()
@@ -42,6 +46,8 @@ public class SkillCardSOEditor : Editor
         EditorGUILayout.PropertyField(nameSkillCard);
         EditorGUILayout.PropertyField(descriptionSkillCard);
         EditorGUILayout.PropertyField(iconSkillCard);
+        EditorGUILayout.PropertyField(arrowVelocity);
+        EditorGUILayout.PropertyField(isAuto);
         
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Skill Card Configuration", EditorStyles.boldLabel);
@@ -50,6 +56,7 @@ public class SkillCardSOEditor : Editor
         EditorGUILayout.PropertyField(durationActiveSkillCard);
         EditorGUILayout.PropertyField(cooldownSkillCard);
         EditorGUILayout.PropertyField(targetSkillCard);
+        
         
         EditorGUILayout.Space();
         SkillDamageType damageType = (SkillDamageType)damageTypeSkillCard.enumValueIndex;

@@ -11,16 +11,26 @@ public class SkillCardUI : MonoBehaviour
     [SerializeField] TMP_Text skillCooldown;
     [SerializeField] Image skillIcon;
     [SerializeField] private GameObject coolDownVFX;
+    [SerializeField] private GameObject unlockVFX;
     
     public void InitSkillCard(SkillCardDataRunTime skillCard)
     {
         skillCardDataRunTime = skillCard;
-        
+            
         if (skillLevel != null)
             skillLevel.text = $"Lv.{skillCard.skillLevel}";
         
         coolDownVFX.SetActive(false);
         skillCooldown.text = string.Empty;
+    }
+
+    public void UnlockSkillCard(SkillCardDataRunTime skillCard)
+    {
+        skillCardDataRunTime = skillCard;
+        
+        if (skillCard.isUnlock)
+            unlockVFX.SetActive(false);
+        
     }
 
     public void UpdateSkillCard(float cooldown)
@@ -46,6 +56,12 @@ public class SkillCardUI : MonoBehaviour
         }
         return path;
     }
-    
-    public void OnUsingSkillCard() => SkillCardManager.Instance.SelectSkillCard(skillCardDataRunTime);
+
+    public void OnUsingSkillCard()
+    {
+        if (!skillCardDataRunTime.isUnlock)
+            return;
+        
+        SkillCardManager.Instance.SelectSkillCard(skillCardDataRunTime);
+    }
 }

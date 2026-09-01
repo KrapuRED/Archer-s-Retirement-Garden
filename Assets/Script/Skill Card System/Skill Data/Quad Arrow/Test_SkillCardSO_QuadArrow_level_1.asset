@@ -15,10 +15,13 @@ MonoBehaviour:
   nameSkillCard: Quad Shot
   descriptionSkillCard: 
   iconSkillCard: {fileID: 0}
+  arrowVelocity: 2
+  isAuto: 0
   damageTypeSkillCard: 1
   attackBoostSkillCard: 108
   durationActiveSkillCard: 5
   cooldownSkillCard: 15
+  targetSkillCard: 0
   arrowData:
     damageType: 1
   explosionData:

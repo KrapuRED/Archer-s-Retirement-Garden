@@ -12,7 +12,9 @@ public class SkillCardDataRunTime
     public float currentMaxCooldown;
     public float currentCooldown;
     public int currentMaxTarget;
+    public float currentArrowVelocity;
     public bool isActive;
+    public bool isUnlock;
 
     public SkillCardUI skillCardUI;
     public SkillCardSO skillCardSo;
@@ -30,6 +32,7 @@ public class SkillCardManager : MonoBehaviour
     [Header("Skill Cards Configuration")]
     [SerializeField] private AutoAttackSkill autoShotSkillCard;
     [SerializeField] private SkillCardSO basicArrowSkillCard;
+    [SerializeField] private List<SkillCardSO> listPreDeterminedSkillCardData = new();
     [SerializeField] private List<SkillCardDataRunTime> listActiveSkillCardData = new();
     [SerializeField] private SkillCardDataRunTime selectedSkillCard;
     
@@ -58,7 +61,8 @@ public class SkillCardManager : MonoBehaviour
             skillCardName = basicArrowSkillCard.nameSkillCard,
             currentAttackBoost = basicArrowSkillCard.attackBoostSkillCard,
             currentRadiusExplosion = basicArrowSkillCard.explosionData.explosionRadius,
-            currentMaxCooldown = basicArrowSkillCard.cooldownSkillCard,
+            currentMaxCooldown = StatusManager.Instance.AttackIntervalBoost,
+            currentArrowVelocity = StatusManager.Instance.ArrowVelocityBoost,
             skillCardUI = basicSkillCardUI,
             skillCardSo = basicArrowSkillCard,
             isActive = true
@@ -66,6 +70,11 @@ public class SkillCardManager : MonoBehaviour
 
         _basicArrowSkillCard = newSkillCardDataRunTime;
         listActiveSkillCardData.Add(newSkillCardDataRunTime);
+
+        foreach (var cardData in listPreDeterminedSkillCardData)
+        {
+            InitializeSkillCards(cardData);
+        }
     }
 
     private void Update()
@@ -84,16 +93,7 @@ public class SkillCardManager : MonoBehaviour
     {
         if (OwnedSkillCards.Contains(skillCard))
             return;
-        
-        SkillCardUI newSkillCard =  Instantiate(prefabSkillCard, cardSkillContiner);
-        if (newSkillCard == null)
-        {
-            Destroy(newSkillCard);
-            return;
-        }
-            
-        newSkillCard.name = $"Card Skill - {skillCard.nameSkillCard}";
-            
+
         SkillCardDataRunTime newSkillCardDataRunTime = new SkillCardDataRunTime
         {
             skillCardName = skillCard.nameSkillCard,
@@ -102,16 +102,33 @@ public class SkillCardManager : MonoBehaviour
             currentMaxCooldown = skillCard.cooldownSkillCard,
             currentDuration = skillCard.durationActiveSkillCard,
             currentMaxTarget = skillCard.targetSkillCard,
-            skillCardUI = newSkillCard,
+            currentArrowVelocity = skillCard.arrowVelocity,
             skillCardSo = skillCard,
             skillLevel = 1,
             isActive = true
         };
         
-        if (_basicArrowSkillCard == null && skillCard.nameSkillCard == newSkillCardDataRunTime.skillCardSo.nameSkillCard)
-            _basicArrowSkillCard =  newSkillCardDataRunTime;
+        if (!skillCard.isAuto)
+        {
+            SkillCardUI newSkillCard =  Instantiate(prefabSkillCard, cardSkillContiner);
+            if (newSkillCard == null)
+            {
+                Destroy(newSkillCard);
+                return;
+            }
+            
+            newSkillCard.name = $"Card Skill - {skillCard.nameSkillCard}";
+            newSkillCardDataRunTime.skillCardUI = newSkillCard;
+            
+            if (_basicArrowSkillCard == null && skillCard.nameSkillCard == newSkillCardDataRunTime.skillCardSo.nameSkillCard)
+                _basicArrowSkillCard = newSkillCardDataRunTime;
         
-        newSkillCard.InitSkillCard(newSkillCardDataRunTime);
+            newSkillCard.InitSkillCard(newSkillCardDataRunTime);
+        }
+        else
+        {
+            newSkillCardDataRunTime.isUnlock = true;
+        }
             
         listActiveSkillCardData.Add(newSkillCardDataRunTime);
         OwnedSkillCards.Add(skillCard);
@@ -205,7 +222,14 @@ public class SkillCardManager : MonoBehaviour
 
     public void UnlockSkillCard(SkillCardSO skillCardSo)
     {
-        InitializeSkillCards(skillCardSo);
+        var cardData = listActiveSkillCardData.Find(x => x.skillCardSo == skillCardSo);
+        if (cardData == null)
+            InitializeSkillCards(skillCardSo);
+        else
+        {
+            cardData.isUnlock = true;
+            cardData.skillCardUI.UnlockSkillCard(cardData);
+        }
     }
     
     public void UsingSkillCard(GameObject skillInstance, SkillCardDataRunTime targetSkillCardDataRunTime = null)
@@ -262,6 +286,23 @@ public class SkillCardManager : MonoBehaviour
         data.skillCardUI.InitSkillCard(data);
     }
 
+    public void UpdateBasicAttack(UpgradeStatusType upgradeStatusType, float amount)
+    {
+        var data =  listActiveSkillCardData.Find(x => x.skillCardName == basicArrowSkillCard.nameSkillCard);
+        if (data == null)
+            return;
+        
+        switch (upgradeStatusType)
+        {
+            case UpgradeStatusType.AttackInterval:
+                data.currentMaxCooldown += amount;
+                break;
+            case UpgradeStatusType.ArrowVelocity:
+                data.currentArrowVelocity += amount;
+                break;
+        }
+    }
+    
     public SkillCardDataRunTime GetActiveSkillCardSo(SkillCardSO skillCardSo)
     {
         var skillData = listActiveSkillCardData.Find(x => x.skillCardName == skillCardSo.nameSkillCard);

@@ -47,6 +47,8 @@ public class StatusManager : MonoBehaviour
     public float AttackBoost => attackBoost;
     public float CriticalBoostRate => criticalBoostRate;
     public float CriticalBoostDamage => criticalBoostDamage;
+    public float AttackIntervalBoost => attackIntervalBoost;
+    public float ArrowVelocityBoost => arrowVelocityBoost;
 
     private void Awake()
     {
@@ -57,6 +59,13 @@ public class StatusManager : MonoBehaviour
         }
 
         Instance = this;
+        
+        HealthManager.Instance.InitializeHealth(characterData.baseMaxHealth);
+        attackBoost = characterData.baseAttack;
+        attackIntervalBoost = characterData.baseAttackSpeed;
+        criticalBoostRate = characterData.baseCritRate;
+        criticalBoostDamage = characterData.bassCritDamage;
+        arrowVelocityBoost = characterData.baseSpeed;
     }
 
     #region Event Configuration
@@ -72,14 +81,6 @@ public class StatusManager : MonoBehaviour
     }
 
     #endregion
-
-    private void Start()
-    {
-        HealthManager.Instance.InitializeHealth(characterData.baseMaxHealth);
-        attackBoost = characterData.baseAttack;
-        criticalBoostRate = characterData.baseCritRate;
-        criticalBoostDamage = characterData.bassCritDamage;
-    }
 
     private void HandlingBoost(GardenItemSO gardenItemSo, int stack)
     {
@@ -150,8 +151,8 @@ public class StatusManager : MonoBehaviour
             case UpgradeStatusType.AttackInterval:
                 attackIntervalBoost += amount;
                 break;
-            case UpgradeStatusType.ArrowVelocity :
-                arrowVelocityBoost+= amount;
+            case UpgradeStatusType.ArrowVelocity:
+                arrowVelocityBoost += amount;
                 break;
             case UpgradeStatusType.CritChance:
                 criticalBoostRate += amount;
@@ -160,5 +161,7 @@ public class StatusManager : MonoBehaviour
                 criticalBoostDamage += amount;
                 break;
         }
+        
+        SkillCardManager.Instance.UpdateBasicAttack(upgradeStatusType, amount);
     }
 }

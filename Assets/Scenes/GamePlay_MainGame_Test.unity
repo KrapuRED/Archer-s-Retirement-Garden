@@ -2772,6 +2772,11 @@ MonoBehaviour:
   prefabSkillCard: {fileID: 5752668891071763187, guid: 0d5a73511c2dc0f40b92ce3767e396a5, type: 3}
   autoShotSkillCard: {fileID: 2055009599}
   basicArrowSkillCard: {fileID: 11400000, guid: 69ea12d8e1a59084da9cbfa7bdf8d9a1, type: 2}
+  listPreDeterminedSkillCardData:
+  - {fileID: 11400000, guid: 2a82f2cbcc4c0b148a29a6be7b51a4e9, type: 2}
+  - {fileID: 11400000, guid: a400b15c19c627d428021ce83d3a6ab7, type: 2}
+  - {fileID: 11400000, guid: 1b61c693586523d4e809f814eca79d06, type: 2}
+  - {fileID: 11400000, guid: 94ad25b2edeaa2c48b25267d74a5353c, type: 2}
   listActiveSkillCardData: []
   selectedSkillCard:
     skillCardName: 
@@ -2782,7 +2787,9 @@ MonoBehaviour:
     currentMaxCooldown: 0
     currentCooldown: 0
     currentMaxTarget: 0
+    currentArrowVelocity: 0
     isActive: 0
+    isUnlock: 0
     skillCardUI: {fileID: 0}
     skillCardSo: {fileID: 0}
 --- !u!1 &437084821
@@ -12458,7 +12465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1599044880}
   m_Layer: 0
-  m_Name: ' Battle & Combat  - Skill Target Prefab'
+  m_Name: Battle & Combat  - Skill Target Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16811,7 +16818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2783aaec8848d7845a3485e2076343d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
-  dialogueStart: 1
+  dialogueStart: 0
   dialogueCharacterController: {fileID: 661105499}
   dialogueDataRunTimes:
   - dialogueName: Dialogue
@@ -16819,12 +16826,6 @@ MonoBehaviour:
     dialogueData:
     - {fileID: 11400000, guid: 609573e6d916ad448b2fcca75b33462f, type: 2}
     - {fileID: 11400000, guid: 061824c57084902478fc769bd292c171, type: 2}
-    isComplete: 0
-  - dialogueName: Test Dialogue 2
-    dayDialogue: 2
-    dialogueData:
-    - {fileID: 11400000, guid: 5e01481d6c2d3294aa678f556495f4ef, type: 2}
-    - {fileID: 11400000, guid: 8e51140611eb90841b320a1f2f09b817, type: 2}
     isComplete: 0
 --- !u!1 &2093917126
 GameObject:
@@ -17468,13 +17469,16 @@ MonoBehaviour:
     currentMaxCooldown: 0
     currentCooldown: 0
     currentMaxTarget: 0
+    currentArrowVelocity: 0
     isActive: 0
+    isUnlock: 0
     skillCardUI: {fileID: 0}
     skillCardSo: {fileID: 0}
   skillLevel: {fileID: 7081109273091835293}
   skillCooldown: {fileID: 3198517406562734206}
   skillIcon: {fileID: 4035634096147921081}
   coolDownVFX: {fileID: 5506231831569052896}
+  unlockVFX: {fileID: 0}
 --- !u!224 &3401930889687956012
 RectTransform:
   m_ObjectHideFlags: 0

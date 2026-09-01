@@ -32,6 +32,8 @@ public class SkillCardSO : ScriptableObject
     public string nameSkillCard;
     public string descriptionSkillCard;
     public Sprite iconSkillCard;
+    public float arrowVelocity;
+    public bool isAuto;
     
     [Header("Skill Card Configuration")]
     public SkillDamageType damageTypeSkillCard;

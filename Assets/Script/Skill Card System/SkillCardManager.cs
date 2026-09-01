@@ -73,7 +73,8 @@ public class SkillCardManager : MonoBehaviour
 
         foreach (var cardData in listPreDeterminedSkillCardData)
         {
-            InitializeSkillCards(cardData);
+            int index = listPreDeterminedSkillCardData.IndexOf(cardData);
+            InitializeSkillCards(cardData, index);
         }
     }
 
@@ -89,7 +90,7 @@ public class SkillCardManager : MonoBehaviour
         CoolDownSkillCard();
     }
 
-    private void InitializeSkillCards(SkillCardSO skillCard)
+    private void InitializeSkillCards(SkillCardSO skillCard, int index)
     {
         if (OwnedSkillCards.Contains(skillCard))
             return;
@@ -123,7 +124,7 @@ public class SkillCardManager : MonoBehaviour
             if (_basicArrowSkillCard == null && skillCard.nameSkillCard == newSkillCardDataRunTime.skillCardSo.nameSkillCard)
                 _basicArrowSkillCard = newSkillCardDataRunTime;
         
-            newSkillCard.InitSkillCard(newSkillCardDataRunTime);
+            newSkillCard.InitSkillCard(newSkillCardDataRunTime, index + 1);
         }
         else
         {
@@ -150,7 +151,7 @@ public class SkillCardManager : MonoBehaviour
             skillData.currentCooldown -= Time.deltaTime;
             
             if (skillData.skillCardUI != null)
-                skillData.skillCardUI.UpdateSkillCard(skillData.currentCooldown);
+                skillData.skillCardUI.UpdateCooldownSkillCard(skillData.currentCooldown);
             
             if (skillData.currentCooldown <= 0)
             {
@@ -215,20 +216,22 @@ public class SkillCardManager : MonoBehaviour
 
     public void CancelSkillCard()
     {
-        Debug.LogWarning($"[{name} - (UseSkillCard)] Cancel {selectedSkillCard.skillCardName}!");
-        
-        selectedSkillCard = null;
+        if (selectedSkillCard != null)
+        {
+            selectedSkillCard.skillCardUI?.UnSelectSkillCard();
+            selectedSkillCard = null;
+        }
     }
 
     public void UnlockSkillCard(SkillCardSO skillCardSo)
     {
         var cardData = listActiveSkillCardData.Find(x => x.skillCardSo == skillCardSo);
         if (cardData == null)
-            InitializeSkillCards(skillCardSo);
+            InitializeSkillCards(skillCardSo, listActiveSkillCardData.Count + 1);
         else
         {
             cardData.isUnlock = true;
-            cardData.skillCardUI.UnlockSkillCard(cardData);
+            cardData.skillCardUI.UpdateSkillCard(cardData);
         }
     }
     
@@ -265,6 +268,7 @@ public class SkillCardManager : MonoBehaviour
         skill.UseSkill(skillData);
         skillData.isActive = false;
         skillData.currentCooldown = skillData.currentMaxCooldown;
+        selectedSkillCard.skillCardUI.UnSelectSkillCard();
         
         selectedSkillCard = null;
     }
@@ -283,7 +287,7 @@ public class SkillCardManager : MonoBehaviour
         data.currentDuration         = skillCardSO.cooldownSkillCard;
         data.isActive = true;
         
-        data.skillCardUI.InitSkillCard(data);
+        data.skillCardUI.UpdateSkillCard(data);
     }
 
     public void UpdateBasicAttack(UpgradeStatusType upgradeStatusType, float amount)

@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -7,24 +8,34 @@ public class SkillCardUI : MonoBehaviour
     [SerializeField] SkillCardDataRunTime skillCardDataRunTime;
     
     [Header("UI Elements")]
+    [SerializeField] TMP_Text skillNumberIndex;
     [SerializeField] TMP_Text skillLevel;
     [SerializeField] TMP_Text skillCooldown;
     [SerializeField] Image skillIcon;
     [SerializeField] private GameObject coolDownVFX;
     [SerializeField] private GameObject unlockVFX;
     
-    public void InitSkillCard(SkillCardDataRunTime skillCard)
+    [Header("VFX Elements")]
+    [SerializeField] private MMFeedbacks selectVFX;
+    [SerializeField] private MMFeedbacks unselectVFX;
+    
+    [SerializeField] private bool _isSelect;
+    
+    public void InitSkillCard(SkillCardDataRunTime skillCard, int numberIndex)
     {
         skillCardDataRunTime = skillCard;
             
         if (skillLevel != null)
             skillLevel.text = $"Lv.{skillCard.skillLevel}";
         
+        if (skillNumberIndex != null)
+            skillNumberIndex.text = numberIndex.ToString();
+        
         coolDownVFX.SetActive(false);
         skillCooldown.text = string.Empty;
     }
 
-    public void UnlockSkillCard(SkillCardDataRunTime skillCard)
+    public void UpdateSkillCard(SkillCardDataRunTime skillCard)
     {
         skillCardDataRunTime = skillCard;
         
@@ -33,7 +44,7 @@ public class SkillCardUI : MonoBehaviour
         
     }
 
-    public void UpdateSkillCard(float cooldown)
+    public void UpdateCooldownSkillCard(float cooldown)
     {
         if (coolDownVFX == null)
         {
@@ -62,6 +73,19 @@ public class SkillCardUI : MonoBehaviour
         if (!skillCardDataRunTime.isUnlock)
             return;
         
+        if (!_isSelect)
+        {
+            _isSelect = true;
+            selectVFX?.PlayFeedbacks();
+            SkillCardManager.Instance.CancelSkillCard();
+        }
+        
         SkillCardManager.Instance.SelectSkillCard(skillCardDataRunTime);
+    }
+
+    public void UnSelectSkillCard()
+    {
+        _isSelect = false;
+        unselectVFX?.PlayFeedbacks();
     }
 }

@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
 
+    [SerializeField] private bool dialogueStart;
     [SerializeField] private DialogueCharacterController dialogueCharacterController;
     [SerializeField] private List<DialogueDataRunTime> dialogueDataRunTimes = new();
     
@@ -35,7 +36,10 @@ public class DialogueManager : MonoBehaviour
         Instance = this;
     }
 
-    //private void Start() => StartDialogue();
+    private void Start()
+    {
+        if (dialogueStart) StartDialogue();
+    }
 
     private void Update()
     {
@@ -60,7 +64,7 @@ public class DialogueManager : MonoBehaviour
         var line = _currentDialogueData.dialogueLines[_dialogueIndex];
         
         if (!string.IsNullOrEmpty(line.characterName))
-            dialogueCharacterController.SwapCharacter(line.characterName);
+            dialogueCharacterController.ShowCharacter(line.characterName);
         
         GameEvents.OnDisplayDialogue.Invoke(line.characterName, line.dialogueLine);
     }

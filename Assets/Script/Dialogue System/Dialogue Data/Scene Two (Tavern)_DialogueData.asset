@@ -65,7 +65,7 @@ MonoBehaviour:
       to grow... turnips.
   - characterName: Archer
     dialogueLine: Tomatoes, probably. Turnips are a stretch goal.
-  - characterName: ' Priestess'
+  - characterName: Priestess
     dialogueLine: (quiet, and this time genuinely warm) ...Good.
   - characterName: Blade Master
     dialogueLine: '"Good"?? He''s throwing his LIFE-'

@@ -38,6 +38,7 @@ public class DialogueEnvironmentController : MonoBehaviour
     private void OnEnable()
     {
         GameEvents.OnChangeEnvironment.AddListener(DialogueEnvironmentHandler);
+
     }
 
     private void OnDisable()

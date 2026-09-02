@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class CurrencyManager : MonoBehaviour
 {
@@ -6,9 +7,15 @@ public class CurrencyManager : MonoBehaviour
 
     [SerializeField] private int starterCurrency;
     [SerializeField] private int currentCurrency;
+
+    [Header("Currency Viusal Effect / Animation")] 
+    [SerializeField] private CurrencyVisualizer currencyVisualizerPrefab;
+    [SerializeField] private Transform spawnPosition;
     
     [Header("References")]
     [SerializeField] private CurrencyUI currencyUI;
+    
+    private IObjectPool<CurrencyVisualizer> _vfxPool;
     
     private void Awake()
     {
@@ -19,6 +26,15 @@ public class CurrencyManager : MonoBehaviour
         }
 
         Instance = this;
+        
+        _vfxPool = new ObjectPool<CurrencyVisualizer>(
+            createFunc: () => Instantiate(currencyVisualizerPrefab, spawnPosition),
+            actionOnGet: (vfx) => vfx.gameObject.SetActive(true),
+            actionOnRelease: (vfx) => vfx.gameObject.SetActive(false),
+            actionOnDestroy: (vfx) => Destroy(vfx.gameObject),
+            defaultCapacity: 10,
+            maxSize: 50
+        );
     }
 
     private void Start() => AddCurrency(starterCurrency);
@@ -26,9 +42,18 @@ public class CurrencyManager : MonoBehaviour
     public void AddCurrency(int amountCurrency)
     {
         if (amountCurrency <= 0) return;
-
-        currentCurrency += amountCurrency;
-        currencyUI.UpdateCurrencyUI(currentCurrency);
+        
+        CurrencyVisualizer vfx = _vfxPool.Get();
+        
+        StartCoroutine(vfx.PlayAnimate(amountCurrency, false,
+            spawnPosition, 
+            () =>
+            {
+                _vfxPool.Release(vfx);
+                currentCurrency += amountCurrency;
+                currencyUI.UpdateCurrencyUI(currentCurrency);
+            }
+            ));
     }
 
     public bool UseCurrency(int amountCurrency)
@@ -39,10 +64,41 @@ public class CurrencyManager : MonoBehaviour
             return false;
         }
         
-        currentCurrency = Mathf.Max(0, currentCurrency - amountCurrency);
-        currencyUI.UpdateCurrencyUI(currentCurrency);
-
+        CurrencyVisualizer vfx = _vfxPool.Get();
+        
+        StartCoroutine(vfx.PlayAnimate(amountCurrency, true,
+            spawnPosition, 
+            () =>
+            {
+                _vfxPool.Release(vfx);
+                currentCurrency = Mathf.Max(0, currentCurrency - amountCurrency);
+                currencyUI.UpdateCurrencyUI(currentCurrency);
+            }
+        ));
+        
         return true;
     }
     
+    public void TestUseCurrency(int amountCurrency)
+    {
+        if (currentCurrency < amountCurrency)
+        {
+            Debug.LogWarning($"[{name} (UseCurrency)] NO ENOUGH AMOUNT CURRENCY! currentCurrency: {currentCurrency}");
+            return;
+        }
+        
+        CurrencyVisualizer vfx = _vfxPool.Get();
+        
+        StartCoroutine(vfx.PlayAnimate(amountCurrency, true,
+            spawnPosition, 
+            () =>
+            {
+                _vfxPool.Release(vfx);
+                currentCurrency = Mathf.Max(0, currentCurrency - amountCurrency);
+                currencyUI.UpdateCurrencyUI(currentCurrency);
+            }
+        ));
+        
+        return;
+    }
 }

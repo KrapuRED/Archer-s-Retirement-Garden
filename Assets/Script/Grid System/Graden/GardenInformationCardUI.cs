@@ -1,7 +1,9 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Text;
+using MoreMountains.Feedbacks;
 
 public class GardenInformationCardUI : MonoBehaviour
 {
@@ -10,7 +12,12 @@ public class GardenInformationCardUI : MonoBehaviour
     [SerializeField] private TMP_Text gardenItemPrice;
     [SerializeField] private TMP_Text gardenItemBoosts;
 
+    [Header("Visusal Effect / Animation")] 
+    [SerializeField] private MMFeedbacks showCard;
+    [SerializeField] private MMFeedbacks hideCard;
+    
     private readonly StringBuilder _builder = new();
+    private bool _isShowing;
     
     #region Event Configuration
     private void OnEnable()
@@ -37,6 +44,11 @@ public class GardenInformationCardUI : MonoBehaviour
     
     #endregion
 
+    private void Start()
+    {
+        hideCard?.PlayFeedbacks();
+    }
+
     private void SetGardenInformationCard(GardenItemCardData gardenItemData)
     {
         gardenItemName.text  = gardenItemData.gardenItemName;
@@ -52,13 +64,21 @@ public class GardenInformationCardUI : MonoBehaviour
         }
         
         gardenItemBoosts.text = _builder.ToString();
+
+        if (!_isShowing)
+        {
+            _isShowing = true;
+            showCard?.PlayFeedbacks();
+        }
     }
 
-    private void ClearGardenInformationCard()
+    public void ClearGardenInformationCard()
     {
         gardenItemName.text = "";
         gardenItemPrice.text = "";
         gardenItemBoosts.text = "";
-        gardenItemImage.sprite = null;
+        
+        _isShowing = false;
+        hideCard?.PlayFeedbacks();
     }
 }

@@ -65,6 +65,8 @@ public class DayCycleManager : MonoBehaviour
                 ChangeDayCycleType(DayCycleType.Day);
                 GameEvents.OnChangeToDayLight.Invoke();
             }
+            
+            GameEvents.OnHideDetailGardenItem.Invoke();
         }
 
         public void AddDayCount()

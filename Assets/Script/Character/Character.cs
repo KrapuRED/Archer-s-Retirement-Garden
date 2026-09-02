@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 
@@ -23,7 +24,7 @@ public class Character : MonoBehaviour
     public Vector3 TargetPosition { get; private set; }
     public CharacterSO CharacterData => characterData;
     public EnemyRunTimeData RunTimeData {get; private set; }
-
+    
     private void Start()
     {
         if (initByStart)
@@ -35,9 +36,9 @@ public class Character : MonoBehaviour
 
     public void InitializeCharacter(string charID, Vector3 targetPosition, EnemyRunTimeData  runTimeData)
     {
-        characterID = charID;
-        TargetPosition = targetPosition;
-        RunTimeData = runTimeData;
+        characterID     = charID;
+        TargetPosition  = targetPosition;
+        RunTimeData     = runTimeData;
         
         maxHealth = currentHealth = runTimeData.enemyHealth;
         

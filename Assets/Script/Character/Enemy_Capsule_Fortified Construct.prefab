@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 5141317905858886371}
   - component: {fileID: 2329761636914863793}
   - component: {fileID: 8213521363171697431}
+  - component: {fileID: 8540557094454534343}
   m_Layer: 8
   m_Name: Enemy_Capsule_Fortified Construct
   m_TagString: Untagged
@@ -337,9 +338,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 2.348307
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.17415345, z: 0}
 --- !u!114 &5141317905858886371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,6 +414,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &8540557094454534343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578095197843199066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8153edbb92d60c04db61e515ddd7b8c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Billboard
+  objectTransform: {fileID: 3371193652984651746}
 --- !u!1 &3948923796234556036
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,7 +705,7 @@ Transform:
   m_GameObject: {fileID: 5866001395095649630}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.027, z: 0}
+  m_LocalPosition: {x: 0, y: -1.334, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

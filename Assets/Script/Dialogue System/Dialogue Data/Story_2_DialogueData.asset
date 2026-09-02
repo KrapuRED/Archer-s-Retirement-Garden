@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1963640d94415114d8eb3f359d5b928b, type: 3}
+  m_Name: Story_2_DialogueData
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
+  locationDialogue: Tavern
+  dialogueLines:
+  - characterName: Archer
+    dialogueLine: (to the bartender, dropping into a seat at the bar) Whatever's
+      hot. And bread, if you've got it.
+  - characterName: Archer
+    dialogueLine: (The bartender nods, moves off. Archer drags a hand down his face,
+      tired from the trip, then takes his bowl once it arrives and moves to a corner
+      table to eat in peace. He's a few bites in when a figure in dark, worn armor
+      and a full mask sits down across from him, uninvited. Archer doesn't flinch,
+      but his posture shifts, subtle, controlled awareness.)
+  - characterName: Shady Knight
+    dialogueLine: (stern, flat voice) You've gotten slow. I sat down across from
+      you and you didn't even look up.
+  - characterName: Archer
+    dialogueLine: (not looking up yet, still eating) I looked up. I just didn't decide
+      you were worth stopping for yet.orth stopping for yet.
+  - characterName: Shady Knight
+    dialogueLine: ...Fair.
+  - characterName: Archer
+    dialogueLine: '(finally glances up, studying the mask, calm but measured) Can
+      I help you. '
+  - characterName: Archer
+    dialogueLine: (A beat. Something about the voice, young, underneath the practiced
+      sternness, catches Archer's attention.)
+  - characterName: Archer
+    dialogueLine: What do you want.
+  - characterName: Shady Knight
+    dialogueLine: No need to be so stiff with me.
+  - characterName: Shady Knight
+    dialogueLine: It's me.
+  - characterName: Archer
+    dialogueLine: '(flat, unimpressed) "It''s me" is doing a lot of work behind that
+      mask, friend. '
+  - characterName: Shady Knight
+    dialogueLine: Riverside. The bridge that collapsed under both of us because someone
+      said it could hold two boys and a stolen goat.
+  - characterName: Shady Knight
+    dialogueLine: 'We didn''t tell anyone for a week because you were more scared
+      of your mother than the river. '
+  - characterName: Archer
+    dialogueLine: (Archer's spoon stops halfway to his mouth.)
+  - characterName: Archer
+    dialogueLine: ...No.
+  - characterName: Archer
+    dialogueLine: (sets the spoon down slowly, staring) No way.
+  - characterName: Shady Knight
+    dialogueLine: '(the stern voice cracks, just slightly, into something almost
+      fond) Hello, Archer. '
+  - characterName: Archer
+    dialogueLine: (half-laughing, disbelief in his voice) It's been, what, a decade?
+      More?
+  - characterName: Archer
+    dialogueLine: Where in the world have you been?
+  - characterName: Shady Knight
+    dialogueLine: Around.
+  - characterName: Shady Knight
+    dialogueLine: 'After we split, I signed on as a mercenary. Went where the coin
+      went. '
+  - characterName: Shady Knight
+    dialogueLine: Lost the arm about six years in. Contract gone wrong.
+  - characterName: Shady Knight
+    dialogueLine: (He shifts slightly, Archer's eyes flick, just briefly, to the
+      stiff way the left side of the knight's armor sits.)
+  - characterName: Shady Knight
+    dialogueLine: Kept working another year or two after. One-armed swordsman's still
+      a swordsman, if you're stubborn enough.
+  - characterName: Shady Knight
+    dialogueLine: 'Eventually my higher-ups found it easier to just... let me go. '
+  - characterName: Archer
+    dialogueLine: That's a hell of a decade.
+  - characterName: Shady Knight
+    dialogueLine: ' (a small shrug, dismissive) It is what it is. I''m not here for
+      the sympathy. '
+  - characterName: Archer
+    dialogueLine: No?
+  - characterName: Shady Knight
+    dialogueLine: I'm here for business.
+  - characterName: Shady Knight
+    dialogueLine: You have a Life Tree seed.
+  - characterName: Archer
+    dialogueLine: (Archer goes still.)
+  - characterName: Archer
+    dialogueLine: ...I do.
+  - characterName: Shady Knight
+    dialogueLine: I want to propose something. A partnership. There's a great deal
+      of value in something like that, and I know people who'd-
+  - characterName: Archer
+    dialogueLine: (cutting in, calm but firm) I'm retired.
+  - characterName: Archer
+    dialogueLine: Same as you, apparently. I just want a calm life. A garden. That's
+      it.
+  - characterName: Shady Knight
+    dialogueLine: (a pause, surprised, but not deterred) ...You already knew what
+      I was going to ask.
+  - characterName: Archer
+    dialogueLine: '(dry) You know about the seed. I figured it wasn''t small talk. '
+  - characterName: Archer
+    dialogueLine: shakes his head, small huff) how do you know about it. I haven't
+      told anyone outside two people.
+  - characterName: Shady Knight
+    dialogueLine: '(silence, then, evenly) I''m still as mysterious as I ever was,
+      apparently. '
+  - characterName: Archer
+    dialogueLine: (exhales, half a laugh despite himself) Unbelievable. Ten years
+      and you're still doing that.
+  - characterName: Archer
+    dialogueLine: (Archer starts gathering his things, standing.)
+  - characterName: Archer
+    dialogueLine: I need to head back. Long flight.
+  - characterName: Archer
+    dialogueLine: For what it's worth, I am glad you're alive. Genuinely. This wasn't
+      nothing, running into you.
+  - characterName: Shady Knight
+    dialogueLine: Likewise.
+  - characterName: Shady Knight
+    dialogueLine: (doesn't press further) I respect it. The retirement.
+  - characterName: Shady Knight
+    dialogueLine: But I'll be around. If you change your mind.
+  - characterName: Archer
+    dialogueLine: (pausing at the door, glancing back) ...I don't think I will.
+  - characterName: Shady Knight
+    dialogueLine: '(quiet, almost amused) People say that a lot, right before they
+      do. '
+  - characterName: Archer
+    dialogueLine: (Archer shakes his head, exits. The Shady Knight remains seated,
+      motionless, watching the door long after it closes.)

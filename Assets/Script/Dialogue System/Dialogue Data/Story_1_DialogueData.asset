@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1963640d94415114d8eb3f359d5b928b, type: 3}
+  m_Name: Story_1_DialogueData
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
+  locationDialogue: Floating Islands
+  dialogueLines:
+  - characterName: Real Estate Broker
+    dialogueLine: All in order on the paperwork side, deed's fully transferred, cloud-well's
+      registered under your name. You're a proper landowner now, sir.
+  - characterName: Archer
+    dialogueLine: '(half-listening, glancing toward the garden) Good. Good. Hey,
+      actually, quick thing. '
+  - characterName: Real Estate Broker
+    dialogueLine: Mm?
+  - characterName: Archer
+    dialogueLine: I've been getting... visitors. Small ones. Little dark things,
+      low to the ground, keep trying to squeeze through the fence line at night.
+  - characterName: Real Estate Broker
+    dialogueLine: (pauses, blinking) ...Visitors.
+  - characterName: Archer
+    dialogueLine: 'Monsters. Small ones. Spawn-sized, I think, nothing I can''t handle,
+      just annoying. Chewed through half a row of carrots last week. '
+  - characterName: Real Estate Broker
+    dialogueLine: (genuinely thrown, flipping through her clipboard like the answer's
+      written somewhere in it) That's, odd. Sky islands this far out don't get wildlife,
+      let alone monsters. No land bridge, no roosting cover, nothing for them to
+      follow up here. In eleven sales I've never once had a client report so much
+      as a moth.
+  - characterName: Archer
+    dialogueLine: So it's not normal.
+  - characterName: Real Estate Broker
+    dialogueLine: It is not normal, no. (closes clipboard, shrugs) But, small ones,
+      you said? Spawn-tier?
+  - characterName: Archer
+    dialogueLine: Yeah.
+  - characterName: Real Estate Broker
+    dialogueLine: '(businesslike again, already moving on) Then frankly, sir, that''s
+      well within what a retired Hero should be able to handle without troubling
+      his broker. '
+  - characterName: Real Estate Broker
+    dialogueLine: (a small, apologetic smile) Structural integrity and property lines
+      are my department. Pest control is, regrettably, yours now.
+  - characterName: Archer
+    dialogueLine: (dry) Right. Comforting.
+  - characterName: Real Estate Broker
+    dialogueLine: 'I did say it was structurally very sound. I never said pristine.
+      (gathers her things) I''ll flag it in the file regardless, if it keeps up,
+      or if anything bigger comes sniffing around, you send word to the guild office
+      in Aldenport. Until then, enjoy the quiet, Archer. '
+  - characterName: Real Estate Broker
+    dialogueLine: (She heads off, kicking off into the sky. As she vanishes over
+      the ridge, a sky-ferry gondola descends nearby.)
+  - characterName: Priestess
+    dialogueLine: Well. It's real. I half expected to find you sleeping in a field
+      somewhere, having given up by week two.
+  - characterName: Archer
+    dialogueLine: (small grin) Give me some credit.
+  - characterName: Priestess
+    dialogueLine: (looking around) I am. This is more than I expected, honestly.
+  - characterName: Archer
+    dialogueLine: 'Where''s the idiot? Figured he''d have shown up by now to mock
+      the turnips. '
+  - characterName: Priestess
+    dialogueLine: (dry) Banned.
+  - characterName: Archer
+    dialogueLine: ...From what?
+  - characterName: Priestess
+    dialogueLine: The sky-ferry line. All of them. Apparently he got drunk on the
+      Aldenport route and tried to convince the pilot the gondola "wanted to do a
+      barrel roll." Guild's revoked his boarding rights indefinitely.
+  - characterName: Archer
+    dialogueLine: (laughs, shaking his head) Of course he did.
+  - characterName: Priestess
+    dialogueLine: He sends his regards. Loudly, and from a tavern, I imagine.
+  - characterName: Archer
+    dialogueLine: (sighing, gesturing toward the garden) Well, since you made it.
+      Come see the place properly. Fair warning though, something's been getting
+      in. Small monsters, chewing up my rows at night.
+  - characterName: Priestess
+    dialogueLine: (raising an eyebrow, skeptical) Monsters. Up here.
+  - characterName: Archer
+    dialogueLine: I know how it sounds.
+  - characterName: Priestess
+    dialogueLine: 'It sounds like something ate your vegetables and you''re blaming
+      the dark instead of the wind-hares. (starts walking with him anyway) Show me. '
+  - characterName: Priestess
+    dialogueLine: (They walk through the rows. As they near the center of the garden,
+      the Priestess slows, her eyes fixed on something. A single sapling stands there,
+      small, unremarkable at a glance, its leaves faintly catching light that doesn't
+      quite match the sky.)
+  - characterName: Priestess
+    dialogueLine: (quiet, stopping completely) ...Archer. Where did you get this.
+  - characterName: Archer
+    dialogueLine: (shrugs) That one? Grew from something I picked up on the way back,
+      small seed, glowed a little. Figured it'd make a decent centerpiece.
+  - characterName: Priestess
+    dialogueLine: (crouching by it, studying the leaf pattern, voice tightening)
+      You never once looked closely at it.
+  - characterName: Archer
+    dialogueLine: Not really, no. Why, is it-
+  - characterName: Priestess
+    dialogueLine: (cutting in, half to herself) No wonder they've been coming. (looks
+      up at him) Archer. This is a sapling of the Life Tree.
+  - characterName: Archer
+    dialogueLine: '(blank for a second, then actually crouching down to look properly,
+      really look, this time) ...Huh. '
+  - characterName: Archer
+    dialogueLine: '(the resemblance hits him, the bark pattern, the faint inner light
+      in the leaves, unmistakable now that he''s looking) That''s, hat''s not possible,
+      I found that near the- '
+  - characterName: Priestess
+    dialogueLine: Near the Tree. Yes. Some fall. Rarely, but they do.
+  - characterName: Archer
+    dialogueLine: '(standing, a little pale) So the spawn aren''t random. They''re
+      following it. '
+  - characterName: Priestess
+    dialogueLine: Life energy draws them. Even a fragment of it. It'd be strange
+      if they weren't showing up.
+  - characterName: Archer
+    dialogueLine: '(staring at the sapling now like it might do something) Okay.
+      Okay, that''s,how big does this thing get, exactly? Because if I''ve got a
+      Life Tree growing out of my vegetable patch- '
+  - characterName: Priestess
+    dialogueLine: '(a small laugh, standing, brushing off her robes) Relax. The Tree
+      you helped free didn''t reach the sky in a season, Archer. It took a hundred
+      years to grow past a man''s height. A thousand more before it looked anything
+      like what you fought under. '
+  - characterName: Priestess
+    dialogueLine: (glancing back at the sapling) You'll be long done with your tomatoes
+      before this one so much as shades your fence.
+  - characterName: Archer
+    dialogueLine: '(exhales, some tension leaving his shoulders, but not all of it)
+      ...Good. That''s, good. '
+  - characterName: Priestess
+    dialogueLine: (watching him a beat longer than the moment needs) ...Good.

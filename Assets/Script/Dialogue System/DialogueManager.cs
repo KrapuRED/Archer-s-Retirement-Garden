@@ -79,6 +79,7 @@ public class DialogueManager : MonoBehaviour
         if (dialogueDataRunTimes.Count > 0)
             _dialogueDataIndex++;
         
+        dialogueCharacterController.HideAllCharacters();
         _currentDialogueData  = _selectedDialogueDataRunTime.dialogueData[_dialogueDataIndex];
         
         string environment = $"Environment Dialogue - {_currentDialogueData.locationDialogue}";
@@ -147,6 +148,19 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    public bool IsAllDoneDialogue()
+    {
+        bool allDoneDialogue = true;
+
+        foreach (var dialogueData in dialogueDataRunTimes)
+        {
+            if (!dialogueData.isComplete)
+                allDoneDialogue = false;
+        }
+        
+        return allDoneDialogue;
+    }
+    
     public void StopDialogue()
     {
         if (!IsDialogueRunning) return;

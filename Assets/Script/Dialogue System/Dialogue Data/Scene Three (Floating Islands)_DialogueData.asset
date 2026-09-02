@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1963640d94415114d8eb3f359d5b928b, type: 3}
+  m_Name: Scene Three (Floating Islands)_DialogueData
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
+  locationDialogue: Floating Islands
+  dialogueLines:
+  - characterName: Real Estate Broker
+    dialogueLine: (tapping the deed against her palm) Congratulations, sir, she's
+      all yours, four point two acres of certified, low-turbulence, tectonically
+      stable floating landmass. One previous owner.
+  - characterName: Archer
+    dialogueLine: What happened to the previous owner?
+  - characterName: Real Estate Broker
+    dialogueLine: Retired. (pauses, actually looks at him properly for the first
+      time, really looks) ...Like yourself, apparently. Though he was pushing eighty
+      when he signed his deed, if memory serves.
+  - characterName: Archer
+    dialogueLine: (rubbing the back of his neck) Is that a problem?
+  - characterName: Real Estate Broker
+    dialogueLine: "No, no, not a problem. Just, ah. (taps clipboard against her palm,
+      clearly recalculating something) You'll forgive me, sir, but you can't be older
+      than what, five-and-twenty?\L"
+  - characterName: Archer
+    dialogueLine: Twenty-four.
+  - characterName: Real Estate Broker
+    dialogueLine: Twenty-four. Right. I've sold eleven of these islands. You are,
+      by a comfortable margin, the youngest client I have ever heard utter the word
+      "retirement" without irony.
+  - characterName: Archer
+    dialogueLine: "I've done a career's worth of work in those twenty-four years.
+      Maybe two careers'.\L"
+  - characterName: Real Estate Broker
+    dialogueLine: I don't doubt it, sir. It's just usually the sword that retires
+      young. Not the man swinging it.
+  - characterName: Archer
+    dialogueLine: (short laugh, but a little tired underneath it) The sword doesn't
+      have to live with what it swung at.
+  - characterName: Real Estate Broker
+    dialogueLine: ...Fair enough. Not my business to ask twice. (clears throat) So,
+      transportation. I assume she doesn't just stay put.
+  - characterName: Archer
+    dialogueLine: I was about to ask that myself.
+  - characterName: Real Estate Broker
+    dialogueLine: "She drifts, but gently, think of her as a very slow, very lazy
+      ship. For the mainland, you've two options: the sky-ferry from Aldenport, twice
+      a week, about an hour's flight , or you buy yourself a wind skiff. Slower to
+      start, but she's yours. No schedule, no fare.\L"
+  - characterName: Archer
+    dialogueLine: "I shot things out of the sky for a living. Never really had to
+      fly through it myself.\L"
+  - characterName: Real Estate Broker
+    dialogueLine: "Then it'll be a nice change of pace, won't it. Less arrows, more
+      scenery. (a small, careful smile) Might suit a young retiree well, plenty of
+      quiet left to fill.\L"
+  - characterName: Archer
+    dialogueLine: "(catches the phrasing, doesn't rise to it, just huffs a small
+      laugh) That's the idea.\L"
+  - characterName: Real Estate Broker
+    dialogueLine: (businesslike again, flipping the deed) Water's drawn from a cloud-condenser
+      well, self-refilling, no maintenance for the first decade. Soil's a touch rocky
+      near the west ridge, rich everywhere else, the old man apparently grew prize-winning
+      squash before he... well. Before.
+  - characterName: Archer
+    dialogueLine: (pause) Before what?
+  - characterName: Real Estate Broker
+    dialogueLine: (too breezy) Unrelated matters. Not the island's fault. Structurally
+      very sound.
+  - characterName: Archer
+    dialogueLine: ' ...That''s not reassuring.'
+  - characterName: Real Estate Broker
+    dialogueLine: It's not supposed to be reassuring. It's supposed to be true. Sign
+      here, please.

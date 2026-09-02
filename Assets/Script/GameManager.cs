@@ -50,4 +50,18 @@ public class GameManager : MonoBehaviour
         
         IsGameActive = true;
     }
+
+    public void ChangeGameMode(GameMode newGameMode)
+    {
+        gameMode = newGameMode;
+        GameEvents.OnChangeGameMode.Invoke(gameMode);
+    }
+    
+    public void EndGame()
+    {
+        //TransitionManager.Instance.TransitionScene("Credit", "FadeOut");
+        
+        gameMode = GameMode.Story;
+        IsGameActive = false;
+    } 
 }

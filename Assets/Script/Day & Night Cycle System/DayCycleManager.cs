@@ -72,4 +72,13 @@ public class DayCycleManager : MonoBehaviour
             dayCount++;
             dayCountText.text = $"Day {dayCount:00}";
         }
+
+        public void ContinueDayCycle()
+        {
+            AddDayCount();
+            
+            ChangeDayCycleType(DayCycleType.Day);
+            GameEvents.OnChangeToDayLight.Invoke();
+            
+        }
 }

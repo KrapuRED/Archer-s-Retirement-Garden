@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1963640d94415114d8eb3f359d5b928b, type: 3}
+  m_Name: Story_End_DialogueData
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
+  locationDialogue: Floating Islands Night
+  dialogueLines:
+  - characterName: Archer
+    dialogueLine: (Archer looses arrow after arrow, but for every spawn that drops,
+      two more slip past him toward the sapling. He's breathing hard, sweat on his
+      brow, backing toward the center of the garden to protect the tree with his
+      own body.)
+  - characterName: Archer
+    dialogueLine: '(gritted teeth, nocking another arrow) There''s too many, where
+      the hell did this many even come from- '
+  - characterName: Shady Knight
+    dialogueLine: '(A shadow drops from above, the Shady Knight, greatsword already
+      swinging before he lands. One sweep cuts through three spawns at once. He plants
+      himself between Archer and the swarm without a word, cutting a bloody, efficient
+      path through the rest.) '
+  - characterName: Shady Knight
+    dialogueLine: '(A minute later, the last spawn falls, twitching, into the dirt.
+      Silence. Just heavy breathing and the faint hum of the sapling, untouched,
+      still standing.) '
+  - characterName: Shady Knight
+    dialogueLine: '(sheathing the greatsword, not even winded) You''re welcome. '
+  - characterName: Archer
+    dialogueLine: '(catching his breath, half-glaring) I had it handled. '
+  - characterName: Shady Knight
+    dialogueLine: You were standing in front of your own tree like a human shield
+      with an empty quiver.
+  - characterName: Archer
+    dialogueLine: (checks, quiver is, in fact, empty) ...Timing helps.
+  - characterName: Shady Knight
+    dialogueLine: (looking around at the bodies, then at the sapling) This is going
+      to keep happening, you know.
+  - characterName: Archer
+    dialogueLine: (wiping his brow) I know.
+  - characterName: Shady Knight
+    dialogueLine: You wanted a relaxing life. A garden. Quiet.
+  - characterName: Shady Knight
+    dialogueLine: 'That''s not what this is anymore. Not with that thing growing
+      in the middle of it. '
+  - characterName: Shady Knight
+    dialogueLine: So you understand what I'm about to say isn't just business talk.
+  - characterName: Shady Knight
+    dialogueLine: A Life Tree like this, even young, even small, it can turn dying
+      land back into something that breathes again. Corrupted soil. Dead farmland.
+      Places that haven't grown a thing in a generation.
+  - characterName: Shady Knight
+    dialogueLine: With the right care, the right hands, that sapling could give sustainability
+      back to entire regions. Whole countries, eventually.
+  - characterName: Shady Knight
+    dialogueLine: We could help a lot of people, Archer.
+  - characterName: Archer
+    dialogueLine: (sighs, no real fight left in it) Yeah. About that
+  - characterName: Archer
+    dialogueLine: I'm not going to sit here and tell you you're wrong. You're not.
+      I saw what a fully grown one did for an entire kingdom. I know exactly what
+      this could become.
+  - characterName: Shady Knight
+    dialogueLine: Then-
+  - characterName: Archer
+    dialogueLine: I'm still retired.
+  - characterName: Shady Knight
+    dialogueLine: (nods, expected that) I'm not asking you to be a hero again.
+  - characterName: Shady Knight
+    dialogueLine: 'I''m asking you to build something with me. A company. A business. '
+  - characterName: Archer
+    dialogueLine: '(rubbing his face) You want to be business partners. With me.
+      After a decade. '
+  - characterName: Shady Knight
+    dialogueLine: 'Ex-mercenary, retired Hero, one Life Tree sapling that apparently
+      attracts monsters just by existing. Frankly it writes itself. '
+  - characterName: Archer
+    dialogueLine: (a tired huff, almost a laugh) That's not a business pitch, that's
+      a tragedy waiting for a punchline.
+  - characterName: Shady Knight
+    dialogueLine: We're still young. Neither of us has even hit thirty.
+  - characterName: Shady Knight
+    dialogueLine: " Plenty of time to build something that actually matters \u2014
+      on our own terms this time. No higher-ups. No orders. Just us deciding what
+      it's for."
+  - characterName: Archer
+    dialogueLine: (Archer looks back at the sapling, quiet now, glowing faintly,
+      untouched by the fight around it. A long silence.)
+  - characterName: Archer
+    dialogueLine: ...Fine.
+  - characterName: Archer
+    dialogueLine: (holding up a hand before Shady Knight can react) But I keep the
+      garden. And the tree stays here, with me. That doesn't change.
+  - characterName: Shady Knight
+    dialogueLine: (a small nod, almost satisfied) Wouldn't have it any other way.
+  - characterName: Shady Knight
+    dialogueLine: We need the tree for the business anyway.
+  - characterName: Archer
+    dialogueLine: (shaking his head, but the ghost of a smile there) Unbelievable.
+  - characterName: Shady Knight
+    dialogueLine: We need the tree for the business anyway.
+  - characterName: Shady Knight
+    dialogueLine: After the end is a new beginning.

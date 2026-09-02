@@ -156,4 +156,15 @@ public class DialogueCharacterController : MonoBehaviour
                 kvp.Key.DimCharacter();
         }
     }
+
+    public void HideAllCharacters()
+    {
+        foreach (var kvp in _activeCharacters)
+        {
+            if (kvp.Key == null)
+                continue;
+            
+            kvp.Key.FullHideCharacter();
+        }
+    }
 }

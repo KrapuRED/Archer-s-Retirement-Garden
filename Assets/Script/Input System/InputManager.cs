@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[System.Serializable]
+public enum CursorType
+{
+    Default,
+    Sell,
+    Basic,
+    Ability
+}
+
 public class InputManager : MonoBehaviour
 {
     public static InputManager Instance { get; private set; }
@@ -13,6 +22,12 @@ public class InputManager : MonoBehaviour
     [SerializeField] private string defaultActionMap;
     [SerializeField] private string currentActionMapName;
     [SerializeField] private InputActionMap currentActionMap;
+    
+    [Header("Cursor Configuration")]
+    [SerializeField] private Texture2D defaultCursor;
+    [SerializeField] private Texture2D sellCursor;
+    [SerializeField] private Texture2D basicAttackCursor;
+    [SerializeField] private Texture2D abilityActiveCursor;
     
     private readonly Stack<string> _overlayStack = new(); 
     
@@ -29,6 +44,7 @@ public class InputManager : MonoBehaviour
     private void Start()
     {
         SwitchInputMap(defaultActionMap);
+        ChangeCursorTexture(CursorType.Default);
     }
 
     #region Main Switch Input Manager
@@ -62,6 +78,7 @@ public class InputManager : MonoBehaviour
         if (_overlayStack.Contains(actionMapName))
         {
             Debug.LogWarning($"[{name} - ExecuteSwitchActionMap] '{actionMapName}' is already active in the overlay stack.");
+            ChangeCursorTexture(CursorType.Default);
             return;
         }
         
@@ -106,6 +123,33 @@ public class InputManager : MonoBehaviour
         GameEvents.OnActionMapChange.Invoke();
     }
 
+    public void ChangeCursorTexture(CursorType cursorType)
+    {
+        switch (cursorType)
+        {
+            case CursorType.Default:
+                if (defaultCursor != null)
+                    Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
+                
+                break;
+            case CursorType.Sell:
+                if (sellCursor != null)
+                    Cursor.SetCursor(sellCursor, Vector2.zero, CursorMode.Auto);
+                
+                break;
+            case CursorType.Basic:
+                if (basicAttackCursor != null)
+                    Cursor.SetCursor(basicAttackCursor, Vector2.zero, CursorMode.Auto);
+                
+                break;
+            case CursorType.Ability:
+                if (abilityActiveCursor != null)
+                    Cursor.SetCursor(abilityActiveCursor, Vector2.zero, CursorMode.Auto);
+                
+                break;
+        }
+    }
+    
     public bool IsInputMapActive(string actionMapName) => currentActionMapName == actionMapName;
     public bool IsOverlayActive(string actionMapName) => _overlayStack.Contains(actionMapName);
 }

@@ -77,9 +77,11 @@ public class SkillCardUI : MonoBehaviour
         {
             _isSelect = true;
             selectVFX?.PlayFeedbacks();
-            //SkillCardManager.Instance.CancelSkillCard();
+            SkillCardManager.Instance.CancelSkillCard();
+            InputManager.Instance.ChangeCursorTexture(CursorType.Basic);
         }
         
+        InputManager.Instance.ChangeCursorTexture(CursorType.Ability);
         SkillCardManager.Instance.SelectSkillCard(skillCardDataRunTime);
     }
 
@@ -87,5 +89,6 @@ public class SkillCardUI : MonoBehaviour
     {
         _isSelect = false;
         unselectVFX?.PlayFeedbacks();
+        InputManager.Instance.ChangeCursorTexture(CursorType.Basic);
     }
 }

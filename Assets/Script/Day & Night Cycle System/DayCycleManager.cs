@@ -59,10 +59,13 @@ public class DayCycleManager : MonoBehaviour
             if (isDayCycle)
             {
                 ChangeDayCycleType(DayCycleType.Night);
+                InputManager.Instance.ChangeCursorTexture(CursorType.Basic);
             }
             else
             {
                 ChangeDayCycleType(DayCycleType.Day);
+                InputManager.Instance.ChangeCursorTexture(CursorType.Default);
+                
                 GameEvents.OnChangeToDayLight.Invoke();
             }
             

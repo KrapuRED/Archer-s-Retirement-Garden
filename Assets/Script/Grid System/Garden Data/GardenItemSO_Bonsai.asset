@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GardenItemSO
   gardenItemName: Bonsai
   gardenItemDescription: 
-  gardenItemImage: {fileID: 21300000, guid: 186be22f7d5dfc44cb0152d7cd7cf84e, type: 3}
+  gardenItemImage: {fileID: 21300000, guid: ec48b2981098ae342af1136ecffc18cf, type: 3}
   gardenItemBasePrice: 500
   priceIncrease: 120
   gardenBoostItemDatas:

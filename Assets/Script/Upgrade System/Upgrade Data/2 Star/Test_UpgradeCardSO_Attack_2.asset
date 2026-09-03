@@ -16,7 +16,7 @@ MonoBehaviour:
   upgradeDescription: Gain +10 Attack
   rarity: 1
   upgradeType: 1
-  upgradeIcon: {fileID: 21300000, guid: 8fde046e17cc3db47ad17d0ccf0bd5d9, type: 3}
+  upgradeIcon: {fileID: 21300000, guid: a027fc324dd6de646b9daabf10dae9a1, type: 3}
   upgradeBaseCost: 120
   upgradeAbilityIncrease: 0
   upgradeStatusType: 3

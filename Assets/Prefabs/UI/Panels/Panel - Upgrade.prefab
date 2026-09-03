@@ -804,7 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.78431374}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.88235295}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2420,10 +2420,6 @@ PrefabInstance:
     - target: {fileID: 909123426310737474, guid: 6a86dac0446de194a8a2cd0ffcf9b906, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 909123426310737474, guid: 6a86dac0446de194a8a2cd0ffcf9b906, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2338211780366148981, guid: 6a86dac0446de194a8a2cd0ffcf9b906, type: 3}
       propertyPath: m_AnchorMax.y

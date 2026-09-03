@@ -16,7 +16,7 @@ MonoBehaviour:
   upgradeDescription: Increase Arrow Velocity by +0.6
   rarity: 2
   upgradeType: 1
-  upgradeIcon: {fileID: 21300000, guid: ed326a51ef8d6284fb7cefa25728430f, type: 3}
+  upgradeIcon: {fileID: 21300000, guid: d6d057f908f1f02429f979bd2a1d606d, type: 3}
   upgradeBaseCost: 180
   upgradeAbilityIncrease: 0
   upgradeStatusType: 5

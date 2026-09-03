@@ -21,8 +21,8 @@ public class CombatInput : MonoBehaviour
     private Vector2 _screenPosition;
     private Vector2Int _currentCell;
     private Vector2Int _anchorCell;
-    
-    [SerializeField] private float _fixedY;
+    private SkillCardDataRunTime _currentPreviewedSkill;
+    private float _fixedY;
     
     private GridManager _gridManager;
     private Camera _camera;
@@ -97,6 +97,14 @@ public class CombatInput : MonoBehaviour
         if (!InputManager.Instance.IsInputMapActive(actionMapName))
             return;
         
+        SkillCardDataRunTime selectedSkill = SkillCardManager.Instance.SelectedSkillCard;
+        
+        if (_previewInstance != null && _currentPreviewedSkill != selectedSkill)
+        {
+            Destroy(_previewInstance);
+            _previewInstance = null;
+        }
+        
         if (_previewInstance == null)
             SpawnPreviewTarget();
         
@@ -115,6 +123,7 @@ public class CombatInput : MonoBehaviour
         _previewInstance = Instantiate(skillCardDataRunTime.skillCardSo.prefabSkillTargeting, previewTargetContainer);
         _previewRenderer = _previewInstance.GetComponent<Renderer>();
         
+        _currentPreviewedSkill = skillCardDataRunTime;
         _fixedY = _previewInstance.transform.position.y;
         
         foreach (var col in _previewInstance.GetComponentsInChildren<Collider>())

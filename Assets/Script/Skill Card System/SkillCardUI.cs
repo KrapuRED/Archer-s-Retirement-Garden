@@ -84,8 +84,6 @@ public class SkillCardUI : MonoBehaviour
         {
             _isSelect = true;
             selectVFX?.PlayFeedbacks();
-            SkillCardManager.Instance.CancelSkillCard();
-            InputManager.Instance.ChangeCursorTexture(CursorType.Basic);
         }
         
         InputManager.Instance.ChangeCursorTexture(CursorType.Ability);

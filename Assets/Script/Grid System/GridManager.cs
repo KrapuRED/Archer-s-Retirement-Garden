@@ -112,8 +112,9 @@ public class GridManager : MonoBehaviour
         );
         
         Vector3 worldPos = GetFootprintCenter(anchorCell, prefabMiddleBuilding.GardenItemSo.objectSize);
+        Quaternion rotation = Quaternion.Euler(0f, 90f, 0f);
         
-        GardenObject instance = Instantiate(prefabMiddleBuilding, worldPos, Quaternion.identity, locationGrid);
+        GardenObject instance = Instantiate(prefabMiddleBuilding, worldPos, rotation, locationGrid);
         
         //instance.Initialize(prefabMiddleBuilding.GardenItemSo, anchorCell);
         instance.name = $"Cell_MiddleBuilding";

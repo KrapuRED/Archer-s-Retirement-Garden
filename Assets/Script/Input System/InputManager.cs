@@ -78,7 +78,12 @@ public class InputManager : MonoBehaviour
         if (_overlayStack.Contains(actionMapName))
         {
             Debug.LogWarning($"[{name} - ExecuteSwitchActionMap] '{actionMapName}' is already active in the overlay stack.");
-            ChangeCursorTexture(CursorType.Default);
+
+            if (DayCycleManager.Instance.DayCycleType == DayCycleType.Night)
+                ChangeCursorTexture(CursorType.Basic);
+            else
+                ChangeCursorTexture(CursorType.Default);
+            
             return;
         }
         

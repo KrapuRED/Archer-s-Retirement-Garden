@@ -11,6 +11,8 @@ public class PanelUpgrade : PanelBase
         canvasGroup.interactable = true;
         
         refreshButton.DisplayRefreshButton();
+        
+        InputManager.Instance.ChangeCursorTexture(CursorType.Default);
         UpgradeCardManager.Instance.OnShowRandomUpgradeCard();
     }
 

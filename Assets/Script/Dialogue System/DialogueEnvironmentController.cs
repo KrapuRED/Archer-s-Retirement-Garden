@@ -13,6 +13,7 @@ public class DialogueEnvironmentController : MonoBehaviour
 {
     [SerializeField] private GameObject mainGameUI;
     [SerializeField] private GameObject mainGameCamera;
+    [SerializeField] private GameObject globalMoney;
     
     [Header("Dialogue Environment References")]
     [SerializeField] private Transform dialogueEnvironmentContainer;
@@ -61,6 +62,7 @@ public class DialogueEnvironmentController : MonoBehaviour
             {
                 mainGameUI.SetActive(false);
                 mainGameCamera.SetActive(false);
+                globalMoney.SetActive(false);
                 environment.environmentData.ShowEnvironment();
             }
             else
@@ -74,6 +76,7 @@ public class DialogueEnvironmentController : MonoBehaviour
     {
         mainGameUI.SetActive(true);
         mainGameCamera.SetActive(true);
+        globalMoney.SetActive(true);
         
         foreach (var environment in environments)
         {

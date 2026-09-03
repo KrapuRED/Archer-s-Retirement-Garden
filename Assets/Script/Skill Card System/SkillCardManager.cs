@@ -210,8 +210,8 @@ public class SkillCardManager : MonoBehaviour
         if (!skill.isActive) 
             return;
         
+        selectedSkillCard.skillCardUI.UnSelectSkillCard();
         selectedSkillCard = skill;
-        Debug.LogWarning($"[{name} - (UseSkillCard)] Select {skillDataRunTime.skillCardName}!");
     }
 
     public void CancelSkillCard()

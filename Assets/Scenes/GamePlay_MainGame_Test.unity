@@ -1905,7 +1905,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.1, z: 1}
+  m_LocalScale: {x: 1, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1887277742}
@@ -1935,7 +1935,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 1d92ef396b61e7f409827a8b2e321f95, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1978,6 +1978,14 @@ PrefabInstance:
     - target: {fileID: 6372482913083142527, guid: d7548df85f0ca914683a3ee3820d1c50, type: 3}
       propertyPath: m_Name
       value: Environment Dialogue - Skip Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753765115072116530, guid: d7548df85f0ca914683a3ee3820d1c50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2092049938}
+    - target: {fileID: 7753765115072116530, guid: d7548df85f0ca914683a3ee3820d1c50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SkipDialogue
       objectReference: {fileID: 0}
     - target: {fileID: 8803338911543711998, guid: d7548df85f0ca914683a3ee3820d1c50, type: 3}
       propertyPath: m_Pivot.x
@@ -3590,7 +3598,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   previewTargetContainer: {fileID: 1599044880}
-  _fixedY: 0
 --- !u!1001 &673080522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4324,6 +4331,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Environment Dialogue - Skip Button
       objectReference: {fileID: 0}
+    - target: {fileID: 7753765115072116530, guid: d7548df85f0ca914683a3ee3820d1c50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2092049938}
     - target: {fileID: 8803338911543711998, guid: d7548df85f0ca914683a3ee3820d1c50, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5015,7 +5026,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.1, z: 1}
+  m_LocalScale: {x: 1, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 244653734}
@@ -5045,7 +5056,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 1d92ef396b61e7f409827a8b2e321f95, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6232,6 +6243,34 @@ PrefabInstance:
     - target: {fileID: 4058194502136001443, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
       propertyPath: m_Name
       value: ========== Environment Dialogue - Main Dialogue ==========  (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2092049938}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ContinueDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DialogueManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8175201975783306876, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
       propertyPath: m_Pivot.x
@@ -8084,6 +8123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueEnvironmentController
   mainGameUI: {fileID: 1884775467}
   mainGameCamera: {fileID: 90263870}
+  globalMoney: {fileID: 1151109804}
   dialogueEnvironmentContainer: {fileID: 1724308450}
   environments: []
 --- !u!1 &1266026092
@@ -8149,7 +8189,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.1, z: 1}
+  m_LocalScale: {x: 1, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1877664329}
@@ -8179,7 +8219,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 1d92ef396b61e7f409827a8b2e321f95, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11526,7 +11566,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1724308450}
   m_Layer: 0
-  m_Name: ========= Dialogue & CutScene =========
+  m_Name: ================ Dialogue & CutScene =========
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11788,7 +11828,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.1, z: 1}
+  m_LocalScale: {x: 1, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 815470778}
@@ -11818,7 +11858,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 1d92ef396b61e7f409827a8b2e321f95, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12413,6 +12453,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Environment Dialogue - Skip Button
       objectReference: {fileID: 0}
+    - target: {fileID: 7753765115072116530, guid: d7548df85f0ca914683a3ee3820d1c50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753765115072116530, guid: d7548df85f0ca914683a3ee3820d1c50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753765115072116530, guid: d7548df85f0ca914683a3ee3820d1c50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2092049938}
+    - target: {fileID: 7753765115072116530, guid: d7548df85f0ca914683a3ee3820d1c50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753765115072116530, guid: d7548df85f0ca914683a3ee3820d1c50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SkipDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753765115072116530, guid: d7548df85f0ca914683a3ee3820d1c50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SkipDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753765115072116530, guid: d7548df85f0ca914683a3ee3820d1c50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: DialogueManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753765115072116530, guid: d7548df85f0ca914683a3ee3820d1c50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7753765115072116530, guid: d7548df85f0ca914683a3ee3820d1c50, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8803338911543711998, guid: d7548df85f0ca914683a3ee3820d1c50, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12546,6 +12622,34 @@ PrefabInstance:
     - target: {fileID: 4058194502136001443, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
       propertyPath: m_Name
       value: '========== Environment Dialogue - Main Dialogue ========== '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2092049938}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ContinueDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DialogueManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8175201975783306876, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
       propertyPath: m_Pivot.x
@@ -15159,6 +15263,34 @@ PrefabInstance:
     - target: {fileID: 4058194502136001443, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
       propertyPath: m_Name
       value: '========== Environment Dialogue - Main Dialogue ========== '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2092049938}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ContinueDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DialogueManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253861548862959322, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8175201975783306876, guid: 21c416733b2986044a72ad9ca5809e04, type: 3}
       propertyPath: m_Pivot.x

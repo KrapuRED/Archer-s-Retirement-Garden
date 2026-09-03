@@ -12,6 +12,7 @@ public class SkillCardUI : MonoBehaviour
     [SerializeField] TMP_Text skillLevel;
     [SerializeField] TMP_Text skillCooldown;
     [SerializeField] Image skillIcon;
+    [SerializeField] Image skillCooldownImage;
     [SerializeField] private GameObject coolDownVFX;
     [SerializeField] private GameObject unlockVFX;
     
@@ -47,17 +48,21 @@ public class SkillCardUI : MonoBehaviour
         
     }
 
-    public void UpdateCooldownSkillCard(float cooldown)
+    public void UpdateCooldownSkillCard(float currentCooldown, float maxCooldown)
     {
         if (coolDownVFX == null)
         {
             Debug.LogError($"coolDownVFX missing on {gameObject.name} (path: {GetGameObjectPath(gameObject)})", this);
             return;
         }
+        
+        float ratio = currentCooldown / maxCooldown;
+        Debug.Log($"coolDownVFX ratio: {currentCooldown} / {maxCooldown} {ratio}");
+        skillCooldownImage.fillAmount = ratio;
     
-        bool onCooldown = cooldown > 0;
+        bool onCooldown = currentCooldown > 0;
         coolDownVFX.SetActive(onCooldown);
-        skillCooldown.text = onCooldown ? $"{cooldown:00.00}s" : string.Empty;
+        skillCooldown.text = onCooldown ? $"{currentCooldown:00.00}s" : string.Empty;
     }
 
     private string GetGameObjectPath(GameObject obj)

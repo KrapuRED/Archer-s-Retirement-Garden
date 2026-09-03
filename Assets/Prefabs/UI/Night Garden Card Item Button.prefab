@@ -604,6 +604,7 @@ MonoBehaviour:
   skillLevel: {fileID: 5146053136058041573}
   skillCooldown: {fileID: 7470324697365502135}
   skillIcon: {fileID: 5869615992845954937}
+  skillCooldownImage: {fileID: 3687919309474141604}
   coolDownVFX: {fileID: 305393049900938072}
   unlockVFX: {fileID: 3932040248657025222}
   selectVFX: {fileID: 2328558312053157702}
@@ -1745,7 +1746,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: ee38c12a10b908943b5d7f9f49cc983a, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

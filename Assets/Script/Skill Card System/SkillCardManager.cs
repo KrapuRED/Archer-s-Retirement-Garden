@@ -151,7 +151,7 @@ public class SkillCardManager : MonoBehaviour
             skillData.currentCooldown -= Time.deltaTime;
             
             if (skillData.skillCardUI != null)
-                skillData.skillCardUI.UpdateCooldownSkillCard(skillData.currentCooldown);
+                skillData.skillCardUI.UpdateCooldownSkillCard(skillData.currentCooldown, skillData.currentMaxCooldown);
             
             if (skillData.currentCooldown <= 0)
             {

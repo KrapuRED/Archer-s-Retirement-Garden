@@ -16,7 +16,7 @@ MonoBehaviour:
   upgradeDescription: Reduce Basic Attack Interval by -0.4 Sec
   rarity: 2
   upgradeType: 1
-  upgradeIcon: {fileID: 21300000, guid: 08cda4d1ea1960e4399a684bbbc35001, type: 3}
+  upgradeIcon: {fileID: 21300000, guid: d3d666ae869192847a33d3ba32f573e0, type: 3}
   upgradeBaseCost: 180
   upgradeAbilityIncrease: 0
   upgradeStatusType: 4

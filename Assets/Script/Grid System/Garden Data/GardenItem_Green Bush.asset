@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GardenItemSO
   gardenItemName: Green Bush
   gardenItemDescription: 
-  gardenItemImage: {fileID: 21300000, guid: 9889b78b93296544b9384d1f5dcd8e70, type: 3}
+  gardenItemImage: {fileID: 21300000, guid: 942a403269af71d4f89d18de2847b870, type: 3}
   gardenItemBasePrice: 100
   priceIncrease: 20
   gardenBoostItemDatas:

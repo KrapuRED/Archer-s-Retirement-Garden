@@ -16,7 +16,7 @@ MonoBehaviour:
   upgradeDescription: Gain 40% Crit Damage
   rarity: 2
   upgradeType: 1
-  upgradeIcon: {fileID: 21300000, guid: 3034c68bf5c8a0a4fbc1549f2d4e3507, type: 3}
+  upgradeIcon: {fileID: 21300000, guid: abd14731cefe7854a9ed7aea5f73376b, type: 3}
   upgradeBaseCost: 180
   upgradeAbilityIncrease: 0
   upgradeStatusType: 2

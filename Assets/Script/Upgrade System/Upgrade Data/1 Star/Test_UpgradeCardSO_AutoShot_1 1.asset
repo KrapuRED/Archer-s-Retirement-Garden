@@ -16,7 +16,7 @@ MonoBehaviour:
   upgradeDescription: Upgrade Auto Shot Passive level 1 -> 2
   rarity: 0
   upgradeType: 4
-  upgradeIcon: {fileID: 21300000, guid: 9b4556be74a813f42a61b8a4de10c684, type: 3}
+  upgradeIcon: {fileID: 21300000, guid: 4d7dc8dd7b58c214ca18db0a2cb9820e, type: 3}
   upgradeBaseCost: 80
   upgradeAbilityIncrease: 12
   upgradeStatusType: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
   upgradeDescription: Quad Shot Lv. 4 -> Lv. 5
   rarity: 1
   upgradeType: 4
-  upgradeIcon: {fileID: 21300000, guid: 0610e51281cfec84ba6833b14f11ca7e, type: 3}
+  upgradeIcon: {fileID: 21300000, guid: b72518920552479489e80863f31d6c88, type: 3}
   upgradeBaseCost: 200
   upgradeAbilityIncrease: 12
   upgradeStatusType: 0

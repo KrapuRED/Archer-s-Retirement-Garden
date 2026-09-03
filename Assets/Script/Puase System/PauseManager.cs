@@ -5,6 +5,8 @@ public class PauseManager : MonoBehaviour
 {
     public static PauseManager Instance { get; private set ; }
 
+    private InputManager _inputManager;
+    
     private void Awake()
     {
         if (Instance != null)
@@ -21,6 +23,14 @@ public class PauseManager : MonoBehaviour
         if (openPausePanel)
             GameEvents.OnRequestOpenPanel.Invoke(PanelType.Pause);
         
+        if (_inputManager == null)
+            _inputManager = InputManager.Instance;
+        
+        if (DayCycleManager.Instance.DayCycleType == DayCycleType.Day)
+            InputManager.Instance.PopInputActionMap();
+        else
+            _inputManager.ChangeCursorTexture(CursorType.Default);
+        
         GameEvents.OnPauseGame.Invoke();
     }
 
@@ -28,6 +38,15 @@ public class PauseManager : MonoBehaviour
     {
         if (openPausePanel)
             GameEvents.OnRequestClosePanel.Invoke(PanelType.Pause);
+        
+        if (_inputManager ==  null)
+            _inputManager = InputManager.Instance;
+        
+        if (DayCycleManager.Instance.DayCycleType == DayCycleType.Night)
+            _inputManager.ChangeCursorTexture(CursorType.Basic);
+        else
+            _inputManager.ChangeCursorTexture(CursorType.Default);
+        
         GameEvents.OnResumeGame.Invoke();
     }
 }

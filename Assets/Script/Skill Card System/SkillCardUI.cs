@@ -57,7 +57,6 @@ public class SkillCardUI : MonoBehaviour
         }
         
         float ratio = currentCooldown / maxCooldown;
-        Debug.Log($"coolDownVFX ratio: {currentCooldown} / {maxCooldown} {ratio}");
         skillCooldownImage.fillAmount = ratio;
     
         bool onCooldown = currentCooldown > 0;

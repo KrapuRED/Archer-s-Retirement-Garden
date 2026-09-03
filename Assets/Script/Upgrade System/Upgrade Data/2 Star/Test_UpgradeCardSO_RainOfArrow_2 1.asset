@@ -16,7 +16,7 @@ MonoBehaviour:
   upgradeDescription: Rain of Arrow Lv. 1 -> Lv. 2
   rarity: 1
   upgradeType: 4
-  upgradeIcon: {fileID: 21300000, guid: d4e398bc3f1f28e4d953e9318400e4d5, type: 3}
+  upgradeIcon: {fileID: 21300000, guid: 9b82d212a4adbf94fb03bb40c0571c2e, type: 3}
   upgradeBaseCost: 200
   upgradeAbilityIncrease: 12
   upgradeStatusType: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
   upgradeDescription: Barrage Explosion Lv. 3 -> Lv. 4
   rarity: 2
   upgradeType: 4
-  upgradeIcon: {fileID: 21300000, guid: e4736881ba52b8a4cb07eedcfd48b448, type: 3}
+  upgradeIcon: {fileID: 21300000, guid: cd74d5a1a165cda49aa3929a8060ec68, type: 3}
   upgradeBaseCost: 200
   upgradeAbilityIncrease: 22
   upgradeStatusType: 0

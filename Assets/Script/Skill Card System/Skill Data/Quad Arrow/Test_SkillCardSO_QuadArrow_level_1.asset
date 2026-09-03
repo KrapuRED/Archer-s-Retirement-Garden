@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillCardSO
   nameSkillCard: Quad Shot
   descriptionSkillCard: 
-  iconSkillCard: {fileID: 21300000, guid: 0610e51281cfec84ba6833b14f11ca7e, type: 3}
+  iconSkillCard: {fileID: 21300000, guid: 2ead2ce502fbe0f4faaf998f62dfd5ff, type: 3}
   arrowVelocity: 2
   isAuto: 0
   damageTypeSkillCard: 1

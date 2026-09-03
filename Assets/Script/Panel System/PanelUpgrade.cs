@@ -1,13 +1,17 @@
+using MoreMountains.Feedbacks;
 using UnityEngine;
+using MoreMountains.Tools;
 
 public class PanelUpgrade : PanelBase
 {
     [SerializeField] private UpgradeRefreshButton refreshButton;
     
+    [SerializeField] private MMFeedbacks showPanelFeedback;
+    [SerializeField] private MMFeedbacks hidePanelFeedback;
+    
     public override void OpenPanel()
     {
-        canvasGroup.alpha = 1;
-        canvasGroup.blocksRaycasts = true;
+        showPanelFeedback?.PlayFeedbacks();
         canvasGroup.interactable = true;
         
         refreshButton.DisplayRefreshButton();
@@ -18,8 +22,7 @@ public class PanelUpgrade : PanelBase
 
     public override void ClosePanel()
     {
-        canvasGroup.alpha = 0;
-        canvasGroup.blocksRaycasts = false;
+        hidePanelFeedback?.PlayFeedbacks();
         canvasGroup.interactable = false;
         
         DayCycleManager.Instance.AddDayCount();

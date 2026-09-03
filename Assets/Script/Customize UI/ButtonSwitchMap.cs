@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ButtonSwitchMap : MonoBehaviour
@@ -6,6 +7,21 @@ public class ButtonSwitchMap : MonoBehaviour
     [SerializeField] private CursorType cursorType;
     
     private bool _isSwitched;
+
+    private void OnEnable()
+    {
+        GameEvents.OnActionMapChange.AddListener(SwicthBackButton);
+    }
+
+    private void OnDisable() => OnRemoverListener();
+    private void OnDestroy() => OnRemoverListener();
+
+    private void OnRemoverListener()
+    {
+        GameEvents.OnActionMapChange.RemoveListener(SwicthBackButton);
+    }
+    
+    private void SwicthBackButton() => _isSwitched = false;
     
     public void SwitchMap()
     {

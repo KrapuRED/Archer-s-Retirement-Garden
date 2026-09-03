@@ -16,7 +16,7 @@ MonoBehaviour:
   upgradeDescription: Explosion Shot Lv. 1 -> Lv. 2
   rarity: 2
   upgradeType: 4
-  upgradeIcon: {fileID: 21300000, guid: fe4d9ab7c45f8434790f8f68b600ab90, type: 3}
+  upgradeIcon: {fileID: 21300000, guid: 661f7b4148e93ac469ed4c8ef9b48a4c, type: 3}
   upgradeBaseCost: 200
   upgradeAbilityIncrease: 22
   upgradeStatusType: 0

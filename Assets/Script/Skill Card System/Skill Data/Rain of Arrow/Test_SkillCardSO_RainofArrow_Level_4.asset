@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillCardSO
   nameSkillCard: Rain of Arrow
   descriptionSkillCard: 
-  iconSkillCard: {fileID: 21300000, guid: d4e398bc3f1f28e4d953e9318400e4d5, type: 3}
+  iconSkillCard: {fileID: 21300000, guid: df20f7b2f66d6364bab091a4123cfb64, type: 3}
   arrowVelocity: 0
   isAuto: 0
   damageTypeSkillCard: 1

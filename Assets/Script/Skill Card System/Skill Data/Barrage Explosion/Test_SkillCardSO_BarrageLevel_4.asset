@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillCardSO
   nameSkillCard: Explosion Barrage
   descriptionSkillCard: 
-  iconSkillCard: {fileID: 21300000, guid: e4736881ba52b8a4cb07eedcfd48b448, type: 3}
+  iconSkillCard: {fileID: 21300000, guid: 2835a7346c0ec90429b3bad089168203, type: 3}
   arrowVelocity: 0
   isAuto: 0
   damageTypeSkillCard: 2

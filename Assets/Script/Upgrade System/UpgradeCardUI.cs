@@ -48,6 +48,9 @@ public class UpgradeCardUI : MonoBehaviour
         
         this.name = $"Upgrade Card - {upgradeData.CardSo.upgradeName}";
         ShowStarByRarity(upgradeData.CardSo.rarity);
+
+        if (iconUpgradeCard != null)
+            iconUpgradeCard.sprite = upgradeData.CardSo.upgradeIcon;
         
         nameUpgradeCard.text = upgradeData.CardSo.upgradeName;
         descriptionUpgradeCard.text = upgradeData.CardSo.upgradeDescription;

@@ -313,4 +313,12 @@ public class SkillCardManager : MonoBehaviour
 
         return skillData;
     }
+
+    public void UnlockAllSkillCards()
+    {
+        foreach (var skillData in listPreDeterminedSkillCardData)
+        {
+            UnlockSkillCard(skillData);
+        }
+    }
 }

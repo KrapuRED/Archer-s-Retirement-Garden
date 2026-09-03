@@ -19,6 +19,7 @@ public class TransitionManager : MonoBehaviour
         if (Instance != null)
         {
             Destroy(gameObject);
+            return;
         }
 
         Instance = this;
@@ -47,10 +48,14 @@ public class TransitionManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         scene.allowSceneActivation = true;
-
-        yield return null;
-
+        
+        yield return new WaitUntil(() => scene.isDone);
+        
         yield return transition.TransitionOut();
+
+        yield return new WaitUntil(() => DialogueManager.Instance != null);
+
+        GameEvents.OnStartDialogue.Invoke();
     }
 
     private IEnumerator LoadEnvironmentAsync(string environmentName, string transitionName)

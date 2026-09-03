@@ -14,11 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillCardSO
   nameSkillCard: Expolsion Arrow
   descriptionSkillCard: 
-  iconSkillCard: {fileID: 0}
+  iconSkillCard: {fileID: 21300000, guid: fe4d9ab7c45f8434790f8f68b600ab90, type: 3}
+  arrowVelocity: 0
+  isAuto: 0
   damageTypeSkillCard: 2
   attackBoostSkillCard: 300
   durationActiveSkillCard: 0
   cooldownSkillCard: 25
+  targetSkillCard: 0
   arrowData:
     damageType: 1
   explosionData:

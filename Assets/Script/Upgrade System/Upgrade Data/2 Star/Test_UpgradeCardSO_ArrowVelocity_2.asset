@@ -16,8 +16,11 @@ MonoBehaviour:
   upgradeDescription: Increase Arrow Velocity by +0.3
   rarity: 1
   upgradeType: 1
-  upgradeIcon: {fileID: 0}
+  upgradeIcon: {fileID: 21300000, guid: ed326a51ef8d6284fb7cefa25728430f, type: 3}
   upgradeBaseCost: 120
+  upgradeAbilityIncrease: 0
   upgradeStatusType: 5
+  baseSkillCard: {fileID: 0}
   linkedSkillCard: {fileID: 0}
   upgradeValue: 0.3
+  oneTimeBuy: 0

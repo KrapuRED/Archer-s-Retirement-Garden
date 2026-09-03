@@ -21,8 +21,7 @@ public class CombatInput : MonoBehaviour
     private Vector2 _screenPosition;
     private Vector2Int _currentCell;
     private Vector2Int _anchorCell;
-
-    private bool _isInsideUI;
+    
     [SerializeField] private float _fixedY;
     
     private GridManager _gridManager;
@@ -63,7 +62,10 @@ public class CombatInput : MonoBehaviour
 
     private void OnClickAttack(InputAction.CallbackContext ctx)
     {
-        if (_isInsideUI) return;
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        {
+            return; 
+        }
         
         if (!InputManager.Instance.IsInputMapActive(actionMapName))
             return;

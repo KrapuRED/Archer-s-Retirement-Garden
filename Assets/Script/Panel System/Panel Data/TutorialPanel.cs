@@ -25,8 +25,6 @@ public class TutorialPanel : PanelBase
         foreach (Transform t in containerTutorial)
             _tutorialObjects.Add(t.gameObject);
         
-        Debug.Log(_tutorialObjects.Count);
-
         if (_tutorialObjects.Count > 0)
         {
             RectTransform firstSlide = _tutorialObjects[0].GetComponent<RectTransform>();

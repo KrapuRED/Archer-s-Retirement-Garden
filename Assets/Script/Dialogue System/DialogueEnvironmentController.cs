@@ -12,6 +12,7 @@ public class DataDialogueEnvironment
 public class DialogueEnvironmentController : MonoBehaviour
 {
     [SerializeField] private GameObject mainGameUI;
+    [SerializeField] private GameObject mainGameCamera;
     
     [Header("Dialogue Environment References")]
     [SerializeField] private Transform dialogueEnvironmentContainer;
@@ -59,6 +60,7 @@ public class DialogueEnvironmentController : MonoBehaviour
             if (environment.environmentID == environmentID)
             {
                 mainGameUI.SetActive(false);
+                mainGameCamera.SetActive(false);
                 environment.environmentData.ShowEnvironment();
             }
             else
@@ -71,6 +73,8 @@ public class DialogueEnvironmentController : MonoBehaviour
     private void HideEnvironment()
     {
         mainGameUI.SetActive(true);
+        mainGameCamera.SetActive(true);
+        
         foreach (var environment in environments)
         {
             if (environment != null)

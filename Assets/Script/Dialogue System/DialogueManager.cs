@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [System.Serializable]
@@ -36,25 +37,23 @@ public class DialogueManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
-    {
-        if (dialogueStart) StartDialogue();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            ContinueDialogue();
-    }
-    
     private void OnEnable()
     {
         GameEvents.OnChangeToDayLight.AddListener(StartDialogue);
+        GameEvents.OnStartDialogue.AddListener(StartDialogue);
     }
 
     private void OnDisable()
     {
-        GameEvents.OnChangeToDayLight.AddListener(StartDialogue);
+        GameEvents.OnChangeToDayLight.RemoveListener(StartDialogue);
+        GameEvents.OnStartDialogue.RemoveListener(StartDialogue);
+        
+    }
+    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            ContinueDialogue();
     }
 
     private void DisplayDialogue()
@@ -76,6 +75,7 @@ public class DialogueManager : MonoBehaviour
 
     private void ChangeDialogueData()
     {
+        
         if (dialogueDataRunTimes.Count > 0)
             _dialogueDataIndex++;
         
@@ -83,13 +83,21 @@ public class DialogueManager : MonoBehaviour
         _currentDialogueData  = _selectedDialogueDataRunTime.dialogueData[_dialogueDataIndex];
         
         string environment = $"Environment Dialogue - {_currentDialogueData.locationDialogue}";
+
+        if (TransitionManager.Instance == null)
+        {
+            Debug.LogWarning($"[{name} (StartDialogue)] Transition Manager is MISING or NULL!");
+            return;
+        }
+            
         TransitionManager.Instance.TransitionDialogueEnvironment(environment, "FadeOut");
     }
 
     private void StartDialogue()
     {
         if (IsDialogueRunning) return;
-        
+     
+        Debug.LogWarning($"[{name} (StartDialogue)] This dialogueData is running.");
         int dayCount = DayCycleManager.Instance.DayCount;
         var dialogueData = dialogueDataRunTimes.Find(x => x.dayDialogue == dayCount);
         if (dialogueData == null)

@@ -30,6 +30,9 @@ public class SkillCardUI : MonoBehaviour
         
         if (skillNumberIndex != null)
             skillNumberIndex.text = numberIndex.ToString();
+
+        if (skillIcon != null)
+            skillIcon.sprite = skillCard.skillCardSo.iconSkillCard;
         
         coolDownVFX.SetActive(false);
         skillCooldown.text = string.Empty;

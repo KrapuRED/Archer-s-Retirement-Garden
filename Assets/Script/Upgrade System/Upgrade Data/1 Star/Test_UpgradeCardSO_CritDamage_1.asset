@@ -14,8 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeCardSO
   upgradeName: Critical Shot I
   upgradeDescription: Gain 8% Crit Damage
+  rarity: 0
   upgradeType: 1
-  upgradeIcon: {fileID: 0}
+  upgradeIcon: {fileID: 21300000, guid: 3034c68bf5c8a0a4fbc1549f2d4e3507, type: 3}
   upgradeBaseCost: 50
+  upgradeAbilityIncrease: 0
   upgradeStatusType: 2
+  baseSkillCard: {fileID: 0}
+  linkedSkillCard: {fileID: 0}
   upgradeValue: 8
+  oneTimeBuy: 0

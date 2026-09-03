@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,14 +10,35 @@ public class DataStateMachine
     public ConditionSO condition;
 }
 
-public class StateMachine : MonoBehaviour
+public class StateMachine : MonoBehaviour, IPauseable
 {
     [SerializeField] private Character ownerCharacter;
     [SerializeField] private List<DataStateMachine> dataStateMachines = new();
     [SerializeField] private StateSO activeState;
     
+    public bool IsPaused { get; set; }
+
+    private void OnEnable()
+    {
+        GameEvents.OnPauseGame.AddListener(Pause);
+        GameEvents.OnResumeGame.AddListener(Resume);
+    }
+
+    private void OnDisable() => OnRemoveListeners();
+
+    private void OnDestroy() => OnRemoveListeners();
+
+    private void OnRemoveListeners()
+    {
+        GameEvents.OnPauseGame.RemoveListener(Pause);
+        GameEvents.OnResumeGame.RemoveListener(Resume);
+    }
+
     private void Update()
     {
+        if (IsPaused)
+            return;
+        
         foreach (var data in dataStateMachines)
         {
             if (data.condition.CheckCondition(ownerCharacter))
@@ -42,5 +64,15 @@ public class StateMachine : MonoBehaviour
     {
         activeState?.ExitState();
         activeState = null;
+    }
+    
+    public void Pause()
+    {
+        IsPaused = true;
+    }
+    
+    public void Resume()
+    {
+        IsPaused = false;
     }
 }

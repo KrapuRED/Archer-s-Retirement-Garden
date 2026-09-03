@@ -16,7 +16,7 @@ MonoBehaviour:
   upgradeDescription: 'Unlock Explosion Shot Ability '
   rarity: 2
   upgradeType: 3
-  upgradeIcon: {fileID: 0}
+  upgradeIcon: {fileID: 21300000, guid: fe4d9ab7c45f8434790f8f68b600ab90, type: 3}
   upgradeBaseCost: 200
   upgradeAbilityIncrease: 0
   upgradeStatusType: 0

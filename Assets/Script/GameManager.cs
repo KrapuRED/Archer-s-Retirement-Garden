@@ -35,6 +35,12 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void StartGame()
+    {
+        ChangeGameMode(GameMode.Story);
+        IsGameActive = true;
+    }
+    
     public void OnGameOver()
     {
         IsGameActive = false;
@@ -60,8 +66,8 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         //TransitionManager.Instance.TransitionScene("Credit", "FadeOut");
-        
-        gameMode = GameMode.Story;
+
+        ChangeGameMode(GameMode.Story);
         IsGameActive = false;
     } 
 }

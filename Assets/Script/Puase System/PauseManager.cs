@@ -16,15 +16,18 @@ public class PauseManager : MonoBehaviour
         Instance = this;
     }
 
-    public void PauseGame()
+    public void PauseGame(bool openPausePanel)
     {
-        GameEvents.OnRequestOpenPanel.Invoke(PanelType.Pause);
+        if (openPausePanel)
+            GameEvents.OnRequestOpenPanel.Invoke(PanelType.Pause);
+        
         GameEvents.OnPauseGame.Invoke();
     }
 
-    public void ResumeGame()
+    public void ResumeGame(bool openPausePanel)
     {
-        GameEvents.OnRequestClosePanel.Invoke(PanelType.Pause);
+        if (openPausePanel)
+            GameEvents.OnRequestClosePanel.Invoke(PanelType.Pause);
         GameEvents.OnResumeGame.Invoke();
     }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillCardSO
   nameSkillCard: Auto Shot
   descriptionSkillCard: 
-  iconSkillCard: {fileID: 0}
+  iconSkillCard: {fileID: 21300000, guid: 9b4556be74a813f42a61b8a4de10c684, type: 3}
   arrowVelocity: 5
   isAuto: 1
   damageTypeSkillCard: 1

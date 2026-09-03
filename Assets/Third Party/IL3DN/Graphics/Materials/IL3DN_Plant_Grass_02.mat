@@ -139,7 +139,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _HeightBlend: 0.13
+    - _HeightBlend: 5.2
     - _MaxWindStrength: 0.56
     - _Metallic: 0
     - _Mode: 0
@@ -185,14 +185,14 @@ Material:
     - _ZWrite: 1
     - __dirty: 1
     m_Colors:
-    - _BottomColor: {r: 0.9587391, g: 1, b: 0.22327036, a: 1}
+    - _BottomColor: {r: 0.16800486, g: 0.28930807, b: 0.13919537, a: 1}
     - _Color: {r: 0.6509434, g: 0.52651983, b: 0.28555515, a: 1}
     - _Color0: {r: 1, g: 0.9847094, b: 0, a: 1}
     - _Color1: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
-    - _FarColor: {r: 0.40635318, g: 0.8050313, b: 0.26074898, a: 0}
+    - _FarColor: {r: 0.26888004, g: 0.51572317, b: 0.18001652, a: 0}
     - _HueVariation: {r: 1, g: 1, b: 1, a: 1}
-    - _NearColor: {r: 0.40034327, g: 0.7987421, b: 0.38430038, a: 1}
+    - _NearColor: {r: 0.17601456, g: 0.45911938, b: 0.16314617, a: 1}
     - _NearFarRange: {r: 10, g: 25, b: 0, a: 0}
     - _SnowColor: {r: 1, g: 1, b: 1, a: 0}
     - _Speed: {r: -0, g: 10, b: 0, a: 0}

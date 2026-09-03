@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
   m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogColor: {r: 0.79559743, g: 0.99926794, b: 1, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -130,6 +130,10 @@ PrefabInstance:
     - target: {fileID: -8653719598885068355, guid: 620b52b881df224448d01e1da8a23c83, type: 3}
       propertyPath: m_Name
       value: Enemy_LavaGolem
+      objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: 620b52b881df224448d01e1da8a23c83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 620b52b881df224448d01e1da8a23c83, type: 3}
       propertyPath: m_LocalPosition.x
@@ -262,13 +266,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783608402}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23911765, y: 0.3696438, z: -0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: -40.389587, y: 21.2, z: -43.10028}
+  m_LocalRotation: {x: 0, y: 0.6671827, z: 0, w: 0.74489415}
+  m_LocalPosition: {x: -40.87, y: 19, z: -41.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 969950608}
-  m_LocalEulerAnglesHint: {x: 30, y: 45, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 83.7, z: 0}
 --- !u!114 &783608406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,6 +328,10 @@ PrefabInstance:
     - target: {fileID: -8653719598885068355, guid: ceb36b4b4ff34dc4c8903f1e7a41ab90, type: 3}
       propertyPath: m_Name
       value: Enemy_FortifiedConstruct
+      objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: ceb36b4b4ff34dc4c8903f1e7a41ab90, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: ceb36b4b4ff34dc4c8903f1e7a41ab90, type: 3}
       propertyPath: m_LocalPosition.x
@@ -395,14 +403,14 @@ Transform:
   m_GameObject: {fileID: 969950607}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.04, y: 5.3, z: 20.39}
+  m_LocalPosition: {x: 37.01, y: 5.04, z: 5.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 783608405}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1035375622
+--- !u!1 &1498201361
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -410,9 +418,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1035375624}
-  - component: {fileID: 1035375623}
-  - component: {fileID: 1035375625}
+  - component: {fileID: 1498201364}
+  - component: {fileID: 1498201363}
+  - component: {fileID: 1498201362}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -420,24 +428,53 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!108 &1035375623
+--- !u!114 &1498201362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498201361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
+--- !u!108 &1498201363
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1035375622}
+  m_GameObject: {fileID: 1498201361}
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 0.5, y: 0.5}
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -485,50 +522,21 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
---- !u!4 &1035375624
+--- !u!4 &1498201364
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1035375622}
+  m_GameObject: {fileID: 1498201361}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 17.12699, y: 0, z: 17.35929}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &1035375625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1035375622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_CustomShadowLayers: 0
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
-  m_RenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_ShadowRenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
-  m_Version: 4
-  m_LightLayerMask: 1
-  m_ShadowLayerMask: 1
-  m_RenderingLayers: 1
-  m_ShadowRenderingLayers: 1
 --- !u!1001 &2065711256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -540,6 +548,10 @@ PrefabInstance:
     - target: {fileID: -8653719598885068355, guid: 890ce1f425f5c3846a015214982c2412, type: 3}
       propertyPath: m_Name
       value: Enemy_DemonEye
+      objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: 890ce1f425f5c3846a015214982c2412, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 890ce1f425f5c3846a015214982c2412, type: 3}
       propertyPath: m_LocalPosition.x
@@ -597,6 +609,10 @@ PrefabInstance:
     - target: {fileID: -8653719598885068355, guid: 0f7de0e959c62d34d9e87f60a5a41e4f, type: 3}
       propertyPath: m_Name
       value: Enemy_IridescentSlime
+      objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: 0f7de0e959c62d34d9e87f60a5a41e4f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 0f7de0e959c62d34d9e87f60a5a41e4f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -866,6 +882,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particle_ArrowRain
       objectReference: {fileID: 0}
+    - target: {fileID: 7172468555022065097, guid: 2f4ae7f637410f24d8c7b689cf841b70, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1120,6 +1140,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particle_Explosion
       objectReference: {fileID: 0}
+    - target: {fileID: 8659198595687324825, guid: a70c9e51661d8bc439660c0ed31c366d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1255,6 +1279,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cloud Invert Dome Day
       objectReference: {fileID: 0}
+    - target: {fileID: 513229517051641620, guid: 61cb2712166a44e488343f2ea864a729, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 888488040457823662, guid: 61cb2712166a44e488343f2ea864a729, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.11075
@@ -1362,7 +1390,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 969950608}
-  - {fileID: 1035375624}
   - {fileID: 2587707201310122328}
   - {fileID: 631074721821440421}
   - {fileID: 7996420841787638185}
@@ -1377,3 +1404,4 @@ SceneRoots:
   - {fileID: 2110673265}
   - {fileID: 827633142}
   - {fileID: 167266808}
+  - {fileID: 1498201364}

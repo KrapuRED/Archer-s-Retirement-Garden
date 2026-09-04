@@ -19,6 +19,7 @@ public class SkillCardSOEditor : Editor
         SerializedProperty targetSkillCard;
         SerializedProperty isAuto;
         SerializedProperty arrowVelocity;
+        private SerializedProperty shotAudioClip;
  
     #endregion
 
@@ -37,6 +38,7 @@ public class SkillCardSOEditor : Editor
         prefabSkillTargeting = serializedObject.FindProperty("prefabSkillTargeting");
         isAuto =  serializedObject.FindProperty("isAuto");
         arrowVelocity = serializedObject.FindProperty("arrowVelocity");
+        shotAudioClip = serializedObject.FindProperty("shotAudioClip");
     }
 
     public override void OnInspectorGUI()
@@ -48,6 +50,7 @@ public class SkillCardSOEditor : Editor
         EditorGUILayout.PropertyField(iconSkillCard);
         EditorGUILayout.PropertyField(arrowVelocity);
         EditorGUILayout.PropertyField(isAuto);
+        EditorGUILayout.PropertyField(shotAudioClip);
         
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Skill Card Configuration", EditorStyles.boldLabel);

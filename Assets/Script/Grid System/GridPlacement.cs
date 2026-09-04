@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using MoreMountains.Tools;
 
 public class GridPlacement : MonoBehaviour
 {
@@ -21,7 +22,9 @@ public class GridPlacement : MonoBehaviour
     [SerializeField] private Material validMaterial;
     [SerializeField] private Material invalidMaterial;
 
-    [SerializeField] private GameObject testObject;
+    [Header("Audio Sound Effect Settings")] 
+    [SerializeField] private AudioClip insufficientAudioClip;
+    [SerializeField] private AudioClip placeAudioClip;
     
     private GameObject _previewInstance;
     private Renderer _previewRenderer;
@@ -201,9 +204,12 @@ public class GridPlacement : MonoBehaviour
                 Debug.LogWarning($"[{name} (ConfirmPlacement)] {placed.name} has no GardenObject component - it won't be sellable.");
             }
             
+            MMSoundManagerSoundPlayEvent.Trigger(placeAudioClip, MMSoundManager.MMSoundManagerTracks.Sfx, transform.position);
             GameEvents.OnHideDetailGardenItem.Invoke();
-            
-            //SetPreviewColor(false);
+        }
+        else
+        {
+            MMSoundManagerSoundPlayEvent.Trigger(insufficientAudioClip, MMSoundManager.MMSoundManagerTracks.Sfx, transform.position);
         }
         
         CancelPlacement();

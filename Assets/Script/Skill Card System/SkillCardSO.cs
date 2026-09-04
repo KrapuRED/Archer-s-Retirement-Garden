@@ -34,6 +34,7 @@ public class SkillCardSO : ScriptableObject
     public Sprite iconSkillCard;
     public float arrowVelocity;
     public bool isAuto;
+    public AudioClip shotAudioClip;
     
     [Header("Skill Card Configuration")]
     public SkillDamageType damageTypeSkillCard;

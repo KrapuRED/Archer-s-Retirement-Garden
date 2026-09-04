@@ -15,10 +15,14 @@ MonoBehaviour:
   nameSkillCard: Basic
   descriptionSkillCard: 
   iconSkillCard: {fileID: 0}
+  arrowVelocity: 0
+  isAuto: 0
+  shotAudioClip: {fileID: 8300000, guid: 1f1102251c311074e8c158caebf2d363, type: 3}
   damageTypeSkillCard: 1
   attackBoostSkillCard: 0
   durationActiveSkillCard: 0
   cooldownSkillCard: 1
+  targetSkillCard: 0
   arrowData:
     damageType: 0
   explosionData:

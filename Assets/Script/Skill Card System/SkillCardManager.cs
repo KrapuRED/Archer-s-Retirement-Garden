@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using MoreMountains.Tools;
 
 [System.Serializable]
 public class SkillCardDataRunTime
@@ -274,6 +275,9 @@ public class SkillCardManager : MonoBehaviour
         skillData.currentCooldown = skillData.currentMaxCooldown;
         selectedSkillCard.skillCardUI.UnSelectSkillCard();
         
+        if (skillData.skillCardSo.shotAudioClip != null)
+            MMSoundManagerSoundPlayEvent.Trigger(skillData.skillCardSo.shotAudioClip, MMSoundManager.MMSoundManagerTracks.Sfx, transform.position);
+
         selectedSkillCard = null;
     }
 

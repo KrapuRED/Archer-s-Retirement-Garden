@@ -1,18 +1,22 @@
 using UnityEngine;
+using MoreMountains.Feedbacks;
+
 
 public class PanelRestart : PanelBase
 {
+   [SerializeField] private MMFeedbacks showPanelFeedback;
+   [SerializeField] private MMFeedbacks hidePanelFeedback;
+   
    public override void OpenPanel()
    {
-      canvasGroup.alpha = 1;
-      canvasGroup.blocksRaycasts = true;
+      showPanelFeedback?.PlayFeedbacks();
       canvasGroup.interactable = true;
    }
 
    public override void ClosePanel()
    {
-      canvasGroup.alpha = 0;
-      canvasGroup.blocksRaycasts = false;
+      hidePanelFeedback?.PlayFeedbacks();
+      canvasGroup.interactable = false;
       canvasGroup.interactable = false;
    }
    

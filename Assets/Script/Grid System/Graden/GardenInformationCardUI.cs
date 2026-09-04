@@ -52,7 +52,7 @@ public class GardenInformationCardUI : MonoBehaviour
     private void SetGardenInformationCard(GardenItemCardData gardenItemData)
     {
         gardenItemName.text  = gardenItemData.gardenItemName;
-        gardenItemPrice.text = $"{gardenItemData.currentPrice} $";
+        gardenItemPrice.text = $"{gardenItemData.currentPrice}";
         gardenItemImage.sprite = gardenItemData.gardenItemSO.gardenItemImage;
             
         _builder.Clear();

@@ -12976,7 +12976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2783aaec8848d7845a3485e2076343d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
-  dialogueStart: 0
+  dialogueStart: 1
   dialogueCharacterController: {fileID: 661105499}
   dialogueDataRunTimes:
   - dialogueName: Dialogue Opening

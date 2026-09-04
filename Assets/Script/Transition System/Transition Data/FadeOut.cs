@@ -9,8 +9,6 @@ public class FadeOut : Transition
     
     public override IEnumerator TransitionIn()
     {
-        this.gameObject.SetActive(true);
-        
         var tweener  = canvasGroup.DOFade(1,transitionDuration);
         canvasGroup.blocksRaycasts = true;
         canvasGroup.interactable = true;
@@ -23,8 +21,6 @@ public class FadeOut : Transition
         var tweener  = canvasGroup.DOFade(0,transitionDuration);
         canvasGroup.blocksRaycasts = false;
         canvasGroup.interactable = false;
-
-        tweener.OnComplete(()=> this.gameObject.SetActive(false));
         
         yield return tweener.WaitForCompletion();
     }

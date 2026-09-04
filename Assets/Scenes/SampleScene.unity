@@ -171,17 +171,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Capsule_Demon Eye
       objectReference: {fileID: 0}
-    - target: {fileID: 4995424263234257276, guid: cb0b17ce2dbad1540a2e94fc4f9550a0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7155350750422095823, guid: cb0b17ce2dbad1540a2e94fc4f9550a0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8005118795912474665, guid: cb0b17ce2dbad1540a2e94fc4f9550a0, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -734,17 +730,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Capsule_Fortified Construct
       objectReference: {fileID: 0}
-    - target: {fileID: 3578095197843199066, guid: be218022c0e8fc344a99d0e7e47e150d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4655833701299098849, guid: be218022c0e8fc344a99d0e7e47e150d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5094530475701900346, guid: be218022c0e8fc344a99d0e7e47e150d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -761,11 +753,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 17176979059966711, guid: d870c04476967604a974f2c5dc8ee38a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1165800231210593187, guid: d870c04476967604a974f2c5dc8ee38a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3966463425002157695, guid: d870c04476967604a974f2c5dc8ee38a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -810,10 +802,6 @@ PrefabInstance:
     - target: {fileID: 4884746183395477571, guid: d870c04476967604a974f2c5dc8ee38a, type: 3}
       propertyPath: m_Name
       value: Enemy_Capsule_Iridescent Slime
-      objectReference: {fileID: 0}
-    - target: {fileID: 4884746183395477571, guid: d870c04476967604a974f2c5dc8ee38a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1002,21 +990,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1267975004889999565, guid: f69048aaf225ec648a4c081084a485ac, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3847291507689595208, guid: f69048aaf225ec648a4c081084a485ac, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6601139871015257569, guid: f69048aaf225ec648a4c081084a485ac, type: 3}
       propertyPath: m_Name
       value: Enemy_Capsule_Lava Golem
-      objectReference: {fileID: 0}
-    - target: {fileID: 6601139871015257569, guid: f69048aaf225ec648a4c081084a485ac, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

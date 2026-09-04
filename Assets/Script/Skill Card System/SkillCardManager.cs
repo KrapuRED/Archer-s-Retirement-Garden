@@ -209,6 +209,12 @@ public class SkillCardManager : MonoBehaviour
 
         if (!skill.isActive) 
             return;
+
+        if (selectedSkillCard.skillCardUI == null)
+        {
+            Debug.LogError($"[{name} - (UseSkillCard)] SkillCardUI is null in {skillDataRunTime.skillCardName}!");
+            return;
+        }
         
         selectedSkillCard.skillCardUI.UnSelectSkillCard();
         selectedSkillCard = skill;

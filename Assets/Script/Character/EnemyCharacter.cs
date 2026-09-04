@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using MoreMountains.Feedbacks;
 
 public class EnemyCharacter : Character, IDamageable
 {
@@ -10,6 +12,9 @@ public class EnemyCharacter : Character, IDamageable
     [SerializeField] private Transform groundCheckPoint;
     [SerializeField] private LayerMask groundCheckMask;
     [SerializeField] private float groundCheckRadius;
+    
+    [Header("Visual Effects")]
+    [SerializeField] private MMFeedbacks deathFeedback;
     
     public float MoveSpeed => characterData.baseSpeed;
     public float RotationSpeed => rotationSpeed;
@@ -43,6 +48,7 @@ public class EnemyCharacter : Character, IDamageable
     {
         Debug.Log($"{name} took {amountDamage} damage and isCritical {isCritical}!");
         currentHealth -= amountDamage;
+        healthUI.UpdateHealthUI(currentHealth);
         
         if (currentHealth <= 0)
         {
@@ -52,16 +58,16 @@ public class EnemyCharacter : Character, IDamageable
         
         //Spawn Damage visualizer
         SpawnDamageVisualizer(amountDamage, isCritical);
-        
-        healthUI.UpdateHealthUI(currentHealth);
     }
 
     public override void CharacterDead()
     {
         Debug.LogWarning($"[{name} (CharacterDead)] This Character is dead");
+        
+        IsDead = true;
         GameEvents.OnCharacterDeath.Invoke(this);
         CurrencyManager.Instance.AddCurrency(RunTimeData.enemyReward);
         
-        Destroy(gameObject);
+        deathFeedback?.PlayFeedbacks();
     }
 }

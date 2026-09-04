@@ -9,6 +9,7 @@ public class Character : MonoBehaviour
 
     [Header("Character System")]
     [SerializeField] protected MovementCharacter movementCharacter;
+    [SerializeField] protected Animator animatorCharacter;
     
     [Header("Health")]
     [SerializeField] protected float maxHealth;
@@ -24,7 +25,9 @@ public class Character : MonoBehaviour
     public Vector3 TargetPosition { get; private set; }
     public CharacterSO CharacterData => characterData;
     public EnemyRunTimeData RunTimeData {get; private set; }
-    
+
+    public bool IsDead { get; protected set; }
+
     private void Start()
     {
         if (initByStart)

@@ -36,7 +36,7 @@ public class StateMachine : MonoBehaviour, IPauseable
 
     private void Update()
     {
-        if (IsPaused)
+        if (IsPaused || ownerCharacter.IsDead)
             return;
         
         foreach (var data in dataStateMachines)

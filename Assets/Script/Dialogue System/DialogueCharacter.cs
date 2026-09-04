@@ -23,7 +23,6 @@ public class DialogueCharacter : MonoBehaviour
     [SerializeField] private Ease moveEase = Ease.InOutQuad;
     
     private SpriteRenderer[] _spriteRenderers;
-    private SpriteRenderer _spriteRenderer;
     private Sequence _transition;
     private Tween _moveTween;
 
@@ -33,7 +32,6 @@ public class DialogueCharacter : MonoBehaviour
 
     private void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         CharacterName = gameObject.name;
         
         InitDialogueCharacter();
@@ -84,13 +82,18 @@ public class DialogueCharacter : MonoBehaviour
             return;
         }
         
-        if (newPosition.position.x > 0)
+        Debug.Log($"[{name}] MovePointPosition: {newPosition.position}");
+        if (newPosition.localPosition.x > 0)
         {
-            _spriteRenderer.flipX = true;
+            //Rotate character to right
+            Quaternion newRotation = Quaternion.Euler(0, 180f, 0);
+            transform.rotation = newRotation;
         }
         else
         {
-            _spriteRenderer.flipX = false;
+            //Rotate character to right
+            Quaternion newRotation = Quaternion.Euler(0, 0, 0);
+            transform.rotation = newRotation;
         }
         
         _moveTween?.Kill();

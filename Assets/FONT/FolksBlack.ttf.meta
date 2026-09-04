@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 72cb86ab518581149bdecc2d9feaf67c
+guid: 4ab7041e92d979646a0786fecefc8446
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Folks-Bold
+  - FolksBlack
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

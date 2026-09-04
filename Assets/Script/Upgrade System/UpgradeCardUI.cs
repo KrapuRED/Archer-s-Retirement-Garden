@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using MoreMountains.Feedbacks;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using MoreMountains.Tools;
 
 public class UpgradeCardUI : MonoBehaviour
 {
@@ -10,6 +12,9 @@ public class UpgradeCardUI : MonoBehaviour
     [SerializeField] private TMP_Text descriptionUpgradeCard;
     [SerializeField] private TMP_Text costUpgradeCard;
     [SerializeField] private Image iconUpgradeCard;
+
+    [Header("Feedbacks")] 
+    [SerializeField] private MMFeedbacks insufficientFeedback;
     
     [SerializeField] private Transform starContiner;
     private List<Transform> _starImage = new();
@@ -60,7 +65,10 @@ public class UpgradeCardUI : MonoBehaviour
     public void OnClickUgradeCard()
     { 
         if (!UpgradeCardManager.Instance.OnUpgradeCard(upgradeCardData))
+        {
+            insufficientFeedback?.PlayFeedbacks();
             return;
+        }
         
         GameEvents.OnRequestClosePanel.Invoke(PanelType.Upgrade);
     }

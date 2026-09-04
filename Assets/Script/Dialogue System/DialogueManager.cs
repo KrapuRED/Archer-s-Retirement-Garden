@@ -155,6 +155,7 @@ public class DialogueManager : MonoBehaviour
 
         if (IsMultipleDialogue(_selectedDialogueDataRunTime) && _dialogueDataIndex < _selectedDialogueDataRunTime.dialogueData.Count - 1)
         {
+            _dialogueIndex = -1;
             ChangeDialogueData();
         }
         else

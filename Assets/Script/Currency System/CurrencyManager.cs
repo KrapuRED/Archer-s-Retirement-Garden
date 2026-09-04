@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Pool;
+using MoreMountains.Tools;
 
 public class CurrencyManager : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class CurrencyManager : MonoBehaviour
     [SerializeField] private int starterCurrency;
     [SerializeField] private int currentCurrency;
 
+    [Header("Audio Sound Effects")]
+    [SerializeField] private AudioClip gainCurrencySound;
+    [SerializeField] private AudioClip useCurrencySound;
+    
     [Header("Currency Viusal Effect / Animation")] 
     [SerializeField] private CurrencyVisualizer currencyVisualizerPrefab;
     [SerializeField] private Transform spawnPosition;
@@ -44,6 +49,7 @@ public class CurrencyManager : MonoBehaviour
         if (amountCurrency <= 0) return;
         
         CurrencyVisualizer vfx = _vfxPool.Get();
+        MMSoundManagerSoundPlayEvent.Trigger(gainCurrencySound, MMSoundManager.MMSoundManagerTracks.Sfx, transform.position);
         
         StartCoroutine(vfx.PlayAnimate(amountCurrency, false,
             spawnPosition, 
@@ -65,6 +71,7 @@ public class CurrencyManager : MonoBehaviour
         }
         
         CurrencyVisualizer vfx = _vfxPool.Get();
+        MMSoundManagerSoundPlayEvent.Trigger(useCurrencySound, MMSoundManager.MMSoundManagerTracks.Sfx, transform.position);
         
         StartCoroutine(vfx.PlayAnimate(amountCurrency, true,
             spawnPosition, 
@@ -81,24 +88,6 @@ public class CurrencyManager : MonoBehaviour
     
     public void TestUseCurrency(int amountCurrency)
     {
-        if (currentCurrency < amountCurrency)
-        {
-            Debug.LogWarning($"[{name} (UseCurrency)] NO ENOUGH AMOUNT CURRENCY! currentCurrency: {currentCurrency}");
-            return;
-        }
-        
-        CurrencyVisualizer vfx = _vfxPool.Get();
-        
-        StartCoroutine(vfx.PlayAnimate(amountCurrency, true,
-            spawnPosition, 
-            () =>
-            {
-                _vfxPool.Release(vfx);
-                currentCurrency = Mathf.Max(0, currentCurrency - amountCurrency);
-                currencyUI.UpdateCurrencyUI(currentCurrency);
-            }
-        ));
-        
-        return;
+        bool money =  UseCurrency(amountCurrency);
     }
 }

@@ -20,4 +20,9 @@ public class PanelRestart : PanelBase
    {
       GameManager.Instance.OnRestartGame();
    }
+
+   public void OnQuit()
+   {
+      
+   }
 }

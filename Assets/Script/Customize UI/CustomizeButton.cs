@@ -12,7 +12,6 @@ public class CustomizeButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
     
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log($"[{name}] OnPointerEnter");
         onHoverEnter?.Invoke();
         
         IsPointerInside = true;
@@ -20,14 +19,12 @@ public class CustomizeButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
     
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log($"[{name}] OnPointerClick");
         onClick?.Invoke();
         
     }
     
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log($"[{name}] OnPointerExit");
         onHoverExit?.Invoke();
         
         IsPointerInside = false;

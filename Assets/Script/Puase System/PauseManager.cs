@@ -34,10 +34,9 @@ public class PauseManager : MonoBehaviour
         GameEvents.OnPauseGame.Invoke();
     }
 
-    public void ResumeGame(bool openPausePanel)
+    public void ResumeGame()
     {
-        if (openPausePanel)
-            GameEvents.OnRequestClosePanel.Invoke(PanelType.Pause);
+        GameEvents.OnRequestClosePanel.Invoke(PanelType.Pause);
         
         if (_inputManager ==  null)
             _inputManager = InputManager.Instance;
@@ -48,5 +47,10 @@ public class PauseManager : MonoBehaviour
             _inputManager.ChangeCursorTexture(CursorType.Default);
         
         GameEvents.OnResumeGame.Invoke();
+    }
+
+    public void QuitMainGame()
+    {
+        
     }
 }

@@ -4,6 +4,11 @@ using UnityEngine;
 public class Billboard : MonoBehaviour
 {
     [SerializeField] protected Transform objectTransform;
+
+    [Header("Rotation Character Sprite")]
+    [SerializeField] private float rotateSprite = 180f;
+    [SerializeField] private Transform characterSprite;
+    
     private Transform _targetCamera;
 
     private void LateUpdate()
@@ -36,5 +41,11 @@ public class Billboard : MonoBehaviour
         targetPosition.y = objectTransform.position.y;
         
         objectTransform.LookAt(targetPosition);
+    }
+
+    public void RotateCharacterSprite()
+    {
+        Quaternion targetRotation = Quaternion.Euler(0f, rotateSprite, 0f);
+        characterSprite.rotation = targetRotation;
     }
 }

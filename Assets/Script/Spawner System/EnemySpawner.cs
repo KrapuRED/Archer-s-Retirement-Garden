@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -39,11 +40,14 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private List<EnemySpawnPool> spawnPools = new();
     [SerializeField] private List<CharacterSO> listOfEnemyData = new();
-    [SerializeField] private List<Transform> spawnPoints = new();
     [SerializeField] private List<Character> activeEnemies = new();
     [SerializeField] private Transform enemyContainer;
     [SerializeField] private Transform endPosition;
-
+    
+    [Header("Enemy Data Configuration By Story")]
+    [SerializeField] private Transform spawnPointTransform;
+    [SerializeField] private List<SpawnPoint> spawnPoints = new();
+    
     [Header("Enemy Data Configuration By Story")]
     [SerializeField] private float enemyHealthIncreaseStory;
     [SerializeField] private float enemyAttackIncreaseStory;
@@ -80,6 +84,13 @@ public class EnemySpawner : MonoBehaviour
     }
 
     #endregion
+
+    private void Awake()
+    {
+        spawnPoints.Clear();
+
+        spawnPoints = spawnPointTransform.GetComponentsInChildren<SpawnPoint>(true).ToList();
+    }
 
     private void Update()
     {
@@ -237,7 +248,9 @@ public class EnemySpawner : MonoBehaviour
         
         int random =  Random.Range(0, spawnPoints.Count);
         var spawnPoint = spawnPoints[random];
-        Vector3 offsetSpawnPoint = new Vector3(spawnPoint.position.x, 0.7f, spawnPoint.position.z);
+        Transform spawnPointTrans =  spawnPoint.transform;
+        
+        Vector3 offsetSpawnPoint = new Vector3(spawnPointTrans.position.x, 0.7f, spawnPointTrans.position.z);
         
         //spawn the enemy
         if (enemyData.prefabCharacter == null)
@@ -249,7 +262,7 @@ public class EnemySpawner : MonoBehaviour
         var enemyRunTmeData = GetEnemyRunTimeData(enemy.CharacterData.characterName);
         
         string charID = $"{enemyData.characterName}_{_spawnCount}";
-        enemy.InitializeCharacter(charID, endPosition.position, enemyRunTmeData);
+        enemy.InitializeCharacter(charID, endPosition.position, enemyRunTmeData, spawnPoint.RotateSprite);
         
         activeEnemies.Add(enemy);
         

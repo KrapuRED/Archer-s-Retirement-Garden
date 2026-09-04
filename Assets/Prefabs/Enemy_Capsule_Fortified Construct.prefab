@@ -289,9 +289,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3371193652984651746}
   - component: {fileID: 1517331617682471086}
+  - component: {fileID: 8213521363171697431}
   - component: {fileID: 5141317905858886371}
   - component: {fileID: 2329761636914863793}
-  - component: {fileID: 8213521363171697431}
   - component: {fileID: 8540557094454534343}
   m_Layer: 8
   m_Name: Enemy_Capsule_Fortified Construct
@@ -342,6 +342,33 @@ CapsuleCollider:
   m_Height: 2.348307
   m_Direction: 1
   m_Center: {x: 0, y: -0.17415345, z: 0}
+--- !u!54 &8213521363171697431
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578095197843199066}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!114 &5141317905858886371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,6 +385,7 @@ MonoBehaviour:
   characterID: 
   movementCharacter: {fileID: 3390986271853635047}
   animatorCharacter: {fileID: 3917740028947460648}
+  billboardCharacter: {fileID: 8540557094454534343}
   maxHealth: 100
   currentHealth: 0
   healthUI: {fileID: 4152966977548579043}
@@ -390,33 +418,6 @@ MonoBehaviour:
     state: {fileID: 11400000, guid: 565c482b9df0faa40bb3bf21d3a7484e, type: 2}
     condition: {fileID: 11400000, guid: 19b3cf04324c83445b09a57e46167271, type: 2}
   activeState: {fileID: 0}
---- !u!54 &8213521363171697431
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3578095197843199066}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!114 &8540557094454534343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,6 +431,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Billboard
   objectTransform: {fileID: 3371193652984651746}
+  rotateSprite: 180
+  characterSprite: {fileID: 6616045432678991544}
 --- !u!1 &3948923796234556036
 GameObject:
   m_ObjectHideFlags: 0

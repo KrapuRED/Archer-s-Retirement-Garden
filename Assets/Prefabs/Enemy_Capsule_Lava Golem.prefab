@@ -708,6 +708,7 @@ MonoBehaviour:
   characterID: 
   movementCharacter: {fileID: 7028414798734031210}
   animatorCharacter: {fileID: 5878672934722185347}
+  billboardCharacter: {fileID: 1983940279633065068}
   maxHealth: 100
   currentHealth: 0
   healthUI: {fileID: 193911795456783923}
@@ -753,6 +754,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Billboard
   objectTransform: {fileID: 1031504951400701525}
+  rotateSprite: 180
+  characterSprite: {fileID: 492089680312483862}
 --- !u!1 &7221504351124080907
 GameObject:
   m_ObjectHideFlags: 0

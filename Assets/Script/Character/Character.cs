@@ -10,6 +10,7 @@ public class Character : MonoBehaviour
     [Header("Character System")]
     [SerializeField] protected MovementCharacter movementCharacter;
     [SerializeField] protected Animator animatorCharacter;
+    [SerializeField] protected Billboard billboardCharacter;
     
     [Header("Health")]
     [SerializeField] protected float maxHealth;
@@ -28,22 +29,24 @@ public class Character : MonoBehaviour
 
     public bool IsDead { get; protected set; }
 
-    private void Start()
+    public Collider ColliderCharacter {get; protected set; }
+    public Rigidbody RigidbodyCharacter {get; protected set; }
+
+    private void Awake()
     {
-        if (initByStart)
-        {
-            currentHealth = maxHealth;
-            healthUI.InitHealthUI(maxHealth);
-        }
+        RigidbodyCharacter = GetComponent<Rigidbody>();
+        ColliderCharacter = GetComponent<Collider>();
     }
 
-    public void InitializeCharacter(string charID, Vector3 targetPosition, EnemyRunTimeData  runTimeData)
+    public void InitializeCharacter(string charID, Vector3 targetPosition, EnemyRunTimeData  runTimeData, bool rotateSprite)
     {
         characterID     = charID;
         TargetPosition  = targetPosition;
         RunTimeData     = runTimeData;
-        
         maxHealth = currentHealth = runTimeData.enemyHealth;
+        
+        if (rotateSprite)
+            billboardCharacter.RotateCharacterSprite();
         
         Debug.Log($"[{name} - (Character Initialized)] Health: {maxHealth} Attack {runTimeData.enemyAttack} Reward {runTimeData.enemyReward}");
         

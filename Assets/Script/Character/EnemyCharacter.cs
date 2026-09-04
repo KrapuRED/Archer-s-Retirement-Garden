@@ -67,6 +67,7 @@ public class EnemyCharacter : Character, IDamageable
         IsDead = true;
         GameEvents.OnCharacterDeath.Invoke(this);
         CurrencyManager.Instance.AddCurrency(RunTimeData.enemyReward);
+        ColliderCharacter.enabled = false;
         
         deathFeedback?.PlayFeedbacks();
     }

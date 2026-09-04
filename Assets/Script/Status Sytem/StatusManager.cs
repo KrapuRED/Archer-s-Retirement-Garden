@@ -136,7 +136,7 @@ public class StatusManager : MonoBehaviour
                 break;
             case BoostType.Health:
                 maxHealthBoost += amount;
-                HealthManager.Instance.HealthHandler(amount);
+                HealthManager.Instance.MaxHealthHandler(amount);
                 break;
         }
     }

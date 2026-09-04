@@ -52,13 +52,13 @@ public class GardenItemCard : MonoBehaviour, IPointerEnterHandler, IPointerExitH
       this.gardenItemCardData = gardenItemCardData;
 
       gardenItemImage.sprite = gardenItemCardData.gardenItemSO.gardenItemImage;
-      gardenItemCostText.text = $"{gardenItemCardData.currentPrice} $";
+      gardenItemCostText.text = $"{gardenItemCardData.currentPrice}";
    }
 
    public void UpdatePrice(int newPrice)
    {
       gardenItemCardData.currentPrice = newPrice;
-      gardenItemCostText.text = $"{gardenItemCardData.currentPrice} $";
+      gardenItemCostText.text = $"{gardenItemCardData.currentPrice}";
    }
    
    public void OnClickButton()

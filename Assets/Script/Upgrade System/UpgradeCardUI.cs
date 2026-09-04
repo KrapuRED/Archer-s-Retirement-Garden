@@ -28,7 +28,7 @@ public class UpgradeCardUI : MonoBehaviour
         
         nameUpgradeCard.text = upgradeCardData.upgradeName;
         descriptionUpgradeCard.text = upgradeCardData.upgradeDescription;
-        costUpgradeCard.text = $"{Mathf.RoundToInt(upgradeCardData.upgradeBaseCost)} $";
+        costUpgradeCard.text = $"{Mathf.RoundToInt(upgradeCardData.upgradeBaseCost)}";
     }
     
     private void ShowStarByRarity(UpgradeRarity rarity)

@@ -7,6 +7,6 @@ public class CurrencyUI : MonoBehaviour
 
     public void UpdateCurrencyUI(int amount)
     {
-        currencyText.text = $"{amount} $";
+        currencyText.text = $"{amount}";
     }
 }

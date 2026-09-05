@@ -114,7 +114,8 @@ public class DialogueManager : MonoBehaviour
             StopCoroutine(_dialogueCoroutine);
             _dialogueCoroutine = null;
         }
-        
+     
+        Debug.LogWarning($"[{name} (StartDialogue)] Dialogue is starting!");
         _dialogueCoroutine = StartCoroutine(WaitAndStarDialogue());
     }
 
@@ -181,7 +182,7 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator WaitAndStarDialogue()
     {
-        if (TransitionManager.Instance != null)
+        if (TransitionManager.Instance != null && TransitionManager.Instance.isTrasitioning)
         {
             yield return new WaitWhile(() => !TransitionManager.Instance.isTrasitioning);
         }

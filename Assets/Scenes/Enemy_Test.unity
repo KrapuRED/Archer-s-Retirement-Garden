@@ -1624,10 +1624,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ' asdewrd'
+  m_text: 100 300 37 231
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ba43d1caecc9e9249ba7e55025109b59, type: 2}
-  m_sharedMaterial: {fileID: 4942732732060288763, guid: ba43d1caecc9e9249ba7e55025109b59, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7ab43d669e4eade458dd162e24ea0a1e, type: 2}
+  m_sharedMaterial: {fileID: 1805275411371414822, guid: 7ab43d669e4eade458dd162e24ea0a1e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

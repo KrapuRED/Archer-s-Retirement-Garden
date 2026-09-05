@@ -8,7 +8,8 @@ public class Billboard : MonoBehaviour
     [Header("Rotation Character Sprite")]
     [SerializeField] private float rotateSprite = 180f;
     [SerializeField] private Transform characterSprite;
-    
+
+    public Transform CharacterSprite => characterSprite; 
     private Transform _targetCamera;
 
     private void LateUpdate()

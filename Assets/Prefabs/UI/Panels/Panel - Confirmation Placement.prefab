@@ -337,12 +337,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2226621664249331493, guid: a6e8db58a83f685418e614037eb888f9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2226621664249331493, guid: a6e8db58a83f685418e614037eb888f9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6453586505395882386}
+    - target: {fileID: 2226621664249331493, guid: a6e8db58a83f685418e614037eb888f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 499607638123416118}
     - target: {fileID: 2226621664249331493, guid: a6e8db58a83f685418e614037eb888f9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: CancelPlacement
@@ -362,6 +366,10 @@ PrefabInstance:
     - target: {fileID: 2226621664249331493, guid: a6e8db58a83f685418e614037eb888f9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
       value: GridPlacement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2226621664249331493, guid: a6e8db58a83f685418e614037eb888f9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2226621664249331493, guid: a6e8db58a83f685418e614037eb888f9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName

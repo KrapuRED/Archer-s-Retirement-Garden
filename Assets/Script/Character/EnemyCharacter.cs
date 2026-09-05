@@ -44,7 +44,13 @@ public class EnemyCharacter : Character, IDamageable
             return;
         }
         
-        DamageVisualizer dmgVisualizer = Instantiate(prefabDamageVisualizer, damageContainer.position, Quaternion.identity, damageContainer);
+        DamageVisualizer dmgVisualizer = Instantiate(
+            prefabDamageVisualizer, 
+            damageContainer.position, 
+            Quaternion.identity, 
+            damageContainer
+        );
+        
         dmgVisualizer.ShowDamageVisualizer(amount, isCritical);
     }
     

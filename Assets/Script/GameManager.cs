@@ -64,9 +64,15 @@ public class GameManager : MonoBehaviour
     
     public void EndGame()
     {
-        //TransitionManager.Instance.TransitionScene("Credit", "FadeOut");
-
+        TransitionManager.Instance.TransitionScene("Credit", "FadeOut");
+        
         ChangeGameMode(GameMode.Story);
         IsGameActive = false;
-    } 
+    }
+
+    public void RestartGameManager()
+    {
+        IsGameActive = true;
+        ChangeGameMode(GameMode.Story);
+    }
 }

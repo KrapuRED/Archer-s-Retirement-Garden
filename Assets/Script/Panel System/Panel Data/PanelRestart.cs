@@ -27,6 +27,7 @@ public class PanelRestart : PanelBase
 
    public void OnQuit()
    {
-      
+      GameManager.Instance.RestartGameManager();
+      TransitionManager.Instance.TransitionScene("GamePlay_MainMenu", "FadeOut");
    }
 }

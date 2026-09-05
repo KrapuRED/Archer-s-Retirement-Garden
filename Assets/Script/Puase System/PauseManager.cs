@@ -50,7 +50,8 @@ public class PauseManager : MonoBehaviour
     }
 
     public void QuitMainGame()
-    {
-        
+    { 
+        GameManager.Instance.RestartGameManager();
+        TransitionManager.Instance.TransitionScene("GamePlay_MainMenu", "FadeOut");
     }
 }

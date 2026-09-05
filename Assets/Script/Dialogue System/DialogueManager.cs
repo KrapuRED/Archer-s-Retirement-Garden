@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -25,6 +26,8 @@ public class DialogueManager : MonoBehaviour
     private int _dialogueDataIndex;
     private int _dialogueIndex;
 
+    private Coroutine _dialogueCoroutine;
+    
     public bool IsDialogueRunning { get; private set; }
     
     private void Awake()
@@ -38,12 +41,7 @@ public class DialogueManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
-    {
-        if (dialogueStart)
-            StartDialogue();
-    }
-
+    #region Event System
     private void OnEnable()
     {
         GameEvents.OnChangeToDayLight.AddListener(StartDialogue);
@@ -55,6 +53,13 @@ public class DialogueManager : MonoBehaviour
         GameEvents.OnChangeToDayLight.RemoveListener(StartDialogue);
         GameEvents.OnStartDialogue.RemoveListener(StartDialogue);
         
+    }
+    #endregion
+    
+    private void Start()
+    {
+        if (dialogueStart)
+            StartDialogue();
     }
     
     private void Update()
@@ -103,29 +108,14 @@ public class DialogueManager : MonoBehaviour
     private void StartDialogue()
     {
         if (IsDialogueRunning) return;
-     
-        Debug.LogWarning($"[{name} (StartDialogue)] This dialogueData is running.");
-        int dayCount = DayCycleManager.Instance.DayCount;
-        var dialogueData = dialogueDataRunTimes.Find(x => x.dayDialogue == dayCount);
-        if (dialogueData == null)
-        {
-            Debug.LogWarning($"[{name} (StartDialogue)] There are no dialogue data for {dayCount} day!");
-            return;
-        }
 
-        if (dialogueData.isComplete)
+        if (_dialogueCoroutine != null)
         {
-            Debug.LogWarning($"[{name} (StartDialogue)] This dialogueData is complete! {dialogueData.dialogueName}");
-            return;
+            StopCoroutine(_dialogueCoroutine);
+            _dialogueCoroutine = null;
         }
         
-        _selectedDialogueDataRunTime  = dialogueData;
-        IsDialogueRunning = true;
-        _dialogueIndex = -1;
-        _dialogueDataIndex = -1;
-        
-        Debug.Log($"[{name} (StartDialogue)] Is Selected Dialogue DataRunTime Multiple : {IsMultipleDialogue(_selectedDialogueDataRunTime)}");
-        ChangeDialogueData();
+        _dialogueCoroutine = StartCoroutine(WaitAndStarDialogue());
     }
 
     public void ContinueDialogue()
@@ -187,5 +177,38 @@ public class DialogueManager : MonoBehaviour
         TransitionManager.Instance.TransitionDialogueEnvironment("","FadeOut");
         
         IsDialogueRunning = false;
+    }
+
+    private IEnumerator WaitAndStarDialogue()
+    {
+        if (TransitionManager.Instance != null)
+        {
+            yield return new WaitWhile(() => !TransitionManager.Instance.isTrasitioning);
+        }
+        
+        if (IsDialogueRunning) yield break;
+        
+        Debug.LogWarning($"[{name} (StartDialogue)] This dialogueData is running.");
+        int dayCount = DayCycleManager.Instance.DayCount;
+        var dialogueData = dialogueDataRunTimes.Find(x => x.dayDialogue == dayCount);
+        
+        if (dialogueData == null)
+        {
+            Debug.LogWarning($"[{name} (StartDialogue)] There are no dialogue data for {dayCount} day!");
+            yield break;
+        }
+
+        if (dialogueData.isComplete)
+        {
+            Debug.LogWarning($"[{name} (StartDialogue)] This dialogueData is complete! {dialogueData.dialogueName}");
+            yield break;
+        }
+        
+        IsDialogueRunning = true;
+        _selectedDialogueDataRunTime  = dialogueData;
+        _dialogueIndex = -1;
+        _dialogueDataIndex = -1;
+
+        ChangeDialogueData();
     }
 }

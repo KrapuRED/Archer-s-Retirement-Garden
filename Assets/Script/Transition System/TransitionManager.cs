@@ -90,6 +90,7 @@ public class TransitionManager : MonoBehaviour
     
     public void TransitionScene(string sceneName, string transitionName)
     {
+        isTrasitioning = true;
         StartCoroutine(LoadSceneAsync(sceneName, transitionName));
     }
 

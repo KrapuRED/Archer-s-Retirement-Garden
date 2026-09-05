@@ -1,18 +1,25 @@
 using UnityEngine;
 using System.Collections;
+using MoreMountains.Tools;
 
 public class ExplosionArrow : Arrow
 {
     [SerializeField] private LayerMask enemyLayerMask;
     [SerializeField] private LayerMask hittableLayerMask;
     [SerializeField] private GameObject explosionVFX;
+    [SerializeField] private AudioClip explosionSoundEffect;
     
     private float _radiusExplosion;
     private SkillCardDataRunTime _skillCardDataRunTime;
     private bool _hasExploded;
+    private CapsuleCollider _collider;
+    private SpriteRenderer _spriteRenderer;
     
     public override void OnSpawnArrow(SkillCardDataRunTime skillCardDataRunTime)
     {
+        if (_collider == null) _collider = GetComponent<CapsuleCollider>();
+        if (_spriteRenderer == null) _spriteRenderer = GetComponent<SpriteRenderer>();
+        
         _skillCardDataRunTime = skillCardDataRunTime;
         _radiusExplosion = skillCardDataRunTime.skillCardSo.explosionData.explosionRadius;
     }
@@ -32,6 +39,9 @@ public class ExplosionArrow : Arrow
     {
         _hasExploded = true;
         
+        _spriteRenderer.enabled = false;
+        _collider.isTrigger = true;
+        
         Collider[] hits = Physics.OverlapSphere(transform.position, _radiusExplosion, enemyLayerMask);
         foreach (var hit in hits)
         {
@@ -43,14 +53,14 @@ public class ExplosionArrow : Arrow
         }
 
         // TODO: explosion VFX/SFX here
-        explosionVFX.SetActive(true);
-
-        StartCoroutine(DestroyAfterTime(10));
+        
+        StartCoroutine(DestroyAfterTime(5));
     }
 
     private IEnumerator DestroyAfterTime(float time)
     {
         explosionVFX.SetActive(true);
+        MMSoundManagerSoundPlayEvent.Trigger(explosionSoundEffect, MMSoundManager.MMSoundManagerTracks.Sfx, transform.position);
         
         yield return new WaitForSeconds(time);
         Destroy(gameObject);

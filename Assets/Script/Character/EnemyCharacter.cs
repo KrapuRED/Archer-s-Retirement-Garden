@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using MoreMountains.Feedbacks;
+using MoreMountains.Tools;
 
 public class EnemyCharacter : Character, IDamageable
 {
@@ -15,6 +16,9 @@ public class EnemyCharacter : Character, IDamageable
     
     [Header("Visual Effects")]
     [SerializeField] private MMFeedbacks deathFeedback;
+    
+    [Header("Audio Sound Effects")]
+    [SerializeField] private AudioClip hitAudioClip;
     
     public float MoveSpeed => characterData.baseSpeed;
     public float RotationSpeed => rotationSpeed;
@@ -46,9 +50,10 @@ public class EnemyCharacter : Character, IDamageable
     
     public void TakeDamage(float amountDamage, bool isCritical)
     {
-        Debug.Log($"{name} took {amountDamage} damage and isCritical {isCritical}!");
         currentHealth -= amountDamage;
         healthUI.UpdateHealthUI(currentHealth);
+     
+        MMSoundManagerSoundPlayEvent.Trigger(hitAudioClip, MMSoundManager.MMSoundManagerTracks.Sfx, transform.position);
         
         if (currentHealth <= 0)
         {
@@ -67,7 +72,7 @@ public class EnemyCharacter : Character, IDamageable
         IsDead = true;
         GameEvents.OnCharacterDeath.Invoke(this);
         CurrencyManager.Instance.AddCurrency(RunTimeData.enemyReward);
-        ColliderCharacter.enabled = false;
+        ColliderCharacter.isTrigger = true;
         
         deathFeedback?.PlayFeedbacks();
     }

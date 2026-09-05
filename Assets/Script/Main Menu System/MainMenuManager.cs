@@ -1,10 +1,14 @@
 using System;
 using UnityEngine;
+using MoreMountains.Feedbacks;
 
 public class MainMenuManager : MonoBehaviour
 {
    public static MainMenuManager Instance { get; private set; }
 
+   [SerializeField] private MMFeedbacks showFeedback;
+   [SerializeField] private Texture2D defaultCursor;
+   
    private void Awake()
    {
       if (Instance != null)
@@ -14,6 +18,12 @@ public class MainMenuManager : MonoBehaviour
       }
 
       Instance = this;
+   }
+
+   private void Start()
+   {
+      showFeedback?.PlayFeedbacks();
+      Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
    }
 
    public void PlayGame()

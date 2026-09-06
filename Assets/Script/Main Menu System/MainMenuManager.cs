@@ -28,13 +28,13 @@ public class MainMenuManager : MonoBehaviour
 
    public void PlayGame()
    {
-      TransitionManager.Instance.TransitionScene("GamePlay_MainGame_Test", "FadeOut");
+      TransitionManager.Instance.TransitionScene("GamePlay_MainGame", "FadeOut");
       GameManager.Instance.StartGame();
    }
 
    public void CreditGame()
    {
-      TransitionManager.Instance.TransitionScene("SampleScene", "FadeOut");
+      TransitionManager.Instance.TransitionScene("Credit", "FadeOut");
          
    }
 

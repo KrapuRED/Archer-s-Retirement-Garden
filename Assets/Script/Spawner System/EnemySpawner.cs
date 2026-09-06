@@ -74,6 +74,8 @@ public class EnemySpawner : MonoBehaviour
     {
         GameEvents.OnCharacterDeath.AddListener(HandelEnemyDeath);
         GameEvents.OnChangeToDayLight.AddListener(UpdateEnemyRunTimeData);
+        
+        GameEvents.OnChangeGameMode.AddListener(EndlessSpawnSet);
     }
 
     private void OnDisable()
@@ -81,6 +83,7 @@ public class EnemySpawner : MonoBehaviour
         GameEvents.OnCharacterDeath.RemoveListener(HandelEnemyDeath);
         GameEvents.OnChangeToDayLight.RemoveListener(UpdateEnemyRunTimeData);
         
+        GameEvents.OnChangeGameMode.AddListener(EndlessSpawnSet);
     }
 
     #endregion
@@ -158,6 +161,21 @@ public class EnemySpawner : MonoBehaviour
             
             Debug.LogWarning($"Update RunTime Data {runTimeData.characterName} Health {runTimeData.enemyHealth} Attack{runTimeData.enemyAttack} Reward {runTimeData.enemyReward}");
         }
+    }
+
+    private void EndlessSpawnSet(GameMode gameMode)
+    {
+        if (gameMode == GameMode.Story)
+            return;
+        
+        var pool = spawnPools.Find(x => x.dayCount == 12);
+        if (pool == null)
+        {
+            return;
+        }
+            
+        _selectedSpawnPool = pool;
+        _raidPoint = pool.raidPoints;
     }
     
     public void StartSpawning(int dayCount)

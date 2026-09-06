@@ -25,10 +25,12 @@ public class DialogueManager : MonoBehaviour
     private DialogueSO _currentDialogueData;
     private int _dialogueDataIndex;
     private int _dialogueIndex;
-
+    private bool _isOpeningTutorial;
+    
     private Coroutine _dialogueCoroutine;
     
     public bool IsDialogueRunning { get; private set; }
+    public bool IsSkipDialogue { get; private set; }
     
     private void Awake()
     {
@@ -87,11 +89,13 @@ public class DialogueManager : MonoBehaviour
 
     private void ChangeDialogueData()
     {
-        
         if (dialogueDataRunTimes.Count > 0)
             _dialogueDataIndex++;
         
         dialogueCharacterController.HideAllCharacters();
+        dialogueCharacterController.ClearCharacters();
+        IsSkipDialogue = false;
+        
         _currentDialogueData  = _selectedDialogueDataRunTime.dialogueData[_dialogueDataIndex];
         
         string environment = $"Environment Dialogue - {_currentDialogueData.locationDialogue}";
@@ -144,6 +148,10 @@ public class DialogueManager : MonoBehaviour
     {
         if (!IsDialogueRunning) return;
 
+        if (IsSkipDialogue) return;
+        
+        IsSkipDialogue = true;
+        
         if (IsMultipleDialogue(_selectedDialogueDataRunTime) && _dialogueDataIndex < _selectedDialogueDataRunTime.dialogueData.Count - 1)
         {
             _dialogueIndex = -1;
@@ -167,24 +175,48 @@ public class DialogueManager : MonoBehaviour
         
         return allDoneDialogue;
     }
+
+    private bool IsOpeningDialogueDone()
+    {
+        Debug.LogWarning($"[{name} (IsOpeningDialogueDone)] Is Opening Dialogue Done!");
+        
+        var dialogueData = dialogueDataRunTimes[0];
+        return dialogueData.isComplete; 
+    }
     
     public void StopDialogue()
     {
         if (!IsDialogueRunning) return;
-        
-        Debug.LogWarning($"[{name} (StopDialogue)] Dialogue is stopped!");
+
         _selectedDialogueDataRunTime.isComplete = true;
-        
         TransitionManager.Instance.TransitionDialogueEnvironment("","FadeOut");
         
         IsDialogueRunning = false;
+        IsSkipDialogue = false;
+        
+        if (IsOpeningDialogueDone() && !_isOpeningTutorial)
+        {
+            _isOpeningTutorial = true;
+            
+            StartCoroutine(WaitAndShowTutorial());
+        }
+    }
+
+    private IEnumerator WaitAndShowTutorial()
+    {
+        if (TransitionManager.Instance != null && TransitionManager.Instance.isTrasitioning)
+        {
+            yield return new WaitUntil(() => !TransitionManager.Instance.isTrasitioning);
+        }
+        
+        GameEvents.OnRequestOpenPanel.Invoke(PanelType.Tutorial);
     }
 
     private IEnumerator WaitAndStarDialogue()
     {
         if (TransitionManager.Instance != null && TransitionManager.Instance.isTrasitioning)
         {
-            yield return new WaitWhile(() => !TransitionManager.Instance.isTrasitioning);
+            yield return new WaitUntil(() => !TransitionManager.Instance.isTrasitioning);
         }
         
         if (IsDialogueRunning) yield break;

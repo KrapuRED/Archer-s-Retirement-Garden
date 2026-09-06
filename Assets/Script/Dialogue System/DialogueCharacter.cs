@@ -85,14 +85,14 @@ public class DialogueCharacter : MonoBehaviour
         Debug.Log($"[{name}] MovePointPosition: {newPosition.position}");
         if (newPosition.localPosition.x > 0)
         {
-            //Rotate character to right
-            Quaternion newRotation = Quaternion.Euler(0, 180f, 0);
+            //Rotate character to left
+            Quaternion newRotation = Quaternion.Euler(0, 0, 0);
             transform.rotation = newRotation;
         }
         else
         {
             //Rotate character to right
-            Quaternion newRotation = Quaternion.Euler(0, 0, 0);
+            Quaternion newRotation = Quaternion.Euler(0, 180f, 0);
             transform.rotation = newRotation;
         }
         

@@ -34,6 +34,8 @@ public class DialogueUI : MonoBehaviour
 
     private void PlayTypeSound(Char character)
     {
+        if (DialogueManager.Instance.IsSkipDialogue) return;
+        
         if (Char.IsWhiteSpace(character))
             return;
 

@@ -167,4 +167,9 @@ public class DialogueCharacterController : MonoBehaviour
             kvp.Key.FullHideCharacter();
         }
     }
+
+    public void ClearCharacters()
+    {
+        _activeCharacters.Clear();
+    }
 }

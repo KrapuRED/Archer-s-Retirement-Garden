@@ -84,8 +84,19 @@ public class TransitionManager : MonoBehaviour
         yield return transition.TransitionOut();
         
         if (DialogueManager.Instance.IsAllDoneDialogue())
-            GameEvents.OnRequestOpenPanel.Invoke(PanelType.EndStory);
+        {
+            StartCoroutine(DelayOnRequestOpenPanel());
+        }
+    }
+
+    private IEnumerator DelayOnRequestOpenPanel()
+    {
+        if (isTrasitioning)
+        {
+            yield return new WaitUntil(() => !isTrasitioning);
+        }
         
+        GameEvents.OnRequestOpenPanel.Invoke(PanelType.EndStory);
     }
     
     public void TransitionScene(string sceneName, string transitionName)

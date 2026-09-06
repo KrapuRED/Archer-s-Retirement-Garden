@@ -189,10 +189,11 @@ public class DialogueManager : MonoBehaviour
         if (!IsDialogueRunning) return;
 
         _selectedDialogueDataRunTime.isComplete = true;
-        TransitionManager.Instance.TransitionDialogueEnvironment("","FadeOut");
         
         IsDialogueRunning = false;
         IsSkipDialogue = false;
+        
+        TransitionManager.Instance.TransitionDialogueEnvironment("","FadeOut");
         
         if (IsOpeningDialogueDone() && !_isOpeningTutorial)
         {

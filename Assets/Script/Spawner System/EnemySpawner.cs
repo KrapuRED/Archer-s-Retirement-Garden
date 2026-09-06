@@ -136,27 +136,27 @@ public class EnemySpawner : MonoBehaviour
 
     private void UpdateEnemyRunTimeData()
     {
-        int dayCount = 1 + DayCycleManager.Instance.DayCount;
+        int dayCount = DayCycleManager.Instance.DayCount;
 
         foreach (var runTimeData in _enemyRunTimeDatas)
         {
-            float baseHealth = runTimeData.enemyHealth;
-            float baseAttack = runTimeData.enemyAttack;
-            int baseReward = runTimeData.enemyReward;
+            float baseHealth = runTimeData.characterData.baseMaxHealth;
+            float baseAttack = runTimeData.characterData.baseAttack;
+            int baseReward = runTimeData.characterData.baseDeathReward;
             
             if (GameManager.Instance.GameMode == GameMode.Story)
             {
-                runTimeData.enemyHealth += baseHealth * (dayCount * (enemyHealthIncreaseStory / 100f));
-                runTimeData.enemyAttack += baseAttack * (dayCount * (enemyAttackIncreaseStory / 100f));
-                runTimeData.enemyReward += Mathf.RoundToInt(
-                    baseReward * (dayCount * (enemyRewardIncreaseStory / 100f)));
+                runTimeData.enemyHealth = baseHealth * (1f + (dayCount * (enemyHealthIncreaseStory / 100f)));
+                runTimeData.enemyAttack = baseAttack * (1f + (dayCount * (enemyAttackIncreaseStory / 100f)));
+                runTimeData.enemyReward = Mathf.RoundToInt(
+                    baseReward * (1f + (dayCount * (enemyRewardIncreaseStory / 100f))));
             }
             else
             {
-                runTimeData.enemyHealth = baseHealth * (dayCount * (enemyHealthIncreaseEndless / 100f));
-                runTimeData.enemyAttack = baseAttack * (dayCount * (enemyHealthIncreaseEndless / 100f));
+                runTimeData.enemyHealth = baseHealth * (1f + (dayCount * (enemyHealthIncreaseEndless / 100f)));
+                runTimeData.enemyAttack = baseAttack * (1f + (dayCount * (enemyAttackIncreaseEndless / 100f))); // Assumes this variable exists
                 runTimeData.enemyReward = Mathf.RoundToInt(
-                    baseReward * (dayCount * (enemyHealthIncreaseEndless / 100f)));
+                    baseReward * (1f + (dayCount * (enemyRewardIncreaseEndless / 100f)))); // Assumes this variable exists
             }
             
             Debug.LogWarning($"Update RunTime Data {runTimeData.characterName} Health {runTimeData.enemyHealth} Attack{runTimeData.enemyAttack} Reward {runTimeData.enemyReward}");

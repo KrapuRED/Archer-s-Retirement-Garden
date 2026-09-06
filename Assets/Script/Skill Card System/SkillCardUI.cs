@@ -80,6 +80,9 @@ public class SkillCardUI : MonoBehaviour
         if (!skillCardDataRunTime.isUnlock)
             return;
         
+        if (SkillCardManager.Instance.IsSkillCoolDown(skillCardDataRunTime.skillCardSo))
+            return;
+        
         if (!_isSelect)
         {
             _isSelect = true;

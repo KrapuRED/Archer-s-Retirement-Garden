@@ -63,17 +63,9 @@ public class DialogueManager : MonoBehaviour
         if (dialogueStart)
             StartDialogue();
     }
-    
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            ContinueDialogue();
-    }
 
     private void DisplayDialogue()
     {
-        Debug.Log($"Dialogue Data Index : {_dialogueDataIndex} Dialogue Index : {_dialogueIndex}" );
-        
         var line = _currentDialogueData.dialogueLines[_dialogueIndex];
         
         if (!string.IsNullOrEmpty(line.characterName))
@@ -119,7 +111,6 @@ public class DialogueManager : MonoBehaviour
             _dialogueCoroutine = null;
         }
      
-        Debug.LogWarning($"[{name} (StartDialogue)] Dialogue is starting!");
         _dialogueCoroutine = StartCoroutine(WaitAndStarDialogue());
     }
 
@@ -178,8 +169,6 @@ public class DialogueManager : MonoBehaviour
 
     private bool IsOpeningDialogueDone()
     {
-        Debug.LogWarning($"[{name} (IsOpeningDialogueDone)] Is Opening Dialogue Done!");
-        
         var dialogueData = dialogueDataRunTimes[0];
         return dialogueData.isComplete; 
     }
@@ -217,12 +206,11 @@ public class DialogueManager : MonoBehaviour
     {
         if (TransitionManager.Instance != null && TransitionManager.Instance.isTrasitioning)
         {
-            yield return new WaitUntil(() => !TransitionManager.Instance.isTrasitioning);
+            yield return new WaitWhile(() => !TransitionManager.Instance.isTrasitioning);
         }
         
         if (IsDialogueRunning) yield break;
         
-        Debug.LogWarning($"[{name} (StartDialogue)] This dialogueData is running.");
         int dayCount = DayCycleManager.Instance.DayCount;
         var dialogueData = dialogueDataRunTimes.Find(x => x.dayDialogue == dayCount);
         

@@ -36,7 +36,9 @@ public class RainOfArrowSkill : Skill
             elapsed += tickInterval;
         }
         
-        yield return new WaitForSeconds(skillCardDataRunTime.currentDuration);
+        yield return new WaitForSeconds(0.5f);
+        
+        visualEffectPrefab.SetActive(false);
         _isAbleDealDamage = false;
         
         // 2) Exit

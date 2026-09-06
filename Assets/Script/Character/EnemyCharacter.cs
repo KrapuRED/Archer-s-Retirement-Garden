@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 using MoreMountains.Feedbacks;
@@ -35,8 +36,18 @@ public class EnemyCharacter : Character, IDamageable
             DamageController.Instance.OnCalculateDamageToPlayer(this.characterData);
             CharacterDead();
         }
+        
     }
-    
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("DeathZone"))
+        {
+            Debug.Log($"{name} is fall to Death Zone");
+            CharacterDead();
+        }
+    }
+
     private void SpawnDamageVisualizer(float amount, bool isCritical)
     {
         if (prefabDamageVisualizer == null || damageContainer == null)
@@ -60,15 +71,13 @@ public class EnemyCharacter : Character, IDamageable
         healthUI.UpdateHealthUI(currentHealth);
      
         MMSoundManagerSoundPlayEvent.Trigger(hitAudioClip, MMSoundManager.MMSoundManagerTracks.Sfx, transform.position);
+        SpawnDamageVisualizer(amountDamage, isCritical);
         
         if (currentHealth <= 0)
         {
             CharacterDead();
-            return;
         }
         
-        //Spawn Damage visualizer
-        SpawnDamageVisualizer(amountDamage, isCritical);
     }
 
     public override void CharacterDead()
@@ -78,7 +87,6 @@ public class EnemyCharacter : Character, IDamageable
         IsDead = true;
         GameEvents.OnCharacterDeath.Invoke(this);
         CurrencyManager.Instance.AddCurrency(RunTimeData.enemyReward);
-        ColliderCharacter.isTrigger = true;
         
         deathFeedback?.PlayFeedbacks();
     }

@@ -21,6 +21,6 @@ MonoBehaviour:
   baseCritRate: 0
   bassCritDamage: 0
   baseDeathReward: 5
-  baseSpeed: 1
+  baseSpeed: 0.5
   characterSprite: {fileID: 0}
   prefabCharacter: {fileID: 4260140029426758989, guid: cb0b17ce2dbad1540a2e94fc4f9550a0, type: 3}

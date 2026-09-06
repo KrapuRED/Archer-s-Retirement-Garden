@@ -15,12 +15,12 @@ MonoBehaviour:
   characterName: Lava Golem
   characterDescription: 
   spawnCost: 5
-  baseMaxHealth: 20
+  baseMaxHealth: 225
   baseAttack: 20
   baseAttackSpeed: 0
   baseCritRate: 0
   bassCritDamage: 0
   baseDeathReward: 50
-  baseSpeed: 0.5
+  baseSpeed: 0.25
   characterSprite: {fileID: 0}
   prefabCharacter: {fileID: 1756284007319715852, guid: f69048aaf225ec648a4c081084a485ac, type: 3}

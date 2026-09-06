@@ -17,10 +17,10 @@ MonoBehaviour:
   spawnCost: 0
   baseMaxHealth: 200
   baseAttack: 10
-  baseAttackSpeed: 3.3
+  baseAttackSpeed: 2
   baseCritRate: 10
   bassCritDamage: 50
   baseDeathReward: 0
-  baseSpeed: 1
+  baseSpeed: 2
   characterSprite: {fileID: 0}
   prefabCharacter: {fileID: 0}

@@ -228,6 +228,12 @@ public class SkillCardManager : MonoBehaviour
         }
     }
 
+    public bool IsSkillCoolDown(SkillCardSO skillCardSO)
+    {
+        var cardData = listActiveSkillCardData.Find(x => x.skillCardSo == skillCardSO);
+        return cardData.currentCooldown > 0;
+    }
+    
     public void UnlockSkillCard(SkillCardSO skillCardSo)
     {
         var cardData = listActiveSkillCardData.Find(x => x.skillCardSo == skillCardSo);

@@ -70,6 +70,6 @@ public class UpgradeCardUI : MonoBehaviour
             return;
         }
         
-        GameEvents.OnRequestClosePanel.Invoke(PanelType.Upgrade);
+        UpgradeCardManager.Instance.OnShowRandomUpgradeCard();
     }
 }

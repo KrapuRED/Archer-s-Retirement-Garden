@@ -44,7 +44,7 @@ public class UpgradeCardManager : MonoBehaviour
     private readonly Dictionary<UpgradeCardSO, UpgradeCardRunTimeData> _runTimeData = new();
     
     private UpgradeCardPool _selectedPool;
-    private int _totalAllUpgrades;
+    [SerializeField] private int _totalAllUpgrades;
     
     private void Awake()
     {
@@ -64,24 +64,12 @@ public class UpgradeCardManager : MonoBehaviour
 
         if (GameManager.Instance.GameMode == GameMode.Story)
         {
-            if (upgradeData.upgradeType == UpgradeType.AbilityCardUpgrade)
-                newPrice = upgradeData.upgradeBaseCost * (1 + totalBuy * (upgradeData.upgradeAbilityIncrease + increasePriceStoryMode / 100f));
-            else
-            {
-                newPrice = upgradeData.upgradeBaseCost * (1 + totalBuy * (increasePriceStoryMode / 100f));
-            }
+            newPrice = upgradeData.upgradeBaseCost * (1 + totalBuy * (increasePriceStoryMode / 100f));
         }
         else
         {
-            if (upgradeData.upgradeType == UpgradeType.AbilityCardUpgrade)
-                newPrice = upgradeData.upgradeBaseCost * (1 + totalBuy * (upgradeData.upgradeAbilityIncrease + increasePriceEndlessMode / 100f));
-            else
-            {
-                newPrice = upgradeData.upgradeBaseCost * (1 + totalBuy * (increasePriceEndlessMode / 100f));
-            }
+            newPrice = upgradeData.upgradeBaseCost * (1 + totalBuy * (increasePriceEndlessMode / 100f));
         }
-        
-       
         
         return newPrice;
     }
@@ -94,7 +82,8 @@ public class UpgradeCardManager : MonoBehaviour
             {
                 CardSo = so,
                 TotalBuy = 0,
-                CurrentPrice = Mathf.RoundToInt(GetNewPrice(so, _totalAllUpgrades))
+                // Calculate initial base price (totalBuy = 0)
+                CurrentPrice = Mathf.RoundToInt(GetNewPrice(so, 0))
             };
             _runTimeData.Add(so, data);
         }

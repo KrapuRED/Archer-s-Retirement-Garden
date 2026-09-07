@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class InputCameraMovement : MonoBehaviour, IPauseable
 {
+    [SerializeField] private Collider borderCam;
+    
     [Header("Input Action Configuration")]
     [SerializeField] private InputActionReference cameraMovementAction;
 
@@ -55,11 +57,12 @@ public class InputCameraMovement : MonoBehaviour, IPauseable
         
         Vector3 movementDir = new Vector3(_input.x, 0, _input.y);
         Vector3 movement = movementDir * (speedCamMovement * Time.deltaTime);
-        Vector3 targetPos = cameraPivot.position + movement;
+        Vector3 targetPos = ClampToBorder(cameraPivot.position)  + movement;
         
         cameraPivot.position = Vector3.SmoothDamp(cameraPivot.position, targetPos, ref _currentVelocity, smoothTime);
     }
 
+    
     #region Interface
 
     public void Pause()
@@ -74,4 +77,17 @@ public class InputCameraMovement : MonoBehaviour, IPauseable
     }
 
     #endregion
-}
+    
+    private Vector3 ClampToBorder(Vector3 position)
+    {
+        if (borderCam == null)
+            return position;
+
+        Bounds bounds = borderCam.bounds;
+
+        position.x = Mathf.Clamp(position.x, bounds.min.x, bounds.max.x);
+        position.z = Mathf.Clamp(position.z, bounds.min.z, bounds.max.z);
+        // y left untouched — you're dragging on a horizontal plane, not clamping height
+
+        return position;
+    }                                                }

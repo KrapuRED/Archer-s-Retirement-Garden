@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 2ec7f9d39435f174e8c9fec0173ad0ff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,8 +105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridCell
   cellRenderer: {fileID: 51221832806818667}
-  defaultColor: {r: 1, g: 1, b: 1, a: 0.003921569}
-  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  defaultColor: {r: 1, g: 1, b: 1, a: 0.39215687}
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 0.39215687}
 --- !u!65 &-8243537265584713884
 BoxCollider:
   m_ObjectHideFlags: 0

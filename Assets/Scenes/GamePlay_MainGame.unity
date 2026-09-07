@@ -14738,29 +14738,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3019004110908042055, guid: e8f4bf27bfb0f2d489d4b528c1b245f3, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 3019004110908042055, guid: e8f4bf27bfb0f2d489d4b528c1b245f3, type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 7150906472511283019, guid: e8f4bf27bfb0f2d489d4b528c1b245f3, type: 3}
       propertyPath: m_Name
       value: DDOL - Transition System
-      objectReference: {fileID: 0}
-    - target: {fileID: 8340283037196892743, guid: e8f4bf27bfb0f2d489d4b528c1b245f3, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 30.5989
-      objectReference: {fileID: 0}
-    - target: {fileID: 8340283037196892743, guid: e8f4bf27bfb0f2d489d4b528c1b245f3, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 875.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8340283037196892743, guid: e8f4bf27bfb0f2d489d4b528c1b245f3, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -524.89
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

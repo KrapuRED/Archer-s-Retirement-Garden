@@ -73,7 +73,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 960, y: 573.23}
-  m_SizeDelta: {x: 907.4583, y: 808.7054}
+  m_SizeDelta: {x: 1020, y: 909}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6994802130873717930
 CanvasRenderer:
@@ -202,7 +202,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2653923731075399691}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -279,17 +279,19 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8058967372598315715}
-  - {fileID: 6635616925271490}
-  - {fileID: 7152643609031260949}
-  - {fileID: 3252882915869279407}
-  - {fileID: 3594994236825890903}
-  - {fileID: 6816142794407517144}
+  - {fileID: 4060857614243451503}
+  - {fileID: 7414962457639304476}
+  - {fileID: 1052666149141841412}
+  - {fileID: 1273515265237302605}
+  - {fileID: 8649551872731529825}
+  - {fileID: 7642225268879001574}
+  - {fileID: 4533981746966090701}
   m_Father: {fileID: 3373041957438084780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -12.886505, y: -9.660614}
+  m_SizeDelta: {x: 25.7726, y: 105.7163}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1385022960846522315
 MonoBehaviour:
@@ -304,12 +306,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
   m_Padding:
-    m_Left: 25
+    m_Left: 22
     m_Right: 0
-    m_Top: 25
-    m_Bottom: 0
-  m_ChildAlignment: 5
-  m_Spacing: 50
+    m_Top: 5
+    m_Bottom: 80
+  m_ChildAlignment: 4
+  m_Spacing: -10
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -351,8 +353,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 850, y: 655}
+  m_AnchoredPosition: {x: 0, y: -18.2108}
+  m_SizeDelta: {x: 960, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4083199322561329258
 MonoBehaviour:
@@ -402,7 +404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8.149719, y: 391.53}
+  m_AnchoredPosition: {x: 0, y: 433.2}
   m_SizeDelta: {x: -1451.9299, y: -987.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2223738731423251323
@@ -507,7 +509,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1001 &1145206527542096346
+--- !u!1001 &66598598481760832
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -515,25 +517,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7326701845369157941}
     m_Modifications:
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 1075660473523177298, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Spacing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075660473523177298, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182827654330319340, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 9121aeed351085044b633ec5c7a264d1, type: 3}
+    - target: {fileID: 1182827654330319340, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 70a9dd1f3ea7bc24ca8e72c50fa52456, type: 2}
+    - target: {fileID: 1613909906444614351, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Name
+      value: Tutorial Content - How to Use Skill
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136172991723961904, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: 70a9dd1f3ea7bc24ca8e72c50fa52456, type: 2}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613909906444614351, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
-      propertyPath: m_Name
-      value: Tutorial Content (4)
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_Pivot.x
@@ -561,11 +587,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 968.4549
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 620
+      value: 711.4395
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_LocalPosition.x
@@ -631,6 +657,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4847629928607771673, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Spacing
+      value: -45
+      objectReference: {fileID: 0}
     - target: {fileID: 5449840825309273354, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -646,6 +676,15 @@ PrefabInstance:
     - target: {fileID: 5449840825309273354, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6459969301934393090, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_text
+      value: How to Use Skill
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302043943289989562, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_text
+      value: Left Click on Unlocked Skill to Select then Left Click on Enemy Position.
+        Right Click to Cancel.
       objectReference: {fileID: 0}
     - target: {fileID: 9061226378291373971, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMax.y
@@ -668,12 +707,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
---- !u!224 &3594994236825890903 stripped
+--- !u!224 &4533981746966090701 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
-  m_PrefabInstance: {fileID: 1145206527542096346}
+  m_PrefabInstance: {fileID: 66598598481760832}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1379197381028660514
+--- !u!1001 &458376566026818530
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -681,25 +720,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7326701845369157941}
     m_Modifications:
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 1075660473523177298, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Spacing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075660473523177298, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182827654330319340, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 38e1873a12ce4b0449cefc393985c31d, type: 3}
+    - target: {fileID: 1182827654330319340, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: c7fe4f34a94eab44c8b657335169677c, type: 2}
+    - target: {fileID: 1613909906444614351, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Name
+      value: Tutorial Content - How to Build Garden
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613909906444614351, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
-      propertyPath: m_Name
-      value: Tutorial Content (3)
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_Pivot.x
@@ -727,11 +786,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 968.4549
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 620
+      value: 711.4395
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_LocalPosition.x
@@ -797,6 +856,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4847629928607771673, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Spacing
+      value: -45
+      objectReference: {fileID: 0}
     - target: {fileID: 5449840825309273354, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -812,6 +875,19 @@ PrefabInstance:
     - target: {fileID: 5449840825309273354, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6459969301934393090, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_text
+      value: How to Build Garden
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302043943289989562, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_text
+      value: Hold Left Mouse Click For At least 1 Second then find valid spot within
+        the grid (Right Click to Cancel) then Left Click and Confirm.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302043943289989562, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_fontSize
+      value: 24.55
       objectReference: {fileID: 0}
     - target: {fileID: 9061226378291373971, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMax.y
@@ -834,10 +910,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
---- !u!224 &3252882915869279407 stripped
+--- !u!224 &4060857614243451503 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
-  m_PrefabInstance: {fileID: 1379197381028660514}
+  m_PrefabInstance: {fileID: 458376566026818530}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1750243483095833126
 PrefabInstance:
@@ -1169,7 +1245,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8445492288618799162, guid: a6e8db58a83f685418e614037eb888f9, type: 3}
   m_PrefabInstance: {fileID: 3223867083155394976}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &4472347641685853263
+--- !u!1001 &3434843607894211776
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1177,25 +1253,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7326701845369157941}
     m_Modifications:
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 1075660473523177298, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Spacing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075660473523177298, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182827654330319340, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: ad739e297cff4464fabf6f05067e2eb5, type: 3}
+    - target: {fileID: 1182827654330319340, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 997e580c457d9bd45aa59802781d762a, type: 2}
+    - target: {fileID: 1613909906444614351, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Name
+      value: Tutorial Content - How to Gain Money
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136172991723961904, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: 997e580c457d9bd45aa59802781d762a, type: 2}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613909906444614351, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
-      propertyPath: m_Name
-      value: Tutorial Content (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_Pivot.x
@@ -1223,11 +1323,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 968.4549
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 620
+      value: 711.4395
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1293,6 +1393,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4847629928607771673, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Spacing
+      value: -45
+      objectReference: {fileID: 0}
     - target: {fileID: 5449840825309273354, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1308,6 +1412,15 @@ PrefabInstance:
     - target: {fileID: 5449840825309273354, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6459969301934393090, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_text
+      value: How to Gain Money
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302043943289989562, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_text
+      value: Click End Day Button to Start the Night to Protect Your Garden and Earn
+        Money.
       objectReference: {fileID: 0}
     - target: {fileID: 9061226378291373971, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1330,12 +1443,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
---- !u!224 &6635616925271490 stripped
+--- !u!224 &1273515265237302605 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
-  m_PrefabInstance: {fileID: 4472347641685853263}
+  m_PrefabInstance: {fileID: 3434843607894211776}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &5895316720018525006
+--- !u!1001 &3502878277362648969
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1343,25 +1456,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7326701845369157941}
     m_Modifications:
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 1075660473523177298, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Spacing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075660473523177298, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182827654330319340, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 3f237926d2ba66c4b858b667f7bafae7, type: 3}
+    - target: {fileID: 1182827654330319340, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: a0cef30d7354279489a2fed74fc816cd, type: 2}
+    - target: {fileID: 1613909906444614351, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Name
+      value: Tutorial Content - How to Sell Garden Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136172991723961904, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: a0cef30d7354279489a2fed74fc816cd, type: 2}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613909906444614351, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
-      propertyPath: m_Name
-      value: Tutorial Content
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_Pivot.x
@@ -1389,11 +1526,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 968.4549
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 620
+      value: 711.4395
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1458,6 +1595,407 @@ PrefabInstance:
     - target: {fileID: 4673417841591356810, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4847629928607771673, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Spacing
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449840825309273354, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449840825309273354, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449840825309273354, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449840825309273354, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6459969301934393090, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_text
+      value: How to Sell Garden Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302043943289989562, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_text
+      value: Left Click To Activate Sell Tool Icon on the Right Side of UI Panel
+        then Click on Garden Object to Sell, Right Click to Deactivate.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302043943289989562, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_fontSize
+      value: 24.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061226378291373971, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061226378291373971, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061226378291373971, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061226378291373971, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+--- !u!224 &1052666149141841412 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+  m_PrefabInstance: {fileID: 3502878277362648969}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5047984237357417452
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7326701845369157941}
+    m_Modifications:
+    - target: {fileID: 1075660473523177298, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Spacing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075660473523177298, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182827654330319340, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 64c6c34e5078a204290850687e5e9cc6, type: 3}
+    - target: {fileID: 1182827654330319340, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 382ee979f94f6444fb36abc5b36df280, type: 2}
+    - target: {fileID: 1613909906444614351, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Name
+      value: Tutorial Content - How to Basic Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136172991723961904, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: 382ee979f94f6444fb36abc5b36df280, type: 2}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 968.4549
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 711.4395
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673417841591356810, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673417841591356810, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673417841591356810, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673417841591356810, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4847629928607771673, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Spacing
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449840825309273354, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449840825309273354, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449840825309273354, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449840825309273354, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6459969301934393090, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_text
+      value: How to Basic Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302043943289989562, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_text
+      value: Left Click on Enemy Position.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061226378291373971, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061226378291373971, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061226378291373971, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061226378291373971, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+--- !u!224 &8649551872731529825 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+  m_PrefabInstance: {fileID: 5047984237357417452}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5895316720018525006
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7326701845369157941}
+    m_Modifications:
+    - target: {fileID: 1075660473523177298, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Spacing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075660473523177298, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613909906444614351, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Name
+      value: Tutorial Content - How To Move Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 968.4549
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 711.4395
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673417841591356810, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673417841591356810, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673417841591356810, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673417841591356810, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4847629928607771673, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Spacing
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 5449840825309273354, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1501,7 +2039,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
   m_PrefabInstance: {fileID: 5895316720018525006}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &6720531752647473816
+--- !u!1001 &6055591173844862571
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1509,25 +2047,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7326701845369157941}
     m_Modifications:
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 1075660473523177298, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Spacing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075660473523177298, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182827654330319340, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: f0f896ca955a0604c8254b10726eac43, type: 3}
+    - target: {fileID: 1182827654330319340, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: dd80439b793a6a7438205c0f8f7ef0c2, type: 2}
+    - target: {fileID: 1613909906444614351, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Name
+      value: Tutorial Content - How to Upgrade & Unlock Skills
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613909906444614351, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
-      propertyPath: m_Name
-      value: Tutorial Content (2)
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_Pivot.x
@@ -1555,11 +2113,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 968.4549
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 620
+      value: 711.4395
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1625,6 +2183,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4847629928607771673, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Spacing
+      value: -45
+      objectReference: {fileID: 0}
     - target: {fileID: 5449840825309273354, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1640,6 +2202,14 @@ PrefabInstance:
     - target: {fileID: 5449840825309273354, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6459969301934393090, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_text
+      value: How to Upgrade & Unlock Skills
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302043943289989562, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_text
+      value: Survive the Night Battle Without Your Garden Being Destroyed.
       objectReference: {fileID: 0}
     - target: {fileID: 9061226378291373971, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1662,12 +2232,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
---- !u!224 &7152643609031260949 stripped
+--- !u!224 &7642225268879001574 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
-  m_PrefabInstance: {fileID: 6720531752647473816}
+  m_PrefabInstance: {fileID: 6055591173844862571}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &6958244703258024533
+--- !u!1001 &6404213654756867217
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1675,25 +2245,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7326701845369157941}
     m_Modifications:
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 1075660473523177298, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Spacing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075660473523177298, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182827654330319340, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 75cbad52af1fb224088d1c65ff744f31, type: 2}
+    - target: {fileID: 1613909906444614351, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Name
+      value: Tutorial Content - How to See Garden Object Info
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136172991723961904, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: 75cbad52af1fb224088d1c65ff744f31, type: 2}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 663093761578019416, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+    - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1613909906444614351, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
-      propertyPath: m_Name
-      value: Tutorial Content (5)
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_Pivot.x
@@ -1721,11 +2311,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 968.4549
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 620
+      value: 711.4395
       objectReference: {fileID: 0}
     - target: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1791,6 +2381,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4847629928607771673, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Spacing
+      value: -45
+      objectReference: {fileID: 0}
     - target: {fileID: 5449840825309273354, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1806,6 +2400,14 @@ PrefabInstance:
     - target: {fileID: 5449840825309273354, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6459969301934393090, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_text
+      value: How to See Garden Object Info
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302043943289989562, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_text
+      value: Left Click Garden Object Icon on The UI Panel.
       objectReference: {fileID: 0}
     - target: {fileID: 9061226378291373971, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1828,10 +2430,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
---- !u!224 &6816142794407517144 stripped
+--- !u!224 &7414962457639304476 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4469659296771047821, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
-  m_PrefabInstance: {fileID: 6958244703258024533}
+  m_PrefabInstance: {fileID: 6404213654756867217}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9220234164141851664
 PrefabInstance:

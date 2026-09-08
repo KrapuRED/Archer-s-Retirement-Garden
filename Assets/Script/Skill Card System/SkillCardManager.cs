@@ -190,9 +190,7 @@ public class SkillCardManager : MonoBehaviour
             Debug.LogError($"[{name} - (UsingSkillCard)] There are no {selectedSkillCard.skillCardName}!");
             return;
         }
-    
-        Debug.LogWarning($"[{name} - (UseSkillCard)] Using SkillCard!");
-        
+
         var skill = skillInstance.GetComponent<Skill>();
         if (skill == null)
         {
@@ -236,6 +234,24 @@ public class SkillCardManager : MonoBehaviour
         {
             selectedSkillCard.skillCardUI?.UnSelectSkillCard();
             selectedSkillCard = null;
+        }
+        
+        foreach (var skillData in listActiveSkillCardData)
+        {
+            // Instantly finish the cooldown
+            skillData.currentCooldown = 0;
+        
+            // If it's the basic arrow, ensure it gets reactivated safely
+            if (skillData == _basicArrowSkillCard)
+                _basicArrowSkillCard.isActive = true;
+            
+            skillData.isActive = true;
+
+            // Force the UI to visually reset to 0
+            if (skillData.skillCardUI != null)
+            {
+                skillData.skillCardUI.UpdateCooldownSkillCard(0, skillData.currentMaxCooldown);
+            }
         }
     }
 
@@ -310,6 +326,7 @@ public class SkillCardManager : MonoBehaviour
         data.currentMaxCooldown      = skillCardSO.cooldownSkillCard;
         data.currentMaxTarget        = skillCardSO.targetSkillCard;
         data.currentDuration         = skillCardSO.cooldownSkillCard;
+        data.currentCooldown = 0;
         data.isActive = true;
         
         if (data.skillCardUI != null) 

@@ -2067,6 +2067,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tutorial Content - How to Upgrade & Unlock Skills
       objectReference: {fileID: 0}
+    - target: {fileID: 2136172991723961904, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: dd80439b793a6a7438205c0f8f7ef0c2, type: 2}
     - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

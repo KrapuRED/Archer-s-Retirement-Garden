@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   gameMode: 0
-  recoverHealth: 50
-  loseReward: 250
+  recoverHealth: 100
+  loseReward: 550

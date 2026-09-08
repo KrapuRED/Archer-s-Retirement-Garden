@@ -18,8 +18,8 @@ MonoBehaviour:
   gardenItemBasePrice: 250
   priceIncrease: 80
   gardenBoostItemDatas:
-  - boostName: Gain +50 Gold Every Day.
-    boostAmount: 50
+  - boostName: Gain +150 Gold Every Day.
+    boostAmount: 150
     boostType: 5
     isDailyBoost: 1
   objectSize: {x: 1, y: 1}

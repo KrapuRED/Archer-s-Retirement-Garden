@@ -32,7 +32,8 @@ public class UpgradeCardManager : MonoBehaviour
 
     [Header("Upgrade CardUI Configuration")]
     [SerializeField] private Transform upgradeCardContainer;
-    [SerializeField] private List<UpgradeCardUI> upgradeCardUi = new(); 
+    [SerializeField] private List<UpgradeCardUI> upgradeCardUi = new();
+    [SerializeField] private int maxBuyingUpgrade;
     
     [Header("Upgrade Card Configuration")]
     [SerializeField] private List<UpgradeCardPool> upgradeCardPools = new();
@@ -42,8 +43,9 @@ public class UpgradeCardManager : MonoBehaviour
     [SerializeField] private float increasePriceEndlessMode;
 
     private readonly Dictionary<UpgradeCardSO, UpgradeCardRunTimeData> _runTimeData = new();
-    
-     private UpgradeCardPool _selectedPool;
+
+    private int _currentBuying;
+    private UpgradeCardPool _selectedPool;
     private int _totalAllUpgrades;
     
     private void Awake()
@@ -267,6 +269,13 @@ public class UpgradeCardManager : MonoBehaviour
     
     public bool OnUpgradeCard(UpgradeCardSO upgradeCardData)
     {
+        if (_currentBuying >= maxBuyingUpgrade)
+        {
+            GameEvents.OnRequestClosePanel.Invoke(PanelType.Upgrade);
+            return false;
+        }
+        _currentBuying++;
+        
         var data = GetOrCreateRunTimeData(upgradeCardData);
         if (!CurrencyManager.Instance.UseCurrency(data.CurrentPrice))
             return false;

@@ -67,6 +67,8 @@ public class EnemyCharacter : Character, IDamageable
     
     public void TakeDamage(float amountDamage, bool isCritical)
     {
+        if (IsDead) return;
+        
         currentHealth -= amountDamage;
         healthUI.UpdateHealthUI(currentHealth);
      
@@ -82,6 +84,8 @@ public class EnemyCharacter : Character, IDamageable
 
     public override void CharacterDead()
     {
+        if (IsDead) return;
+        
         Debug.LogWarning($"[{name} (CharacterDead)] This Character is dead");
         
         IsDead = true;

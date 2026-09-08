@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Tools;
@@ -51,6 +52,16 @@ public class SkillCardManager : MonoBehaviour
         }
 
         Instance = this;
+    }
+
+    private void OnEnable()
+    {
+        GameEvents.OnChangeToDayLight.AddListener(CancelSkillCard);
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnChangeToDayLight.RemoveListener(CancelSkillCard);
     }
 
     private void Start()

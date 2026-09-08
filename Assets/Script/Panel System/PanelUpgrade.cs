@@ -25,7 +25,6 @@ public class PanelUpgrade : PanelBase
         hidePanelFeedback?.PlayFeedbacks();
         canvasGroup.interactable = false;
         
-        DayCycleManager.Instance.AddDayCount();
-        DayCycleManager.Instance.UpdateCycleManager();
+        DayCycleManager.Instance.ContinueDayCycle();
     }
 }

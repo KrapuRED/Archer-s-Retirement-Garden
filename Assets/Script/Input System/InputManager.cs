@@ -130,6 +130,8 @@ public class InputManager : MonoBehaviour
 
     public void ChangeCursorTexture(CursorType cursorType)
     {
+        Debug.LogWarning($"[{name} - ChangeCursorTexture] ChangeCursorTexture {cursorType}");
+        
         switch (cursorType)
         {
             case CursorType.Default:

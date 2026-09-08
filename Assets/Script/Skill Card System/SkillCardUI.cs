@@ -97,6 +97,8 @@ public class SkillCardUI : MonoBehaviour
     {
         _isSelect = false;
         unselectVFX?.PlayFeedbacks();
-        InputManager.Instance.ChangeCursorTexture(CursorType.Basic);
+        
+        if (DayCycleManager.Instance.DayCycleType == DayCycleType.Night)
+            InputManager.Instance.ChangeCursorTexture(CursorType.Basic);
     }
 }

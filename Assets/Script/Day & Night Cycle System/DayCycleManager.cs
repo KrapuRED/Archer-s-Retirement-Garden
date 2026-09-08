@@ -54,9 +54,9 @@ public class DayCycleManager : MonoBehaviour
 
         public void UpdateCycleManager()
         {
-            bool isDayCycle = dayCycleType == DayCycleType.Day;
+            bool isDay = dayCycleType == DayCycleType.Day;
 
-            if (isDayCycle)
+            if (isDay)
             {
                 ChangeDayCycleType(DayCycleType.Night);
                 InputManager.Instance.ChangeCursorTexture(CursorType.Basic);
@@ -83,7 +83,8 @@ public class DayCycleManager : MonoBehaviour
             AddDayCount();
             
             ChangeDayCycleType(DayCycleType.Day);
-            GameEvents.OnChangeToDayLight.Invoke();
+            InputManager.Instance.ChangeCursorTexture(CursorType.Default);
             
+            GameEvents.OnChangeToDayLight.Invoke();
         }
 }

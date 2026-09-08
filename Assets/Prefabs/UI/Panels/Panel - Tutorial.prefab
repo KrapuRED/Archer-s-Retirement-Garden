@@ -740,6 +740,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tutorial Content - How to Build Garden
       objectReference: {fileID: 0}
+    - target: {fileID: 2136172991723961904, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: c7fe4f34a94eab44c8b657335169677c, type: 2}
     - target: {fileID: 4173772187475083264, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2257,6 +2261,10 @@ PrefabInstance:
       propertyPath: m_Padding.m_Top
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 1182827654330319340, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: caae6f62b30cbce429b3a06d39b42c94, type: 3}
     - target: {fileID: 1182827654330319340, guid: e91efa931ed2f684fb6b561e42091a16, type: 3}
       propertyPath: m_TargetTexture
       value: 

@@ -11217,8 +11217,8 @@ MonoBehaviour:
   - day: Day 7
     dayCount: 7
     raidPoints: 340
-    spawnRateMin: 1
-    spawnRateMax: 4
+    spawnRateMin: 0.5
+    spawnRateMax: 2
     EnemyDatas:
     - characterName: Demon Eye
       change: 30
@@ -11235,8 +11235,8 @@ MonoBehaviour:
   - day: Day 8
     dayCount: 8
     raidPoints: 180
-    spawnRateMin: 1
-    spawnRateMax: 4
+    spawnRateMin: 0.5
+    spawnRateMax: 2
     EnemyDatas:
     - characterName: Demon Eye
       change: 30
@@ -11253,8 +11253,8 @@ MonoBehaviour:
   - day: Day 9
     dayCount: 9
     raidPoints: 410
-    spawnRateMin: 0.5
-    spawnRateMax: 3
+    spawnRateMin: 0.3
+    spawnRateMax: 1
     EnemyDatas:
     - characterName: Demon Eye
       change: 20
@@ -11271,8 +11271,8 @@ MonoBehaviour:
   - day: Day 10
     dayCount: 10
     raidPoints: 590
-    spawnRateMin: 0.5
-    spawnRateMax: 3
+    spawnRateMin: 0.3
+    spawnRateMax: 2
     EnemyDatas:
     - characterName: Demon Eye
       change: 20
@@ -11289,8 +11289,8 @@ MonoBehaviour:
   - day: Day 11
     dayCount: 11
     raidPoints: 600
-    spawnRateMin: 0.5
-    spawnRateMax: 3
+    spawnRateMin: 0.3
+    spawnRateMax: 1
     EnemyDatas:
     - characterName: Demon Eye
       change: 20
@@ -11307,8 +11307,8 @@ MonoBehaviour:
   - day: Day 12
     dayCount: 12
     raidPoints: 700
-    spawnRateMin: 0.5
-    spawnRateMax: 2
+    spawnRateMin: 0.3
+    spawnRateMax: 1
     EnemyDatas:
     - characterName: Demon Eye
       change: 20
@@ -16069,22 +16069,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3370386088307438564, guid: 225c08ebc203898489a3d3f477559775, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3370386088307438564, guid: 225c08ebc203898489a3d3f477559775, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3370386088307438564, guid: 225c08ebc203898489a3d3f477559775, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3370386088307438564, guid: 225c08ebc203898489a3d3f477559775, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4687229741425629450, guid: 225c08ebc203898489a3d3f477559775, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -16169,42 +16153,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5228853905941851313, guid: 225c08ebc203898489a3d3f477559775, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5228853905941851313, guid: 225c08ebc203898489a3d3f477559775, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5228853905941851313, guid: 225c08ebc203898489a3d3f477559775, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5228853905941851313, guid: 225c08ebc203898489a3d3f477559775, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5930242144102051557, guid: 225c08ebc203898489a3d3f477559775, type: 3}
       propertyPath: debuGameUI
       value: 
       objectReference: {fileID: 1126776370}
-    - target: {fileID: 7428480761509142023, guid: 225c08ebc203898489a3d3f477559775, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7428480761509142023, guid: 225c08ebc203898489a3d3f477559775, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7428480761509142023, guid: 225c08ebc203898489a3d3f477559775, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7428480761509142023, guid: 225c08ebc203898489a3d3f477559775, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8907537099790950639, guid: 225c08ebc203898489a3d3f477559775, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 

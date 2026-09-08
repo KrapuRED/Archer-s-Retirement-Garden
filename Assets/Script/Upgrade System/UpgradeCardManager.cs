@@ -96,8 +96,7 @@ public class UpgradeCardManager : MonoBehaviour
         }
         return data;
     }
-
-
+    
     private void ApplyUpgradeEffect(UpgradeCardSO upgradeCardSo)
     {
         switch (upgradeCardSo.upgradeType)
@@ -271,10 +270,8 @@ public class UpgradeCardManager : MonoBehaviour
     {
         if (_currentBuying >= maxBuyingUpgrade)
         {
-            GameEvents.OnRequestClosePanel.Invoke(PanelType.Upgrade);
             return false;
         }
-        _currentBuying++;
         
         var data = GetOrCreateRunTimeData(upgradeCardData);
         if (!CurrencyManager.Instance.UseCurrency(data.CurrentPrice))
@@ -285,6 +282,18 @@ public class UpgradeCardManager : MonoBehaviour
         data.TotalBuy++;
         data.CurrentPrice = Mathf.RoundToInt(GetNewPrice(upgradeCardData, data.TotalBuy));
 
+        _currentBuying++;
+        
+        if (_currentBuying >= maxBuyingUpgrade)
+        {
+            GameEvents.OnRequestClosePanel.Invoke(PanelType.Upgrade);
+        }
+        
         return true;
+    }
+    
+    public void ResetBuyingUpgrades()
+    {
+        _currentBuying = 0;
     }
 }

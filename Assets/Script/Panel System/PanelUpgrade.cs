@@ -17,6 +17,7 @@ public class PanelUpgrade : PanelBase
         refreshButton.DisplayRefreshButton();
         
         InputManager.Instance.ChangeCursorTexture(CursorType.Default);
+        UpgradeCardManager.Instance.ResetBuyingUpgrades();
         UpgradeCardManager.Instance.OnShowRandomUpgradeCard();
     }
 

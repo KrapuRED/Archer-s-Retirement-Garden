@@ -7984,6 +7984,7 @@ MonoBehaviour:
   - {fileID: 6190128283049255453}
   - {fileID: 1286215468}
   - {fileID: 1313877176}
+  maxBuyingUpgrade: 3
   upgradeCardPools:
   - poolName: Upgrade Card Pool Day 1 - 3
     days: 3

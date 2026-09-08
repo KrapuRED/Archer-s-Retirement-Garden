@@ -312,7 +312,8 @@ public class SkillCardManager : MonoBehaviour
         data.currentDuration         = skillCardSO.cooldownSkillCard;
         data.isActive = true;
         
-        data.skillCardUI.UpdateSkillCard(data);
+        if (data.skillCardUI != null) 
+            data.skillCardUI.UpdateSkillCard(data);
     }
 
     public void UpdateBasicAttack(UpgradeStatusType upgradeStatusType, float amount)

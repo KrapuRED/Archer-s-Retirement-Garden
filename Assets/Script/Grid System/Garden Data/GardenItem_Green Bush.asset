@@ -16,7 +16,7 @@ MonoBehaviour:
   gardenItemDescription: 
   gardenItemImage: {fileID: 21300000, guid: 942a403269af71d4f89d18de2847b870, type: 3}
   gardenItemBasePrice: 100
-  priceIncrease: 20
+  priceIncrease: 45
   gardenBoostItemDatas:
   - boostName: Recover 2% of Life Tree Sapling Health Every Day.
     boostAmount: 2

@@ -22,5 +22,5 @@ MonoBehaviour:
   upgradeStatusType: 0
   baseSkillCard: {fileID: 11400000, guid: 35229b559dda38d479c5bc821806faac, type: 2}
   linkedSkillCard: {fileID: 11400000, guid: 9dc0271a105e05d4395f236122d70166, type: 2}
-  upgradeValue: 1
+  upgradeValue: 4
   oneTimeBuy: 1

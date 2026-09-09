@@ -1867,7 +1867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 365338213}
   m_Layer: 5
-  m_Name: ' Global UI - Money Spawn VFX'
+  m_Name: Global UI - Money Spawn VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12285,7 +12285,7 @@ MonoBehaviour:
   endPosition: {fileID: 526112451}
   spawnPointTransform: {fileID: 1814050766}
   spawnPoints: []
-  enemyHealthIncreaseStory: 30
+  enemyHealthIncreaseStory: 35
   enemyAttackIncreaseStory: 15
   enemyRewardIncreaseStory: 30
   enemyHealthIncreaseEndless: 120

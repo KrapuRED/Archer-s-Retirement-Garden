@@ -1714,6 +1714,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_DemonEye
       objectReference: {fileID: 0}
+    - target: {fileID: 4971331339585891171, guid: 08d98eed1d9b11a46a49a08cb8ab50de, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971331339585891171, guid: 08d98eed1d9b11a46a49a08cb8ab50de, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4971331339585891171, guid: 08d98eed1d9b11a46a49a08cb8ab50de, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c03dc4731a228d449f549044681bd38, type: 2}
+    - target: {fileID: 6181990921913990959, guid: 08d98eed1d9b11a46a49a08cb8ab50de, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6181990921913990959, guid: 08d98eed1d9b11a46a49a08cb8ab50de, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6181990921913990959, guid: 08d98eed1d9b11a46a49a08cb8ab50de, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c03dc4731a228d449f549044681bd38, type: 2}
+    - target: {fileID: 8412218795201354206, guid: 08d98eed1d9b11a46a49a08cb8ab50de, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8412218795201354206, guid: 08d98eed1d9b11a46a49a08cb8ab50de, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8412218795201354206, guid: 08d98eed1d9b11a46a49a08cb8ab50de, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3c03dc4731a228d449f549044681bd38, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

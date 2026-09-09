@@ -70,7 +70,7 @@ public static class GameEvents
     public static readonly CustomEvents OnActionMapChange = new();
     public static readonly CustomEvents<GardenItemCardData> OnCarryObject = new();
     
-    // # ================================ PAUSE SYSTEM ================================ #
+    // # ================================ DAY CYCLE SYSTEM ================================ #
     public static readonly CustomEvents OnChangeToDayLight = new();
     
     // # ================================ PAUSE SYSTEM ================================ #
@@ -80,8 +80,12 @@ public static class GameEvents
     // # ================================ Dialogue UI ================================ #
     public static readonly CustomEvents OnStartDialogue = new();
     public static readonly CustomEvents OnStopDialogue = new();
+    public static readonly CustomEvents OnSkipDialogueLine = new();
     public static readonly CustomEvents<string> OnChangeEnvironment = new();
     public static readonly CustomEvents<string, string> OnDisplayDialogue = new();
+    
+    // # ================================ Dialogue UI ================================ #
+    public static readonly CustomEvents<UpgradeStatusType, float> OnUpdateStatusCharacter = new();
     
     // # ================================ UI ================================ #
     public static readonly CustomEvents<GardenItemCardData> OnShowDetailGardenItem = new();

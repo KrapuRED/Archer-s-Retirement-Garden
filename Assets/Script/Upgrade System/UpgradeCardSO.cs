@@ -17,7 +17,8 @@ public enum UpgradeStatusType
     CritDamage,
     Attack,
     AttackInterval,
-    ArrowVelocity
+    ArrowVelocity,
+    MaxHealth
 }
 
 [System.Serializable]

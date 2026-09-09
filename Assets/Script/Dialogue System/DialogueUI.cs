@@ -24,12 +24,15 @@ public class DialogueUI : MonoBehaviour
     private void OnEnable()
     {
         GameEvents.OnDisplayDialogue.AddListener(UpdateDialogueUI);
+        GameEvents.OnSkipDialogueLine.AddListener(SkipDialogueLine);
+        
         typewriter.onCharacterVisible.AddListener(PlayTypeSound);
     }
 
     private void OnDisable()
     {
         GameEvents.OnDisplayDialogue.RemoveListener(UpdateDialogueUI);
+        GameEvents.OnSkipDialogueLine.RemoveListener(SkipDialogueLine);
     }
 
     private void PlayTypeSound(Char character)
@@ -47,6 +50,10 @@ public class DialogueUI : MonoBehaviour
         if (this.characterName != null)
             this.characterName.text = charName;
         
+        if (DialogueManager.Instance.IsSkipDialogueLine) return;
+        
         typewriter.ShowText(line);
     }
+
+    private void SkipDialogueLine() => typewriter.SkipTypewriter();
 }

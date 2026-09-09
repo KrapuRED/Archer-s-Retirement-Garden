@@ -43,6 +43,9 @@ public class SkillCardUI : MonoBehaviour
     {
         skillCardDataRunTime = skillCard;
         
+        if (skillLevel != null)
+            skillLevel.text = $"Lv.{skillCard.skillLevel}";
+        
         if (skillCard.isUnlock)
             unlockVFX.SetActive(false);
         

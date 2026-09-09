@@ -31,6 +31,7 @@ public class DialogueManager : MonoBehaviour
     
     public bool IsDialogueRunning { get; private set; }
     public bool IsSkipDialogue { get; private set; }
+    public bool IsSkipDialogueLine { get; private set; }
     
     private void Awake()
     {
@@ -62,6 +63,28 @@ public class DialogueManager : MonoBehaviour
     {
         if (dialogueStart)
             StartDialogue();
+    }
+
+    private void Update()
+    {
+        if (!IsDialogueRunning) return;
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (!IsSkipDialogueLine)
+            {
+                // Show All Dialogue Line
+                IsSkipDialogueLine = true;
+                GameEvents.OnSkipDialogueLine.Invoke();
+            }
+            else
+            {
+                IsSkipDialogueLine = false;
+                ContinueDialogue();
+            }
+            
+        }
+        
     }
 
     private void DisplayDialogue()
@@ -110,7 +133,7 @@ public class DialogueManager : MonoBehaviour
             StopCoroutine(_dialogueCoroutine);
             _dialogueCoroutine = null;
         }
-     
+
         _dialogueCoroutine = StartCoroutine(WaitAndStarDialogue());
     }
 
@@ -119,6 +142,7 @@ public class DialogueManager : MonoBehaviour
         if (!IsDialogueRunning || TransitionManager.Instance.isTrasitioning) return;
         
         _dialogueIndex++;
+        IsSkipDialogueLine = false;
 
         if (_dialogueIndex < _currentDialogueData.dialogueLines.Count)
         {
@@ -225,8 +249,9 @@ public class DialogueManager : MonoBehaviour
             Debug.LogWarning($"[{name} (StartDialogue)] This dialogueData is complete! {dialogueData.dialogueName}");
             yield break;
         }
-        
+
         IsDialogueRunning = true;
+        
         _selectedDialogueDataRunTime  = dialogueData;
         _dialogueIndex = -1;
         _dialogueDataIndex = -1;

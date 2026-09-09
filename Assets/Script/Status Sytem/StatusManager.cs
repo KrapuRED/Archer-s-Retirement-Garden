@@ -61,11 +61,22 @@ public class StatusManager : MonoBehaviour
         Instance = this;
         
         HealthManager.Instance.InitializeHealth(characterData.baseMaxHealth);
+        GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.MaxHealth, characterData.baseMaxHealth);
+        
         attackBoost = characterData.baseAttack;
+        GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.Attack, attackBoost);
+        
         attackIntervalBoost = characterData.baseAttackSpeed;
+        GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.AttackInterval, attackIntervalBoost);
+        
         criticalBoostRate = characterData.baseCritRate;
+        GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.CritChance, criticalBoostRate);
+        
         criticalBoostDamage = characterData.bassCritDamage;
+        GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.CritDamage, criticalBoostDamage);
+        
         arrowVelocityBoost = characterData.baseSpeed;
+        GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.ArrowVelocity, arrowVelocityBoost);
     }
 
     #region Event Configuration
@@ -130,9 +141,11 @@ public class StatusManager : MonoBehaviour
         {
             case BoostType.Attack:
                 attackBoost += amount;
+                GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.Attack, attackBoost);
                 break;
             case BoostType.Critical:
                 criticalBoostDamage += amount;
+                GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.CritDamage, criticalBoostDamage);
                 break;
             case BoostType.Health:
                 maxHealthBoost += amount;
@@ -147,18 +160,23 @@ public class StatusManager : MonoBehaviour
         {
             case UpgradeStatusType.Attack:
                 attackBoost += amount;
+                GameEvents.OnUpdateStatusCharacter.Invoke(upgradeStatusType, attackBoost);
                 break;
             case UpgradeStatusType.AttackInterval:
                 attackIntervalBoost += amount;
+                GameEvents.OnUpdateStatusCharacter.Invoke(upgradeStatusType, attackIntervalBoost);
                 break;
             case UpgradeStatusType.ArrowVelocity:
                 arrowVelocityBoost += amount;
+                GameEvents.OnUpdateStatusCharacter.Invoke(upgradeStatusType, arrowVelocityBoost);
                 break;
             case UpgradeStatusType.CritChance:
                 criticalBoostRate += amount;
+                GameEvents.OnUpdateStatusCharacter.Invoke(upgradeStatusType, criticalBoostRate);
                 break;
             case UpgradeStatusType.CritDamage:
                 criticalBoostDamage += amount;
+                GameEvents.OnUpdateStatusCharacter.Invoke(upgradeStatusType, criticalBoostDamage);
                 break;
         }
         

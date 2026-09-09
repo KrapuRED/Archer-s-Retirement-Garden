@@ -36,6 +36,7 @@ public class HealthManager : MonoBehaviour
     {
         maxHealth += amount;
         healthUI.UpdateHealthSlider(maxHealth);
+        GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.MaxHealth, maxHealth);
 
         if (currentHealth >= maxHealth)
         {

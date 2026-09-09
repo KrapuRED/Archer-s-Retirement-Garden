@@ -11332,8 +11332,8 @@ MonoBehaviour:
   endPosition: {fileID: 526112451}
   spawnPointTransform: {fileID: 1814050766}
   spawnPoints: []
-  enemyHealthIncreaseStory: 60
-  enemyAttackIncreaseStory: 30
+  enemyHealthIncreaseStory: 30
+  enemyAttackIncreaseStory: 15
   enemyRewardIncreaseStory: 30
   enemyHealthIncreaseEndless: 120
   enemyAttackIncreaseEndless: 40
@@ -16153,10 +16153,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5228853905941851313, guid: 225c08ebc203898489a3d3f477559775, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228853905941851313, guid: 225c08ebc203898489a3d3f477559775, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228853905941851313, guid: 225c08ebc203898489a3d3f477559775, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228853905941851313, guid: 225c08ebc203898489a3d3f477559775, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5930242144102051557, guid: 225c08ebc203898489a3d3f477559775, type: 3}
       propertyPath: debuGameUI
       value: 
       objectReference: {fileID: 1126776370}
+    - target: {fileID: 7428480761509142023, guid: 225c08ebc203898489a3d3f477559775, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428480761509142023, guid: 225c08ebc203898489a3d3f477559775, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428480761509142023, guid: 225c08ebc203898489a3d3f477559775, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7428480761509142023, guid: 225c08ebc203898489a3d3f477559775, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8907537099790950639, guid: 225c08ebc203898489a3d3f477559775, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 

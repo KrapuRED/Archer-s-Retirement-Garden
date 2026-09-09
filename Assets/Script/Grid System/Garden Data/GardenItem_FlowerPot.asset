@@ -18,8 +18,8 @@ MonoBehaviour:
   gardenItemBasePrice: 150
   priceIncrease: 40
   gardenBoostItemDatas:
-  - boostName: Gain +10 Attack.
-    boostAmount: 10
+  - boostName: Gain +20 Attack.
+    boostAmount: 20
     boostType: 1
     isDailyBoost: 0
   objectSize: {x: 1, y: 1}

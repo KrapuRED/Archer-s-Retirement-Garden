@@ -36,7 +36,7 @@ public class EnemyRunTimeData
 }
 
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : MonoBehaviour, IPauseable
 {
     [SerializeField] private List<EnemySpawnPool> spawnPools = new();
     [SerializeField] private List<CharacterSO> listOfEnemyData = new();
@@ -65,7 +65,7 @@ public class EnemySpawner : MonoBehaviour
     private int _spawnCount;
     private HashSet<EnemyRunTimeData> _enemyRunTimeDatas = new();
 
-    // EnemySpawner.cs
+    public bool IsPaused { get; set; }
     public IReadOnlyList<Character> ActiveEnemies => activeEnemies;
     
     #region Event Configuration
@@ -76,6 +76,9 @@ public class EnemySpawner : MonoBehaviour
         GameEvents.OnChangeToDayLight.AddListener(UpdateEnemyRunTimeData);
         
         GameEvents.OnChangeGameMode.AddListener(EndlessSpawnSet);
+        
+        GameEvents.OnPauseGame.AddListener(Pause);
+        GameEvents.OnResumeGame.AddListener(Resume);
     }
 
     private void OnDisable()
@@ -84,6 +87,9 @@ public class EnemySpawner : MonoBehaviour
         GameEvents.OnChangeToDayLight.RemoveListener(UpdateEnemyRunTimeData);
         
         GameEvents.OnChangeGameMode.AddListener(EndlessSpawnSet);
+        
+        GameEvents.OnPauseGame.RemoveListener(Pause);
+        GameEvents.OnResumeGame.RemoveListener(Resume);
     }
 
     #endregion
@@ -97,7 +103,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (!_isActive) return;
+        if (!_isActive && !IsPaused) return;
         
         if (_currentSpawnRate <= 0)
         {
@@ -323,4 +329,7 @@ public class EnemySpawner : MonoBehaviour
             BattleManager.Instance.WinBattle();
         }
     }
+    
+    public void Pause() => IsPaused = true;
+    public void Resume() => IsPaused = false;
 }

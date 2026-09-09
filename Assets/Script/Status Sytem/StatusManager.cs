@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -61,22 +62,13 @@ public class StatusManager : MonoBehaviour
         Instance = this;
         
         HealthManager.Instance.InitializeHealth(characterData.baseMaxHealth);
-        GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.MaxHealth, characterData.baseMaxHealth);
         
         attackBoost = characterData.baseAttack;
-        GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.Attack, attackBoost);
-        
         attackIntervalBoost = characterData.baseAttackSpeed;
-        GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.AttackInterval, attackIntervalBoost);
-        
         criticalBoostRate = characterData.baseCritRate;
-        GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.CritChance, criticalBoostRate);
-        
         criticalBoostDamage = characterData.bassCritDamage;
-        GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.CritDamage, criticalBoostDamage);
-        
         arrowVelocityBoost = characterData.baseSpeed;
-        GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.ArrowVelocity, arrowVelocityBoost);
+       
     }
 
     #region Event Configuration
@@ -92,6 +84,16 @@ public class StatusManager : MonoBehaviour
     }
 
     #endregion
+
+    private void Start()
+    {
+
+        GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.Attack, attackBoost);
+        GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.AttackInterval, attackIntervalBoost);
+        GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.CritChance, criticalBoostRate);
+        GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.CritDamage, criticalBoostDamage);
+        GameEvents.OnUpdateStatusCharacter.Invoke(UpgradeStatusType.ArrowVelocity, arrowVelocityBoost);
+    }
 
     private void HandlingBoost(GardenItemSO gardenItemSo, int stack)
     {

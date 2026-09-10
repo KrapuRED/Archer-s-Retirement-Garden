@@ -9,7 +9,6 @@ public class InputCameraMovement : MonoBehaviour, IPauseable
     
     [Header("Input Action Configuration")]
     [SerializeField] private InputActionReference cameraMovementAction;
-    [SerializeField] private InputActionReference cameraRotationAction;
 
     [SerializeField] private Transform cameraPivot;
     [SerializeField] private float speedCamMovement;
@@ -35,12 +34,9 @@ public class InputCameraMovement : MonoBehaviour, IPauseable
     private void OnEnable()
     {
         cameraMovementAction.action.Enable();
-        cameraRotationAction.action.Enable();
         
         cameraMovementAction.action.performed   += OnMoveCamera;
         cameraMovementAction.action.canceled    += OnMoveCamera;
-        cameraRotationAction.action.performed   += OnRotateCamera;
-        cameraRotationAction.action.canceled    += OnRotateCamera;
         
         GameEvents.OnPauseGame.AddListener(Pause);
         GameEvents.OnResumeGame.AddListener(Resume);
@@ -50,9 +46,6 @@ public class InputCameraMovement : MonoBehaviour, IPauseable
     {
         cameraMovementAction.action.performed   -= OnMoveCamera;
         cameraMovementAction.action.canceled    -= OnMoveCamera;
-        
-        cameraRotationAction.action.performed   -= OnRotateCamera;
-        cameraRotationAction.action.canceled    -= OnRotateCamera;
         
         GameEvents.OnPauseGame.RemoveListener(Pause);
         GameEvents.OnResumeGame.RemoveListener(Resume);
@@ -80,8 +73,8 @@ public class InputCameraMovement : MonoBehaviour, IPauseable
     private void Update()
     {
         if (!GameManager.Instance.IsGameActive) return;
-            
         if (DialogueManager.Instance.IsDialogueRunning) return;
+        if (TransitionManager.Instance.isTrasitioning) return;
         
         if (IsPaused) return;
         

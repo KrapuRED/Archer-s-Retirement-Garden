@@ -15064,7 +15064,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::InputCameraMovement
   borderCam: {fileID: 1940155086}
   cameraMovementAction: {fileID: 5525670372005247234, guid: 6c75bae65e3782d4faff91651053d650, type: 3}
-  cameraRotationAction: {fileID: 1317677354525640217, guid: 6c75bae65e3782d4faff91651053d650, type: 3}
   cameraPivot: {fileID: 90263871}
   speedCamMovement: 100
   smoothTime: 0.1

@@ -83,8 +83,12 @@ public static class GameEvents
     public static readonly CustomEvents OnSkipDialogueLine = new();
     public static readonly CustomEvents<string> OnChangeEnvironment = new();
     public static readonly CustomEvents<string, string> OnDisplayDialogue = new();
+
+    // # ================================ Quest UI ================================ #
+    public static readonly CustomEvents<int, int> OnDisplayQuestDayCount = new();
+    public static readonly CustomEvents<int> OnDisplayEndlessQuestDayCount = new();
     
-    // # ================================ Dialogue UI ================================ #
+    // # ================================ Status UI ================================ #
     public static readonly CustomEvents<UpgradeStatusType, float> OnUpdateStatusCharacter = new();
     
     // # ================================ UI ================================ #

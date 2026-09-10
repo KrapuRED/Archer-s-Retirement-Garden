@@ -236,6 +236,7 @@ public class DialogueManager : MonoBehaviour
         if (IsDialogueRunning) yield break;
         
         int dayCount = DayCycleManager.Instance.DayCount;
+        Debug.LogWarning($"[{name} (StartDialogue)] This dialogueData is Start! {dayCount}");
         var dialogueData = dialogueDataRunTimes.Find(x => x.dayDialogue == dayCount);
         
         if (dialogueData == null)

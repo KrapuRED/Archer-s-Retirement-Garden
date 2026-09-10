@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class InputCameraMovement : MonoBehaviour, IPauseable
 {
@@ -7,21 +9,38 @@ public class InputCameraMovement : MonoBehaviour, IPauseable
     
     [Header("Input Action Configuration")]
     [SerializeField] private InputActionReference cameraMovementAction;
+    [SerializeField] private InputActionReference cameraRotationAction;
 
     [SerializeField] private Transform cameraPivot;
     [SerializeField] private float speedCamMovement;
     [SerializeField] private float smoothTime;
     
+    [Header("Camera Angel Configuration")]
+    [SerializeField] private Transform cameraContainer;
+    [SerializeField] private List<GameObject> cameraAngels = new ();
+    private int _cameraAngelIndex;
+    
     private Vector2 _input;
     private Vector3 _currentVelocity;
     public bool IsPaused  { get; set; }
-    
+
+    private void Awake()
+    {
+        foreach (Transform cameraAngel in cameraContainer)
+        {
+            cameraAngels.Add(cameraAngel.gameObject);
+        }
+    }
+
     private void OnEnable()
     {
         cameraMovementAction.action.Enable();
+        cameraRotationAction.action.Enable();
         
         cameraMovementAction.action.performed   += OnMoveCamera;
         cameraMovementAction.action.canceled    += OnMoveCamera;
+        cameraRotationAction.action.performed   += OnRotateCamera;
+        cameraRotationAction.action.canceled    += OnRotateCamera;
         
         GameEvents.OnPauseGame.AddListener(Pause);
         GameEvents.OnResumeGame.AddListener(Resume);
@@ -32,6 +51,9 @@ public class InputCameraMovement : MonoBehaviour, IPauseable
         cameraMovementAction.action.performed   -= OnMoveCamera;
         cameraMovementAction.action.canceled    -= OnMoveCamera;
         
+        cameraRotationAction.action.performed   -= OnRotateCamera;
+        cameraRotationAction.action.canceled    -= OnRotateCamera;
+        
         GameEvents.OnPauseGame.RemoveListener(Pause);
         GameEvents.OnResumeGame.RemoveListener(Resume);
     }
@@ -39,6 +61,20 @@ public class InputCameraMovement : MonoBehaviour, IPauseable
     private void OnMoveCamera(InputAction.CallbackContext context)
     {
         _input = context.ReadValue<Vector2>();
+    }
+
+    private void OnRotateCamera(InputAction.CallbackContext context)
+    {
+        cameraAngels[_cameraAngelIndex].SetActive(false);
+        
+        _cameraAngelIndex++;
+        if (_cameraAngelIndex >= cameraAngels.Count) 
+            _cameraAngelIndex = 0;
+        
+        var cameraAngle = cameraAngels[_cameraAngelIndex];
+        cameraAngle.SetActive(true);
+        
+        Debug.Log($"[{name} - OnRotateCamera] Rotate Camera to {cameraAngle.name}");
     }
 
     private void Update()
@@ -62,6 +98,20 @@ public class InputCameraMovement : MonoBehaviour, IPauseable
         cameraPivot.position = Vector3.SmoothDamp(cameraPivot.position, targetPos, ref _currentVelocity, smoothTime);
     }
 
+        
+    private Vector3 ClampToBorder(Vector3 position)
+    {
+        if (borderCam == null)
+            return position;
+
+        Bounds bounds = borderCam.bounds;
+
+        position.x = Mathf.Clamp(position.x, bounds.min.x, bounds.max.x);
+        position.z = Mathf.Clamp(position.z, bounds.min.z, bounds.max.z);
+        // y left untouched — you're dragging on a horizontal plane, not clamping height
+
+        return position;
+    }   
     
     #region Interface
 
@@ -77,17 +127,4 @@ public class InputCameraMovement : MonoBehaviour, IPauseable
     }
 
     #endregion
-    
-    private Vector3 ClampToBorder(Vector3 position)
-    {
-        if (borderCam == null)
-            return position;
-
-        Bounds bounds = borderCam.bounds;
-
-        position.x = Mathf.Clamp(position.x, bounds.min.x, bounds.max.x);
-        position.z = Mathf.Clamp(position.z, bounds.min.z, bounds.max.z);
-        // y left untouched — you're dragging on a horizontal plane, not clamping height
-
-        return position;
-    }                                                }
+}

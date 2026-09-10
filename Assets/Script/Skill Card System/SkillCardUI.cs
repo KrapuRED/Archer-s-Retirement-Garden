@@ -81,7 +81,10 @@ public class SkillCardUI : MonoBehaviour
     public void OnUsingSkillCard()
     {
         if (!skillCardDataRunTime.isUnlock)
+        {
+            Debug.Log($"[{name} - OnUsingSkillCard] This card {skillCardDataRunTime.skillCardName} not unlock yet");
             return;
+        }
         
         if (SkillCardManager.Instance.IsSkillCoolDown(skillCardDataRunTime.skillCardSo))
             return;

@@ -146,6 +146,42 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Skill_1"",
+                    ""type"": ""Button"",
+                    ""id"": ""87dc7c8a-77cf-4817-9ac9-90a53c9d29b4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skill_2"",
+                    ""type"": ""Button"",
+                    ""id"": ""2c5a15ed-382b-4ae4-87c9-91752536c35c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skill_3"",
+                    ""type"": ""Button"",
+                    ""id"": ""c79a2513-1a8b-4ae7-9c17-b4970a2d7a57"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skill_4"",
+                    ""type"": ""Button"",
+                    ""id"": ""c5b96e40-faa5-45f3-be4f-f6f0c2967cef"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -179,6 +215,50 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""CancelAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3cd78757-5c5b-4b75-a0f2-00ab547e695b"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skill_1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b5f858d-a872-4e96-9e27-aedf5a4c493a"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skill_2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""05893122-6989-4d41-b2d5-a938cb5b14ea"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skill_3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cbdc067a-eeeb-4b67-b49a-e684d55eaf16"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skill_4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -332,6 +412,15 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Rotation"",
+                    ""type"": ""Button"",
+                    ""id"": ""f26bed77-feb3-424c-bb63-1670cc2384cd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Tap"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -389,6 +478,17 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
                     ""action"": ""CameraMovement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bba9381c-ecd0-4b94-97f9-e49aa189d1c2"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -431,6 +531,10 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         m_NightGame_Attack = m_NightGame.FindAction("Attack", throwIfNotFound: true);
         m_NightGame_CancelAttack = m_NightGame.FindAction("CancelAttack", throwIfNotFound: true);
         m_NightGame_MousePosition = m_NightGame.FindAction("MousePosition", throwIfNotFound: true);
+        m_NightGame_Skill_1 = m_NightGame.FindAction("Skill_1", throwIfNotFound: true);
+        m_NightGame_Skill_2 = m_NightGame.FindAction("Skill_2", throwIfNotFound: true);
+        m_NightGame_Skill_3 = m_NightGame.FindAction("Skill_3", throwIfNotFound: true);
+        m_NightGame_Skill_4 = m_NightGame.FindAction("Skill_4", throwIfNotFound: true);
         // Placement
         m_Placement = asset.FindActionMap("Placement", throwIfNotFound: true);
         m_Placement_MousePosition = m_Placement.FindAction("MousePosition", throwIfNotFound: true);
@@ -444,6 +548,7 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         // CameraMovement
         m_CameraMovement = asset.FindActionMap("CameraMovement", throwIfNotFound: true);
         m_CameraMovement_CameraMovement = m_CameraMovement.FindAction("CameraMovement", throwIfNotFound: true);
+        m_CameraMovement_Rotation = m_CameraMovement.FindAction("Rotation", throwIfNotFound: true);
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_ContinueDialogue = m_Dialogue.FindAction("ContinueDialogue", throwIfNotFound: true);
@@ -631,6 +736,10 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
     private readonly InputAction m_NightGame_Attack;
     private readonly InputAction m_NightGame_CancelAttack;
     private readonly InputAction m_NightGame_MousePosition;
+    private readonly InputAction m_NightGame_Skill_1;
+    private readonly InputAction m_NightGame_Skill_2;
+    private readonly InputAction m_NightGame_Skill_3;
+    private readonly InputAction m_NightGame_Skill_4;
     /// <summary>
     /// Provides access to input actions defined in input action map "NightGame".
     /// </summary>
@@ -654,6 +763,22 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "NightGame/MousePosition".
         /// </summary>
         public InputAction @MousePosition => m_Wrapper.m_NightGame_MousePosition;
+        /// <summary>
+        /// Provides access to the underlying input action "NightGame/Skill_1".
+        /// </summary>
+        public InputAction @Skill_1 => m_Wrapper.m_NightGame_Skill_1;
+        /// <summary>
+        /// Provides access to the underlying input action "NightGame/Skill_2".
+        /// </summary>
+        public InputAction @Skill_2 => m_Wrapper.m_NightGame_Skill_2;
+        /// <summary>
+        /// Provides access to the underlying input action "NightGame/Skill_3".
+        /// </summary>
+        public InputAction @Skill_3 => m_Wrapper.m_NightGame_Skill_3;
+        /// <summary>
+        /// Provides access to the underlying input action "NightGame/Skill_4".
+        /// </summary>
+        public InputAction @Skill_4 => m_Wrapper.m_NightGame_Skill_4;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -689,6 +814,18 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
             @MousePosition.started += instance.OnMousePosition;
             @MousePosition.performed += instance.OnMousePosition;
             @MousePosition.canceled += instance.OnMousePosition;
+            @Skill_1.started += instance.OnSkill_1;
+            @Skill_1.performed += instance.OnSkill_1;
+            @Skill_1.canceled += instance.OnSkill_1;
+            @Skill_2.started += instance.OnSkill_2;
+            @Skill_2.performed += instance.OnSkill_2;
+            @Skill_2.canceled += instance.OnSkill_2;
+            @Skill_3.started += instance.OnSkill_3;
+            @Skill_3.performed += instance.OnSkill_3;
+            @Skill_3.canceled += instance.OnSkill_3;
+            @Skill_4.started += instance.OnSkill_4;
+            @Skill_4.performed += instance.OnSkill_4;
+            @Skill_4.canceled += instance.OnSkill_4;
         }
 
         /// <summary>
@@ -709,6 +846,18 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
             @MousePosition.started -= instance.OnMousePosition;
             @MousePosition.performed -= instance.OnMousePosition;
             @MousePosition.canceled -= instance.OnMousePosition;
+            @Skill_1.started -= instance.OnSkill_1;
+            @Skill_1.performed -= instance.OnSkill_1;
+            @Skill_1.canceled -= instance.OnSkill_1;
+            @Skill_2.started -= instance.OnSkill_2;
+            @Skill_2.performed -= instance.OnSkill_2;
+            @Skill_2.canceled -= instance.OnSkill_2;
+            @Skill_3.started -= instance.OnSkill_3;
+            @Skill_3.performed -= instance.OnSkill_3;
+            @Skill_3.canceled -= instance.OnSkill_3;
+            @Skill_4.started -= instance.OnSkill_4;
+            @Skill_4.performed -= instance.OnSkill_4;
+            @Skill_4.canceled -= instance.OnSkill_4;
         }
 
         /// <summary>
@@ -983,6 +1132,7 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_CameraMovement;
     private List<ICameraMovementActions> m_CameraMovementActionsCallbackInterfaces = new List<ICameraMovementActions>();
     private readonly InputAction m_CameraMovement_CameraMovement;
+    private readonly InputAction m_CameraMovement_Rotation;
     /// <summary>
     /// Provides access to input actions defined in input action map "CameraMovement".
     /// </summary>
@@ -998,6 +1148,10 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "CameraMovement/CameraMovement".
         /// </summary>
         public InputAction @CameraMovement => m_Wrapper.m_CameraMovement_CameraMovement;
+        /// <summary>
+        /// Provides access to the underlying input action "CameraMovement/Rotation".
+        /// </summary>
+        public InputAction @Rotation => m_Wrapper.m_CameraMovement_Rotation;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1027,6 +1181,9 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
             @CameraMovement.started += instance.OnCameraMovement;
             @CameraMovement.performed += instance.OnCameraMovement;
             @CameraMovement.canceled += instance.OnCameraMovement;
+            @Rotation.started += instance.OnRotation;
+            @Rotation.performed += instance.OnRotation;
+            @Rotation.canceled += instance.OnRotation;
         }
 
         /// <summary>
@@ -1041,6 +1198,9 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
             @CameraMovement.started -= instance.OnCameraMovement;
             @CameraMovement.performed -= instance.OnCameraMovement;
             @CameraMovement.canceled -= instance.OnCameraMovement;
+            @Rotation.started -= instance.OnRotation;
+            @Rotation.performed -= instance.OnRotation;
+            @Rotation.canceled -= instance.OnRotation;
         }
 
         /// <summary>
@@ -1213,6 +1373,34 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMousePosition(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Skill_1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSkill_1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Skill_2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSkill_2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Skill_3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSkill_3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Skill_4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSkill_4(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Placement" which allows adding and removing callbacks.
@@ -1286,6 +1474,13 @@ public partial class @GamePlay: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCameraMovement(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Rotation" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRotation(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Dialogue" which allows adding and removing callbacks.

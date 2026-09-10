@@ -10,7 +10,13 @@ public class CombatInput : MonoBehaviour
     [SerializeField] private InputActionReference attackAction;
     [SerializeField] private InputActionReference cancelAction;
     
-    [Header("Preview Target Configuration")]
+    [Header("Input Skill Action Configuration")]
+    [SerializeField] private InputActionReference skillAction1;
+    [SerializeField] private InputActionReference skillAction2;
+    [SerializeField] private InputActionReference skillAction3;
+    [SerializeField] private InputActionReference skillAction4;
+   
+     [Header("Preview Target Configuration")]
     [SerializeField] private Vector2Int previewTargetSize;
     [SerializeField] private float distanceRay;
     [SerializeField] private LayerMask groundLayerMask;
@@ -37,10 +43,20 @@ public class CombatInput : MonoBehaviour
         mousePositionAction.action.Enable();
         attackAction.action.Enable();
         cancelAction.action.Enable();
-
+        
+        skillAction1.action.Enable();
+        skillAction2.action.Enable();
+        skillAction3.action.Enable();
+        skillAction4.action.Enable();
+        
         mousePositionAction.action.performed += OnPositionMouse;
         attackAction.action.performed   += OnClickAttack;
         cancelAction.action.performed   += OnCancelAction;
+        
+        skillAction1.action.performed += OnSelectSkill1;
+        skillAction2.action.performed += OnSelectSkill2;
+        skillAction3.action.performed += OnSelectSkill3;
+        skillAction4.action.performed += OnSelectSkill4;
         
         GameEvents.OnActionMapChange.AddListener(OnChangeActionMap);
     }
@@ -51,6 +67,11 @@ public class CombatInput : MonoBehaviour
         attackAction.action.performed   -= OnClickAttack;
         cancelAction.action.performed   -= OnCancelAction;
         
+        skillAction1.action.performed -= OnSelectSkill1;
+        skillAction2.action.performed -= OnSelectSkill2;
+        skillAction3.action.performed -= OnSelectSkill3;
+        skillAction4.action.performed -= OnSelectSkill4;
+        
         GameEvents.OnActionMapChange.RemoveListener(OnChangeActionMap);
         
     }
@@ -60,6 +81,20 @@ public class CombatInput : MonoBehaviour
         _screenPosition = ctx.ReadValue<Vector2>();
     }
 
+    private void OnSelectSkill1(InputAction.CallbackContext ctx) => TrySelectSkillByKey(0);
+    private void OnSelectSkill2(InputAction.CallbackContext ctx) => TrySelectSkillByKey(1);
+    private void OnSelectSkill3(InputAction.CallbackContext ctx) => TrySelectSkillByKey(2);
+    private void OnSelectSkill4(InputAction.CallbackContext ctx) => TrySelectSkillByKey(3);
+
+    private void TrySelectSkillByKey(int indexSkill)
+    {
+        if (!InputManager.Instance.IsInputMapActive(actionMapName))
+            return;
+
+        Debug.LogWarning($"[{name} - TrySelectSkillByKey] TrySelectSkillByKey {indexSkill}");
+        SkillCardManager.Instance.SelectSkillCardByKey(indexSkill);
+    }
+    
     private void OnClickAttack(InputAction.CallbackContext ctx)
     {
         if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())

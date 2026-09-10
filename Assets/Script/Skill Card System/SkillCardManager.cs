@@ -207,6 +207,27 @@ public class SkillCardManager : MonoBehaviour
         skillData.isActive = false;
         skillData.currentCooldown = skillData.currentMaxCooldown;
     }
+
+    public void SelectSkillCardByKey(int indexSkill)
+    {
+        int index = indexSkill + 1;
+        
+        var skilldata = listActiveSkillCardData[index];
+        if (skilldata == null)
+        {
+            Debug.LogError($"[{name} - (UseSkillCard)] No skill data provided for skill index {index}!");
+            return;
+        }
+
+        if (selectedSkillCard == skilldata)
+        {
+            CancelSkillCard();
+        }
+        else
+        {
+            skilldata.skillCardUI.OnUsingSkillCard();
+        }
+    }
     
     public void SelectSkillCard(SkillCardDataRunTime skillDataRunTime)
     {

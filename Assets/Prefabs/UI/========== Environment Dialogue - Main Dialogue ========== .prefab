@@ -693,7 +693,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00036991, y: -32.833}
+  m_AnchoredPosition: {x: 0.00036991, y: -39}
   m_SizeDelta: {x: 850, y: 108.334}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1633599397154572890
@@ -724,7 +724,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Line
+  m_text: lorem ipsum dolor sit amet consectetur adipiscing elit in ducimus amet
+    elit culpa ut voluptatum magna sint accusamus cumque temporibus sunt fugiat et
+    dignissimos aliqua magna dolorum placeat possimus ut quo voluptate culpa nam
+    reprehenderit distinctio optio est consequat possimus accusamus nam assumenda
+    veniam est officia et aliquip dolorem et
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ba43d1caecc9e9249ba7e55025109b59, type: 2}
   m_sharedMaterial: {fileID: 4942732732060288763, guid: ba43d1caecc9e9249ba7e55025109b59, type: 2}
@@ -751,7 +755,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
+  m_fontSize: 21.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

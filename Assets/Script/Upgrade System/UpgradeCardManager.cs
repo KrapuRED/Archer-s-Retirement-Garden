@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -42,6 +43,10 @@ public class UpgradeCardManager : MonoBehaviour
     [SerializeField] private float increasePriceStoryMode;
     [SerializeField] private float increasePriceEndlessMode;
 
+    [Header("Upgrade Card Configuration")] 
+    [SerializeField] private float delayBuying;
+    [SerializeField] private bool canBuy;
+    
     private readonly Dictionary<UpgradeCardSO, UpgradeCardRunTimeData> _runTimeData = new();
 
     private int _currentBuying;
@@ -268,6 +273,9 @@ public class UpgradeCardManager : MonoBehaviour
     
     public bool OnUpgradeCard(UpgradeCardSO upgradeCardData)
     {
+        if (!canBuy)
+            return false;
+        
         if (_currentBuying >= maxBuyingUpgrade)
         {
             return false;
@@ -289,11 +297,21 @@ public class UpgradeCardManager : MonoBehaviour
             GameEvents.OnRequestClosePanel.Invoke(PanelType.Upgrade);
         }
         
+        StartCoroutine(delayBuyUpgradeStore());
+        
         return true;
     }
     
     public void ResetBuyingUpgrades()
     {
         _currentBuying = 0;
+    }
+
+    private IEnumerator delayBuyUpgradeStore()
+    {
+        canBuy = false;
+        yield return new WaitForSeconds(delayBuying);
+        canBuy = true;
+        
     }
 }

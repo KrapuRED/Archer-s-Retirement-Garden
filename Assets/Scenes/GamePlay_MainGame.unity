@@ -9586,6 +9586,8 @@ MonoBehaviour:
   maxActiveRandomCards: 3
   increasePriceStoryMode: 8
   increasePriceEndlessMode: 12
+  delayBuying: 0.5
+  canBuy: 1
 --- !u!1 &1204434877
 GameObject:
   m_ObjectHideFlags: 0
@@ -15561,9 +15563,9 @@ RectTransform:
   - {fileID: 349153195}
   - {fileID: 299540885}
   - {fileID: 853276005}
+  - {fileID: 276757623}
   - {fileID: 878877493}
   - {fileID: 1126776371}
-  - {fileID: 276757623}
   m_Father: {fileID: 1660028706}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

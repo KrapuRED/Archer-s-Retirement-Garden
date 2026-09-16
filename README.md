@@ -18,6 +18,7 @@ By night, defend the Life Tree from waves of monster attacks, fight, strategize,
 - Created most UI and Scene in game.
 
 ## Layer / Module Design
+<img width="762" height="602" alt="Image" src="https://github.com/user-attachments/assets/da4d8ca0-dde7-4d0d-8bd1-3446b76630f7" />
 
 ## Modules and Features
 | 📂 Name | 🎬 Scene | 📋 Responsibility |
@@ -40,6 +41,7 @@ By night, defend the Life Tree from waves of monster attacks, fight, strategize,
 | Transition System | Gameplay <br> MainMenu |   Handle All Transition UI and Scene |
 
 ## Game Flow
+<img width="561" height="1440" alt="Image" src="https://github.com/user-attachments/assets/ff1d9c77-130c-4ca7-98e3-3679822b60c1" />
 
 ## Plugin / Unity Asset
 Went developed this game we use some Plugin / Unity Asset for polishing and juicy

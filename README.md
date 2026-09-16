@@ -7,6 +7,11 @@ The mysterious seed he brought back turns out to be a sapling of the Life Tree, 
 By day, plant and grow your own garden on your floating island. 
 By night, defend the Life Tree from waves of monster attacks, fight, strategize, and grow stronger with every night you survive.
 
+This game was submitted to GameToday 2026 <br>
+<div align="center"> Game Page <br>
+  <a href="https://triugames.itch.io/archers-retirement-garden" target="_blank"><img src="https://img.shields.io/badge/Itch.io-FA5C5C?style=for-the-badge&logo=itch.io&logoColor=white" /></a>
+</div>
+
 ## Key Features
 1. ***Planting / Placement Garden*** : <br> Select, Drag, and confirm of the plants and garden object.
 2. ***Skill & Progression System*** : <br> Win the night mode and get the earn status upgrage or purchase new skills.
@@ -16,6 +21,7 @@ By night, defend the Life Tree from waves of monster attacks, fight, strategize,
 ## Contribution (AndhikaAtmaja)
 - Created most of the code for game systems and features.
 - Created most UI and Scene in game.
+- Created most VFX that VIA script.
 
 ## Layer / Module Design
 <img width="762" height="602" alt="Image" src="https://github.com/user-attachments/assets/da4d8ca0-dde7-4d0d-8bd1-3446b76630f7" />

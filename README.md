@@ -18,7 +18,14 @@ This game was submitted to GameToday 2026 <br>
 3. ***Dynamic Economy Changes*** : <br> Plant and upgrade prices will scale dynamically with each purchase.
 4. ***Custom Dialogue System*** : <br> Features custom dialogue scripts with typing effects powered by Text Animator (Febucci).
 
-## Contribution (AndhikaAtmaja)
+## Team & My Contribution
+| Team Member | Role |
+|-------------|------|
+| KrapuRED | Game Designer |
+| RxDuds | Game Artis |
+| AndhikaAtmaja | Game Programmer |
+
+My Contribution (AndhikaAtmaja)
 - Created most of the code for game systems and features.
 - Created most UI and Scene in game.
 - Created most VFX that VIA script.

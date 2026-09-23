@@ -1,5 +1,7 @@
 ### Archer's Retirement Garden
-Image
+<img width="240" height="160" alt="Image" src="https://github.com/user-attachments/assets/4058ad65-eb58-4b84-8044-3745233b9771" />
+<img width="240" height="160" alt="Image" src="https://github.com/user-attachments/assets/cedd6755-4214-4e25-b7bd-b306c1830a26" />
+<img width="240" height="160" alt="Image" src="https://github.com/user-attachments/assets/8afadaa8-4c99-4edb-8386-6e3b1b9a5b90" />
 
 ## About Game <img width="25" height="25" alt="Image" src="https://github.com/user-attachments/assets/93c1c452-f50d-408d-a1f1-98669efb24f0" /> 
 ***Archer's Retirement Garden*** is a 2.5D game your are a Archer that retire from the Hero Party and buys a floating island to build the garden. 
@@ -13,12 +15,6 @@ Game Engine : Unity 6000.3.19f1
   <a href="https://triugames.itch.io/archers-retirement-garden" target="_blank"><img src="https://img.shields.io/badge/Itch.io-FA5C5C?style=for-the-badge&logo=itch.io&logoColor=white" /></a>
 </div>
 
-## Key Features <img width="32" height="32" alt="Image" src="https://github.com/user-attachments/assets/1079a5d7-e1ea-43cc-a059-b9c4333c55a2" />
-1. ***Planting / Placement Garden*** : <br> Select, Drag, and confirm of the plants and garden object.
-2. ***Skill & Progression System*** : <br> Win the night mode and get the earn status upgrage or purchase new skills.
-3. ***Dynamic Economy Changes*** : <br> Plant and upgrade prices will scale dynamically with each purchase.
-4. ***Custom Dialogue System*** : <br> Features custom dialogue scripts with typing effects powered by Text Animator (Febucci).
-
 ## Team & My Contribution <img width="32" height="32" alt="Image" src="https://github.com/user-attachments/assets/54638a67-ec93-473a-bb3c-dc5184bcad66" />
 | Team Member | Role |
 |-------------|------|
@@ -30,6 +26,12 @@ My Contribution (AndhikaAtmaja)
 - Created most of the code for game systems and features.
 - Created most UI and Scene in game.
 - Created most VFX that VIA script.
+
+## Key Features <img width="32" height="32" alt="Image" src="https://github.com/user-attachments/assets/1079a5d7-e1ea-43cc-a059-b9c4333c55a2" />
+1. ***Planting / Placement Garden*** : <br> Select, Drag, and confirm of the plants and garden object.
+2. ***Skill & Progression System*** : <br> Win the night mode and get the earn status upgrage or purchase new skills.
+3. ***Dynamic Economy Changes*** : <br> Plant and upgrade prices will scale dynamically with each purchase.
+4. ***Custom Dialogue System*** : <br> Features custom dialogue scripts with typing effects powered by Text Animator (Febucci).
 
 ## Layer / Module Design <img width="32" height="32" alt="Image" src="https://github.com/user-attachments/assets/897ab20c-94d2-4398-ad51-ee0f7859921d" />
 <img width="762" height="602" alt="Image" src="https://github.com/user-attachments/assets/da4d8ca0-dde7-4d0d-8bd1-3446b76630f7" />

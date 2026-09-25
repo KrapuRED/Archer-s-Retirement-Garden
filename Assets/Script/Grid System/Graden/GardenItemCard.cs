@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
 
-public class GardenItemCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class GardenItemCard : MonoBehaviour
 {
    [Header("Input Action Settings")]
    [SerializeField] private string actionMapName;
@@ -17,36 +17,6 @@ public class GardenItemCard : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
    private bool _isHovering;
    
-   #region Event Configuration
-
-   private void OnEnable()
-   {
-      holdCardAction.action.Enable();
-
-      holdCardAction.action.performed += OnHoldButton;
-   }
-
-   private void OnDisable()
-   {
-      holdCardAction.action.performed -= OnHoldButton;
-   }
-   
-   #endregion
-   
-   #region Pointer Hover Tracking
-
-   public void OnPointerEnter(PointerEventData eventData)
-   {
-      _isHovering = true;
-   }
-
-   public void OnPointerExit(PointerEventData eventData)
-   {
-      _isHovering = false;
-   }
-
-   #endregion
-
    public void Init(GardenItemCardData gardenItemCardData)
    {
       this.gardenItemCardData = gardenItemCardData;
@@ -63,19 +33,27 @@ public class GardenItemCard : MonoBehaviour, IPointerEnterHandler, IPointerExitH
    
    public void OnClickButton()
    {
-      GameEvents.OnShowDetailGardenItem.Invoke(gardenItemCardData);
-   }
-   
-   private void OnHoldButton(InputAction.CallbackContext context)
-   {
       if (!InputManager.Instance.IsInputMapActive(actionMapName))
          return;
       
       if (!_isHovering) return;
       
-      Debug.Log($"[{name} (OnHoldButton)] gardenItem: {gardenItemCardData.gardenItemSO.gardenItemName}");
-      
       GameEvents.OnCarryObject.Invoke(gardenItemCardData);
    }
 
+   public void SelecteCard()
+   {
+      if (_isHovering) return;
+      
+      _isHovering = true;
+      GameEvents.OnShowDetailGardenItem.Invoke(gardenItemCardData);  
+   }
+   
+   public void UnSelecteCard()
+   {
+      if (!_isHovering) return;
+      
+      _isHovering = false;
+      GameEvents.OnHideDetailGardenItem.Invoke();
+   }
 }

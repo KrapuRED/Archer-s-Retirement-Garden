@@ -134,8 +134,8 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.9063317, g: 0.9063317, b: 0.9063317, a: 1}
     - _Color: {r: 0.9063317, g: 0.9063317, b: 0.9063317, a: 1}
-    - _Color_Peak: {r: 0.46855342, g: 0.76135725, b: 1, a: 0}
-    - _Color_Valley: {r: 0.86477983, g: 0.97076315, b: 1, a: 0}
+    - _Color_Peak: {r: 0.47822472, g: 0.75556344, b: 0.9811321, a: 0}
+    - _Color_Valley: {r: 0.8206953, g: 0.9281231, b: 0.9559748, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _Noise_Remap: {r: 0.4, g: 1, b: -1, a: 1}
     - _Rotate_Projection: {r: 1, g: 0, b: 0, a: 50}

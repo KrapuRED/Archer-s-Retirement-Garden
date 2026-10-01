@@ -68,7 +68,13 @@ public class GardenInformationCardUI : MonoBehaviour
         if (!_isShowing)
         {
             _isShowing = true;
-            showCard?.PlayFeedbacks();
+            if (hideCard != null) hideCard.StopFeedbacks();   // stop the opposite one
+            if (showCard != null) showCard.PlayFeedbacks();
+        }
+
+        if (string.IsNullOrEmpty(gardenItemPrice.text))
+        {
+            ClearGardenInformationCard();
         }
     }
 

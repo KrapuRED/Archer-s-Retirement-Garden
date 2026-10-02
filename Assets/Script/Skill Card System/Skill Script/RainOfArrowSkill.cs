@@ -7,6 +7,7 @@ public class RainOfArrowSkill : Skill
     [SerializeField] private float damageRadius = 3f;
     [SerializeField] private float tickInterval = 0.5f;
     [SerializeField] private LayerMask damageLayerMask;
+    [SerializeField] private ArrowType arrowType;
     
     [SerializeField] private GameObject visualEffectPrefab;
     
@@ -54,6 +55,8 @@ public class RainOfArrowSkill : Skill
             if (hit.TryGetComponent<IDamageable>(out var damageable))
             {
                 (float damage, bool isCritical) = DamageController.Instance.OnCalculateDamageToEnemy(skillCardDataRunTime);
+                
+                damageable.TakeDamageVisualizer(arrowType);
                 damageable.TakeDamage(damage, isCritical);
             }
         }

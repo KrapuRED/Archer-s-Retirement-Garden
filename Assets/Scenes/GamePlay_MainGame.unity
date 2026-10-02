@@ -61647,6 +61647,15 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7136632324618451544, guid: 52d7e7ca4b0575c479c7f88b71247e55, type: 3}
+      propertyPath: m_text
+      value: Left mouse click on the object icon then find valid spot within the
+        grid (Right Click to Cancel) then Left Click and Confirm.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136632324618451544, guid: 52d7e7ca4b0575c479c7f88b71247e55, type: 3}
+      propertyPath: m_fontSize
+      value: 26.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7208782284344074698, guid: 52d7e7ca4b0575c479c7f88b71247e55, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

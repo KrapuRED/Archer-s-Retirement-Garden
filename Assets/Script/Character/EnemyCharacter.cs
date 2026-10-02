@@ -17,6 +17,8 @@ public class EnemyCharacter : Character, IDamageable
     
     [Header("Visual Effects")]
     [SerializeField] private MMFeedbacks deathFeedback;
+    [SerializeField] private GameObject normalHitEffect;
+    [SerializeField] private GameObject magicHitEffect;
     
     [Header("Audio Sound Effects")]
     [SerializeField] private AudioClip hitAudioClip;
@@ -81,6 +83,27 @@ public class EnemyCharacter : Character, IDamageable
         }
         
     }
+
+    private IEnumerator PlayDamageVisualizer(ArrowType arrowType)
+    {
+        switch (arrowType)
+        {
+            case ArrowType.MagicArrow:
+                magicHitEffect.SetActive(true);
+                break;
+            case ArrowType.NormalArrow:
+                normalHitEffect.SetActive(true);
+                break;
+        }
+        
+        yield return new WaitForSeconds(0.5f);
+        
+        magicHitEffect.SetActive(false);
+        normalHitEffect.SetActive(false);
+        
+    }
+    
+    public void TakeDamageVisualizer(ArrowType arrowType) => StartCoroutine(PlayDamageVisualizer(arrowType));
 
     public override void CharacterDead()
     {

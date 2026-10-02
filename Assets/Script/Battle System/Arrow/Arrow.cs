@@ -1,9 +1,17 @@
-using System;
 using UnityEngine;
+
+[System.Serializable]
+public enum ArrowType
+{
+    NormalArrow,
+    MagicArrow,
+    ExplosiveArrow
+}
 
 public abstract class Arrow : MonoBehaviour
 {
     [SerializeField] protected float arrowVelocity;
+    [SerializeField] protected ArrowType arrowType;
 
     private Rigidbody _rigidbody;
 

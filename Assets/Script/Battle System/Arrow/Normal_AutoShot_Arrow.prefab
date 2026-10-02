@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NormalArrow
   arrowVelocity: 5
+  arrowType: 1
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 256

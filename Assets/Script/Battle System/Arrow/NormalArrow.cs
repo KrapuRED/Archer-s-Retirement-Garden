@@ -48,8 +48,9 @@ public class NormalArrow : Arrow
     private void HitTarget(IDamageable damageableTarget)
     {
         (float damage, bool isCritical) = DamageController.Instance.OnCalculateDamageToEnemy(_skillCardDataRunTime);
+
+        damageableTarget.TakeDamageVisualizer(arrowType);
         damageableTarget.TakeDamage(damage, isCritical);
-        
         // TODO: hit VFX/SFX here
 
         Destroy(gameObject);

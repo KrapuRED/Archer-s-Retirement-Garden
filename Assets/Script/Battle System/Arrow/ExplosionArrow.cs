@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
 
 public class ExplosionArrow : Arrow
@@ -8,6 +9,7 @@ public class ExplosionArrow : Arrow
     [SerializeField] private LayerMask hittableLayerMask;
     [SerializeField] private GameObject explosionVFX;
     [SerializeField] private AudioClip explosionSoundEffect;
+    [SerializeField] private MMFeedbacks camShakeFeedback;
     
     private float _radiusExplosion;
     private SkillCardDataRunTime _skillCardDataRunTime;
@@ -60,6 +62,8 @@ public class ExplosionArrow : Arrow
     private IEnumerator DestroyAfterTime(float time)
     {
         explosionVFX.SetActive(true);
+        
+        camShakeFeedback?.PlayFeedbacks();
         MMSoundManagerSoundPlayEvent.Trigger(explosionSoundEffect, MMSoundManager.MMSoundManagerTracks.Sfx, transform.position);
         
         yield return new WaitForSeconds(time);
